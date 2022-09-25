@@ -139,3 +139,58 @@ main > article:last-child ul li {
     font-size: 22.6px;
     list-style: disc;
 }
+footer { /* Fat Footer */
+    padding: 3%;
+    text-align: center;
+    color: var(--blanco);
+    background: var(--secundario);
+}
+footer > section {
+    padding: 0% 0% 2% 0%;
+    border-radius: 5px;
+    background-color: var(--secundario-sombra-1);
+}
+footer > section > p.underline {
+    padding: 2%;
+    background: var(--secundario);
+}
+footer > section > p {
+    margin: 0px 0px 5px 0px;
+}
+footer > section > p:last-child {
+    margin: 0px;
+}
+footer > section > input {
+    height: 33px;
+    font-size: 22.6px;
+    border: 1px var(--negro) inset;
+    border-radius: 7px;
+    background: url("../img/icono\ mail.svg") var(--secundario-luz-1) no-repeat 5px 0px;
+}
+footer > section > input:focus {
+    background: var(--secundario-luz-1);
+}
+footer > section > input::placeholder {
+    padding-left: 18%;
+    color: var(--negro-transparente-1);
+}
+footer > section > div {
+    display: flex;
+    width: fit-content;
+    margin: 0px auto;
+}
+footer > section a > div {
+    width: 66px;
+    height: 55px;
+    text-align: center;
+    border-radius: 100%;
+    border: 3px var(--secundario-sombra-2) inset;
+    background: var(--primario);
+    box-shadow: var(--sombra-1);
+}
+footer > section div > img {
+    margin: 17%;
+}
+footer > a > img {
+    margin-top: 20px;
+}
