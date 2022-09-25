@@ -1,0 +1,90 @@
+* { /* Reset */
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+    font-family: Helvetica, Arial, sans-serif;
+	vertical-align: baseline;
+    list-style: none;
+}
+:root { /* Colores */
+    --negro-luz-2: #7C7C7C;
+    --negro-luz-1: #3E3E3E;
+    --negro: #000000;
+
+    --negro-transparente-1: rgba(0, 0, 0, 0.67);
+
+    --blanco: #FFFFFF;
+
+    --primario-luz-2: #A7C9D3;
+    --primario-luz-1: #63A3B5;
+    --primario: #3E8498;
+    --primario-sombra-1: #215C6C;
+    --primario-sombra-2: #103843;
+
+    --secundario-luz-2: #ABB4DB;
+    --secundario-luz-1: #7887C7;
+    --secundario: #4D5EA6;
+    --secundario-sombra-1: #273570;
+    --secundario-sombra-2: #101734;
+
+    --acento-luz-2: #8EFCAF;
+    --acento-luz-1: #4FE87D;
+    --acento: #01CF3F;
+    --acento-sombra-1: #01952E;
+    --acento-sombra-2: #00581B;
+
+    --extra-luz-2: #FFD362;
+    --extra-luz-1: #F2BB2C;
+    --extra: #D99F09;
+
+    --primario-transparente-1: rgba(62, 132, 152, 0.93);
+    --secundario-transparente-1: rgba(77, 93, 166, 0.93);
+    --extra-transparente-1: rgba(217, 158, 9, 0.93);
+
+    /* Colores Hero */
+    --primario-hero-luz-1: #576082;
+    --primario-hero: #374168;
+    --primario-hero-sombra-1: #1D233B;
+
+    --secundario-hero-luz-2: #A87EDD;
+    --secundario-hero-luz-1: #905FCF;
+    --secundario-hero: #6826BD;
+    --secundario-hero-sombra-1: #48108F;
+
+    --acento-hero-luz-1: #FFD354;
+    --acento-hero: #F8C225;
+    --acento-hero-sombra-1: #DBA814;
+
+    --primario-hero-transparente-1: rgba(55, 65, 104, 0.7);
+    --primario-hero-transparente-2: rgba(55, 65, 104, 0.99);
+
+    /* Sombras */
+    --sombra-1: 0px 3px 4px 2px var(--negro-transparente-1);
+    --sombra-2: 0px 10px 40px 2px var(--secundario-hero), 0px -10px 40px 5px var(--secundario-hero) inset;
+}
+body {
+    background: var(--primario);
+}
+h1 {
+    font-size: 36.7px;
+}
+h2 {
+    font-size: 29.6px;
+}
+p {
+    font-size: 22.6px;
+}
+p.small {
+    font-size: 16px;
+}
+h1.super {
+    font-size: 128px;
+}
+h1.bold, h2.bold, p.bold {
+    font-weight: bold;
+}
+h1.underline, h2.underline, p.underline {
+    text-decoration: underline;
+}
