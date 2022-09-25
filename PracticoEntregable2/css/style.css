@@ -82,10 +82,10 @@ p.small {
 h1.super {
     font-size: 60px; /* Super para móvil */
 }
-h1.bold, h2.bold, p.bold {
+h1.bold, h2.bold, p.bold, span.bold {
     font-weight: bold;
 }
-h1.underline, h2.underline, p.underline {
+h1.underline, h2.underline, p.underline, span.underline {
     text-decoration: underline;
 }
 header {
@@ -95,7 +95,7 @@ header {
     background: var(--secundario);
     box-shadow: var(--sombra-1);
 }
-main > section:first-child {
+main > section:first-child { /* Sección más jugados v */
     background-image: url("../img/fondo-juegos-1.png");
     height: 400px;
 }
@@ -112,9 +112,30 @@ main > section:first-child h1 {
     color: var(--primario-luz-2);
     background: var(--secundario-transparente-1);
 }
-main > article, main > section:first-child article {
+main > section:first-child article {
     width: 49.5%;
 }
-article > img {
+main article > img {
     width: 100%;
+}
+main > article:last-child { /* Presentacion del sitio v */
+    padding: 5%;
+    text-align: center;
+    color: var(--blanco);
+    background: var(--primario-luz-1);
+}
+main > article:last-child h2 + p {
+    margin: 3% 0% 10% 0%;
+}
+main > article:last-child h2 + p:last-child {
+    margin: 3% 0% 0% 0%;
+}
+main > article:last-child ul {
+    width: 84%;
+    margin: 0px auto;
+}
+main > article:last-child ul li {
+    margin-bottom: 3%;
+    font-size: 22.6px;
+    list-style: disc;
 }
