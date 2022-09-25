@@ -88,3 +88,10 @@ h1.bold, h2.bold, p.bold {
 h1.underline, h2.underline, p.underline {
     text-decoration: underline;
 }
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: var(--secundario);
+    box-shadow: var(--sombra-1);
+}
