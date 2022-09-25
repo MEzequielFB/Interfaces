@@ -80,7 +80,7 @@ p.small {
     font-size: 16px;
 }
 h1.super {
-    font-size: 128px;
+    font-size: 60px; /* Super para móvil */
 }
 h1.bold, h2.bold, p.bold {
     font-weight: bold;
@@ -94,4 +94,27 @@ header {
     align-items: center;
     background: var(--secundario);
     box-shadow: var(--sombra-1);
+}
+main > section:first-child {
+    background-image: url("../img/fondo-juegos-1.png");
+    height: 400px;
+}
+main > section:first-child div {
+    display: flex;
+    margin: 10px 2px 0px 2px;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+main > section:first-child h1 {
+    text-align: center;
+    -webkit-text-stroke: 1.5px var(--negro); /* Agrega border al texto */
+    color: var(--primario-luz-2);
+    background: var(--secundario-transparente-1);
+}
+main > article, main > section:first-child article {
+    width: 49.5%;
+}
+article > img {
+    width: 100%;
 }
