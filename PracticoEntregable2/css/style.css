@@ -93,10 +93,29 @@ header {
     top: 0px;
     display: flex;
     padding: 2% 1%;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background: var(--secundario);
     box-shadow: var(--sombra-1);
+}
+header > div {
+    display: flex;
+    justify-content: space-between;
+}
+header > div:first-child {
+    width: 37%;
+}
+header > div:last-child {
+    width: 50%;
+}
+header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
+    display: none;
+}
+header > div:last-child > div {
+    display: none;
+    color: var(--blanco);
+    background: var(--secundario-sombra-1);
+    border-radius: 2px;
 }
 header img.header-logo {
     width: 85%;
@@ -114,7 +133,7 @@ main > section:first-child div {
     justify-content: space-between;
     align-content: center;
     flex-wrap: wrap;
-    row-gap: 3px;
+    row-gap: 8px;
 }
 main > section:first-child h1 {
     text-align: center;
@@ -210,5 +229,72 @@ footer > a > img {
 /* /Footer */
 @media only screen and (min-width: 400px) {
 
+    header > div:first-child {
+        width: 35%;
+    }
+    header > div:last-child {
+        width: 45%;
+    }
+}
+@media only screen and (min-width: 500px) {
 
+    header > div:first-child {
+        width: 30%;
+    }
+    header > div:last-child {
+        width: 40%;
+    }
+}
+@media only screen and (min-width: 768px) {
+
+    header > div:first-child {
+        width: 20%;
+    }
+    header > div:last-child {
+        width: 30%;
+    }
+    h1.super {
+        font-size: 128px;
+    }
+    main > section:first-child h1 {
+        -webkit-text-stroke: 3px var(--negro);
+    }
+}
+@media only screen and (min-width: 1024px) {
+
+    header {
+        padding: 0% 1%;
+    }
+    header img.header-logo {
+        width: 100%;
+    }
+    header > div:first-child {
+        width: 18%;
+    }
+    header > div:last-child {
+        width: 50%;
+    }
+    header > div:last-child > img:nth-child(1), header > div:last-child > img:nth-child(2), header > div:last-child > img:nth-child(4) {
+        width: 7%;
+    }
+    header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
+        display: block;
+    }
+    header > div:last-child > div {
+        display: flex;
+        width: 25%;
+        height: fit-content;
+        margin: auto 0%;
+        padding: 1%;
+        align-items: center;
+    }
+    header > div:last-child > div img:first-child {
+        width: 24%;
+    }
+    header > div:last-child > div img:nth-child(2) {
+        width: 15%;
+    }
+    main > section:first-child article {
+        width: 33%;
+    }
 }
