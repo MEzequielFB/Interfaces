@@ -89,8 +89,11 @@ h1.underline, h2.underline, p.underline, span.underline {
     text-decoration: underline;
 }
 header {
+    position: sticky;
+    top: 0px;
     display: flex;
-    justify-content: space-evenly;
+    padding: 2% 1%;
+    justify-content: space-around;
     align-items: center;
     background: var(--secundario);
     box-shadow: var(--sombra-1);
