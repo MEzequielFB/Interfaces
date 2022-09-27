@@ -98,16 +98,23 @@ header {
     background: var(--secundario);
     box-shadow: var(--sombra-1);
 }
+header img.header-logo {
+    width: 85%;
+}
+/* Home */
 main > section:first-child { /* Sección más jugados v */
+    padding: 0% 0% 2% 0%;
     background-image: url("../img/fondo-juegos-1.png");
-    height: 400px;
+    height: fit-content;
+    box-shadow: var(--sombra-1);
 }
 main > section:first-child div {
     display: flex;
-    margin: 10px 2px 0px 2px;
-    justify-content: center;
+    margin: 2% 2px 0px 2px;
+    justify-content: space-between;
     align-content: center;
     flex-wrap: wrap;
+    row-gap: 3px;
 }
 main > section:first-child h1 {
     text-align: center;
@@ -120,6 +127,7 @@ main > section:first-child article {
 }
 main article > img {
     width: 100%;
+    height: 100%;
 }
 main > article:last-child { /* Presentacion del sitio v */
     padding: 5%;
@@ -142,6 +150,8 @@ main > article:last-child ul li {
     font-size: 22.6px;
     list-style: disc;
 }
+/* /Home */
+/* Footer */
 footer { /* Fat Footer */
     padding: 3%;
     text-align: center;
@@ -196,4 +206,9 @@ footer > section div > img {
 }
 footer > a > img {
     margin-top: 20px;
+}
+/* /Footer */
+@media only screen and (min-width: 400px) {
+
+
 }
