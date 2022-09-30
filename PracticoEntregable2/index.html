@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Muchos Juegos</title>
 </head>
@@ -11,19 +14,18 @@
     <header> <!-- Carrito y notificaciones en el menú desplegable del usuario en mobile -->
         <div>
             <img src="img/Icono menu.svg" alt="Menú hamburguesa">
-            <a href="./index.html"><img src="img/Logo.svg" alt="Logo" class="header-logo"></a>
+            <a href="./index.html"><img src="img/logo.svg" alt="Logo" class="header-logo"></a>
         </div>
         
         <div>
             <img src="img/Icono busqueda.svg" alt="Icono de búsqueda">
             <img src="img/Icono carrito.svg" alt="Icono de carrito" class="icono-carrito">
-            <div>
-                <img src="img/Icono wallet.svg" alt="Icono de billetera">
-                <img src="img/Icono pesos.svg" alt="Icono de pesos">
-                <p class="small">14000.00</p>
-            </div>
             <img src="img/Icono campana.svg" alt="Icono notificación" class="icono-campana">
-            <img src="img/Foto y menu perfil.png" alt="Menú de usuario">
+
+            <div>
+                <img src="img/perfil-img/DOOM-portada.jpg" alt="Foto de perfil">
+                <img src="img/Flecha menú perfil.svg" alt="Flecha del menú del perfil">
+            </div>
         </div>
         
     </header>
@@ -84,7 +86,7 @@
     </main>
     <footer>
         <section>
-            <p class="underline">Secciones</p>
+            <p class="bold">Secciones</p>
             <p>Inicio</p>
             <p>Perfil</p>
             <p>Cuenta</p>
@@ -98,21 +100,24 @@
             <p>Categorías</p>
         </section>
         <section>
-            <p class="underline">Acerca de</p>
+            <p class="bold">Acerca de</p>
             <p>Servicio</p>
             <p>Accesibilidad</p>
             <p>Derechos de autor</p>
             <p>Reclamaciones</p>
-            <p>Privacidad</p>
+            <p>Políticas de privacidad</p>
+            <p>Términos y servicios</p>
         </section>
         <section>
-            <p class="underline">Suscripción por mail</p>
-            <p>¡Enterate de nuestras últimas ofertas!</p>
-            <input type="text" name="mail-suscripcion" id="mail-suscripcion" placeholder="Email...">
+            <p class="bold">Soporte</p>
+            <p>Centro de ayuda</p>
+            <p>API de desarrollador</p>
+            <p>Contacto</p>
         </section>
+
         <section>
-            <p class="underline">Redes</p>
-            <p>¡Seguinos en nuestras redes!</p>
+            <a href="./index.html" class="footer-logo"><img src="./img/Logo footer.svg" alt="Logo del sitio"></a>
+
             <div>
                 <a href="https://twitter.com/?lang=es" target="_blank">
                     <div>
@@ -131,7 +136,7 @@
                 </a>
             </div>
         </section>
-        <a href="./index.html"><img src="./img/Logo footer.svg" alt="Logo del sitio"></a>
+        
     </footer>
 </body>
 </html>
