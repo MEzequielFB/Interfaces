@@ -7,6 +7,7 @@
     font-family: 'Lato', sans-serif;
 	vertical-align: baseline;
     list-style: none;
+    text-decoration: none;
 }
 :root { /* Colores */
     --negro-luz-2: #7C7C7C;
@@ -82,7 +83,7 @@ p.small {
 h1.super {
     font-size: 60px; /* Super para móvil */
 }
-h1.bold, h2.bold, p.bold, span.bold {
+h1.bold, h2.bold, p.bold, span.bold, button.bold {
     font-weight: bold;
 }
 h1.underline, h2.underline, p.underline, span.underline {
@@ -125,13 +126,13 @@ header img.header-logo {
     width: 85%;
 }
 /* Home */
-main > section:first-child { /* Sección más jugados v */
+main > section.mas-jugados { /* Sección más jugados v */
     padding: 0% 0% 2% 0%;
     background-image: url("../img/fondo-juegos-1.png");
     height: fit-content;
     box-shadow: var(--sombra-1);
 }
-main > section:first-child div {
+main > section.mas-jugados div {
     display: flex;
     margin: 2% 2px 0px 2px;
     justify-content: space-between;
@@ -139,20 +140,20 @@ main > section:first-child div {
     flex-wrap: wrap;
     row-gap: 8px;
 }
-main > section:first-child h1 {
+main > section.mas-jugados h1 {
     text-align: center;
     -webkit-text-stroke: 2px var(--negro); /* Agrega border al texto */
     color: var(--blanco);
     background: var(--secundario-transparente-1);
 }
-main > section:first-child article {
+main > section.mas-jugados article {
     width: 49.5%;
 }
-main article > img {
+main > section.mas-jugados article > img {
     width: 100%;
     height: 100%;
 }
-main > article:last-child { /* Presentacion del sitio v */
+/* main > article:last-child { Presentacion del sitio v
     padding: 5%;
     text-align: center;
     color: var(--blanco);
@@ -172,7 +173,7 @@ main > article:last-child ul li {
     margin-bottom: 3%;
     font-size: 22.6px;
     list-style: disc;
-}
+} */
 /* /Home */
 /* Footer */
 footer { /* Fat Footer */
@@ -191,34 +192,20 @@ footer > section > p {
 footer > section > p:last-child {
     margin: 0px;
 }
-/* footer > section > input {
-    height: 33px;
-    font-size: 22.6px;
-    border: 1px var(--negro) inset;
-    border-radius: 7px;
-    background: url("../img/icono\ mail.svg") var(--secundario-luz-1) no-repeat 5px 0px;
-}
-footer > section > input:focus {
-    background: var(--secundario-luz-1);
-}
-footer > section > input::placeholder {
-    padding-left: 18%;
-    color: var(--negro-transparente-1);
-} */
 footer > section:last-child {
     display: flex;
     flex-direction: column;
 }
-footer > section > a {
+footer > section:last-child > a.footer-logo {
     align-self: center;
 }
-footer > section > div {
+footer > section:last-child > div.footer-redes {
     display: flex;
     width: 100%;
     align-self: center;
     justify-content: space-evenly;
 }
-footer section a > div {
+footer > section:last-child > div.footer-redes > a > div {
     width: 66px;
     height: 55px;
     text-align: center;
@@ -227,13 +214,67 @@ footer section a > div {
     background: var(--secundario);
     box-shadow: var(--sombra-1);
 }
-footer section div > img {
+footer > section:last-child > div.footer-redes > a > div > img {
     margin: 17%;
 }
 footer a.footer-logo img {
     margin: 0% 0% 8% 0%;
 }
 /* /Footer */
+/* 4 en linea */
+main.juego-pagina {
+
+}
+section.breadcrumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 90%;
+    margin: 5% auto 6% auto;
+    padding: 1%;
+    color: var(--primario);
+    background: var(--primario-luz-2);
+    border-radius: 5px;
+}
+section.breadcrumb a {
+    color: var(--primario);
+}
+section.breadcrumb p {
+    margin: 0% 5%;
+}
+h1.juego-titulo {
+    text-align: start;
+    color: var(--blanco);
+}
+article.juego {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../img/final-fantasy.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+}
+article.juego > div {
+    width: 30%;
+    padding: 6%;
+    text-align: center;
+    background: rgba(33, 92, 108, 0.6);
+    border: 1px var(--acento) solid;
+    border-radius: 5px;
+}
+article.juego > div > button {
+    width: 100%;
+    padding: 10%;
+    font-size: 22.6px;
+    color: var(--primario-sombra-2);
+    background: var(--acento-luz-1);
+    border-radius: 5px;
+    box-shadow: var(--sombra-1);
+}
+/* /4 en linea */
 @media only screen and (min-width: 400px) {
 
     header > div:first-child {
