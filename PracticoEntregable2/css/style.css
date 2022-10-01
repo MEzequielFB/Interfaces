@@ -89,6 +89,15 @@ h1.bold, h2.bold, p.bold, span.bold, button.bold {
 h1.underline, h2.underline, p.underline, span.underline {
     text-decoration: underline;
 }
+button {
+    padding: 10%;
+    font-size: 22.6px;
+    color: var(--primario-sombra-2);
+    text-align: center;
+    background: var(--acento-luz-1);
+    border-radius: 5px;
+    box-shadow: var(--sombra-1);
+}
 header {
     position: sticky;
     top: 0px;
@@ -98,6 +107,7 @@ header {
     align-items: center;
     background: var(--secundario);
     box-shadow: var(--sombra-1);
+    z-index: 1;
 }
 header > div {
     display: flex;
@@ -223,7 +233,7 @@ footer a.footer-logo img {
 /* /Footer */
 /* 4 en linea */
 main.juego-pagina {
-
+    color: var(--blanco);
 }
 section.breadcrumb {
     display: flex;
@@ -245,7 +255,6 @@ section.breadcrumb p {
 }
 h1.juego-titulo {
     text-align: start;
-    color: var(--blanco);
 }
 article.juego {
     display: flex;
@@ -267,12 +276,83 @@ article.juego > div {
 }
 article.juego > div > button {
     width: 100%;
-    padding: 10%;
+}
+article.juego-detalles {
+    margin: 10% 0%;
+}
+article.juego-detalles h1 {
+    margin: 5% 0%;
+}
+article.juego-detalles > section:nth-child(2) img {
+    margin: 0% 2% 0% 0%;
+}
+article.juego-detalles > section:nth-child(2) p {
+    margin: 0% 0% 3% 0%;
+}
+article.juego-detalles > section:nth-child(2) p:last-child {
+    margin: 0%;
+}
+article.juego-detalles > section:nth-child(4) img {
+    width: 90%;
+}
+article.juego-detalles > section:last-child form { /* Comentarios */
+    display: flex;
+    flex-direction: column;
+    margin: 0% 0% 10% 0%;
+}
+article.juego-detalles > section:last-child label, article.juego-detalles > section:last-child input {
     font-size: 22.6px;
-    color: var(--primario-sombra-2);
-    background: var(--acento-luz-1);
+}
+article.juego-detalles > section:last-child input {
+    width: 100%;
+    margin: 4% 0%;
+    padding: 3% 0%;
+    color: var(--primario);
+    background: var(--primario-luz-2);
     border-radius: 5px;
-    box-shadow: var(--sombra-1);
+}
+article.juego-detalles > section:last-child input::placeholder {
+    color: var(--negro-luz-2);
+}
+article.juego-detalles > section:last-child button {
+    width: 40%;
+    padding: 3%;
+    align-self: flex-end;
+}
+article.juego-detalles > section:last-child article {
+    position: relative;
+    margin: 0% 0% 10% 0%;
+}
+article.juego-detalles > section:last-child article > div:first-child {
+    display: flex;
+    margin: 0% 0% 5% 0%;
+}
+article.juego-detalles > section:last-child article > div > p:last-child {
+    margin: 0% 0% 0% 2%;
+    color: var(--primario-luz-2);
+}
+article.juego-detalles > section:last-child article > p.comentario-contenido {
+    margin: 0% 0% 3% 0%;
+}
+article.juego-detalles > section:last-child article > img.comentario-opciones {
+    position: absolute;
+    top: 0%;
+    right: 1%;
+}
+article.juego-detalles > section:last-child article > div:last-child {
+    display: flex;
+}
+article.juego-detalles > section:last-child article > p.comentario-btn-responder {
+    position: absolute;
+    bottom: 0px;
+    right: 1%;
+    color: var(--primario-luz-2);
+}
+article.juego-detalles > section:last-child article.comentario-respuesta {
+    margin: 0% 0% 10% 5%;
+}
+article.juego-detalles > section:last-child article.comentario-respuesta > p.comentario-btn-responder {
+    display: none;
 }
 /* /4 en linea */
 @media only screen and (min-width: 400px) {
