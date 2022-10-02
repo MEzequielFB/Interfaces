@@ -233,10 +233,10 @@ footer a.footer-logo img {
 }
 /* /Footer */
 /* 4 en linea */
-main.juego-pagina {
+main.juego-pagina {  /* main-juego v */
     color: var(--blanco);
 }
-section.breadcrumb {
+section.breadcrumb { /* breadcrumb v */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -254,7 +254,7 @@ section.breadcrumb a {
 section.breadcrumb p {
     margin: 0% 5%;
 }
-h1.juego-titulo {
+h1.juego-titulo { /* previa-juego v */
     text-align: start;
 }
 article.juego {
@@ -278,17 +278,17 @@ article.juego > div {
 article.juego > div > button {
     width: 100%;
 }
-article.juego + img {
+article.juego + img { /* icono compartir */
     width: 10%;
     margin: 2% 0% 0% 0%;
 }
-article.juego-detalles {
+article.juego-detalles { /* detalles-juego v */
     margin: 10% 0%;
 }
 article.juego-detalles h1 {
     margin: 7% 0% 4% 0%
 }
-article.juego-detalles > section.controles img {
+article.juego-detalles > section.controles img { /* controles v */
     margin: 0% 2% 0% 0%;
 }
 article.juego-detalles > section.controles p {
@@ -297,7 +297,7 @@ article.juego-detalles > section.controles p {
 article.juego-detalles > section.controles p:last-child {
     margin: 0%;
 }
-article.juego-detalles > section.tutorial img {
+article.juego-detalles > section.tutorial img { /* tutorial v */
     width: 90%;
 }
 article.juego-detalles > section.comentarios form { /* Comentarios */
@@ -334,6 +334,8 @@ article.juego-detalles > section.comentarios article > div:first-child {
     margin: 0% 0% 5% 0%;
 }
 article.juego-detalles > section.comentarios article > div:first-child img {
+    width: 62px;
+    height: 45px;
     margin: 0% 2% 0% 0%;
     border: 2px var(--primario-luz-2) solid;
     border-radius: 5px;
@@ -540,10 +542,7 @@ article.juego-detalles > section.comentarios article.comentario-respuesta > p.co
     section.breadcrumb p {
         margin: 0% 4%;
     }
-    article.juego { /* previa juego v */
-        height: 700px;
-    }
-    article.juego > div {
+    article.juego > div { /* previa juego v */
         width: 15%;
     }
     article.juego + img { /* boton compartir v */
@@ -564,6 +563,10 @@ article.juego-detalles > section.comentarios article.comentario-respuesta > p.co
     }
     article.juego-detalles > section.comentarios article {
         margin: 0% 0% 3% 0%;
+    }
+    article.juego-detalles > section.comentarios article > div:first-child img {
+        width: 72px;
+        height: 55px;
     }
     article.juego-detalles > section.comentarios article.comentario-respuesta {
         margin: 0% 0% 3% 4%;
