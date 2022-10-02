@@ -501,6 +501,7 @@ section.caracteristicas { /* caracteristicas v */
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 0% 0% 4% 0%;
     background: url("../img/seccion-hero/fondo-caracteristicas.png");
     background-position: center;
     background-repeat: no-repeat;
@@ -513,22 +514,29 @@ section.caracteristicas h1.super {
 }
 section.caracteristicas article {
     width: 48%;
-    height: 215px;
+    height: 255px;
     background: url("../img/seccion-hero/fondo-caracteristicas-card.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5px;
 }
-section.caracteristicas article > div {
+section.caracteristicas article > div, section.caracteristicas article > div h2 {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
+}
+section.caracteristicas article > div {
+    justify-content: space-between;
     width: 100%;
     height: inherit;
+    padding: 1%;
     text-align: center;
     background: rgba(29, 35, 59, 0.98);
+}
+section.caracteristicas article > div img {
+    width: 30px;
+    height: 30px;
 }
 section.caracteristicas article > div h2 {
     color: var(--acento-hero);
@@ -536,6 +544,31 @@ section.caracteristicas article > div h2 {
 section.caracteristicas article > div p {
     font-weight: bold;
     color: var(--blanco);
+}
+section.informacion { /* informacion v */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--blanco);
+    background: url("../img/seccion-hero/gunfire-reborn-informacion-fondov2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+section.informacion img:first-child {
+    width: 80%;
+}
+section.informacion div p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 5% 0%;
+}
+section.informacion div p:nth-child(2) img {
+    width: 100%;
+}
+section.informacion div p:last-child img {
+    width: 25%;
 }
 footer.hero { /* footer v */
     color: var(--primario-hero-luz-1);
