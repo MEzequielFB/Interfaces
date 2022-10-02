@@ -68,6 +68,9 @@
 body {
     background: var(--primario);
 }
+body.hero {
+    background: var(--primario-hero);
+}
 h1 {
     font-size: 32.7px;
 }
@@ -98,7 +101,7 @@ button {
     border-radius: 5px;
     box-shadow: var(--sombra-1);
 }
-header {
+header { /* header v */
     position: sticky;
     top: 0px;
     display: flex;
@@ -224,13 +227,10 @@ footer > section:last-child > div.footer-redes > a > div {
     height: 50px;
     text-align: center;
     border-radius: 100%;
-    border: 3px var(--secundario-sombra-2) inset;
+    border: 3px var(--secundario-sombra-2) solid;
     background: var(--secundario);
     box-shadow: var(--sombra-1);
 }
-/* footer > section:last-child > div.footer-redes > a > div > img {
-    margin: 17%;
-} */
 footer a.footer-logo img {
     width: 246px;
     margin: 0% 0% 8% 0%;
@@ -372,6 +372,180 @@ article.juego-detalles > section.comentarios article.comentario-respuesta > p.co
     display: none;
 }
 /* /4 en linea */
+/* proximo lanzamiento */
+header.hero { /* header v */
+    background: var(--primario-hero-transparente-2);
+    border-bottom: 2px var(--secundario-hero-luz-1) solid;
+    box-shadow: var(--sombra-2);
+}
+main.hero section.breadcrumb { /* breadcrumb v */
+    margin: 0% auto 6% auto;
+    color: var(--secundario-hero);
+    background: var(--secundario-hero-luz-2);
+}
+main.hero section.breadcrumb a {
+    color: var(--secundario-hero);
+}
+main.hero h1.super { /* main.hero v */
+    color: var(--acento-hero);
+    -webkit-text-stroke: 1px var(--negro);
+}
+section.imagenes-superpuestas { /* imagenes superpuestas v */
+    position: relative;
+    height: 400px;
+    padding: 5% 0% 0% 0%;
+    background: url("../img/seccion-hero/smoke-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: var(--sombra-2);
+}
+section.imagenes-superpuestas img {
+    position: absolute;
+}
+section.imagenes-superpuestas img:nth-child(2) {
+    width: 80%;
+    left: 10%;
+    top: 12%;
+}
+section.imagenes-superpuestas img:nth-child(3), section.imagenes-superpuestas img:last-child {
+    width: 100%;
+    bottom: 0%;
+}
+section.imagenes-superpuestas img:nth-child(3) {
+    left: 0%;
+}
+section.imagenes-superpuestas img:last-child {
+    right: 0%;
+}
+section.inicio-hero { /* inicio v */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 400px;
+    margin: -12px 0px -19px 0px;
+    background: url("../img/seccion-hero/Gunfire-Reborn-portrait-1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: var(--sombra-2);
+}
+section.inicio-hero h1 {
+    text-align: center;
+    color: var(--acento-hero);
+}
+section.inicio-hero button {
+    width: 65%;
+    padding: 3%;
+    color: var(--negro);
+    background: var(--acento-hero);
+    border: 5px var(--acento-hero-sombra-1) solid;
+    box-shadow: var(--sombra-1);
+}
+section.inicio-hero img {
+    width: 100%;
+}
+article.tiempo-salida { /* tiempo de salida v */
+    height: 80px;
+    padding: 4%;
+    text-align: center;
+    background: var(--primario-hero-sombra-1);
+    border-bottom: 2px var(--secundario-hero-luz-1) solid;
+    box-shadow: var(--sombra-2);
+}
+article.tiempo-salida p > img {
+    width: 25px;
+}
+article.tiempo-salida p:first-child {
+    margin: 0px 0px 8px 0px;
+    color: var(--primario-hero-luz-1);
+}
+article.tiempo-salida > img {
+    display: none;
+}
+article.tiempo-salida p {
+    color: var(--blanco);
+}
+section.historia { /* historia v */
+    text-align: center;
+    color: var(--blanco);
+    background: var(--primario-hero-sombra-1);
+    box-shadow: var(--sombra-2);
+}
+section.historia p {
+    margin: 15px 0px;
+}
+section.historia p {
+    margin: 15px 0px;
+}
+section.historia p:nth-child(4) {
+    margin: 15px 0px 5px 0px;
+    color: var(--secundario-hero-luz-1);
+}
+section.historia img:last-child {
+    width: 100%;
+    padding: 0px 0px 25px 0px;
+}
+section.personajes { /* personajes v */
+    height: 400px;
+    padding: 1%;
+    text-align: center;
+    background: url("../img/seccion-hero/fondo-personajes.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: var(--sombra-2);
+}
+section.caracteristicas { /* caracteristicas v */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: url("../img/seccion-hero/fondo-caracteristicas.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: var(--sombra-2);
+    gap: 5px;
+}
+section.caracteristicas h1.super {
+    font-size: 42px;
+}
+section.caracteristicas article {
+    width: 48%;
+    height: 215px;
+    background: url("../img/seccion-hero/fondo-caracteristicas-card.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+}
+section.caracteristicas article > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: inherit;
+    text-align: center;
+    background: rgba(29, 35, 59, 0.98);
+}
+section.caracteristicas article > div h2 {
+    color: var(--acento-hero);
+}
+section.caracteristicas article > div p {
+    font-weight: bold;
+    color: var(--blanco);
+}
+footer.hero { /* footer v */
+    color: var(--primario-hero-luz-1);
+    background: var(--primario-hero-sombra-1);
+}
+footer.hero > section:last-child > div.footer-redes > a > div {
+    border-color: var(--primario-hero-luz-1);
+    background: var(--primario-hero-sombra-1);
+}
+/* /proximo lanzamiento */
 @media only screen and (min-width: 400px) {
 
     header > div:first-child { /* header v */
