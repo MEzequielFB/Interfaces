@@ -217,18 +217,22 @@ footer > section:last-child > div.footer-redes {
     justify-content: space-evenly;
 }
 footer > section:last-child > div.footer-redes > a > div {
-    width: 66px;
-    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 61px;
+    height: 50px;
     text-align: center;
     border-radius: 100%;
     border: 3px var(--secundario-sombra-2) inset;
     background: var(--secundario);
     box-shadow: var(--sombra-1);
 }
-footer > section:last-child > div.footer-redes > a > div > img {
+/* footer > section:last-child > div.footer-redes > a > div > img {
     margin: 17%;
-}
+} */
 footer a.footer-logo img {
+    width: 246px;
     margin: 0% 0% 8% 0%;
 }
 /* /Footer */
