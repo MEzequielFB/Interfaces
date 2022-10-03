@@ -105,28 +105,43 @@ header { /* header v */
     position: sticky;
     top: 0px;
     display: flex;
-    padding: 2% 1%;
+    padding: 2% 2%;
     justify-content: space-between;
     align-items: center;
     background: var(--secundario);
     box-shadow: var(--sombra-1);
     z-index: 1;
 }
+header input, header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
+    display: none;
+}
+header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
+    width: 30px;
+}
+header input {
+    padding: 1.5%;
+    font-size: 18.6px;
+    background: var(--secundario-sombra-1);
+    border-radius: 5px;
+}
+header input::placeholder, header input {
+    color: var(--secundario-luz-1);
+}
 header > div {
     display: flex;
     justify-content: space-between;
 }
-header > div:first-child {
-    width: 37%;
+header > div:first-child, header > div:last-child {
+    width: 35%;
 }
-header > div:last-child {
-    width: 50%;
-}
-header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
-    display: none;
+header img.header-logo {
+    width: 85%;
 }
 header > div:last-child > div {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 header > div:last-child > div img:first-child {
     width: 60px;
@@ -135,9 +150,6 @@ header > div:last-child > div img:first-child {
     object-position: 50%;
     border: 2px var(--primario-luz-2) solid;
     border-radius: 5px;
-}
-header img.header-logo {
-    width: 85%;
 }
 /* Home */
 main > section.mas-jugados { /* Sección más jugados v */
@@ -400,6 +412,12 @@ header.hero { /* header v */
     border-bottom: 2px var(--secundario-hero-luz-1) solid;
     box-shadow: var(--sombra-2);
 }
+header.hero input {
+    background: var(--primario-hero-sombra-1);
+}
+header.hero input, header.hero input::placeholder {
+    color: var(--primario-hero-luz-1);
+}
 main.hero section.breadcrumb { /* breadcrumb v */
     margin: 0% auto 6% auto;
     color: var(--secundario-hero);
@@ -603,11 +621,8 @@ footer.hero > section:last-child > div.footer-redes > a > div {
 /* /proximo lanzamiento */
 @media only screen and (min-width: 400px) {
 
-    header > div:first-child { /* header v */
-        width: 35%;
-    }
-    header > div:last-child {
-        width: 45%;
+    header > div:first-child, header > div:last-child { /* header v */
+        width: 27%;
     }
     article.juego-detalles > section.comentarios button { /* comentarios v */
         width: 32%;
@@ -627,19 +642,22 @@ footer.hero > section:last-child > div.footer-redes > a > div {
         padding: 0% 0% 6.3% 0%;
     }
 }
-@media only screen and (min-width: 500px) {
-
-    header > div:first-child {
-        width: 30%;
-    }
-    header > div:last-child {
-        width: 40%;
-    }
-}
 @media only screen and (min-width: 768px) {
 
-    header > div:first-child { /* header v */
-        width: 20%;
+    header { /* header v */
+        padding: 0.8% 2%;
+    }
+    header input, header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
+        display: block;
+    }
+    header input, header > div:last-child > div {
+        width: 45%;
+    }
+    header img.icono-busqueda {
+        display: none;
+    }
+    header > div:first-child {
+        width: 15%;
     }
     header > div:last-child {
         width: 30%;
@@ -773,36 +791,16 @@ footer.hero > section:last-child > div.footer-redes > a > div {
         font-size: 16px;
     }
     header { /* header v */
-        padding: 0% 1%;
-    }
-    header img.header-logo {
-        width: 100%;
+        padding: 0.8% 1%;
     }
     header > div:first-child {
-        width: 18%;
+        width: 12%;
     }
     header > div:last-child {
-        width: 50%;
+        width: 22%;
     }
-    header > div:last-child > img:nth-child(1), header > div:last-child > img:nth-child(2), header > div:last-child > img:nth-child(4) {
-        width: 7%;
-    }
-    header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
-        display: block;
-    }
-    header > div:last-child > div {
-        display: flex;
-        width: 25%;
-        height: fit-content;
-        margin: auto 0%;
-        padding: 1%;
-        align-items: center;
-    }
-    header > div:last-child > div img:first-child {
-        width: 24%;
-    }
-    header > div:last-child > div img:nth-child(2) {
-        width: 15%;
+    header input {
+        padding: 1.2%;
     }
     h1.super { /* mas jugados v */
         font-size: 128px;
