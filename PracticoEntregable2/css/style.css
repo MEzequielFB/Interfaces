@@ -165,8 +165,52 @@ main > section.mas-jugados article {
 }
 main > section.mas-jugados article > img {
     width: 100%;
-    height: 100%;
 }
+
+/*Con -scrollbar display:none quitamos la scrollbar
+(la cual es muy molesta cuando usas el movil, 
+ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
+::-webkit-scrollbar {
+    display: none;
+}
+
+/*esto no funciona en firefox */
+::-moz-scrollbar {
+    display: none;
+}    
+
+.contenedorCarrousel{
+    padding: 5px;
+    align-items: center;
+}
+
+.contenedorCarrousel > .btn{
+    display: none;
+}
+
+.contenedorCards{
+    display: flex;
+    overflow: auto;
+    border-radius: 15px;
+}
+
+.contenedorCards > li{
+    margin: 3% 2% 3% 0%;
+}
+
+.contenedorCards > li > img{
+    width: 175px;
+    height: 100px;
+    border-radius: 5px;
+}
+
+/*card de las categorias*/
+.contenedorCards > .cardCarrouselDoble > img {
+    width: 200px;
+    height: 140px;
+}
+
+
 
 footer { /* Fat Footer */
     display: flex;
@@ -737,5 +781,75 @@ footer.hero > section:last-child > div.footer-redes > a > div {
     footer > section > div {
         width: 90%;
         justify-content: space-between;
+    }
+}
+
+@media (min-width: 700px){
+    .carrousel{
+        margin: 0 2% 0 2%;
+    }
+
+    .carrousel>h2:first-child{
+        margin: 0 0 0 6.5%;
+    }
+
+    .contenedorCarrousel{
+        padding: 5px;
+        align-items: center;
+        display: flex;
+    }
+
+    .contenedorCarrousel > .btn{
+        display: flex;
+    }
+
+    .contenedorCards{
+        margin: 0 5px 0 5px;
+        overflow: hidden;
+    }
+
+    .contenedorCards > li{
+        margin: 1% 1% 1% 0%;
+        transition: .5s ease-in-out;
+    }
+
+    .contenedorCards > li.pagina2{
+        transform: translate(0px);
+    }
+
+    .contenedorCards > li.pagina2{
+        transform: translate(-1175px);
+    }
+
+    .contenedorCards > li.pagina3{
+        transform: translate(-2350px);
+    }
+
+    .contenedorCards > li > img{
+        width: 380px;
+        height: 220px;
+    }
+
+    .btn{
+        flex-shrink: 0;
+        width: 80px;
+        height: 80px;
+    }
+
+    .btnCarrouselAtras{
+        background-image: url(../img/Carrousel_Flecha.svg);
+    }
+    
+    .btnCarrouselSig{
+        background-image: url(../img/Carrousel_Flecha.svg);
+        transform: rotate(180deg);
+    }
+    
+    .btn.btnApagado{
+        background-image: url(../img/Carrousel_flecha_apagada.svg);
+    }
+    .contenedorCards > li > img{
+        width: 380px;
+        height: 220px;
     }
 }
