@@ -160,6 +160,9 @@ header > div:last-child > div img:first-child {
     border-radius: 5px;
 }
 /* Home */
+main.inicio {
+    color: var(--blanco);
+}
 main > section.mas-jugados { /* Sección más jugados v */
     padding: 0% 0% 2% 0%;
     background-image: url("../img/fondo-juegos-1.png");
@@ -819,22 +822,6 @@ footer.hero > section:last-child > div.footer-redes > a > div {
     main > section.mas-jugados article { /* mas jugados */
         width: 33%;
     }
-    /* main > article:last-child { Presentacion del sitio v
-        padding: 4%;
-        text-align: start;
-    }
-    main > article:last-child p {
-        margin: 1% 0% 5% 0%;
-    }
-    main > article:last-child p:last-child {
-        margin: 1% 0% 0% 0%;
-    }
-    main > article:last-child ul {
-        width: 90%;
-    }
-    main > article:last-child ul li {
-        margin: 0% 0% 5% 0%;
-    } */
     section.breadcrumb, main.hero section.breadcrumb { /* breadcrumb v */
         width: 62%;
         margin: 2% 0% 3% 0%;
@@ -842,7 +829,10 @@ footer.hero > section:last-child > div.footer-redes > a > div {
     section.breadcrumb p, main.hero section.breadcrumb p {
         margin: 0% 4%;
     }
-    article.juego > div { /* previa juego v */
+    article.juego { /* previa juego v */
+        height: 620px;
+    }
+    article.juego > div {
         width: 15%;
     }
     article.juego + img { /* boton compartir v */
@@ -857,7 +847,10 @@ footer.hero > section:last-child > div.footer-redes > a > div {
     article.juego-detalles > section.tutorial img {
         width: 55%;
     }
-    article.juego-detalles > section.comentarios button { /* Comentarios v */
+    article.juego-detalles > section.comentarios input { /* Comentarios v */
+        font-size: 22.6px;
+    }
+    article.juego-detalles > section.comentarios button {
         width: 16%;
         padding: 1.5% 2%;
     }
@@ -947,9 +940,130 @@ footer.hero > section:last-child > div.footer-redes > a > div {
     footer > section {
         margin: 0% 2% 1% 0%;
     }
-    footer > section > div {
-        width: 90%;
+    footer > section:last-child > div.footer-redes {
         justify-content: space-between;
+    }
+}
+@media only screen and (min-width: 1440px) {
+
+    header { /* header v */
+        padding: 0.4% 1%;
+    }
+    header > div:first-child {
+        width: 9%;
+    }
+    header > div:last-child {
+        width: 16%;
+    }
+    header input {
+        padding: 0.9%;
+    }
+    main > section.mas-jugados div { /* mas jugados */
+        justify-content: space-evenly;
+    }
+    main > section.mas-jugados article {
+        width: 32%;
+    }
+    section.breadcrumb, main.hero section.breadcrumb { /* breadcrumb v */
+        width: 44%;
+    }
+    article.juego > div { /* previa juego v */
+        width: 12%;
+        padding: 1.3%;
+    }
+    article.juego + img { /* boton compartir v */
+        width: 3.5%;
+    }
+    article.juego-detalles { /* juego detalles v */
+        margin: 1% 0%;
+    }
+    article.juego-detalles h1 {
+        margin: 2% 0% 1% 0%;
+    }
+    article.juego-detalles > section.tutorial img {
+        width: 38%;
+    }
+    article.juego-detalles > section.comentarios input { /* Comentarios v */
+        margin: 0.7% 0%;
+        padding: 1.3% 0%;
+    }
+    article.juego-detalles > section.comentarios button {
+        width: 11%;
+        padding: 1% 0%;
+    }
+    article.juego-detalles > section.comentarios article {
+        margin: 0% 0% 1.8% 0%;
+    }
+    article.juego-detalles > section.comentarios article.comentario-respuesta {
+        margin: 0% 0% 1.8% 2.5%;
+    }
+    article.juego-detalles > section.comentarios article > div:first-child, article.juego-detalles > section.comentarios article > p.comentario-contenido {
+        margin: 0% 0% 1% 0%;
+    }
+    article.juego-detalles > section.comentarios article > div > p:last-child {
+        margin: 0% 0% 0% 0.5%;
+    }
+    main.hero section.breadcrumb { /* breadcrumb hero v */
+        width: 23%;
+    }
+    section.imagenes-superpuestas { /* imagenes superpuestas v */
+        height: 800px;
+    }
+    section.imagenes-superpuestas img:nth-child(2) {
+        width: 32%;
+        left: 34%;
+        top: 6%;
+    }
+    section.imagenes-superpuestas img:nth-child(3), section.imagenes-superpuestas img:last-child {
+        width: 60%;
+    }
+    section.inicio-hero h1 { /* inicio-hero v */
+        margin: -100px 80px 0px 0px;
+    }
+    section.inicio-hero button {
+        width: 16%;
+        padding: 1%;
+    }
+    section.inicio-hero img {
+        width: 45%;
+        margin: 0px 0px -100px 60px;
+    }
+    article.tiempo-salida { /* tiempo de salida v */
+        padding: 2%;
+    }
+    article.tiempo-salida p:first-child {
+        margin: 0% 5% 0% 2%;
+    }
+    article.tiempo-salida p:last-child {
+        margin: 0% 0% 0% 16.5%;
+    }
+    article.tiempo-salida > img {
+        height: 90px;
+    }
+    section.historia img:last-child { /* historia v */
+        width: 30%;
+    }
+    section.caracteristicas h1.super { /* caracteristicas v */
+        margin: 0% 15%;
+    }
+    section.caracteristicas article {
+        width: 30%;
+        height: 386px;
+    }
+    section.caracteristicas article > div {
+        padding: 0% 0% 4.5% 0%;
+    }
+    section.informacion img:first-child { /* informacion v */
+        width: 35%;
+    }
+    section.informacion div p:nth-child(2) img {
+        width: 80%;
+    }
+    footer { /* Fat Footer v */
+        justify-content: space-around;
+    }
+    footer > section {
+        margin: 0% 0% 1% 0%;
     }
 }
 
