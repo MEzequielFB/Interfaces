@@ -100,6 +100,14 @@ button {
     background: var(--acento-luz-1);
     border-radius: 5px;
     box-shadow: var(--sombra-1);
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+button:hover {
+    background-color: var(--acento-luz-2);
+}
+main.hero button:hover {
+    background-color: var(--acento-hero-sombra-1);
 }
 header { /* header v */
     position: sticky;
