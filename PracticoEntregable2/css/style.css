@@ -164,15 +164,15 @@ main.inicio {
     color: var(--blanco);
 }
 main > section.mas-jugados { /* Sección más jugados v */
-    padding: 0% 0% 2% 0%;
+    padding: 0% 0% 3% 0%;
     background-image: url("../img/fondo-juegos-1.png");
+    background-size: cover;
     height: fit-content;
-    box-shadow: var(--sombra-1);
 }
 main > section.mas-jugados div {
     display: flex;
     margin: 2% 2px 0px 2px;
-    justify-content: space-between;
+    justify-content: center;
     align-content: center;
     flex-wrap: wrap;
     row-gap: 8px;
@@ -184,10 +184,13 @@ main > section.mas-jugados h1 {
     background: var(--secundario-transparente-1);
 }
 main > section.mas-jugados article {
-    width: 49.5%;
+    width: 175px;
+    height: 100px;
 }
 main > section.mas-jugados article > img {
     width: 100%;
+    height: inherit;
+    border-radius: 5px;
 }
 
 /*Con -scrollbar display:none quitamos la scrollbar
@@ -314,6 +317,7 @@ article.juego {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 5px;
     height: 400px;
 }
 article.juego > div {
@@ -635,6 +639,11 @@ footer.hero > section:last-child > div.footer-redes > a > div {
     header > div:first-child, header > div:last-child { /* header v */
         width: 27%;
     }
+    main > section.mas-jugados div { /* Sección más jugados v */
+        justify-content: space-evenly;
+        row-gap: 20px;
+    }
+    
     article.juego-detalles > section.comentarios button { /* comentarios v */
         width: 32%;
         padding: 2%;
@@ -673,6 +682,13 @@ footer.hero > section:last-child > div.footer-redes > a > div {
     header > div:last-child {
         width: 30%;
     }
+    main > section.mas-jugados div { /* Sección más jugados v */
+        row-gap: 3px;
+    }
+    main > section.mas-jugados article {
+        width: 380px;
+        height: 220px;
+    }
     section.breadcrumb { /* breadcrumb v */
         margin: 3% auto 4% auto;
         font-size: 18.6px;
@@ -681,7 +697,7 @@ footer.hero > section:last-child > div.footer-redes > a > div {
         margin: 0% 4%;
     }
     article.juego { /* previa juego v */
-        height: 500px;
+        height: 550px;
     }
     article.juego > div {
         width: 20%;
@@ -816,11 +832,17 @@ footer.hero > section:last-child > div.footer-redes > a > div {
     h1.super { /* mas jugados v */
         font-size: 128px;
     }
+    main > section.mas-jugados {
+        padding: 0% 0% 2% 0%;
+    }
     main > section.mas-jugados h1 {
         -webkit-text-stroke: 3px var(--negro);
     }
-    main > section.mas-jugados article { /* mas jugados */
+    main > section.mas-jugados article {
         width: 33%;
+    }
+    main.juego-pagina {
+        padding: 0% 1%;
     }
     section.breadcrumb, main.hero section.breadcrumb { /* breadcrumb v */
         width: 62%;
@@ -958,8 +980,11 @@ footer.hero > section:last-child > div.footer-redes > a > div {
     header input {
         padding: 0.9%;
     }
-    main > section.mas-jugados div { /* mas jugados */
-        justify-content: space-evenly;
+    main > section.mas-jugados { /* mas jugados */
+        padding: 0% 0% 1.7% 0%;
+    }
+    main > section.mas-jugados div {
+        row-gap: 12px;
     }
     main > section.mas-jugados article {
         width: 32%;
