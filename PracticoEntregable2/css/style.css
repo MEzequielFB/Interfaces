@@ -1091,6 +1091,40 @@ footer.hero > section:last-child > div.footer-redes > a > div {
         margin: 0% 0% 1% 0%;
     }
 }
+@media only screen and (min-width: 1800px) {
+
+    main > section.mas-jugados article { /* mas jugados v */
+        width: 25%;
+    }
+    main > section.mas-jugados div {
+        justify-content: center;
+        gap: 50px;
+    }
+    section.breadcrumb { /* breadcrumb v */
+        width: 35%;
+        padding: 0.5%;
+    }
+    article.juego { /* previa juego v */
+        height: 770px;
+    }
+    article.juego + img { /* icono compartir */
+        width: 3%;
+        margin: 0.5% 0% 0% 0%;
+    }
+    section.imagenes-superpuestas { /* imagenes superpuestas */
+        height: 950px;
+    }
+    section.imagenes-superpuestas img:nth-child(3), section.imagenes-superpuestas img:last-child {
+        width: 55%;
+    }
+    section.imagenes-superpuestas img:nth-child(2) {
+        width: 26%;
+        left: 37%;
+    }
+    section.inicio-hero { /* inicio hero */
+        height: 1040px;
+    }
+}
 
 @media (min-width: 700px){
     .carrousel{
