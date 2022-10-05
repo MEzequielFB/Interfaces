@@ -8,7 +8,7 @@ for(let i=0;i<botonesSig.length;i++){
         if(ultimaClase != "btnApagado"){
             let li = botonesSig[i].previousElementSibling.children;
             let cantidadDePaginas = Math.ceil(li.length / cardsPorPAgina);
-            let liClaseAcual = li[0].classList[0];
+            let liClaseAcual = li[0].classList[li[0].classList.length-1];
             let paginaActual = parseInt(liClaseAcual.charAt(liClaseAcual.length-1))+1;
 
             for(j=0;j<li.length;j++){
@@ -32,7 +32,7 @@ for(let i=0;i<botonesAtras.length;i++){
         if(ultimaClase != "btnApagado"){
             let li = botonesAtras[i].nextElementSibling.children;
             let cantidadDePaginas = Math.ceil(li.length / cardsPorPAgina);
-            let liClaseAcual = li[0].classList[0];
+            let liClaseAcual = li[0].classList[li[0].classList.length-1];
             let paginaActual = parseInt(liClaseAcual.charAt(liClaseAcual.length-1))-1;
 
             for(j=0;j<li.length;j++){

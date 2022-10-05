@@ -205,6 +205,8 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
     display: none;
 }    
 
+/*Carrousel*/
+
 .contenedorCarrousel{
     padding: 5px;
     align-items: center;
@@ -220,6 +222,7 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
     border-radius: 15px;
 }
 
+/*Cards*/
 .contenedorCards > li{
     margin: 3% 2% 3% 0%;
 }
@@ -232,11 +235,182 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
 
 /*card de las categorias*/
 .contenedorCards > .cardCarrouselDoble > img {
-    width: 200px;
-    height: 140px;
+    width: 300px;
+    height: 230px;
 }
 
+li.cardCarrouselDoble{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    flex-shrink: 0;
+}
 
+li > .iconosCard>img, li > .precioCard{
+    display: none;
+}
+
+/*esto es temporal*/
+.contenedorTitulo{
+    display: none;
+}
+
+@media (min-width: 700px){
+    .carrousel{
+        margin: 0 2% 0 2%;
+    }
+
+    .carrousel>h2:first-child{
+        margin: 0 0 0 6.5%;
+    }
+
+    .contenedorCarrousel{
+        padding: 5px;
+        align-items: center;
+        display: flex;
+    }
+
+    .contenedorCarrousel > .btn{
+        display: flex;
+    }
+
+    .contenedorCards{
+        margin: 0 5px 0 5px;
+        overflow: hidden;
+    }
+
+    .contenedorCards > li{
+        margin: 1% 1% 1% 0%;
+        transition: .5s ease-in-out;
+    }
+
+    .contenedorCards > li.pagina2{
+        transform: translate(0px);
+    }
+
+    .contenedorCards > li.pagina2{
+        transform: translate(-1175px);
+    }
+
+    .contenedorCards > li.pagina3{
+        transform: translate(-2350px);
+    }
+    /* si hace falta hacer un "pagina4, 5, 6, etc" el valor del translate es (valor de la pagina anterior) - 1175 
+    (1175 es el ancho de 3 cards + margin) */
+    
+    .btnCarrousel{
+        flex-shrink: 0;
+        width: 80px;
+        height: 80px;
+    }
+
+    .btnCarrouselAtras{
+        background-image: url(../img/Carrousel_Flecha.svg);
+    }
+    
+    .btnCarrouselSig{
+        background-image: url(../img/Carrousel_Flecha.svg);
+        transform: rotate(180deg);
+    }
+    
+    .btnCarrousel.btnApagado{
+        background-image: url(../img/Carrousel_flecha_apagada.svg);
+    }
+
+    .cardCarrouselDoble > img{
+        flex-shrink: 0;
+        width: 300px;
+        height: 230px;
+    }
+
+    /*Cards*/
+    .contenedorCards > li {
+        position: relative;
+    }
+
+    .contenedorCards > li > img{
+        width: 380px;
+        height: 220px;
+    }
+
+    li.gratis > .iconosCard>img:first-child{
+        display: block;
+    }
+
+    li.nuevo > .iconosCard>img:last-child{
+        display: block;
+    }
+
+    li.pago > .precioCard{
+        display: flex;
+    }
+
+    .precioCard, .contenedorTitulo, .iconosCard{
+        position: absolute;
+        padding: 0;
+        align-items:center;
+    }
+
+    .precioCard{
+        width:48%;
+        height: 30%;
+        right:0;
+        top: 0;
+        justify-content:space-between;
+        border-radius: 0 0 0px 5px;
+        background-color: var(--secundario-sombra-2);
+    }
+
+    .precioCard > img{
+        width: 46px;
+        height: 45px;
+        margin-left: 7%;
+    }
+
+    .precioCard > p{
+        margin: 2% 7% 0 0;
+    }
+
+    .iconosCard{
+        left: 0;
+        top: 0;
+    }
+    
+    .iconosCard{
+        display: flex;
+    }
+
+    .iconosCard > img{
+        margin:3% 5%;
+    }
+
+    .contenedorTitulo{
+        bottom: 0;
+        width: 100%;
+        height: 28%;
+        background-color: var(--secundario-sombra-2);
+        display: flex;
+        justify-content: space-between;
+        opacity: 0;
+        transition: .15s ease-in-out;
+    }
+
+    .contenedorTitulo > img{
+        margin: 0 3%;
+    }
+
+    .contenedorTitulo > p{
+        background-color: var(--secundario-sombra-1);
+        width: 65%;
+        text-align: center;
+        padding: 1% 0%;
+        border-radius: 5px;
+    }
+    
+    .contenedorTitulo.visible{
+        opacity: 0.9;
+    }
+}
 
 footer { /* Fat Footer */
     display: flex;
@@ -1123,75 +1297,5 @@ footer.hero > section:last-child > div.footer-redes > a > div {
     }
     section.inicio-hero { /* inicio hero */
         height: 1040px;
-    }
-}
-
-@media (min-width: 700px){
-    .carrousel{
-        margin: 0 2% 0 2%;
-    }
-
-    .carrousel>h2:first-child{
-        margin: 0 0 0 6.5%;
-    }
-
-    .contenedorCarrousel{
-        padding: 5px;
-        align-items: center;
-        display: flex;
-    }
-
-    .contenedorCarrousel > .btn{
-        display: flex;
-    }
-
-    .contenedorCards{
-        margin: 0 5px 0 5px;
-        overflow: hidden;
-    }
-
-    .contenedorCards > li{
-        margin: 1% 1% 1% 0%;
-        transition: .5s ease-in-out;
-    }
-
-    .contenedorCards > li.pagina2{
-        transform: translate(0px);
-    }
-
-    .contenedorCards > li.pagina2{
-        transform: translate(-1175px);
-    }
-
-    .contenedorCards > li.pagina3{
-        transform: translate(-2350px);
-    }
-
-    .contenedorCards > li > img{
-        width: 380px;
-        height: 220px;
-    }
-
-    .btn{
-        flex-shrink: 0;
-        width: 80px;
-        height: 80px;
-    }
-
-    .btnCarrouselAtras{
-        background-image: url(../img/Carrousel_Flecha.svg);
-    }
-    
-    .btnCarrouselSig{
-        background-image: url(../img/Carrousel_Flecha.svg);
-        transform: rotate(180deg);
-    }
-    
-    .btn.btnApagado{
-        background-image: url(../img/Carrousel_flecha_apagada.svg);
-    }
-    .contenedorCards > li > img{
-        width: 380px;
-        height: 220px;
     }
 }
