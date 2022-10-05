@@ -159,6 +159,48 @@ header > div:last-child > div img:first-child {
     border: 2px var(--primario-luz-2) solid;
     border-radius: 5px;
 }
+/* menu desplegable */
+nav {
+    position: absolute;
+    top: 0px;
+    left: -320px;
+    width: 100%;
+    padding: 0px 0px 15px 0px;
+    background: var(--secundario);
+    border-radius: 0px 5px 5px 0px;
+    z-index: 2;
+    transition: left 0.7s;
+}
+nav.visible {
+    left: 0px;
+}
+nav > img:first-child {
+    width: 100%;
+}
+nav ul {
+    padding: 0px 10px 0px 10px;
+}
+nav ul li {
+    display: flex;
+    align-items: center;
+    margin: 15px 0px 15px 0px;
+    padding: 10px;
+    color: var(--blanco);
+    font-size: 18.6px;
+    background: var(--secundario-luz-1);
+    border: 1px var(--secundario-sombra-2) solid;
+    border-radius: 5px;
+}
+nav ul li img {
+    width: 36px;
+    height: 30px;
+    margin: 0px 12px 0px 0px;
+}
+nav ul > a:last-child li {
+    color: var(--secundario-sombra-2);
+    background: var(--acento-luz-1);
+    border-radius: 5px;
+}
 /* Home */
 main.inicio {
     color: var(--blanco);
@@ -435,13 +477,13 @@ footer > section:last-child {
 footer > section:last-child > a.footer-logo {
     align-self: center;
 }
-footer > section:last-child > div.footer-redes {
+footer > section:last-child > div.redes, nav div.redes {
     display: flex;
     width: 100%;
     align-self: center;
     justify-content: space-evenly;
 }
-footer > section:last-child > div.footer-redes > a > div {
+footer > section:last-child > div.redes > a > div, nav div.redes > a > div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -803,7 +845,7 @@ footer.hero { /* footer v */
     color: var(--primario-hero-luz-1);
     background: var(--primario-hero-sombra-1);
 }
-footer.hero > section:last-child > div.footer-redes > a > div {
+footer.hero > section:last-child > div.redes > a > div {
     border-color: var(--primario-hero-luz-1);
     background: var(--primario-hero-sombra-1);
 }
@@ -1136,7 +1178,7 @@ footer.hero > section:last-child > div.footer-redes > a > div {
     footer > section {
         margin: 0% 2% 1% 0%;
     }
-    footer > section:last-child > div.footer-redes {
+    footer > section:last-child > div.redes {
         justify-content: space-between;
     }
 }
