@@ -142,6 +142,9 @@ header > div {
 header > div:first-child, header > div:last-child {
     width: 35%;
 }
+header > div:first-child > img.icono-menu-hamburguesa {
+    cursor: pointer;
+}
 header img.header-logo {
     width: 85%;
 }
@@ -150,6 +153,7 @@ header > div:last-child > div {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 }
 header > div:last-child > div img:first-child {
     width: 60px;
@@ -160,27 +164,36 @@ header > div:last-child > div img:first-child {
     border-radius: 5px;
 }
 /* menu desplegable */
-nav {
+nav.menu {
     position: absolute;
     top: 0px;
-    left: -320px;
+    left: -400px;
     width: 100%;
     padding: 0px 0px 15px 0px;
     background: var(--secundario);
     border-radius: 0px 5px 5px 0px;
-    z-index: 2;
+    z-index: 3;
     transition: left 0.7s;
 }
-nav.visible {
+nav.menu > img:nth-child(2), nav.menu ul li {
+    cursor: pointer;
+}
+nav.menu.visible {
     left: 0px;
 }
-nav > img:first-child {
+nav.menu > img:first-child {
     width: 100%;
 }
-nav ul {
+nav.menu > img:nth-child(2) {
+    margin: 0% 0% 0% 84%;
+    padding: 4px;
+    background: var(--secundario-sombra-1);
+    border-radius: 5px;
+}
+nav.menu ul {
     padding: 0px 10px 0px 10px;
 }
-nav ul li {
+nav.menu ul li {
     display: flex;
     align-items: center;
     margin: 15px 0px 15px 0px;
@@ -191,15 +204,46 @@ nav ul li {
     border: 1px var(--secundario-sombra-2) solid;
     border-radius: 5px;
 }
-nav ul li img {
+nav.menu ul li img {
     width: 36px;
     height: 30px;
     margin: 0px 12px 0px 0px;
 }
-nav ul > a:last-child li {
+nav.menu ul > a:last-child li {
     color: var(--secundario-sombra-2);
     background: var(--acento-luz-1);
     border-radius: 5px;
+}
+/* menu despegable perfil */
+nav.menu-perfil {
+    opacity: 0;
+    position: absolute;
+    right: 0px;
+    top: 80px;
+    width: 150px;
+    color: var(--blanco);
+    text-align: center;
+    font-size: 18.6px;
+    background: var(--secundario);
+    border-radius: 5px;
+    box-shadow: var(--sombra-1);
+    z-index: 2;
+}
+nav.menu-perfil.visible {
+    transition: opacity 0.6s;
+    opacity: 1;
+}
+nav.menu-perfil ul li {
+    width: 80%;
+    margin: 5px auto 10px auto;
+    padding: 5px;
+    border-bottom: 1px var(--primario-sombra-2) solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+nav.menu-perfil ul li:hover {
+    background-color: var(--secundario-sombra-1);
 }
 /* Home */
 main.inicio {
@@ -855,6 +899,9 @@ footer.hero > section:last-child > div.redes > a > div {
     header > div:first-child, header > div:last-child { /* header v */
         width: 27%;
     }
+    nav.menu { /* menu desplegable v */
+        left: -700px;
+    }
     main > section.mas-jugados div { /* Sección más jugados v */
         justify-content: space-evenly;
         row-gap: 20px;
@@ -897,6 +944,9 @@ footer.hero > section:last-child > div.redes > a > div {
     }
     header > div:last-child {
         width: 30%;
+    }
+    nav.menu { /* menu desplegable v */
+        left: -1050px;
     }
     main > section.mas-jugados div { /* Sección más jugados v */
         row-gap: 3px;
@@ -1044,6 +1094,9 @@ footer.hero > section:last-child > div.redes > a > div {
     }
     header input {
         padding: 1.2%;
+    }
+    nav.menu { /* menu desplegable v */
+        left: -1800px;
     }
     h1.super { /* mas jugados v */
         font-size: 128px;
@@ -1309,6 +1362,9 @@ footer.hero > section:last-child > div.redes > a > div {
 }
 @media only screen and (min-width: 1800px) {
 
+    nav.menu { /* menu desplegable v */
+        left: -2000px;
+    }
     main > section.mas-jugados article { /* mas jugados v */
         width: 25%;
     }
