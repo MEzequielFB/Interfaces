@@ -178,6 +178,9 @@ nav.menu {
     z-index: 3;
     transition: left 0.7s;
 }
+nav.menu.hero {
+    background: var(--primario-hero);
+}
 nav.menu > img:nth-child(2), nav.menu ul li {
     cursor: pointer;
 }
@@ -193,6 +196,9 @@ nav.menu > img:nth-child(2) {
     background: var(--secundario-sombra-1);
     border-radius: 5px;
 }
+nav.menu.hero > img:nth-child(2) {
+    background: var(--primario-hero-sombra-1);
+}
 nav.menu ul {
     padding: 0px 10px 0px 10px;
 }
@@ -207,6 +213,10 @@ nav.menu ul li {
     border: 1px var(--secundario-sombra-2) solid;
     border-radius: 5px;
 }
+nav.menu.hero ul li {
+    background: var(--primario-hero-luz-1);
+    border: 1px var(--primario-hero-sombra-1) solid;
+}
 nav.menu ul li img {
     width: 36px;
     height: 30px;
@@ -216,6 +226,10 @@ nav.menu ul > a:last-child li {
     color: var(--secundario-sombra-2);
     background: var(--acento-luz-1);
     border-radius: 5px;
+}
+nav.menu.hero ul > a:last-child li {
+    color: var(--negro);
+    background: var(--acento-hero-luz-1);
 }
 /* menu despegable perfil */
 nav.menu-perfil {
@@ -232,9 +246,15 @@ nav.menu-perfil {
     box-shadow: var(--sombra-1);
     z-index: 2;
 }
+nav.menu-perfil.hero {
+    background: var(--secundario-hero);
+}
 nav.menu-perfil.visible {
     transition: opacity 0.6s;
     opacity: 1;
+}
+nav.menu-perfil.visible ul li {
+    cursor: pointer;
 }
 nav.menu-perfil ul li {
     width: 80%;
@@ -242,11 +262,17 @@ nav.menu-perfil ul li {
     padding: 5px;
     border-bottom: 1px var(--primario-sombra-2) solid;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: default;
     transition: background-color 0.5s;
+}
+nav.menu-perfil.hero ul li {
+    border-color: var(--primario-hero-sombra-1);
 }
 nav.menu-perfil ul li:hover {
     background-color: var(--secundario-sombra-1);
+}
+nav.menu-perfil.hero ul li:hover {
+    background-color: var(--secundario-hero-sombra-1);
 }
 /* Home */
 main.inicio {
@@ -540,6 +566,11 @@ footer > section:last-child > div.redes > a > div, nav div.redes > a > div {
     border-radius: 100%;
     border: 3px var(--secundario-sombra-2) solid;
     background: var(--secundario);
+    box-shadow: var(--sombra-1);
+}
+nav.menu.hero div.redes > a > div {
+    border: 1.5px var(--primario-hero-sombra-1) solid;
+    background: var(--primario-hero);
     box-shadow: var(--sombra-1);
 }
 footer a.footer-logo img {
