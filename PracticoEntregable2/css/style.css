@@ -139,8 +139,11 @@ header > div {
     display: flex;
     justify-content: space-between;
 }
-header > div:first-child, header > div:last-child {
+header > div:first-child {
     width: 35%;
+}
+header > div:last-child {
+    width: 33%;
 }
 header > div:first-child > img.icono-menu-hamburguesa {
     cursor: pointer;
@@ -165,7 +168,7 @@ header > div:last-child > div img:first-child {
 }
 /* menu desplegable */
 nav.menu {
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: -400px;
     width: 100%;
@@ -217,7 +220,7 @@ nav.menu ul > a:last-child li {
 /* menu despegable perfil */
 nav.menu-perfil {
     opacity: 0;
-    position: absolute;
+    position: fixed;
     right: 0px;
     top: 80px;
     width: 150px;
@@ -896,11 +899,17 @@ footer.hero > section:last-child > div.redes > a > div {
 /* /proximo lanzamiento */
 @media only screen and (min-width: 400px) {
 
-    header > div:first-child, header > div:last-child { /* header v */
+    header > div:first-child { /* header v */
         width: 27%;
+    }
+    header > div:last-child {
+        width: 25%;
     }
     nav.menu { /* menu desplegable v */
         left: -700px;
+    }
+    nav.menu > img:nth-child(2) { /* menu perfil v */
+        margin: 0% 0% 0% 88%
     }
     main > section.mas-jugados div { /* Sección más jugados v */
         justify-content: space-evenly;
@@ -947,6 +956,10 @@ footer.hero > section:last-child > div.redes > a > div {
     }
     nav.menu { /* menu desplegable v */
         left: -1050px;
+        width: 55%;
+    }
+    nav.menu > img:nth-child(2) { /* menu perfil v */
+        margin: 0% 0% 0% 87.5%;
     }
     main > section.mas-jugados div { /* Sección más jugados v */
         row-gap: 3px;
@@ -1097,6 +1110,10 @@ footer.hero > section:last-child > div.redes > a > div {
     }
     nav.menu { /* menu desplegable v */
         left: -1800px;
+        width: 37%;
+    }
+    nav.menu > img:nth-child(2) { /* menu perfil v */
+        margin: 0% 0% 0% 86.5%;
     }
     h1.super { /* mas jugados v */
         font-size: 128px;
@@ -1249,6 +1266,12 @@ footer.hero > section:last-child > div.redes > a > div {
     header input {
         padding: 0.9%;
     }
+    nav.menu { /* menu desplegable v */
+        width: 28%;
+    }
+    nav.menu > img:nth-child(2) { /* menu perfil v */
+        margin: 0% 0% 0% 87%;
+    }
     main > section.mas-jugados { /* mas jugados */
         padding: 0% 0% 1.7% 0%;
     }
@@ -1362,8 +1385,15 @@ footer.hero > section:last-child > div.redes > a > div {
 }
 @media only screen and (min-width: 1800px) {
 
+    header > div:last-child > div { /* header v */
+        width: 35%;
+    }
     nav.menu { /* menu desplegable v */
         left: -2000px;
+        width: 22%;
+    }
+    nav.menu > img:nth-child(2) { /* menu perfil v */
+        margin: 0% 0% 0% 87.8%;
     }
     main > section.mas-jugados article { /* mas jugados v */
         width: 25%;
