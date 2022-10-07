@@ -390,7 +390,7 @@ main > section.mas-jugados { /* Sección más jugados v */
     background-size: cover;
     height: fit-content;
 }
-main > section.mas-jugados div {
+main > section.mas-jugados div.cards-mas-jugados {
     display: flex;
     margin: 2% 2px 0px 2px;
     justify-content: center;
@@ -467,7 +467,7 @@ li.cardCarrouselDoble{
     flex-shrink: 0;
 }
 
-li > .iconosCard>img, li > .precioCard{
+li > .iconosCard>img, li > .precioCard, article > div.iconosCard > img, article > div.precioCard{
     display: none;
 }
 
@@ -523,6 +523,7 @@ li > .iconosCard>img, li > .precioCard{
         flex-shrink: 0;
         width: 80px;
         height: 80px;
+        cursor: pointer;
     }
 
     .btnCarrouselAtras{
@@ -536,6 +537,7 @@ li > .iconosCard>img, li > .precioCard{
     
     .btnCarrousel.btnApagado{
         background-image: url(../img/Carrousel_flecha_apagada.svg);
+        cursor: not-allowed;
     }
 
     .cardCarrouselDoble > img{
@@ -545,7 +547,7 @@ li > .iconosCard>img, li > .precioCard{
     }
 
     /*Cards*/
-    .contenedorCards > li {
+    .contenedorCards > li, .cards-mas-jugados > article{
         position: relative;
     }
 
@@ -554,15 +556,15 @@ li > .iconosCard>img, li > .precioCard{
         height: 220px;
     }
 
-    li.gratis > .iconosCard>img:first-child{
+    li.gratis > .iconosCard>img:first-child, main article.gratis > div.iconosCard > img:first-child{
         display: block;
     }
 
-    li.nuevo > .iconosCard>img:last-child{
+    li.nuevo > .iconosCard>img:last-child, main article.nuevo > div.iconosCard > img:first-child{
         display: block;
     }
 
-    li.pago > .precioCard{
+    li.pago > .precioCard, main article.pago > div.precioCard{
         display: flex;
     }
 
@@ -895,10 +897,7 @@ section.inicio-hero button {
     padding: 3%;
     color: var(--negro);
     background: var(--acento-hero);
-    /* border: 5px var(--acento-hero-sombra-1) solid; */
     box-shadow: var(--sombra-1);
-}
-section.inicio-hero button {
     border: 0px;
     box-shadow: inset 0 0 20px rgba(219, 169, 20, 0);
     outline: 1px solid;
@@ -909,6 +908,7 @@ section.inicio-hero button {
 } 
 
 section.inicio-hero button:hover {
+    background-color: var(--acento-hero-sombra-1);
     box-shadow: inset 1px 1px 20px rgba(255, 212, 84, 0.7), 1px 1px 20px rgba(255, 212, 84, 0.5);
     outline-color: rgba(219, 169, 20, 0);
     outline-offset: 15px;
@@ -1071,7 +1071,7 @@ footer.hero > section:last-child > div.redes > a > div {
     nav.menu > img:nth-child(2) { /* menu perfil v */
         margin: 0% 0% 0% 88%
     }
-    main > section.mas-jugados div { /* Sección más jugados v */
+    main > section.mas-jugados div.cards-mas-jugados { /* Sección más jugados v */
         justify-content: space-evenly;
         row-gap: 20px;
     }
@@ -1129,7 +1129,7 @@ footer.hero > section:last-child > div.redes > a > div {
     nav.menu > img:nth-child(2) { /* menu perfil v */
         margin: 0% 0% 0% 87.5%;
     }
-    main > section.mas-jugados div { /* Sección más jugados v */
+    main > section.mas-jugados div.cards-mas-jugados { /* Sección más jugados v */
         row-gap: 3px;
     }
     main > section.mas-jugados article {
@@ -1326,7 +1326,7 @@ footer.hero > section:last-child > div.redes > a > div {
     article.juego-detalles > section.tutorial img {
         width: 55%;
     }
-    article.juego-detalles > section.comentarios input { /* Comentarios v */
+    article.juego-detalles > section.comentarios input, article.juego-detalles > section.comentarios label { /* Comentarios v */
         font-size: 22.6px;
     }
     article.juego-detalles > section.comentarios button {
@@ -1446,7 +1446,7 @@ footer.hero > section:last-child > div.redes > a > div {
     main > section.mas-jugados { /* mas jugados */
         padding: 0% 0% 1.7% 0%;
     }
-    main > section.mas-jugados div {
+    main > section.mas-jugados div.cards-mas-jugados {
         row-gap: 12px;
     }
     main > section.mas-jugados article {
@@ -1569,7 +1569,7 @@ footer.hero > section:last-child > div.redes > a > div {
     main > section.mas-jugados article { /* mas jugados v */
         width: 25%;
     }
-    main > section.mas-jugados div {
+    main > section.mas-jugados div.cards-mas-jugados {
         justify-content: center;
         gap: 50px;
     }
