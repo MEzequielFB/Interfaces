@@ -130,20 +130,17 @@ button:hover {
     position: relative;
     overflow: hidden;
 }
-
 .loader::before,
 .loader::after {
     content: '';
     position: absolute;
     bottom: 0;
 }
-
 .loader::before {
     width: inherit;
     height: 0.2em;
     background-color: hsla(0, 0%, 85%);
 }
-
 .loader::after {
     box-sizing: border-box;
     width: 50%;
@@ -152,7 +149,6 @@ button:hover {
     border-radius: 50%;
     left: 25%;
 }
-
 .loader span {
     position: absolute;
     width: 5%;
@@ -165,7 +161,6 @@ button:hover {
     transform-origin: 50% -3em;
     animation-name: run, rotating;
 }
-
 .loader span:nth-child(2) {animation-delay: 0.075s;}
 .loader span:nth-child(3) {animation-delay: 0.15s;}
 
@@ -174,7 +169,6 @@ button:hover {
     10%, 60% {left: calc((100% - 5%) / 2);}
     70%, 100% {left: 100%;}
 }
-
 @keyframes rotating {
     0%, 10% {transform: rotate(0deg);}
     60%, 100% {transform: rotate(-1turn);}
@@ -189,9 +183,8 @@ button:hover {
     padding: 0 5px;
     display: flex;
     height: 40px;
-    width: 500px;
+    width: 310px;
 }
-
 .barra-value {
     animation: load 5s normal forwards;
     box-shadow: 0 10px 40px -10px #fff;
@@ -200,7 +193,6 @@ button:hover {
     height: 30px;
     width: 0;
 }
-
 @keyframes load {
     0% { width: 0; }
     100% { width: 100%; }
@@ -1060,6 +1052,9 @@ footer.hero > section:last-child > div.redes > a > div {
 /* /proximo lanzamiento */
 @media only screen and (min-width: 400px) {
 
+    .barra { /* barra de carga v */
+        width: 350px;
+    }
     header > div:first-child { /* header v */
         width: 27%;
     }
@@ -1101,6 +1096,9 @@ footer.hero > section:last-child > div.redes > a > div {
 }
 @media only screen and (min-width: 768px) {
 
+    .barra { /* barra de carga v */
+        width: 400px;
+    }
     header { /* header v */
         padding: 0.8% 2%;
     }
@@ -1265,6 +1263,9 @@ footer.hero > section:last-child > div.redes > a > div {
     }
     p.small {
         font-size: 16px;
+    }
+    .barra { /* barra de carga v */
+        width: 500px;
     }
     header { /* header v */
         padding: 0.8% 1%;
