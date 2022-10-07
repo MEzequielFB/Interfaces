@@ -1,13 +1,13 @@
 let botonesSig = document.querySelectorAll('.btnCarrouselSig');
 let botonesAtras= document.querySelectorAll('.btnCarrouselAtras');
-const cardsPorPAgina = 3;// numero de cards por pagina, si el numero de cards cambia en el dom, debemos cambiarlo manualmente aca
+const cardsPorPagina = 3;// numero de cards por pagina, si el numero de cards cambia en el dom, debemos cambiarlo manualmente aca
 
 for(let i=0;i<botonesSig.length;i++){
     botonesSig[i].addEventListener("click", function(){
         let ultimaClase = botonesSig[i].classList[botonesSig[i].classList.length-1];
         if(ultimaClase != "btnApagado"){
             let li = botonesSig[i].previousElementSibling.children;
-            let cantidadDePaginas = Math.ceil(li.length / cardsPorPAgina);
+            let cantidadDePaginas = Math.ceil(li.length / cardsPorPagina);
             let liClaseAcual = li[0].classList[li[0].classList.length-1];
             let paginaActual = parseInt(liClaseAcual.charAt(liClaseAcual.length-1))+1;
 
@@ -31,7 +31,7 @@ for(let i=0;i<botonesAtras.length;i++){
         let ultimaClase = botonesAtras[i].classList[botonesAtras[i].classList.length-1];
         if(ultimaClase != "btnApagado"){
             let li = botonesAtras[i].nextElementSibling.children;
-            let cantidadDePaginas = Math.ceil(li.length / cardsPorPAgina);
+            let cantidadDePaginas = Math.ceil(li.length / cardsPorPagina);
             let liClaseAcual = li[0].classList[li[0].classList.length-1];
             let paginaActual = parseInt(liClaseAcual.charAt(liClaseAcual.length-1))-1;
 
