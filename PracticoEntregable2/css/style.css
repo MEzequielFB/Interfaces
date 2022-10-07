@@ -120,17 +120,28 @@ header { /* header v */
     box-shadow: var(--sombra-1);
     z-index: 1;
 }
-header input, header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
+header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
     display: none;
 }
 header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
     width: 30px;
 }
 header input {
-    padding: 1.5%;
+    position: fixed;
+    top: 80px;
+    left: 14%;
+    width: 70%;
+    padding: 2.5%;
     font-size: 18.6px;
     background: var(--secundario-sombra-1);
     border-radius: 5px;
+    opacity: 0;
+    z-index: -1;
+}
+header input.visible {
+    transition: 0.5s opacity;
+    opacity: 1;
+    z-index: 2;
 }
 header input::placeholder, header input {
     color: var(--secundario-luz-1);
@@ -244,7 +255,7 @@ nav.menu-perfil {
     background: var(--secundario);
     border-radius: 5px;
     box-shadow: var(--sombra-1);
-    z-index: 2;
+    z-index: -1;
 }
 nav.menu-perfil.hero {
     background: var(--secundario-hero);
@@ -252,6 +263,7 @@ nav.menu-perfil.hero {
 nav.menu-perfil.visible {
     transition: opacity 0.6s;
     opacity: 1;
+    z-index: 2;
 }
 nav.menu-perfil.visible ul li {
     cursor: pointer;
@@ -936,6 +948,10 @@ footer.hero > section:last-child > div.redes > a > div {
     header > div:last-child {
         width: 25%;
     }
+    header input {
+        top: 85px;
+        left: 13%;
+    }
     nav.menu { /* menu desplegable v */
         left: -700px;
     }
@@ -975,6 +991,11 @@ footer.hero > section:last-child > div.redes > a > div {
     }
     header input, header > div:last-child > div {
         width: 45%;
+    }
+    header input {
+        position: static;
+        padding: 1.5%;
+        opacity: 1;
     }
     header img.icono-busqueda {
         display: none;
