@@ -109,6 +109,108 @@ button:hover {
 /* main.hero button:hover {
     background-color: var(--acento-hero-sombra-1);
 } */
+/* loader-barra v */
+.loader-barra {
+    display: none;
+    margin: 100px 0px 0px 0px;
+}
+.loader-barra.visible {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+}
+.loader-barra.visible ~ * {
+    display: none;
+}
+/* loader v */
+.loader {
+    width: 16em;
+    height: 8em;
+    position: relative;
+    overflow: hidden;
+}
+
+.loader::before,
+.loader::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+}
+
+.loader::before {
+    width: inherit;
+    height: 0.2em;
+    background-color: hsla(0, 0%, 85%);
+}
+
+.loader::after {
+    box-sizing: border-box;
+    width: 50%;
+    height: inherit;
+    border: 0.2em solid hsla(0, 0%, 85%);
+    border-radius: 50%;
+    left: 25%;
+}
+
+.loader span {
+    position: absolute;
+    width: 5%;
+    height: 10%;
+    background-color: white;
+    border-radius: 50%;
+    bottom: 0.2em;
+    left: -5%;
+    animation: 2s linear infinite;
+    transform-origin: 50% -3em;
+    animation-name: run, rotating;
+}
+
+.loader span:nth-child(2) {animation-delay: 0.075s;}
+.loader span:nth-child(3) {animation-delay: 0.15s;}
+
+@keyframes run {
+    0% {left: -5%;}
+    10%, 60% {left: calc((100% - 5%) / 2);}
+    70%, 100% {left: 100%;}
+}
+
+@keyframes rotating {
+    0%, 10% {transform: rotate(0deg);}
+    60%, 100% {transform: rotate(-1turn);}
+}
+/* barra */
+.barra {
+    background: rgba(255,255,255,0.1);
+    justify-content: flex-start;
+    border-radius: 5px;
+    align-items: center;
+    position: relative;
+    padding: 0 5px;
+    display: flex;
+    height: 40px;
+    width: 500px;
+}
+
+.barra-value {
+    animation: load 5s normal forwards;
+    box-shadow: 0 10px 40px -10px #fff;
+    border-radius: 5px;
+    background: #fff;
+    height: 30px;
+    width: 0;
+}
+
+@keyframes load {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+.barra p {
+    color: var(--blanco);
+    border-right: 2px var(--blanco) solid;
+    margin: 0px 5px 0px 0px;
+    padding: 0px 5px 0px 0px;
+}
 header { /* header v */
     position: sticky;
     top: 0px;
