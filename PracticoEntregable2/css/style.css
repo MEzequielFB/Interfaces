@@ -456,6 +456,31 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
     height: 100px;
     border-radius: 5px;
 }
+.contenedorCards.hero > li { /* cards seccion hero v */
+    width: 220px;
+    height: 500px;
+    text-align: center;
+    background: url(../img/seccion-hero/fondo-personaje.png);
+    background-position: center;
+    background-size: cover;
+    border-radius: 5px;
+}
+.contenedorCards.hero > li > div {
+    width: inherit;
+    height: inherit;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 5px;
+}
+.contenedorCards.hero > li > div > h2, .contenedorCards.hero span {
+    color: var(--acento-hero);
+}
+.contenedorCards.hero > li > div > img {
+    width: 100px;
+    border-radius: 5px;
+}
+.contenedorCards.hero > li > div > p {
+    color: var(--blanco);
+}
 
 /*card de las categorias*/
 .contenedorCards > .cardCarrouselDoble > img {
@@ -961,7 +986,6 @@ section.historia img:last-child {
     padding: 0px 0px 25px 0px;
 }
 section.personajes { /* personajes v */
-    height: 400px;
     padding: 1%;
     text-align: center;
     background: url("../img/seccion-hero/fondo-personajes.png");
@@ -1228,6 +1252,10 @@ footer.hero > section:last-child > div.redes > a > div {
     section.historia img:last-child { /* historia v */
         width: 40%;
     }
+    .contenedorCards.hero > li { /* cards seccion hero v */
+        width: 380px;
+        height: 400px;
+    }
     section.caracteristicas { /* caracteristicas v */
         gap: 13px;
     }
@@ -1389,6 +1417,11 @@ footer.hero > section:last-child > div.redes > a > div {
     article.tiempo-salida p:last-child {
         margin: 0% 0% 0% 7%;
     }
+    .contenedorCards.hero > li { /* cards seccion hero v */
+        width: 365px;
+        height: 480px;
+        padding: 10px 10px 20px 10px;
+    }
     section.caracteristicas { /* caracteristicas v */
         gap: 15px;
     }
@@ -1533,6 +1566,10 @@ footer.hero > section:last-child > div.redes > a > div {
     }
     section.historia img:last-child { /* historia v */
         width: 30%;
+    }
+    .contenedorCards.hero > li { /* cards seccion hero v */
+        width: 360px;
+        padding: 10px 10px 20px 10px;
     }
     section.caracteristicas h1.super { /* caracteristicas v */
         margin: 0% 15%;
