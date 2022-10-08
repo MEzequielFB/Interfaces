@@ -1192,8 +1192,11 @@ footer.hero > section:last-child > div.redes > a > div {
         left: -1050px;
         width: 55%;
     }
-    nav.menu > img:nth-child(2) { /* menu perfil v */
+    nav.menu > img:nth-child(2) { 
         margin: 0% 0% 0% 87.5%;
+    }
+    nav.menu-perfil > ul > li:nth-last-child(2), nav.menu-perfil > ul > li:nth-last-child(3) { /* menu perfil v */
+        display: none;
     }
     main > section.mas-jugados div.cards-mas-jugados { /* Sección más jugados v */
         row-gap: 3px;
