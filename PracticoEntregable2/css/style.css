@@ -948,8 +948,7 @@ section.inicio-hero { /* inicio v */
     justify-content: space-evenly;
     align-items: center;
     height: 400px;
-    margin: -12px 0px -19px 0px;
-    background: url("../img/seccion-hero/Gunfire-Reborn-portrait-1.png");
+    background: url("../img/seccion-hero/fondo-inicio-hero.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1279,7 +1278,6 @@ footer.hero > section:last-child > div.redes > a > div {
     }
     section.inicio-hero { /* inicio v */
         height: 600px;
-        margin: -18px 0px -30px 0px;
     }
     section.inicio-hero button {
         width: 25%;
@@ -1431,11 +1429,12 @@ footer.hero > section:last-child > div.redes > a > div {
         width: 65%;
     }
     section.inicio-hero { /* inicio v */
+        justify-content: space-around;
         height: 700px;
     }
     section.inicio-hero h1 {
         align-self: flex-end;
-        margin: -100px 30px 0px 0px;
+        margin: 0px 30px 0px 0px;
     }
     section.inicio-hero button {
         padding: 1.5%;
@@ -1443,7 +1442,7 @@ footer.hero > section:last-child > div.redes > a > div {
     section.inicio-hero img {
         align-self: flex-start;
         width: 55%;
-        margin: 0px 0px -100px 30px;
+        margin: 0px 0px 0px 30px;
     }
     article.tiempo-salida { /* tiempo de salida v */
         flex-direction: row;
@@ -1583,16 +1582,12 @@ footer.hero > section:last-child > div.redes > a > div {
     section.imagenes-superpuestas img:nth-child(3), section.imagenes-superpuestas img:last-child {
         width: 60%;
     }
-    section.inicio-hero h1 { /* inicio-hero v */
-        margin: -100px 80px 0px 0px;
-    }
-    section.inicio-hero button {
+    section.inicio-hero button { /* inicio-hero v */
         width: 16%;
         padding: 1%;
     }
     section.inicio-hero img {
         width: 45%;
-        margin: 0px 0px -100px 60px;
     }
     article.tiempo-salida { /* tiempo de salida v */
         padding: 2%;
@@ -1678,5 +1673,8 @@ footer.hero > section:last-child > div.redes > a > div {
     }
     section.inicio-hero { /* inicio hero */
         height: 1040px;
+    }
+    section.inicio-hero h1 {
+        margin: 0px 200px 0px 0px;
     }
 }
