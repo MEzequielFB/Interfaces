@@ -9,6 +9,9 @@
     list-style: none;
     text-decoration: none;
 }
+A:visited {
+    color: white;  font-family: arial; text-decoration: none 
+}
 :root { /* Colores */
     --negro-luz-2: #7C7C7C;
     --negro-luz-1: #3E3E3E;
@@ -471,7 +474,7 @@ li > a > .iconosCard>img, li > a > .precioCard, article > div.iconosCard > img, 
     display: none;
 }
 
-/*esto es temporal*/
+/*esto es temporal ?????????*/
 .contenedorTitulo{
     display: none;
 }
