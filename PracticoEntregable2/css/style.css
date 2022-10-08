@@ -448,7 +448,7 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
     margin: 3% 2% 3% 0%;
 }
 
-.contenedorCards > li > img{
+.contenedorCards > li > a > img{
     width: 175px;
     height: 100px;
     border-radius: 5px;
@@ -467,7 +467,7 @@ li.cardCarrouselDoble{
     flex-shrink: 0;
 }
 
-li > .iconosCard>img, li > .precioCard, article > div.iconosCard > img, article > div.precioCard{
+li > a > .iconosCard>img, li > a > .precioCard, article > div.iconosCard > img, article > div.precioCard{
     display: none;
 }
 
@@ -551,20 +551,20 @@ li > .iconosCard>img, li > .precioCard, article > div.iconosCard > img, article 
         position: relative;
     }
 
-    .contenedorCards > li > img{
+    .contenedorCards > li > a > img{
         width: 380px;
         height: 220px;
     }
 
-    li.gratis > .iconosCard>img:first-child, main article.gratis > div.iconosCard > img:first-child{
+    li.gratis > a > .iconosCard>img:first-child, main article.gratis > div.iconosCard > img:first-child{
         display: block;
     }
 
-    li.nuevo > .iconosCard>img:last-child, main article.nuevo > div.iconosCard > img:first-child{
+    li.nuevo > a > .iconosCard>img:last-child, main article.nuevo > div.iconosCard > img:first-child{
         display: block;
     }
 
-    li.pago > .precioCard, main article.pago > div.precioCard{
+    li.pago > a > .precioCard, main article.pago > div.precioCard{
         display: flex;
     }
 
