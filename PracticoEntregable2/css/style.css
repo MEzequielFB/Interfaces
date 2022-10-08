@@ -67,6 +67,7 @@ A:visited {
     /* Sombras */
     --sombra-1: 0px 3px 4px 2px var(--negro-transparente-1);
     --sombra-2: 0px 10px 40px 2px var(--secundario-hero), 0px -10px 40px 5px var(--secundario-hero) inset;
+    --sombra-3: 5px 5px 50px 0px rgba(0, 0, 0, 0.2) inset;
 }
 body {
     background: var(--primario);
@@ -577,6 +578,11 @@ li > a > .iconosCard>img, li > a > .precioCard, article > div.iconosCard > img, 
         width: 80px;
         height: 80px;
         cursor: pointer;
+        transition: box-shadow 0.5s;
+    }
+
+    .btnCarrousel:hover{
+        box-shadow: var(--sombra-3);
     }
 
     .btnCarrouselAtras{
@@ -591,6 +597,14 @@ li > a > .iconosCard>img, li > a > .precioCard, article > div.iconosCard > img, 
     .btnCarrousel.btnApagado{
         background-image: url(../img/Carrousel_flecha_apagada.svg);
         cursor: not-allowed;
+    }
+
+    .btnCarrousel.hero {
+        background-image: url(../img/seccion-hero/carrousel_flecha_hero.svg);
+    }
+
+    .btnCarrousel.btnApagado.hero{
+        background-image: url(../img/seccion-hero/carrousel_flecha_apagada_hero.svg);
     }
 
     .cardCarrouselDoble > img{
