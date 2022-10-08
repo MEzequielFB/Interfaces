@@ -464,12 +464,37 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
     background-position: center;
     background-size: cover;
     border-radius: 5px;
+    cursor: pointer;
 }
-.contenedorCards.hero > li > div {
+.contenedorCards.hero > li:hover { /* cards seccion hero v */
+    box-shadow: var(--sombra-2);
+}
+.contenedorCards.hero > li > ul:first-child {
+    display: none;
+}
+.contenedorCards.hero > li > ul.visible:first-child, .contenedorCards.hero > li > ul.visible:first-child li, .contenedorCards.hero > li > ul.visible:first-child li div {
+    display: flex;
+}
+.contenedorCards.hero > li > ul.visible:first-child {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.contenedorCards.hero > li > ul.visible:first-child li, .contenedorCards.hero > li > ul.visible:first-child li div {
+    align-items: center;
+}
+.contenedorCards.hero > li > ul.visible:first-child li {
+    width: inherit;
+    justify-content: space-between;
+}
+.contenedorCards.hero > li > div, .contenedorCards.hero > li > ul {
     width: inherit;
     height: inherit;
     background: rgba(0, 0, 0, 0.9);
     border-radius: 5px;
+}
+.contenedorCards.hero > li > div.no-visible:nth-child(2) {
+    display: none;
 }
 .contenedorCards.hero > li > div > h2, .contenedorCards.hero span {
     color: var(--acento-hero);
@@ -478,7 +503,7 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
     width: 100px;
     border-radius: 5px;
 }
-.contenedorCards.hero > li > div > p {
+.contenedorCards.hero > li p {
     color: var(--blanco);
 }
 
