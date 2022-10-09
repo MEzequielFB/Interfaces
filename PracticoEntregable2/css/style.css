@@ -541,6 +541,17 @@ li > a > .iconosCard>img, li > a > .precioCard, article > div.iconosCard > img, 
 .contenedorTitulo{
     display: none;
 }
+.contenedorTitulo > p {
+    background-color: var(--secundario-sombra-1);
+    width: 65%;
+    height: 45%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    padding: 1% 0%;
+    border-radius: 5px;
+}
 
 @media (min-width: 700px){
     .carrousel{
@@ -700,15 +711,6 @@ li > a > .iconosCard>img, li > a > .precioCard, article > div.iconosCard > img, 
     .contenedorTitulo > img{
         margin: 0 3%;
     }
-
-    .contenedorTitulo > p{
-        background-color: var(--secundario-sombra-1);
-        width: 65%;
-        text-align: center;
-        padding: 1% 0%;
-        border-radius: 5px;
-    }
-    
     .contenedorTitulo.visible{
         opacity: 0.9;
     }
