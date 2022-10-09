@@ -479,6 +479,11 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
     height: 100px;
     border-radius: 5px;
 }
+/* .contenedorCards > li > a > img{
+    width: 300px;
+    height: 140px;
+    border-radius: 5px;
+}  */
 .contenedorCards.hero > li { /* cards seccion hero v */
     width: 220px;
     height: 500px;
@@ -531,15 +536,16 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
 }
 
 /*card de las categorias*/
-.contenedorCardsCategorias > .cardCarrouselDoble > img {
+/* .contenedorCardsCategorias > .cardCarrouselDoble > img {
     width: 300px;
     height: 230px;
-}
+} */
 
 li.cardCarrouselDoble{
     display: flex;
     flex-direction: column;
-    max-width: 300px;
+    width: 200px;
+    height: fit-content;
     flex-shrink: 0;
 }
 
@@ -661,8 +667,8 @@ li > a > .iconosCard>img, li > a > .precioCard, article > div.iconosCard > img, 
 
     .cardCarrouselDoble > img{
         flex-shrink: 0;
-        width: 300px;
-        height: 230px;
+        /* width: 300px;
+        height: 230px; */
     }
 
     /*Cards*/
@@ -1193,7 +1199,11 @@ footer.hero > section:last-child > div.redes > a > div {
         justify-content: space-evenly;
         row-gap: 20px;
     }
-    
+    /* .contenedorCards > li > a > img{ cards juegos v
+        width: 320px;
+        height: 160px;
+        border-radius: 5px;
+    }  */
     article.juego-detalles > section.comentarios button { /* comentarios v */
         width: 32%;
         padding: 2%;
@@ -1260,6 +1270,17 @@ footer.hero > section:last-child > div.redes > a > div {
     .carrousel > h2:first-child, .carrousel>h2:first-child, .carrousel div:first-child > h2:first-child{ /* carrousel juegos v */
         margin: 0 0 0 12%;
     }
+    /* .contenedorCards > li > a > img{ cards juegos v
+        width: 350px;
+        height: 190px;
+        border-radius: 5px;
+    }  */
+    li.cardCarrouselDoble{ /* categorias v */
+        width: 300px;
+    }
+    .contenedorCardsCategorias > .cardCarrouselDoble > img {
+        height: 230px;
+    } 
     .carrousel div:first-child > button { /* boton ver mas v */
         margin: 0px 0px 0px 20px;
     }
