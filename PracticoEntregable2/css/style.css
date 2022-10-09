@@ -390,7 +390,7 @@ main.inicio {
     color: var(--blanco);
 }
 main > section.mas-jugados { /* Sección más jugados v */
-    padding: 0% 0% 3% 0%;
+    padding: 0% 0% 6% 0%;
     background-image: url("../img/fondo-juegos-1.png");
     background-size: cover;
     height: fit-content;
@@ -410,8 +410,8 @@ main > section.mas-jugados h1 {
     background: var(--secundario-transparente-1);
 }
 main > section.mas-jugados article {
-    width: 175px;
-    height: 100px;
+    width: 300px;
+    height: 140px;
 }
 main > section.mas-jugados article > img {
     width: 100%;
@@ -503,7 +503,96 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
     width: 300px;
     height: 140px;
     border-radius: 5px;
-} 
+}
+.contenedorCards > li, .cards-mas-jugados > article{
+    position: relative;
+}
+
+/* .contenedorCards > li > a > img{
+    width: 380px;
+    height: 220px;
+} */
+
+li.gratis > a > .iconosCard>img:first-child, main article.gratis > div.iconosCard > img:first-child{
+    display: block;
+}
+
+li.nuevo > a > .iconosCard>img:last-child, main article.nuevo > div.iconosCard > img:first-child{
+    display: block;
+}
+
+li.pago > a > .precioCard, main article.pago > div.precioCard{
+    display: flex;
+}
+
+.precioCard, .contenedorTitulo, .iconosCard{
+    position: absolute;
+    padding: 0;
+    align-items:center;
+}
+
+.precioCard{
+    width:48%;
+    height: 30%;
+    right:0;
+    top: 0;
+    justify-content:space-between;
+    border-radius: 0 0 0px 5px;
+    background-color: var(--secundario-sombra-2);
+}
+
+.precioCard > img{
+    width: 46px;
+    height: 45px;
+    margin-left: 7%;
+}
+
+.precioCard > p{
+    margin: 2% 7% 0 0;
+}
+
+.iconosCard{
+    left: 0;
+    top: 0;
+}
+
+.iconosCard{
+    display: flex;
+}
+
+.iconosCard > img{
+    margin:3% 5%;
+}
+
+.contenedorTitulo{
+    bottom: 0;
+    width: 100%;
+    height: 28%;
+    background-color: var(--secundario-sombra-2);
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.9;
+    transition: .15s ease-in-out;
+}
+
+.contenedorTitulo > p {
+    background-color: var(--secundario-sombra-1);
+    width: 65%;
+    height: 45%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    padding: 1% 0% 2% 0%;
+    border-radius: 5px;
+}
+
+.contenedorTitulo > img{
+    margin: 0 3%;
+}
+/* .contenedorTitulo.visible{
+    opacity: 0.9;
+} */
 .contenedorCards.hero > li { /* cards seccion hero v */
     width: 220px;
     height: 500px;
@@ -571,22 +660,6 @@ li.cardCarrouselDoble{
 
 li > a > .iconosCard>img, li > a > .precioCard, article > div.iconosCard > img, article > div.precioCard{
     display: none;
-}
-
-/*esto es temporal ?????????*/
-.contenedorTitulo{
-    display: none;
-}
-.contenedorTitulo > p {
-    background-color: var(--secundario-sombra-1);
-    width: 65%;
-    height: 45%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    text-align: center;
-    padding: 1% 0%;
-    border-radius: 5px;
 }
 
 @media (min-width: 700px){
@@ -673,7 +746,7 @@ li > a > .iconosCard>img, li > a > .precioCard, article > div.iconosCard > img, 
     }
 
     /*Cards*/
-    .contenedorCards > li, .cards-mas-jugados > article{
+    /* .contenedorCards > li, .cards-mas-jugados > article{
         position: relative;
     }
 
@@ -749,7 +822,7 @@ li > a > .iconosCard>img, li > a > .precioCard, article > div.iconosCard > img, 
     }
     .contenedorTitulo.visible{
         opacity: 0.9;
-    }
+    } */
 }
 
 footer { /* Fat Footer */
@@ -1261,7 +1334,10 @@ footer.hero > section:last-child > div.redes > a > div {
     nav.menu-perfil > ul > li:nth-last-child(2), nav.menu-perfil > ul > li:nth-last-child(3) { /* menu perfil v */
         display: none;
     }
-    main > section.mas-jugados div.cards-mas-jugados { /* Sección más jugados v */
+    main > section.mas-jugados { /* Sección más jugados v */
+        padding: 0% 0% 3% 0%;
+    }
+    main > section.mas-jugados div.cards-mas-jugados {
         row-gap: 3px;
     }
     main > section.mas-jugados article {
@@ -1276,6 +1352,13 @@ footer.hero > section:last-child > div.redes > a > div {
         height: 190px;
         border-radius: 5px;
     }  */
+    .contenedorCards > li > a > img{ /* cards juegos v */
+        width: 380px;
+        height: 220px;
+    }
+    .contenedorTitulo > p {
+        padding: 1% 0% 0% 0%;
+    }
     li.cardCarrouselDoble{ /* categorias v */
         width: 300px;
     }
@@ -1448,13 +1531,22 @@ footer.hero > section:last-child > div.redes > a > div {
         -webkit-text-stroke: 3px var(--negro);
     }
     main > section.mas-jugados article {
-        width: 33%;
+        width: 334px;
     }
     main.juego-pagina {
         padding: 0% 1%;
     }
     .carrousel > h2:first-child, .carrousel>h2:first-child, .carrousel div:first-child > h2:first-child{ /* carrousel juegos v */
         margin: 0 0 0 9%;
+    }
+    .contenedorTitulo{
+        opacity: 0;
+    }
+    .contenedorTitulo.visible{
+        opacity: 0.9;
+    }
+    .contenedorTitulo > p { /* cards juegos v */
+        padding: 1% 0%;
     }
     section.breadcrumb, main.hero section.breadcrumb { /* breadcrumb v */
         width: 62%;
@@ -1611,7 +1703,7 @@ footer.hero > section:last-child > div.redes > a > div {
         row-gap: 12px;
     }
     main > section.mas-jugados article {
-        width: 32%;
+        width: 460px;
     }
     .carrousel > h2:first-child, .carrousel>h2:first-child, .carrousel div:first-child > h2:first-child{ /* carrousel juegos v */
         margin: 0 0 0 6.5%;
@@ -1735,7 +1827,7 @@ footer.hero > section:last-child > div.redes > a > div {
         margin: 0% 0% 0% 87.8%;
     }
     main > section.mas-jugados article { /* mas jugados v */
-        width: 25%;
+        width: 470px;
     }
     main > section.mas-jugados div.cards-mas-jugados {
         justify-content: center;
