@@ -412,6 +412,7 @@ main > section.mas-jugados h1 {
 main > section.mas-jugados article {
     width: 300px;
     height: 140px;
+    cursor: pointer;
 }
 main > section.mas-jugados article > img {
     width: 100%;
