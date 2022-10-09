@@ -432,9 +432,21 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
 
 /*Carrousel*/
 
+.carrousel {
+    margin: 15px 0px 0px 0px;
+}
+
+.carrousel.imgs-juego {
+    margin: 0px;
+}
+
 .contenedorCarrousel{
     padding: 5px;
     align-items: center;
+}
+
+.carrousel.imgs-juego .contenedorCarrousel{
+    padding: 0px;
 }
 
 .contenedorCarrousel > .btn{
@@ -532,7 +544,7 @@ li > a > .iconosCard>img, li > a > .precioCard, article > div.iconosCard > img, 
 
 @media (min-width: 700px){
     .carrousel{
-        margin: 0 2% 0 2%;
+        margin: 15px 2% 0 2%;
     }
 
     .carrousel>h2:first-child{
@@ -744,8 +756,8 @@ footer > section:last-child > div.redes > a > div, nav div.redes > a > div {
     box-shadow: var(--sombra-1);
 }
 nav.menu.hero div.redes > a > div {
-    border: 1.5px var(--primario-hero-sombra-1) solid;
-    background: var(--primario-hero);
+    border: 3px var(--primario-hero-luz-1) solid;
+    background: var(--primario-hero-sombra-1);
     box-shadow: var(--sombra-1);
 }
 footer a.footer-logo img {
@@ -1204,6 +1216,9 @@ footer.hero > section:last-child > div.redes > a > div {
         width: 380px;
         height: 220px;
     }
+    .carrousel > h2:first-child{ /* carrousel juegos v */
+        margin: 0 0 0 12%;
+    }
     section.breadcrumb { /* breadcrumb v */
         margin: 3% auto 4% auto;
         font-size: 18.6px;
@@ -1372,6 +1387,9 @@ footer.hero > section:last-child > div.redes > a > div {
     main.juego-pagina {
         padding: 0% 1%;
     }
+    .carrousel > h2:first-child{ /* carrousel juegos v */
+        margin: 0 0 0 9%;
+    }
     section.breadcrumb, main.hero section.breadcrumb { /* breadcrumb v */
         width: 62%;
         margin: 2% 0% 3% 0%;
@@ -1529,6 +1547,9 @@ footer.hero > section:last-child > div.redes > a > div {
     main > section.mas-jugados article {
         width: 32%;
     }
+    .carrousel > h2:first-child{ /* carrousel juegos v */
+        margin: 0 0 0 6.5%;
+    }
     section.breadcrumb, main.hero section.breadcrumb { /* breadcrumb v */
         width: 44%;
     }
@@ -1649,6 +1670,9 @@ footer.hero > section:last-child > div.redes > a > div {
     main > section.mas-jugados div.cards-mas-jugados {
         justify-content: center;
         gap: 50px;
+    }
+    .carrousel > h2:first-child{ /* carrousel juegos v */
+        margin: 0 0 0 5%;
     }
     section.breadcrumb { /* breadcrumb v */
         width: 35%;
