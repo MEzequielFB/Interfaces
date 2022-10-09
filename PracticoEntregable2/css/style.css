@@ -1257,8 +1257,13 @@ footer.hero > section:last-child > div.redes > a > div {
         width: 25%;
     }
     header input {
-        top: 85px;
-        left: 13%;
+        display: block;
+        position: static;
+        width: 40%;
+        opacity: 1;
+    }
+    header .icono-busqueda {
+        display: none;
     }
     nav.menu { /* menu desplegable v */
         left: -700px;
@@ -1304,16 +1309,14 @@ footer.hero > section:last-child > div.redes > a > div {
     header { /* header v */
         padding: 0.8% 2%;
     }
-    header input, header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
+    header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
         display: block;
     }
     header input, header > div:last-child > div {
         width: 45%;
     }
     header input {
-        position: static;
         padding: 1.5%;
-        opacity: 1;
     }
     header img.icono-busqueda {
         display: none;
