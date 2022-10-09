@@ -558,13 +558,32 @@ li > a > .iconosCard>img, li > a > .precioCard, article > div.iconosCard > img, 
     padding: 1% 0%;
     border-radius: 5px;
 }
+.carrousel div:first-child {
+    display: flex;
+    align-items: center;
+}
+.carrousel div:first-child > button {
+    width: 90px;
+    height: 33px;
+    margin: 0px 0px 0px 5px;
+    padding: 0px;
+    background: none;
+    box-shadow: none;
+    color: var(--acento);
+    border: 2px var(--acento) solid;
+    transition: border-color 0.5s, color 0.5s;
+}
+.carrousel div:first-child > button:hover {
+    border-color: var(--acento-luz-2);
+    color: var(--acento-luz-2);
+}
 
 @media (min-width: 700px){
     .carrousel{
         margin: 15px 2% 0 2%;
     }
 
-    .carrousel>h2:first-child{
+    .carrousel>h2:first-child, .carrousel div:first-child > h2:first-child{
         margin: 0 0 0 6.5%;
     }
 
@@ -1156,6 +1175,9 @@ footer.hero > section:last-child > div.redes > a > div {
     nav.menu > img:nth-child(2) { /* menu perfil v */
         margin: 0% 0% 0% 88%
     }
+    .carrousel div:first-child > button { /* boton ver mas v */
+        margin: 0px 0px 0px 10px;
+    }
     main > section.mas-jugados div.cards-mas-jugados { /* Sección más jugados v */
         justify-content: space-evenly;
         row-gap: 20px;
@@ -1224,8 +1246,11 @@ footer.hero > section:last-child > div.redes > a > div {
         width: 380px;
         height: 220px;
     }
-    .carrousel > h2:first-child{ /* carrousel juegos v */
+    .carrousel > h2:first-child, .carrousel>h2:first-child, .carrousel div:first-child > h2:first-child{ /* carrousel juegos v */
         margin: 0 0 0 12%;
+    }
+    .carrousel div:first-child > button { /* boton ver mas v */
+        margin: 0px 0px 0px 20px;
     }
     section.breadcrumb { /* breadcrumb v */
         margin: 3% auto 4% auto;
@@ -1395,7 +1420,7 @@ footer.hero > section:last-child > div.redes > a > div {
     main.juego-pagina {
         padding: 0% 1%;
     }
-    .carrousel > h2:first-child{ /* carrousel juegos v */
+    .carrousel > h2:first-child, .carrousel>h2:first-child, .carrousel div:first-child > h2:first-child{ /* carrousel juegos v */
         margin: 0 0 0 9%;
     }
     section.breadcrumb, main.hero section.breadcrumb { /* breadcrumb v */
@@ -1555,7 +1580,7 @@ footer.hero > section:last-child > div.redes > a > div {
     main > section.mas-jugados article {
         width: 32%;
     }
-    .carrousel > h2:first-child{ /* carrousel juegos v */
+    .carrousel > h2:first-child, .carrousel>h2:first-child, .carrousel div:first-child > h2:first-child{ /* carrousel juegos v */
         margin: 0 0 0 6.5%;
     }
     .carrousel.categorias { /* carrousel categorias v */
@@ -1683,8 +1708,11 @@ footer.hero > section:last-child > div.redes > a > div {
         justify-content: center;
         gap: 50px;
     }
-    .carrousel > h2:first-child{ /* carrousel juegos v */
+    .carrousel > h2:first-child, .carrousel>h2:first-child, .carrousel div:first-child > h2:first-child{ /* carrousel juegos v */
         margin: 0 0 0 5%;
+    }
+    .carrousel.categorias div:first-child > h2:first-child {
+        margin: 0 0 0 6.2%;
     }
     .carrousel.categorias { /* carrousel categorias v */
         width: 75%;
