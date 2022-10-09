@@ -444,6 +444,26 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
     margin: 0px;
 }
 
+.carrousel div:first-child {
+    display: flex;
+    align-items: center;
+}
+.carrousel div:first-child > button {
+    width: 90px;
+    height: 33px;
+    margin: 0px 0px 0px 5px;
+    padding: 0px;
+    background: none;
+    box-shadow: none;
+    color: var(--acento);
+    border: 2px var(--acento) solid;
+    transition: border-color 0.5s, color 0.5s;
+}
+.carrousel div:first-child > button:hover {
+    border-color: var(--acento-luz-2);
+    color: var(--acento-luz-2);
+}
+
 .contenedorCarrousel{
     padding: 5px;
     align-items: center;
@@ -474,16 +494,16 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
     margin: 3% 0.5% 3% 0%;
 }
 
-.contenedorCards > li > a > img{
+/* .contenedorCards > li > a > img{
     width: 175px;
     height: 100px;
     border-radius: 5px;
-}
-/* .contenedorCards > li > a > img{
+} */
+.contenedorCards > li > a > img{
     width: 300px;
     height: 140px;
     border-radius: 5px;
-}  */
+} 
 .contenedorCards.hero > li { /* cards seccion hero v */
     width: 220px;
     height: 500px;
@@ -567,25 +587,6 @@ li > a > .iconosCard>img, li > a > .precioCard, article > div.iconosCard > img, 
     text-align: center;
     padding: 1% 0%;
     border-radius: 5px;
-}
-.carrousel div:first-child {
-    display: flex;
-    align-items: center;
-}
-.carrousel div:first-child > button {
-    width: 90px;
-    height: 33px;
-    margin: 0px 0px 0px 5px;
-    padding: 0px;
-    background: none;
-    box-shadow: none;
-    color: var(--acento);
-    border: 2px var(--acento) solid;
-    transition: border-color 0.5s, color 0.5s;
-}
-.carrousel div:first-child > button:hover {
-    border-color: var(--acento-luz-2);
-    color: var(--acento-luz-2);
 }
 
 @media (min-width: 700px){
