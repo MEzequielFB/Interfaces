@@ -435,6 +435,9 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
 .carrousel {
     margin: 15px 0px 0px 0px;
 }
+.carrousel.categorias {
+    margin: 50px 0px 50px 0px;
+}
 
 .carrousel.imgs-juego {
     margin: 0px;
@@ -453,7 +456,7 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
     display: none;
 }
 
-.contenedorCards{
+.contenedorCards, .contenedorCardsCategorias{
     display: flex;
     overflow: auto;
     border-radius: 15px;
@@ -462,6 +465,9 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
 /*Cards*/
 .contenedorCards > li{
     margin: 3% 2% 3% 0%;
+}
+.contenedorCardsCategorias > li{
+    margin: 3% 0.5% 3% 0%;
 }
 
 .contenedorCards > li > a > img{
@@ -521,7 +527,7 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
 }
 
 /*card de las categorias*/
-.contenedorCards > .cardCarrouselDoble > img {
+.contenedorCardsCategorias > .cardCarrouselDoble > img {
     width: 300px;
     height: 230px;
 }
@@ -572,25 +578,25 @@ li > a > .iconosCard>img, li > a > .precioCard, article > div.iconosCard > img, 
         display: flex;
     }
 
-    .contenedorCards{
+    .contenedorCards, .contenedorCardsCategorias{
         margin: 0 5px 0 5px;
         overflow: hidden;
     }
 
-    .contenedorCards > li{
+    .contenedorCards > li, .contenedorCardsCategorias > li{
         margin: 1% 1% 1% 0%;
         transition: .5s ease-in-out;
     }
 
-    .contenedorCards > li.pagina2{
+    .contenedorCards > li.pagina2, .contenedorCardsCategorias > li.pagina2{
         transform: translate(0px);
     }
 
-    .contenedorCards > li.pagina2{
+    .contenedorCards > li.pagina2, .contenedorCardsCategorias > li.pagina2{
         transform: translate(-1175px);
     }
 
-    .contenedorCards > li.pagina3{
+    .contenedorCards > li.pagina3, .contenedorCardsCategorias > li.pagina3{
         transform: translate(-2350px);
     }
     /* si hace falta hacer un "pagina4, 5, 6, etc" el valor del translate es (valor de la pagina anterior) - 1175 
@@ -1552,6 +1558,10 @@ footer.hero > section:last-child > div.redes > a > div {
     .carrousel > h2:first-child{ /* carrousel juegos v */
         margin: 0 0 0 6.5%;
     }
+    .carrousel.categorias { /* carrousel categorias v */
+        width: 95%;
+        margin: 50px auto 50px auto;
+    }
     section.breadcrumb, main.hero section.breadcrumb { /* breadcrumb v */
         width: 44%;
     }
@@ -1675,6 +1685,9 @@ footer.hero > section:last-child > div.redes > a > div {
     }
     .carrousel > h2:first-child{ /* carrousel juegos v */
         margin: 0 0 0 5%;
+    }
+    .carrousel.categorias { /* carrousel categorias v */
+        width: 75%;
     }
     section.breadcrumb { /* breadcrumb v */
         width: 35%;
