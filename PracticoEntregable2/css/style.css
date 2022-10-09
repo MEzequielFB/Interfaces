@@ -220,6 +220,7 @@ header { /* header v */
 }
 header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
     display: none;
+    cursor: pointer;
 }
 header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
     width: 30px;
@@ -463,6 +464,9 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
 }
 
 /*Cards*/
+.contenedorCards > li, .contenedorCardsCategorias > li {
+    cursor: pointer;
+}
 .contenedorCards > li{
     margin: 3% 2% 3% 0%;
 }
@@ -842,6 +846,7 @@ article.juego > div > button {
 article.juego + img { /* icono compartir */
     width: 10%;
     margin: 2% 0% 0% 0%;
+    cursor: pointer;
 }
 article.juego-detalles { /* detalles-juego v */
     margin: 10% 0%;
@@ -860,6 +865,7 @@ article.juego-detalles > section.controles p:last-child {
 }
 article.juego-detalles > section.tutorial img { /* tutorial v */
     width: 90%;
+    cursor: pointer;
 }
 article.juego-detalles > section.comentarios form { /* Comentarios */
     display: flex;
@@ -912,15 +918,20 @@ article.juego-detalles > section.comentarios article > img.comentario-opciones {
     position: absolute;
     top: 20px;
     right: 1%;
+    cursor: pointer;
 }
 article.juego-detalles > section.comentarios article > div:last-child {
     display: flex;
+}
+article.juego-detalles > section.comentarios article > div:last-child img {
+    cursor: pointer;
 }
 article.juego-detalles > section.comentarios article > p.comentario-btn-responder {
     position: absolute;
     bottom: 0px;
     right: 1%;
     color: var(--primario-luz-2);
+    cursor: pointer;
 }
 article.juego-detalles > section.comentarios article.comentario-respuesta {
     margin: 0% 0% 10% 5%;
