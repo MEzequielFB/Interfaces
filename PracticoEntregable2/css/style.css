@@ -1540,6 +1540,7 @@ section.informacion div p:last-child img {
         width: 30%;
     }
     section.caracteristicas h1.super {
+        margin: 0% 12%;
         font-size: 128px;
     }
     section.caracteristicas article > div {
@@ -1568,6 +1569,20 @@ section.informacion div p:last-child img {
     }
     footer > section:last-child > div.redes {
         justify-content: space-between;
+    }
+}
+@media only screen and (min-width: 1280px) {
+
+    section.imagenes-superpuestas { /* imagenes superpuestas v */
+        height: 750px;
+    }
+    section.imagenes-superpuestas img:nth-child(2) {
+        width: 35%;
+        left: 33%;
+        top: 8%;
+    }
+    section.imagenes-superpuestas img:nth-child(3), section.imagenes-superpuestas img:last-child {
+        width: 61%;
     }
 }
 @media only screen and (min-width: 1440px) {
