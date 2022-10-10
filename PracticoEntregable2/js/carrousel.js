@@ -1,6 +1,6 @@
 let botonesSig = document.querySelectorAll('.btnCarrouselSig');
 let botonesAtras= document.querySelectorAll('.btnCarrouselAtras');
-const cardsPorPagina = 3;// numero de cards por pagina, si el numero de cards cambia en el dom, debemos cambiarlo manualmente aca
+const cardsPorPagina = 2;// numero de cards por pagina, si el numero de cards cambia en el dom, debemos cambiarlo manualmente aca
 
 for(let i=0;i<botonesSig.length;i++){
     botonesSig[i].addEventListener("click", function(){

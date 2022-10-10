@@ -426,25 +426,20 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
 ::-webkit-scrollbar {
     display: none;
 }
-
 /*esto no funciona en firefox */
 ::-moz-scrollbar {
     display: none;
-}    
-
+}
 /*Carrousel*/
-
 .carrousel {
     margin: 15px 0px 0px 0px;
 }
 .carrousel.categorias {
     margin: 50px 0px 50px 0px;
 }
-
 .carrousel.imgs-juego {
     margin: 0px;
 }
-
 .carrousel div:first-child {
     display: flex;
     align-items: center;
@@ -464,75 +459,63 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
     border-color: var(--acento-luz-2);
     color: var(--acento-luz-2);
 }
-
 .contenedorCarrousel{
     padding: 5px;
     align-items: center;
 }
-
 .carrousel.imgs-juego .contenedorCarrousel{
     padding: 0px;
 }
-
 .contenedorCarrousel > .btn{
     display: none;
 }
-
 .contenedorCards, .contenedorCardsCategorias{
     display: flex;
     overflow: auto;
     border-radius: 15px;
 }
-
 /*Cards*/
 .contenedorCards > li, .contenedorCardsCategorias > li {
     cursor: pointer;
 }
-.contenedorCards > li{
+.contenedorCards > li {
     margin: 3% 2% 3% 0%;
 }
-.contenedorCardsCategorias > li{
+.contenedorCardsCategorias > li {
     margin: 3% 0.5% 3% 0%;
 }
-
 /* .contenedorCards > li > a > img{
     width: 175px;
     height: 100px;
     border-radius: 5px;
 } */
-.contenedorCards > li > a > img{
+.contenedorCards > li > a > img {
     width: 300px;
     height: 140px;
     border-radius: 5px;
 }
-.contenedorCards > li, .cards-mas-jugados > article{
+.contenedorCards > li, .cards-mas-jugados > article {
     position: relative;
 }
-
 /* .contenedorCards > li > a > img{
     width: 380px;
     height: 220px;
 } */
-
-li.gratis > a > .iconosCard>img:first-child, main article.gratis > div.iconosCard > img:first-child{
+li.gratis > a > .iconosCard>img:first-child, main article.gratis > div.iconosCard > img:first-child {
     display: block;
 }
-
-li.nuevo > a > .iconosCard>img:last-child, main article.nuevo > div.iconosCard > img:first-child{
+li.nuevo > a > .iconosCard>img:last-child, main article.nuevo > div.iconosCard > img:first-child {
     display: block;
 }
-
-li.pago > a > .precioCard, main article.pago > div.precioCard{
+li.pago > a > .precioCard, main article.pago > div.precioCard {
     display: flex;
 }
-
-.precioCard, .contenedorTitulo, .iconosCard{
+.precioCard, .contenedorTitulo, .iconosCard {
     position: absolute;
     padding: 0;
     align-items:center;
 }
-
-.precioCard{
+.precioCard {
     width:48%;
     height: 30%;
     right:0;
@@ -541,31 +524,25 @@ li.pago > a > .precioCard, main article.pago > div.precioCard{
     border-radius: 0 0 0px 5px;
     background-color: var(--secundario-sombra-2);
 }
-
-.precioCard > img{
+.precioCard > img {
     width: 46px;
     height: 45px;
     margin-left: 7%;
 }
-
-.precioCard > p{
+.precioCard > p {
     margin: 2% 7% 0 0;
 }
-
-.iconosCard{
+.iconosCard {
     left: 0;
     top: 0;
 }
-
-.iconosCard{
+.iconosCard {
     display: flex;
 }
-
-.iconosCard > img{
+.iconosCard > img {
     margin:3% 5%;
 }
-
-.contenedorTitulo{
+.contenedorTitulo {
     bottom: 0;
     width: 100%;
     height: 28%;
@@ -575,7 +552,6 @@ li.pago > a > .precioCard, main article.pago > div.precioCard{
     opacity: 0.9;
     transition: .15s ease-in-out;
 }
-
 .contenedorTitulo > p {
     background-color: var(--secundario-sombra-1);
     width: 65%;
@@ -587,8 +563,7 @@ li.pago > a > .precioCard, main article.pago > div.precioCard{
     padding: 1% 0% 2% 0%;
     border-radius: 5px;
 }
-
-.contenedorTitulo > img{
+.contenedorTitulo > img {
     margin: 0 3%;
 }
 /* .contenedorTitulo.visible{
@@ -644,188 +619,21 @@ li.pago > a > .precioCard, main article.pago > div.precioCard{
 .contenedorCards.hero > li p {
     color: var(--blanco);
 }
-
 /*card de las categorias*/
 /* .contenedorCardsCategorias > .cardCarrouselDoble > img {
     width: 300px;
     height: 230px;
 } */
-
-li.cardCarrouselDoble{
+li.cardCarrouselDoble {
     display: flex;
     flex-direction: column;
     width: 200px;
     height: fit-content;
     flex-shrink: 0;
 }
-
-li > a > .iconosCard>img, li > a > .precioCard, article > div.iconosCard > img, article > div.precioCard{
+li > a > .iconosCard>img, li > a > .precioCard, article > div.iconosCard > img, article > div.precioCard {
     display: none;
 }
-
-@media (min-width: 700px){
-    .carrousel{
-        margin: 15px 2% 0 2%;
-    }
-
-    .carrousel>h2:first-child, .carrousel div:first-child > h2:first-child{
-        margin: 0 0 0 6.5%;
-    }
-
-    .contenedorCarrousel{
-        padding: 5px;
-        align-items: center;
-        display: flex;
-    }
-
-    .contenedorCarrousel > .btn{
-        display: flex;
-    }
-
-    .contenedorCards, .contenedorCardsCategorias{
-        margin: 0 5px 0 5px;
-        overflow: hidden;
-    }
-
-    .contenedorCards > li, .contenedorCardsCategorias > li{
-        margin: 1% 1% 1% 0%;
-        transition: .5s ease-in-out;
-    }
-
-    .contenedorCards > li.pagina2, .contenedorCardsCategorias > li.pagina2{
-        transform: translate(0px);
-    }
-
-    .contenedorCards > li.pagina2, .contenedorCardsCategorias > li.pagina2{
-        transform: translate(-1175px);
-    }
-
-    .contenedorCards > li.pagina3, .contenedorCardsCategorias > li.pagina3{
-        transform: translate(-2350px);
-    }
-    /* si hace falta hacer un "pagina4, 5, 6, etc" el valor del translate es (valor de la pagina anterior) - 1175 
-    (1175 es el ancho de 3 cards + margin) */
-    
-    .btnCarrousel{
-        flex-shrink: 0;
-        width: 80px;
-        height: 80px;
-        cursor: pointer;
-        transition: box-shadow 0.5s;
-    }
-
-    .btnCarrousel:hover{
-        box-shadow: var(--sombra-3);
-    }
-
-    .btnCarrouselAtras{
-        background-image: url(../img/Carrousel_Flecha.svg);
-    }
-    
-    .btnCarrouselSig{
-        background-image: url(../img/Carrousel_Flecha.svg);
-        transform: rotate(180deg);
-    }
-    
-    .btnCarrousel.btnApagado{
-        background-image: url(../img/Carrousel_flecha_apagada.svg);
-        cursor: not-allowed;
-    }
-
-    .btnCarrousel.hero {
-        background-image: url(../img/seccion-hero/carrousel_flecha_hero.svg);
-    }
-
-    .btnCarrousel.btnApagado.hero{
-        background-image: url(../img/seccion-hero/carrousel_flecha_apagada_hero.svg);
-    }
-
-    .cardCarrouselDoble > img{
-        flex-shrink: 0;
-        /* width: 300px;
-        height: 230px; */
-    }
-
-    /*Cards*/
-    /* .contenedorCards > li, .cards-mas-jugados > article{
-        position: relative;
-    }
-
-    .contenedorCards > li > a > img{
-        width: 380px;
-        height: 220px;
-    }
-
-    li.gratis > a > .iconosCard>img:first-child, main article.gratis > div.iconosCard > img:first-child{
-        display: block;
-    }
-
-    li.nuevo > a > .iconosCard>img:last-child, main article.nuevo > div.iconosCard > img:first-child{
-        display: block;
-    }
-
-    li.pago > a > .precioCard, main article.pago > div.precioCard{
-        display: flex;
-    }
-
-    .precioCard, .contenedorTitulo, .iconosCard{
-        position: absolute;
-        padding: 0;
-        align-items:center;
-    }
-
-    .precioCard{
-        width:48%;
-        height: 30%;
-        right:0;
-        top: 0;
-        justify-content:space-between;
-        border-radius: 0 0 0px 5px;
-        background-color: var(--secundario-sombra-2);
-    }
-
-    .precioCard > img{
-        width: 46px;
-        height: 45px;
-        margin-left: 7%;
-    }
-
-    .precioCard > p{
-        margin: 2% 7% 0 0;
-    }
-
-    .iconosCard{
-        left: 0;
-        top: 0;
-    }
-    
-    .iconosCard{
-        display: flex;
-    }
-
-    .iconosCard > img{
-        margin:3% 5%;
-    }
-
-    .contenedorTitulo{
-        bottom: 0;
-        width: 100%;
-        height: 28%;
-        background-color: var(--secundario-sombra-2);
-        display: flex;
-        justify-content: space-between;
-        opacity: 0;
-        transition: .15s ease-in-out;
-    }
-
-    .contenedorTitulo > img{
-        margin: 0 3%;
-    }
-    .contenedorTitulo.visible{
-        opacity: 0.9;
-    } */
-}
-
 footer { /* Fat Footer */
     display: flex;
     flex-direction: column;
@@ -1302,6 +1110,31 @@ footer.hero > section:last-child > div.redes > a > div {
         padding: 0% 0% 6.3% 0%;
     }
 }
+@media (min-width: 700px){
+    .carrousel {
+        margin: 15px 2% 0 2%;
+    }
+    .carrousel>h2:first-child, .carrousel div:first-child > h2:first-child {
+        margin: 0 0 0 6.5%;
+    }
+    .contenedorCarrousel {
+        padding: 5px;
+        align-items: center;
+        display: flex;
+    }
+    .contenedorCarrousel > .btn {
+        display: flex;
+    }
+    .contenedorCards, .contenedorCardsCategorias {
+        margin: 0 5px 0 5px;
+    }
+    .contenedorCards > li, .contenedorCardsCategorias > li {
+        margin: 1% 1% 1% 0%;
+    }
+    .cardCarrouselDoble > img {
+        flex-shrink: 0;
+    }
+}
 @media only screen and (min-width: 768px) {
 
     .barra { /* barra de carga v */
@@ -1349,7 +1182,7 @@ footer.hero > section:last-child > div.redes > a > div {
         height: 220px;
     }
     .carrousel > h2:first-child, .carrousel>h2:first-child, .carrousel div:first-child > h2:first-child{ /* carrousel juegos v */
-        margin: 0 0 0 12%;
+        margin: 0 0 0 1.5%;
     }
     /* .contenedorCards > li > a > img{ cards juegos v
         width: 350px;
@@ -1548,6 +1381,56 @@ footer.hero > section:last-child > div.redes > a > div {
     }
     .contenedorTitulo.visible{
         opacity: 0.9;
+    }
+    .contenedorCards, .contenedorCardsCategorias{
+        overflow: hidden;
+    }
+    .contenedorCards > li, .contenedorCardsCategorias > li{
+        transition: .5s ease-in-out;
+    }
+    .contenedorCards > li.pagina2, .contenedorCardsCategorias > li.pagina2{
+        transform: translate(0px);
+    }
+    .contenedorCards > li.pagina2, .contenedorCardsCategorias > li.pagina2{
+        /* transform: translate(-1175px); */
+        transform: translate(-765px);
+    }
+    .contenedorCards > li.pagina3, .contenedorCardsCategorias > li.pagina3{
+        /* transform: translate(-2350px); */
+        transform: translate(-1540px);
+    }
+    .contenedorCards > li.pagina4, .contenedorCardsCategorias > li.pagina4{
+        transform: translate(-2350px);
+    }
+    /* si hace falta hacer un "pagina4, 5, 6, etc" el valor del translate es (valor de la pagina anterior) - 1175 
+    (1175 es el ancho de 3 cards + margin) */
+
+    .btnCarrousel{ /* btns carrusel v */
+        flex-shrink: 0;
+        width: 80px;
+        height: 80px;
+        cursor: pointer;
+        transition: box-shadow 0.5s;
+    }
+    .btnCarrousel:hover{
+        box-shadow: var(--sombra-3);
+    }
+    .btnCarrouselAtras{
+        background-image: url(../img/Carrousel_Flecha.svg);
+    }
+    .btnCarrouselSig{
+        background-image: url(../img/Carrousel_Flecha.svg);
+        transform: rotate(180deg);
+    }
+    .btnCarrousel.btnApagado{
+        background-image: url(../img/Carrousel_flecha_apagada.svg);
+        cursor: not-allowed;
+    }
+    .btnCarrousel.hero {
+        background-image: url(../img/seccion-hero/carrousel_flecha_hero.svg);
+    }
+    .btnCarrousel.btnApagado.hero{
+        background-image: url(../img/seccion-hero/carrousel_flecha_apagada_hero.svg);
     }
     .contenedorTitulo > p { /* cards juegos v */
         padding: 1% 0%;
