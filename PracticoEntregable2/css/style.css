@@ -9,9 +9,6 @@
     list-style: none;
     text-decoration: none;
 }
-A:visited {
-    color: white;  font-family: arial; text-decoration: none 
-}
 :root { /* Colores */
     --negro-luz-2: #7C7C7C;
     --negro-luz-1: #3E3E3E;
@@ -489,6 +486,9 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
     height: 100px;
     border-radius: 5px;
 } */
+.contenedorCards > li > a:visited {
+    color: var(--blanco);
+}
 .contenedorCards > li > a > img {
     width: 300px;
     height: 140px;
@@ -644,7 +644,11 @@ footer { /* Fat Footer */
 footer > section {
     margin: 0% 0% 8% 0%;
 }
-footer > section > p {
+footer > section a:visited, footer > section a {
+    color: var(--secundario-sombra-2);
+}
+footer > section p {
+    width: fit-content;
     margin: 0px 0px 5px 0px;
 }
 footer > section > p:last-child {
@@ -683,6 +687,17 @@ nav.menu.hero div.redes > a > div {
 footer a.footer-logo img {
     width: 246px;
     margin: 0% 0% 8% 0%;
+}
+footer.hero {
+    color: var(--primario-hero-luz-1);
+    background: var(--primario-hero-sombra-1);
+}
+footer.hero > section a:visited, footer.hero > section a {
+    color: var(--primario-hero-luz-1);
+}
+footer.hero > section:last-child > div.redes > a > div {
+    border-color: var(--primario-hero-luz-1);
+    background: var(--primario-hero-sombra-1);
 }
 /* /Footer */
 /* 4 en linea */
@@ -1044,14 +1059,6 @@ section.informacion div p:nth-child(2) img {
 }
 section.informacion div p:last-child img {
     width: 25%;
-}
-footer.hero { /* footer v */
-    color: var(--primario-hero-luz-1);
-    background: var(--primario-hero-sombra-1);
-}
-footer.hero > section:last-child > div.redes > a > div {
-    border-color: var(--primario-hero-luz-1);
-    background: var(--primario-hero-sombra-1);
 }
 /* /proximo lanzamiento */
 @media only screen and (min-width: 400px) {
