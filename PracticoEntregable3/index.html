@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Muchos Juegos</title>
+</head>
+<body>
+    <div class="loader-barra visible">
+        <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="barra">
+            <p><span class="porcentaje-progreso"></span>%</p>
+            <div class="barra-value"></div>
+        </div>
+    </div>
+    <header> <!-- Carrito y notificaciones en el menú desplegable del usuario en mobile -->
+        <div>
+            <img src="img/Icono menu v2.svg" alt="Menú hamburguesa" class="icono-menu-hamburguesa">
+            <a href="./index.html"><img src="img/Logo.svg" alt="Logo" class="header-logo"></a>
+        </div>
+
+        <input type="text" name="busqueda-input" id="busqueda-input" class="busqueda-input" placeholder="Buscá un juego">
+        <img src="img/Icono busqueda v2.svg" alt="Icono de búsqueda" class="icono-busqueda">
+
+        <div>
+            <img src="img/Icono carrito v2.svg" alt="Icono de carrito" class="icono-carrito">
+            <img src="img/Icono campana v3.svg" alt="Icono notificación" class="icono-campana">
+
+            <div class="perfil-header">
+                <img src="img/perfil-img/doom-perfil.png" alt="Foto de perfil">
+                <img src="img/Flecha menú perfil.svg" alt="Flecha del menú del perfil">
+            </div>
+        </div>
+    </header>
+    <nav class="menu">
+        <img src="./img/fondo-juegos v4.png" alt="Imagen de fondo">
+        <img src="./img/Icono cruz.svg" alt="Icono cruz" class="cruz-menu">
+        <ul>
+            <a href="./index.html"><li><img src="./img/Icono home.svg" alt="Icono home">Inicio</li></a>
+            <li><img src="./img/Icono gratis menu.svg" alt="Icono gratis">Juegos gratis</li>
+            <li><img src="./img/Icono nuevo menu.svg" alt="Icono nuevo">Juego nuevos</li>
+            <li><img src="./img/Icono premium.svg" alt="Icono premium">Juego premium</li>
+            <li><img src="./img/Icono estrella llena.svg" alt="Icono estrella">Favoritos</li>
+            <li><img src="./img/Icono reloj.svg" alt="Icono reloj">Jugados recientemente</li>
+            <li><img src="./img/Icono categorias.svg" alt="Icono categorias">Categorías</li>
+            <a href="./proximo-lanzamiento.html"><li><img src="./img/Icono lanzamiento.svg" alt="Icono proximo lanzamiento"> Próximo lanzamiento</li></a>
+        </ul>
+        <div class="redes">
+            <a href="https://twitter.com/?lang=es" target="_blank">
+                <div>
+                    <img src="./img/Icono twitter.svg" alt="Icono de twitter">
+                </div> 
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <div>
+                    <img src="./img/Icono instagram.svg" alt="Icono de twitter">
+                </div> 
+            </a>
+            <a href="https://www.facebook.com/" target="_blank">
+                <div>
+                    <img src="./img/Icono facebook.svg" alt="Icono de twitter">
+                </div> 
+            </a>
+        </div>
+    </nav>
+    <nav class="menu-perfil">
+        <ul>
+            <li>Perfil</li>
+            <li>Cuenta</li>
+            <li>Amigos</li>
+            <li>Notificaciones</li>
+            <li>Carrito</li>
+            <li>Cerrar sesión</li>
+        </ul>
+    </nav>
+    <main class="inicio">
+        <section class="mas-jugados">
+            <h1 class="super">Más jugados</h1>
+            <div class="cards-mas-jugados">
+                <article class="pago nuevo">
+                    <img src="./img/juegos-img/geometry-dash-v2.webp" alt="Portada geometry-dash">
+                        <div class="iconosCard">
+                            <img src="./img/Icono gratis.svg" alt="">
+                            <img src="./img/Icono Nuevo.svg" alt="">
+                        </div>
+                        <div class="precioCard">
+                            <img src="./img/Icono corona.svg" alt="">
+                            <p>$112</p>
+                        </div>
+                        <div class="contenedorTitulo">
+                            <img src="./img/Icono carrito card.svg" alt="">
+                            <p>Geometry Dash</p>
+                            <img src="./img/Icono estrella vacía.svg" alt="">
+                        </div>
+                </article>
+                <article class="pago nuevo">
+                    <img src="./img/juegos-img/hades.webp" alt="Portada hades">
+                    <div class="iconosCard">
+                        <img src="./img/Icono gratis.svg" alt="">
+                        <img src="./img/Icono Nuevo.svg" alt="">
+                    </div>
+                    <div class="precioCard">
+                        <img src="./img/Icono corona.svg" alt="">
+                        <p>$2124</p>
+                    </div>
+                    <div class="contenedorTitulo">
+                        <img src="./img/Icono carrito card.svg" alt="">
+                        <p>Hades</p>
+                        <img src="./img/Icono estrella vacía.svg" alt="">
+                    </div>
+                </article>
+                <article class="gratis">
+                    <img src="./img/juegos-img/minecraft.jpg" alt="Portada minecraft">
+                    <div class="iconosCard">
+                        <img src="./img/Icono gratis.svg" alt="">
+                        <img src="./img/Icono Nuevo.svg" alt="">
+                    </div>
+                    <div class="precioCard">
+                        <img src="./img/Icono corona.svg" alt="">
+                        <p>$3057</p>
+                    </div>
+                    <div class="contenedorTitulo">
+                        <img src="./img/Icono carrito card.svg" alt="">
+                        <p>Minecraft</p>
+                        <img src="./img/Icono estrella vacía.svg" alt="">
+                    </div>
+                </article>
+                <article class="pago nuevo">
+                    <img src="./img/juegos-img/fnaf.jpg" alt="Portada five night's at freddys">
+                    <div class="iconosCard">
+                        <img src="./img/Icono gratis.svg" alt="">
+                        <img src="./img/Icono Nuevo.svg" alt="">
+                    </div>
+                    <div class="precioCard">
+                        <img src="./img/Icono corona.svg" alt="">
+                        <p>$1100</p>
+                    </div>
+                    <div class="contenedorTitulo">
+                        <img src="./img/Icono carrito card.svg" alt="">
+                        <p>Five Nights At Freddys</p>
+                        <img src="./img/Icono estrella vacía.svg" alt="">
+                    </div>
+                </article>
+                <article class="pago nuevo">
+                    <img src="./img/juegos-img/among-us.jpg" alt="Portada among us">
+                    <div class="iconosCard">
+                        <img src="./img/Icono gratis.svg" alt="">
+                        <img src="./img/Icono Nuevo.svg" alt="">
+                    </div>
+                    <div class="precioCard">
+                        <img src="./img/Icono corona.svg" alt="">
+                        <p>$224</p>
+                    </div>
+                    <div class="contenedorTitulo">
+                        <img src="./img/Icono carrito card.svg" alt="">
+                        <p>Among us</p>
+                        <img src="./img/Icono estrella vacía.svg" alt="">
+                    </div>
+                </article>
+                <article class="pago nuevo">
+                    <img src="./img/juegos-img/poppy-playtime.jpg" alt="Portada poppy playtime">
+                    <div class="iconosCard">
+                        <img src="./img/Icono gratis.svg" alt="">
+                        <img src="./img/Icono Nuevo.svg" alt="">
+                    </div>
+                    <div class="precioCard">
+                        <img src="./img/Icono corona.svg" alt="">
+                        <p>$1500</p>
+                    </div>
+                    <div class="contenedorTitulo">
+                        <img src="./img/Icono carrito card.svg" alt="">
+                        <p>Poppy Playtime</p>
+                        <img src="./img/Icono estrella vacía.svg" alt="">
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <div class="carrousel">
+            <div>
+                <h2 class="bold">Recomendado para vos</h2>
+                <button>Ver más</button>
+            </div>
+            <div class="contenedorCarrousel">
+                <div class="btnCarrousel btnCarrouselAtras btnApagado"></div>
+                <ul class="contenedorCards">
+                    <!--Es importante que la ultima clase de <li> siempre sea "pagina1"
+                        las demas clases que puede tomar <li> son:
+                            - .pago
+                            - .nuevo
+                            - .gratis -->
+                    <li class="gratis nuevo pagina1">
+                        <a href="./4-en-linea.html">
+                            <img src="img/juegos-img/recomendado/ff-tactics-advance-imagen-portada2.jpg" alt="final fantasy">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Final Fantasy Tactics in Line</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/recomendado/street_fighter.jpg" alt="street fighters">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$224</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Street Fighter V</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nuevo pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/recomendado/cuphead.jpg" alt="cuphead">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$560</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Cuphead</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nuevo gratis pagina1">
+                        <a>
+                            <img src="img/juegos-img/recomendado/fireboy.jpg" alt="fireboy and watergirl">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Fireboy and Watergirl</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nuevo gratis pagina1">
+                        <a>
+                            <img src="img/juegos-img/recomendado/bomberman.jpg" alt="bomberman">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Bomberman Deluxe</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/recomendado/metro_last.jpg" alt="metro last light">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$540</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Metro Last Light</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/recomendado/stalker.jpg" alt="stalker">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$360</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Stalker Call of Pripyat</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="gratis pagina1">
+                        <a>
+                            <img src="img/juegos-img/recomendado/brawlhalla.jpg" alt="brawlhalla">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Brawlhalla</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="btnCarrousel btnCarrouselSig"></div>
+            </div>
+        </div>
+
+        <div class="carrousel">
+            <div>
+                <h2 class="bold">Juegos de acción</h2>
+                <button>Ver más</button>
+            </div>
+            <div class="contenedorCarrousel">
+                <div class="btnCarrousel btnCarrouselAtras btnApagado"></div>
+                <ul class="contenedorCards">
+                    <li class="pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/accion/superhot.jpg" alt="superhot">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$1124</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Superhot</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="pago nuevo pagina1">
+                        <a>
+                            <img src="img/juegos-img/accion/tombraider.jpg" alt="tomb raider">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$4200</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Shadow of the Tomb Raider</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/accion/TMNT.jpg" alt="tortugas ninja">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$800</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Tortugas ninja Shreddder's revenge</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="gratis pagina1">
+                        <a>
+                            <img src="img/juegos-img/accion/worloftanks.jpg" alt="world of tanks">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>World of Tanks</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="gratis nuevo pagina1">
+                        <a>
+                            <img src="img/juegos-img/accion/stickman.jpg" alt="stickman">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Stickman Infinity</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="gratis pagina1">
+                        <a>
+                            <img src="img/juegos-img/accion/superfighters.png" alt="superfighters">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Superfighters</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/accion/rivalsofaether.jpg" alt="rivals of aether">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$330</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Rivals of Aether</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/accion/godofwar.jpeg" alt="god of war">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$2985</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>God of War</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="btnCarrousel btnCarrouselSig"></div>
+            </div>
+        </div>
+
+        <div class="carrousel">
+            <div>
+                <h2 class="bold">Juegos de plataforma</h2>
+                <button>Ver más</button>
+            </div>
+            <div class="contenedorCarrousel">
+                <div class="btnCarrousel btnCarrouselAtras btnApagado"></div>
+                <ul class="contenedorCards">
+                    <li class="gratis nuevo pagina1">
+                        <a>
+                            <img src="img/juegos-img/plataformas/strumble_guys.jpg" alt="strumble guys">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Strumble Guys</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/plataformas/inside.jpg" alt="inside">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$942</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Inside</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nuevo pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/plataformas/spelunky.jpg" alt="spelunky">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$2000</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Spelunky 2</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/plataformas/Sackboy.jpg" alt="sackboy">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Sackboy</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="gratis nuevo pagina1">
+                        <a>
+                            <img src="img/juegos-img/plataformas/caveStory.jpg" alt="cave story">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Cave Story</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="gratis pagina1">
+                        <a>
+                            <img src="img/juegos-img/plataformas/a_story_about_my_uncle.jpg" alt="a story about my uncle">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>A Story About my Uncle</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="gratis pagina1">
+                        <a>
+                            <img src="img/juegos-img/plataformas/sonic_mania.jpg" alt="sonic mania">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Sonic Mania</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="gratis nuevo pagina1">
+                        <a>
+                            <img src="img/juegos-img/plataformas/multiversus.jpg" alt="multiversus">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Multiversus</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="btnCarrousel btnCarrouselSig"></div>
+            </div>
+        </div>
+
+        <div class="carrousel">
+            <div>
+                <h2 class="bold">Juegos de deportes</h2>
+                <button>Ver más</button>
+            </div>
+            <div class="contenedorCarrousel">
+                <div class="btnCarrousel btnCarrouselAtras btnApagado"></div>
+                <ul class="contenedorCards">
+                    <li class="gratis pagina1">
+                        <a>
+                            <img src="img/juegos-img/deportes/zeepkist.jpg" alt="zeepkist">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Zeepkist</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nuevo pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/deportes/hotwheels.jpg" alt="hotwheels unleashed">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$2545</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Hotwheels Unleashed</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nuevo gratis pagina1">
+                        <a>
+                            <img src="img/juegos-img/deportes/golfgang.jpg" alt="golf gang">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Golf Gang</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="gratis pagina1">
+                        <a>
+                            <img src="img/juegos-img/deportes/golazo.jpg" alt="golazo!">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Golazo!</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/deportes/footballmanager.jpg" alt="football manager">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$10283</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Football Manager</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="gratis nuevo pagina1">
+                        <a>
+                            <img src="img/juegos-img/deportes/sunsetbike.jpg" alt="sunset bike rider">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Sunset Bike</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nuevo pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/deportes/motogp.jpg" alt="moto gp">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$12000</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>MotoGp 2023</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/deportes/aotennis2.png" alt="ao tennis 2">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$4982</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>AO Tennis 2</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="btnCarrousel btnCarrouselSig"></div>
+            </div>
+        </div>
+
+        <div class="carrousel">
+            <div>
+                <h2 class="bold">Juegos de 2 jugadores</h2>
+                <button>Ver más</button>
+            </div>
+            <div class="contenedorCarrousel">
+                <div class="btnCarrousel btnCarrouselAtras btnApagado"></div>
+                <ul class="contenedorCards">
+                    <li class="pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/2jugadores/dontstarve.jpeg" alt="dont starve together">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$612</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Don't Starve Together</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="gratis pagina1">
+                        <a>
+                            <img src="img/juegos-img/2jugadores/pong.jpg" alt="pong">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Pong</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="nuevo gratis pagina1">
+                        <a>
+                            <img src="img/juegos-img/2jugadores/chess.jpg" alt="chess">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Chess Online</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="gratis nuevo pagina1">
+                        <a>
+                            <img src="img/juegos-img/2jugadores/efootball.webp" alt="efootball">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Efootball</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/2jugadores/guiltygear.webp" alt="guilty gear">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$5072</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Guilty Gear Strive</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="pago pagina1">
+                        <a>
+                            <img src="img/juegos-img/2jugadores/unravel.jpg" alt="unravel 2">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$1100</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Unravel 2</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nuevo gratis pagina1">
+                        <a>
+                            <img src="img/juegos-img/2jugadores/chensoclub.jpg" alt="chenso club">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$3057</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Chenso Club</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="pago nuevo pagina1">
+                        <a>
+                            <img src="img/juegos-img/2jugadores/streetfighter.jpg" alt="street fighter 6">
+                            <div class="iconosCard">
+                                <img src="./img/Icono gratis.svg" alt="">
+                                <img src="./img/Icono Nuevo.svg" alt="">
+                            </div>
+                            <div class="precioCard">
+                                <img src="./img/Icono corona.svg" alt="">
+                                <p>$15000</p>
+                            </div>
+                            <div class="contenedorTitulo">
+                                <img src="./img/Icono carrito card.svg" alt="">
+                                <p>Street Fighter 6</p>
+                                <img src="./img/Icono estrella vacía.svg" alt="">
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="btnCarrousel btnCarrouselSig"></div>
+            </div>
+        </div>
+
+        <div class="carrousel categorias">
+            <div>
+                <h2 class="bold">Categorías más buscadas</h2>
+                <button>Ver más</button>
+            </div>
+            <div class="contenedorCarrousel">
+                <div class="btnCarrousel btnCarrouselAtras btnApagado"></div>
+                <ul class="contenedorCardsCategorias">
+                    <li class="cardCarrouselDoble pagina1">
+                        <img src="./img/categoria/accion.svg" alt="">
+                        <img src="./img/categoria/belleza.svg" alt="">
+                    </li>
+                    <li class="cardCarrouselDoble pagina1">
+                        <img src="./img/categoria/deporte.svg" alt="">
+                        <img src="./img/categoria/clasicos.svg" alt="">
+                    </li>
+                    <li class="cardCarrouselDoble pagina1">
+                        <img src="./img/categoria/estrategia.svg" alt="">
+                        <img src="./img/categoria/2jugadores.svg" alt="">
+                    </li>
+                    <li class="cardCarrouselDoble pagina1">
+                        <img src="./img/categoria/disparos v2.svg" alt="">
+                        <img src="./img/categoria/aventura v2.svg" alt="">
+                    </li>
+                    <li class="cardCarrouselDoble pagina1">
+                        <img src="./img/categoria/carreras.svg" alt="">
+                        <img src="./img/categoria/plataformas.svg" alt="">
+                    </li>
+                    <li class="cardCarrouselDoble pagina1">
+                        <img src="./img/categoria/terror.svg" alt="">
+                        <img src="./img/categoria/cartas.svg" alt="">
+                    </li>
+                </ul>
+                <div class="btnCarrousel btnCarrouselSig"></div>
+            </div>
+        </div>
+    </main>
+    <footer id="fat-footer">
+        <section>
+            <p class="bold">Secciones</p>
+            <a href="./index.html"><p>Inicio</p></a>
+            <a href="#fat-footer"><p>Perfil</p></a>
+            <a href="#fat-footer"><p>Cuenta</p></a>
+            <a href="#fat-footer"><p>Amigos</p></a>
+            <a href="./proximo-lanzamiento.html"><p>Último lanzamiento</p></a>
+            <a href="#fat-footer"><p>Juegos gratis</p></a>
+            <a href="#fat-footer"><p>Favoritos</p></a>
+            <a href="#fat-footer"><p>Juegos nuevos</p></a>
+            <a href="#fat-footer"><p>Jugados recientemente</p></a>
+            <a href="#fat-footer"><p>Juegos premium</p></a>
+            <a href="#fat-footer"><p>Categorías</p></a>
+        </section>
+        <section>
+            <p class="bold">Acerca de</p>
+            <a href="#fat-footer"><p>Servicio</p></a>
+            <a href="#fat-footer"><p>Accesibilidad</p></a>
+            <a href="#fat-footer"><p>Derechos de autor</p></a>
+            <a href="#fat-footer"><p>Reclamaciones</p></a>
+            <a href="#fat-footer"><p>Políticas de privacidad</p></a>
+            <a href="#fat-footer"><p>Términos y servicios</p></a>
+        </section>
+        <section>
+            <p class="bold">Soporte</p>
+            <a href="#fat-footer"><p>Centro de ayuda</p></a>
+            <a href="#fat-footer"><p>API de desarrollador</p></a>
+            <a href="#fat-footer"><p>Contacto</p></a>
+        </section>
+        <section>
+            <a href="./index.html" class="footer-logo"><img src="./img/Logo footer.svg" alt="Logo del sitio"></a>
+
+            <div class="redes">
+                <a href="https://twitter.com/?lang=es" target="_blank">
+                    <div>
+                        <img src="./img/Icono twitter.svg" alt="Icono de twitter">
+                    </div> 
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <div>
+                        <img src="./img/Icono instagram.svg" alt="Icono de twitter">
+                    </div> 
+                </a>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <div>
+                        <img src="./img/Icono facebook.svg" alt="Icono de twitter">
+                    </div> 
+                </a>
+            </div>
+        </section>
+    </footer>
+    <script src="./js/loader.js"></script>
+    <script src="js/carrousel.js"></script>
+    <script src="js/cards.js"></script>
+    <script src="js/menu-y-busqueda.js"></script>
+</body>
+</html>
