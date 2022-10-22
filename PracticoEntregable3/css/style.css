@@ -213,7 +213,7 @@ header { /* header v */
     align-items: center;
     background: var(--secundario);
     box-shadow: var(--sombra-1);
-    z-index: 1;
+    z-index: 2;
 }
 header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
     display: none;
@@ -359,7 +359,7 @@ nav.menu-perfil.hero {
 nav.menu-perfil.visible {
     transition: opacity 0.6s;
     opacity: 1;
-    z-index: 2;
+    z-index: 3;
 }
 nav.menu-perfil.visible ul li {
     cursor: pointer;
@@ -725,7 +725,10 @@ section.breadcrumb p {
 h1.juego-titulo { /* previa-juego v */
     text-align: start;
 }
-article.juego {
+.canvas {
+    display: none;
+}
+.juego {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1219,7 +1222,7 @@ section.informacion div p:last-child img {
     section.breadcrumb p {
         margin: 0% 4%;
     }
-    article.juego { /* previa juego v */
+    .juego { /* previa juego v */
         height: 550px;
     }
     article.juego > div {
@@ -1449,7 +1452,7 @@ section.informacion div p:last-child img {
     section.breadcrumb p, main.hero section.breadcrumb p {
         margin: 0% 4%;
     }
-    article.juego { /* previa juego v */
+    .juego { /* previa juego v */
         height: 620px;
     }
     article.juego > div {
@@ -1757,11 +1760,22 @@ section.informacion div p:last-child img {
         margin: 0%;
     }
     .canvas {
+        display: block;
+        position: absolute;
+        top: 168px;
         border-radius: 5px;
         background-color: #000000;
+        z-index: 0;
     }
-    article.juego { /* previa juego v */
+    
+    .juego { /* previa juego v */
         height: 770px;
+        position: relative;
+        top: 0px;
+        z-index: 1;
+    }
+    .menos-index {
+        z-index: -1;
     }
     article.juego + img { /* icono compartir */
         width: 3%;
