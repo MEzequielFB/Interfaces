@@ -1754,6 +1754,11 @@ section.informacion div p:last-child img {
     section.breadcrumb { /* breadcrumb v */
         width: 35%;
         padding: 0.5%;
+        margin: 0%;
+    }
+    .canvas {
+        border-radius: 5px;
+        background-color: #000000;
     }
     article.juego { /* previa juego v */
         height: 770px;
