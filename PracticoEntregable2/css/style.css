@@ -1624,6 +1624,10 @@ section.informacion div p:last-child img {
     section.breadcrumb, main.hero section.breadcrumb { /* breadcrumb v */
         width: 44%;
     }
+    article.juego{
+        width: 1400px;
+        height: 620px;
+    }
     article.juego > div { /* previa juego v */
         width: 12%;
         padding: 1.3%;
