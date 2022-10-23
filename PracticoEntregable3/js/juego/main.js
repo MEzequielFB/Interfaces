@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function(){{
     let estaMouseDown = false;
 
     let porcionTableroImg = document.querySelector(".porcion-tablero");
+    let personajeHumanoImg = document.querySelector(".pj-humano");
+    let personajeMoguriImg = document.querySelector(".pj-moguri");
 
 
     function addFigura() {
@@ -31,21 +33,13 @@ document.addEventListener("DOMContentLoaded", function(){{
         contexto.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    function addRectangulo() {
-        let posX = Math.round(Math.random() * canvas.width);
-        let posY = Math.round(Math.random() * canvas.height);
-        let color = "#FFFFFF";
-
-        let rectangulo = new Rectangulo(posX, posY, color, contexto, 40, 40);
-        figuras.push(rectangulo);
-    }
-
     function addFicha() {
         let posX = Math.round(Math.random() * canvas.width);
         let posY = Math.round(Math.random() * canvas.height);
-        let color = "#FFFFFF";
+        /* let color = "#FFFFFF"; */
+        let color = "#a35825";
 
-        let ficha = new Ficha(porcionTableroImg, posX, posY, color, 20, contexto);
+        let ficha = new Ficha(personajeMoguriImg, posX, posY, color, 35, contexto);
         /* let ficha = new DibujoImagen(porcionTableroImg, posX, posY, 40, 40, contexto); */
         figuras.push(ficha);
     }

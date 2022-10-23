@@ -11,14 +11,17 @@ class Ficha {
 
     //Funcionalidades
     draw() {
+        this.contexto.fillStyle = this.fill;
         this.contexto.save();
         this.contexto.beginPath();
-        this.contexto.arc(this.x, this.y, 40, 0, Math.PI * 2);
-        this.contexto.strokeStyle = '#2465D3'
+        this.contexto.arc(this.x, this.y, this.radio, 0, Math.PI * 2);
+        this.contexto.fill();
+        this.contexto.strokeStyle = this.fill;
         this.contexto.stroke();
         this.contexto.clip();
-        this.contexto.drawImage(this.img, this.x, this.y, this.radio, this.radio);
+        this.contexto.drawImage(this.img, this.x-this.radio, this.y-this.radio, this.radio*2, this.radio*2);
         this.contexto.restore();
+
         /* this.contexto.fillStyle = this.fill;
         this.contexto.beginPath();
         this.contexto.arc(this.x, this.y, this.radio, 0, 2 * Math.PI);
