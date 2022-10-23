@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function(){{
     let ultimaFiguraClickeada = null;
     let estaMouseDown = false;
 
+    let porcionTableroImg = document.querySelector(".porcion-tablero");
+
 
     function addFigura() {
         addFicha();
@@ -43,7 +45,8 @@ document.addEventListener("DOMContentLoaded", function(){{
         let posY = Math.round(Math.random() * canvas.height);
         let color = "#FFFFFF";
 
-        let ficha = new Ficha(posX, posY, color, 20, contexto);
+        let ficha = new Ficha(porcionTableroImg, posX, posY, color, 20, contexto);
+        /* let ficha = new DibujoImagen(porcionTableroImg, posX, posY, 40, 40, contexto); */
         figuras.push(ficha);
     }
 

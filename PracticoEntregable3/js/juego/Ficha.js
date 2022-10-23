@@ -1,6 +1,7 @@
 class Ficha {
     
-    constructor(x, y, fill, radio, contexto) { //Pos x e y. El color y el contexto
+    constructor(img, x, y, fill, radio, contexto) { //Pos x e y. El color y el contexto
+        this.img = img;
         this.x = x;
         this.y = y;
         this.fill = fill;
@@ -10,10 +11,18 @@ class Ficha {
 
     //Funcionalidades
     draw() {
-        this.contexto.fillStyle = this.fill;
+        this.contexto.save();
+        this.contexto.beginPath();
+        this.contexto.arc(this.x, this.y, 40, 0, Math.PI * 2);
+        this.contexto.strokeStyle = '#2465D3'
+        this.contexto.stroke();
+        this.contexto.clip();
+        this.contexto.drawImage(this.img, this.x, this.y, this.radio, this.radio);
+        this.contexto.restore();
+        /* this.contexto.fillStyle = this.fill;
         this.contexto.beginPath();
         this.contexto.arc(this.x, this.y, this.radio, 0, 2 * Math.PI);
-        this.contexto.fill();
+        this.contexto.fill(); */
     }
 
     estaMouseDentro(x, y) { //Si la distancia entre los dos puntos en menor al radio, esta dentro del circulo

@@ -1064,6 +1064,9 @@ section.informacion div p:last-child img {
     width: 25%;
 }
 /* /proximo lanzamiento */
+.oculto {
+    display: none;
+}
 @media only screen and (min-width: 400px) {
 
     .barra { /* barra de carga v */
@@ -1764,7 +1767,7 @@ section.informacion div p:last-child img {
         position: absolute;
         top: 168px;
         border-radius: 5px;
-        background-color: #000000;
+        background-color: #e9d3d3;
         z-index: 0;
     }
     
