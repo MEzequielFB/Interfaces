@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(){{
     let canvas = document.querySelector(".canvas");
     let contexto = canvas.getContext("2d");
 
-    const CANT_FIGURAS = 15;
+    const CANT_FIGURAS = 3;
 
     let figuras = [];
     let ultimaFiguraClickeada = null;
