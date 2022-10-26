@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", function(){{
     let canvas = document.querySelector(".canvas");
     let contexto = canvas.getContext("2d");
 
-    const CANT_FIGURAS = 3;
+    const CANT_FICHAS = 3;
 
-    let figuras = [];
+    let fichas = [];
     let ultimaFiguraClickeada = null;
     let estaMouseDown = false;
 
@@ -14,16 +14,21 @@ document.addEventListener("DOMContentLoaded", function(){{
     let personajeHumanoImg = document.querySelector(".pj-humano");
     let personajeMoguriImg = document.querySelector(".pj-moguri");
 
-
-    function addFigura() {
-        addFicha();
-        dibujarFiguras();
+    for (let i = 0; i < CANT_FICHAS; i++) {
+        addFicha(fichas, personajeHumanoImg);
     }
+    dibujarFichas();
 
-    function dibujarFiguras() { //Borra todo y vuelve a dibujar todo
+    /* let jugador1 = new Jugador("nico");
+    let jugador2 = new Jugador("eze");
+
+    addFichasJugador(jugador1, personajeHumanoImg, CANT_FICHAS);
+    addFichasJugador(jugador2, personajeMoguriImg, CANT_FICHAS); */
+
+    function dibujarFichas() { //Borra todo y vuelve a dibujar todo
         clearCanvas();
-        for (let figura of figuras) {
-            figura.draw();
+        for (let ficha of fichas) {
+            ficha.draw();
         }
     }
 
@@ -33,16 +38,29 @@ document.addEventListener("DOMContentLoaded", function(){{
         contexto.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    function addFicha() {
+    function addFicha(arreglo, imagen) {
         let posX = Math.round(Math.random() * canvas.width);
         let posY = Math.round(Math.random() * canvas.height);
         /* let color = "#FFFFFF"; */
         let color = "#a35825";
 
-        let ficha = new Ficha(personajeMoguriImg, posX, posY, color, 35, contexto);
+        let ficha = new Ficha(imagen, posX, posY, color, 35, contexto);
         /* let ficha = new DibujoImagen(porcionTableroImg, posX, posY, 40, 40, contexto); */
-        figuras.push(ficha);
+        arreglo.push(ficha);
     }
+
+    /* function addFichasJugador(jugador, imagen_ficha, cantidad_fichas) {
+
+        let posX = Math.round(Math.random() * canvas.width);
+        let posY = Math.round(Math.random() * canvas.height);
+        let color = "#a35825";
+
+        let ficha = new Ficha(imagen_ficha, posX, posY, color, 35, contexto);
+
+        for (let i = 0; i < cantidad_fichas; i++) {
+            jugador.addFicha(ficha);
+        }
+    } */
 
     function mouseDown(e) {
         estaMouseDown = true;
@@ -51,13 +69,13 @@ document.addEventListener("DOMContentLoaded", function(){{
         if (figuraClickeada != null) {
             ultimaFiguraClickeada = figuraClickeada;
         }
-        dibujarFiguras();
+        dibujarFichas();
     }
 
     function buscarFiguraClickeada(x, y) { //Recorre las figuras y verifica en cada una si la posicion esta dentro de ella
-        for (let figura of figuras) {
-            if (figura.estaMouseDentro(x, y)) {
-                return figura; //Devuelve la figura si esta dentro
+        for (let ficha of fichas) {
+            if (ficha.estaMouseDentro(x, y)) {
+                return ficha; //Devuelve la figura si esta dentro
             }
         }
         return null;
@@ -66,17 +84,13 @@ document.addEventListener("DOMContentLoaded", function(){{
     function mouseMove(e) { //Si el mouse esta clickeado y hay una figura clickeada se setea la pos de la figura y se vuelve a dibujar todo
         if (estaMouseDown && ultimaFiguraClickeada != null) {
             ultimaFiguraClickeada.setPos(e.layerX, e.layerY);
-            dibujarFiguras();
+            dibujarFichas();
         }
     }
 
     function mouseUp() { //Setea que el mouse deje de estar clickeado y a la ultima figura clickeada como null
         estaMouseDown = false;
         ultimaFiguraClickeada = null;
-    }
-
-    for (let i = 0; i < CANT_FIGURAS; i++) {
-        addFigura();
     }
 
     canvas.addEventListener("mousedown", mouseDown);

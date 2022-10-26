@@ -4,6 +4,7 @@ class Ficha extends Figura{
         super(x, y, fill, contexto);
         this.img = img;
         this.radio = radio;
+        this.seleccionada = false;
     }
 
     //Funcionalidades
@@ -31,6 +32,10 @@ class Ficha extends Figura{
         return Math.sqrt(Math.pow(_x, 2) + Math.pow(_y, 2)) < this.radio; //Distancia entre dos puntos. El que viene por parametro y el del circulo
     }
 
+    estaSeleccionada() {
+        return this.seleccionada;
+    }
+
     //Getters
     getRadio() {
         return this.radio;
@@ -47,5 +52,9 @@ class Ficha extends Figura{
 
     setRadio(radio){
         this.radio = radio;
+    }
+
+    setSeleccionada(seleccionada) {
+        this.seleccionada = seleccionada;
     }
 }

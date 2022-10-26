@@ -1,5 +1,6 @@
 class DibujoImagen {
     
+    //img, x, y, fill, radio, contexto
     constructor(img, x, y, width, height, contexto) { //Pos x e y. El color y el contexto
         this.img = img;
         this.x = x;
@@ -21,21 +22,11 @@ class DibujoImagen {
         /* this.contexto.restore(); */
     }
 
-    estaMouseDentro(x, y) {
-        return !(x < this.x || x > this.x + this.width || y < this.y || y > this.y + this.height);
-    }
-
     //Getters
     getPos(){
         return {
             x: this.x,
             y: this.y
         }
-    }
-
-    //Setters
-    setPos(x, y) {
-        this.x = x - this.width / 2;
-        this.y = y - this.height / 2;
     }
 }
