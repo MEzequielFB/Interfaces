@@ -31,8 +31,8 @@ class Tablero extends Figura {
                 if (i != 0) { //Si no es la primera fila se dibujan las porciones del tablero normalmente
                     this.porcionesTablero[i][j] = new DibujoImagen(this.imgPorcionTablero, posX, posY, this.imgWidth, this.imgHeight, this.contexto);
                     this.porcionesTablero[i][j].draw();
-                } else { // Si es la primera fila se dibujan las zonas para soltar las fichas. Se achica la zona dibujada en base a un porcentaje del atributo del ancho de la imagen. La pos x se mueve en base al ancho disminuido
-                    this.porcionesTablero[i][j] = new Rectangulo(posX + (this.imgWidth * 0.08), posY, this.getFill(), this.getContexto(), this.imgWidth - (this.imgWidth * 0.08), this.imgHeight);
+                } else { // Si es la primera fila se dibujan las zonas para soltar las fichas. Se achica la zona dibujada en base a un porcentaje del atributo del ancho de la imagen. La pos x se mueve en base al ancho disminuido divido 2 (para que quede parejo)
+                    this.porcionesTablero[i][j] = new Rectangulo(posX + ((this.imgWidth * 0.08) / 2), posY, this.getFill(), this.getContexto(), this.imgWidth - (this.imgWidth * 0.08), this.imgHeight);
                     this.porcionesTablero[i][j].draw();
                 }
             } 
