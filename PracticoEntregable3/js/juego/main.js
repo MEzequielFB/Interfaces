@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function(){{
     let personajeHumanoImg = document.querySelector(".pj-humano");
     let personajeMoguriImg = document.querySelector(".pj-moguri");
 
-    let jugador1 = new Jugador("nico");
-    let jugador2 = new Jugador("eze");
+    let jugador1 = new Jugador("nico", canvas.width * 0.1, canvas.height * 0.7);
+    let jugador2 = new Jugador("eze", canvas.width * 0.9, canvas.height * 0.7);
 
     let tablero = new Tablero(canvas.width / 3.4, 230, "#FF23FF", contexto, CANT_FILAS, CANT_COLUMNAS, porcionTableroImg, 75, 75);
 
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function(){{
         }
         /* juego.darFichas(fichas); */
         juego.jugar(fichas);
-        dibujarJuego();
+        /* juego.dibujarJuegoInicial(); */
     }
     iniciarJuego();
 

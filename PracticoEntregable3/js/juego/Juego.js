@@ -10,13 +10,19 @@ class Juego {
     //Funcionalidades
     jugar(fichas) { //Se le dan las fichas a los jugadores y se dibuja el juego
         this.darFichas(fichas);
-        this.dibujarJuego();
+        this.dibujarJuegoInicial();
     }
 
     dibujarJuego() {
         this.tablero.draw();
         this.jugador1.dibujarFichas();
         this.jugador2.dibujarFichas();
+    }
+
+    dibujarJuegoInicial() {
+        this.tablero.draw();
+        this.jugador1.dibujarFichasInicial();
+        this.jugador2.dibujarFichasInicial();
     }
 
     darFichas(fichas) {
