@@ -21,12 +21,16 @@ document.addEventListener("DOMContentLoaded", function(){{
 
     let juego = new Juego(jugador1, jugador2, tablero);
 
-    tablero.draw();
+    
 
-    for (let i = 0; i < CANT_FICHAS; i++) {
-        addFicha(fichas, personajeHumanoImg);
+    function iniciarJuego() {
+        juego.jugar();
+        for (let i = 0; i < CANT_FICHAS; i++) {
+            addFicha(fichas, personajeHumanoImg);
+        }
+        dibujarFichas();
     }
-    dibujarFichas();
+    iniciarJuego();
 
     function dibujarFichas() { //Borra todo y vuelve a dibujar todo
         clearCanvas();

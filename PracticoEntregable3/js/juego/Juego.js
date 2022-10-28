@@ -10,6 +10,7 @@ class Juego {
     //Funcionalidades
     jugar() {
         //dibujar tablero y fichas
+        this.tablero.draw();
     }
 
     //Getters & setters
