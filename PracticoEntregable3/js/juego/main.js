@@ -14,19 +14,23 @@ document.addEventListener("DOMContentLoaded", function(){{
     let personajeHumanoImg = document.querySelector(".pj-humano");
     let personajeMoguriImg = document.querySelector(".pj-moguri");
 
+    let jugador1 = new Jugador("nico");
+    let jugador2 = new Jugador("eze");
+
+    let tablero = new Tablero(canvas.width / 3.4, 230, "#FF23FF", contexto, 6, 7, porcionTableroImg, 75, 75);
+
+    let juego = new Juego(jugador1, jugador2, tablero);
+
+    tablero.draw();
+
     for (let i = 0; i < CANT_FICHAS; i++) {
         addFicha(fichas, personajeHumanoImg);
     }
     dibujarFichas();
 
-    /* let jugador1 = new Jugador("nico");
-    let jugador2 = new Jugador("eze");
-
-    addFichasJugador(jugador1, personajeHumanoImg, CANT_FICHAS);
-    addFichasJugador(jugador2, personajeMoguriImg, CANT_FICHAS); */
-
     function dibujarFichas() { //Borra todo y vuelve a dibujar todo
         clearCanvas();
+        tablero.draw();
         for (let ficha of fichas) {
             ficha.draw();
         }
@@ -44,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function(){{
         /* let color = "#FFFFFF"; */
         let color = "#a35825";
 
-        let ficha = new Ficha(imagen, posX, posY, color, 35, contexto);
+        let ficha = new Ficha(imagen, posX, posY, color, 30, contexto);
         /* let ficha = new DibujoImagen(porcionTableroImg, posX, posY, 40, 40, contexto); */
         arreglo.push(ficha);
     }
