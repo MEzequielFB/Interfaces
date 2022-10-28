@@ -6,6 +6,12 @@ class Jugador {
     }
 
     //Funcionalidades
+    dibujarFichas() { //Las fichas del jugador se dibujan
+        for (let ficha of this.fichas) {
+            ficha.draw();
+        }
+    }
+
     addFicha(ficha) { //Agrega fichas al empezar el juego. Un for en el juego que delegue esta funcion
         this.fichas.push(ficha);
     }

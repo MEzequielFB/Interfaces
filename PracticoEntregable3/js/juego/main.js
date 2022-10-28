@@ -25,56 +25,38 @@ document.addEventListener("DOMContentLoaded", function(){{
 
     
 
-    function iniciarJuego() {
-        juego.jugar();
+    function iniciarJuego() { //Agrega fichas a un arreglo, se llama al metodo jugar del objeto juego y dibuja el juego
         for (let i = 0; i < CANT_FICHAS; i++) {
-            if (i >= CANT_FICHAS / 2) {
+            if (i <= CANT_FICHAS / 2) {
                 addFicha(fichas, personajeMoguriImg, "#273570");
             } else {
                 addFicha(fichas, personajeHumanoImg, "#993c3c");
             }
         }
+        /* juego.darFichas(fichas); */
+        juego.jugar(fichas);
         dibujarJuego();
     }
     iniciarJuego();
 
     function dibujarJuego() { //Borra todo y vuelve a dibujar todo
         clearCanvas();
-        tablero.draw();
-        for (let ficha of fichas) {
-            ficha.draw();
-        }
+        juego.dibujarJuego();
     }
 
-    function clearCanvas() {
-        /* contexto.fillStyle = "#000000";
-        contexto.fillRect(0, 0, canvas.width, canvas.height); */
+    function clearCanvas() { //Limpia el canvas
         contexto.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    function addFicha(arreglo, imagen, color) {
+    function addFicha(arreglo, imagen, color) { //Agrega una ficha al arreglo de fichas
         let posX = Math.round(Math.random() * canvas.width);
         let posY = Math.round(Math.random() * canvas.height);
 
         let ficha = new Ficha(imagen, posX, posY, color, 30, contexto);
-        /* let ficha = new DibujoImagen(porcionTableroImg, posX, posY, 40, 40, contexto); */
         arreglo.push(ficha);
     }
 
-    /* function addFichasJugador(jugador, imagen_ficha, cantidad_fichas) {
-
-        let posX = Math.round(Math.random() * canvas.width);
-        let posY = Math.round(Math.random() * canvas.height);
-        let color = "#a35825";
-
-        let ficha = new Ficha(imagen_ficha, posX, posY, color, 35, contexto);
-
-        for (let i = 0; i < cantidad_fichas; i++) {
-            jugador.addFicha(ficha);
-        }
-    } */
-
-    function mouseDown(e) {
+    function mouseDown(e) { //Verifica que se clickeo una ficha y se vuelve a dibujar el juego
         estaMouseDown = true;
 
         let figuraClickeada = buscarFiguraClickeada(e.layerX, e.layerY); //layerx y layery son posiciones dentro del canvas

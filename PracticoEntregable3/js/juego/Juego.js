@@ -8,13 +8,25 @@ class Juego {
     }
 
     //Funcionalidades
-    jugar() {
-        //dibujar tablero y fichas
-        this.tablero.draw();
+    jugar(fichas) { //Se le dan las fichas a los jugadores y se dibuja el juego
+        this.darFichas(fichas);
+        this.dibujarJuego();
     }
 
-    darFichas() {
-        
+    dibujarJuego() {
+        this.tablero.draw();
+        this.jugador1.dibujarFichas();
+        this.jugador2.dibujarFichas();
+    }
+
+    darFichas(fichas) {
+        for (let i = 0; i < fichas.length; i++) {
+            if (i <= fichas.length / 2) {
+                this.jugador1.addFicha(fichas[i]);
+            } else {
+                this.jugador2.addFicha(fichas[i]);
+            }
+        }
     }
 
     //Getters & setters
