@@ -13,6 +13,10 @@ class Juego {
         this.tablero.draw();
     }
 
+    darFichas() {
+        
+    }
+
     //Getters & setters
     getJugador1() {
         return this.jugador1;

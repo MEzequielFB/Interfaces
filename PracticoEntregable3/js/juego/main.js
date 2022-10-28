@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", function(){{
     let canvas = document.querySelector(".canvas");
     let contexto = canvas.getContext("2d");
 
-    const CANT_FICHAS = 3;
+    const CANT_FILAS = 6;
+    const CANT_COLUMNAS = 7;
+    const CANT_FICHAS = CANT_FILAS * CANT_COLUMNAS;
 
     let fichas = [];
     let ultimaFiguraClickeada = null;
@@ -17,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){{
     let jugador1 = new Jugador("nico");
     let jugador2 = new Jugador("eze");
 
-    let tablero = new Tablero(canvas.width / 3.4, 230, "#FF23FF", contexto, 6, 7, porcionTableroImg, 75, 75);
+    let tablero = new Tablero(canvas.width / 3.4, 230, "#FF23FF", contexto, CANT_FILAS, CANT_COLUMNAS, porcionTableroImg, 75, 75);
 
     let juego = new Juego(jugador1, jugador2, tablero);
 
@@ -26,13 +28,17 @@ document.addEventListener("DOMContentLoaded", function(){{
     function iniciarJuego() {
         juego.jugar();
         for (let i = 0; i < CANT_FICHAS; i++) {
-            addFicha(fichas, personajeHumanoImg);
+            if (i >= CANT_FICHAS / 2) {
+                addFicha(fichas, personajeMoguriImg, "#273570");
+            } else {
+                addFicha(fichas, personajeHumanoImg, "#993c3c");
+            }
         }
-        dibujarFichas();
+        dibujarJuego();
     }
     iniciarJuego();
 
-    function dibujarFichas() { //Borra todo y vuelve a dibujar todo
+    function dibujarJuego() { //Borra todo y vuelve a dibujar todo
         clearCanvas();
         tablero.draw();
         for (let ficha of fichas) {
@@ -46,11 +52,9 @@ document.addEventListener("DOMContentLoaded", function(){{
         contexto.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    function addFicha(arreglo, imagen) {
+    function addFicha(arreglo, imagen, color) {
         let posX = Math.round(Math.random() * canvas.width);
         let posY = Math.round(Math.random() * canvas.height);
-        /* let color = "#FFFFFF"; */
-        let color = "#a35825";
 
         let ficha = new Ficha(imagen, posX, posY, color, 30, contexto);
         /* let ficha = new DibujoImagen(porcionTableroImg, posX, posY, 40, 40, contexto); */
@@ -77,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function(){{
         if (figuraClickeada != null) {
             ultimaFiguraClickeada = figuraClickeada;
         }
-        dibujarFichas();
+        dibujarJuego();
     }
 
     function buscarFiguraClickeada(x, y) { //Recorre las figuras y verifica en cada una si la posicion esta dentro de ella
@@ -92,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function(){{
     function mouseMove(e) { //Si el mouse esta clickeado y hay una figura clickeada se setea la pos de la figura y se vuelve a dibujar todo
         if (estaMouseDown && ultimaFiguraClickeada != null) {
             ultimaFiguraClickeada.setPos(e.layerX, e.layerY);
-            dibujarFichas();
+            dibujarJuego();
         }
     }
 
