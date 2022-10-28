@@ -12,14 +12,7 @@ class DibujoImagen {
 
     //Funcionalidades
     draw() {
-        /* this.contexto.save();
-        this.contexto.beginPath();
-        this.contexto.arc(this.x, this.y, 40, 0, Math.PI * 2);
-        this.contexto.strokeStyle = '#2465D3'
-        this.contexto.stroke();
-        this.contexto.clip(); */
         this.contexto.drawImage(this.img, this.x, this.y, this.width, this.height);
-        /* this.contexto.restore(); */
     }
 
     //Getters

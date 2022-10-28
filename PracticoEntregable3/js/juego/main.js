@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){{
     let jugador1 = new Jugador("nico", canvas.width * 0.1, canvas.height * 0.7);
     let jugador2 = new Jugador("eze", canvas.width * 0.9, canvas.height * 0.7);
 
-    let tablero = new Tablero(canvas.width / 3.4, 230, "#FF23FF", contexto, CANT_FILAS, CANT_COLUMNAS, porcionTableroImg, 75, 75);
+    let tablero = new Tablero(canvas.width / 3.4, 100, "#FF23FF", contexto, CANT_FILAS, CANT_COLUMNAS, porcionTableroImg, 75, 75);
 
     let juego = new Juego(jugador1, jugador2, tablero);
 
@@ -33,9 +33,7 @@ document.addEventListener("DOMContentLoaded", function(){{
                 addFicha(fichas, personajeHumanoImg, "#993c3c");
             }
         }
-        /* juego.darFichas(fichas); */
         juego.jugar(fichas);
-        /* juego.dibujarJuegoInicial(); */
     }
     iniciarJuego();
 

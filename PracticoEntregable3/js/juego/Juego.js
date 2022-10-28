@@ -13,19 +13,19 @@ class Juego {
         this.dibujarJuegoInicial();
     }
 
-    dibujarJuego() {
+    dibujarJuego() { // Dibuja el tablero y las fichas de los jugadores
         this.tablero.draw();
         this.jugador1.dibujarFichas();
         this.jugador2.dibujarFichas();
     }
 
-    dibujarJuegoInicial() {
+    dibujarJuegoInicial() { //Dibuja el tablero y las fichas de los jugadores en una zona determinada
         this.tablero.draw();
         this.jugador1.dibujarFichasInicial();
         this.jugador2.dibujarFichasInicial();
     }
 
-    darFichas(fichas) {
+    darFichas(fichas) { //Agrega las fichas pertenecientes a cada jugar en su arreglo
         for (let i = 0; i < fichas.length; i++) {
             if (i <= fichas.length / 2) {
                 this.jugador1.addFicha(fichas[i]);

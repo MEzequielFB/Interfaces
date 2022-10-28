@@ -2,7 +2,7 @@ class Tablero extends Figura {
 
     constructor(x, y, fill, contexto, filas, columnas, imgPorcionTablero, imgWidth, imgHeight) {
         super(x, y, fill, contexto);
-        this.filas = filas;
+        this.filas = filas + 1;
         this.columnas = columnas;
         this.imgPorcionTablero = imgPorcionTablero;
         this.imgWidth = imgWidth;
@@ -13,19 +13,28 @@ class Tablero extends Figura {
     }
 
     //funciones
+    seAgregaFicha() { //Verifica si se solto la ficha en la zona de la columna del tablero
+
+    }
+
     draw(){
         //dibujar el tablero, tamaño filas x columnas, dibujado segun las fichas colocadas
         //NOTA: Dibuja tablero con imagen. En otra matriz -> porcionesTablero. En fichas colocadas se guardan las fichas colocadas y se dibujan con su propio color
         let posX = this.getX();
-        let posY= this.getY();
+        let posY = this.getY();
         for (let i = 0; i < this.getFilas(); i++){
             this.porcionesTablero[i] = [];
-            posY= posY + this.getImgHeight();
+            posY = posY + this.getImgHeight();
             posX = this.getX();
             for (let j = 0; j < this.getColumnas(); j++) {
                 posX = posX + this.getImgWidth();
-                this.porcionesTablero[i][j] = new DibujoImagen(this.imgPorcionTablero, posX, posY, this.imgWidth, this.imgHeight, this.contexto);
-                this.porcionesTablero[i][j].draw();
+                if (i != 0) { //Si no es la primera fila se dibujan las porciones del tablero normalmente
+                    this.porcionesTablero[i][j] = new DibujoImagen(this.imgPorcionTablero, posX, posY, this.imgWidth, this.imgHeight, this.contexto);
+                    this.porcionesTablero[i][j].draw();
+                } else { // Si es la primera fila se dibujan las zonas para soltar las fichas. Se achica la zona dibujada en base a un porcentaje del atributo del ancho de la imagen. La pos x se mueve en base al ancho disminuido
+                    this.porcionesTablero[i][j] = new Rectangulo(posX + (this.imgWidth * 0.08), posY, this.getFill(), this.getContexto(), this.imgWidth - (this.imgWidth * 0.08), this.imgHeight);
+                    this.porcionesTablero[i][j].draw();
+                }
             } 
         }
     }
