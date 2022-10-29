@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function(){{
 
     function mouseMove(e) { //Si el mouse esta clickeado y hay una figura clickeada y la figura clickeada es seleccionable se setea la pos de la figura y se vuelve a dibujar todo
         if (estaMouseDown && ultimaFiguraClickeada != null && ultimaFiguraClickeada.esSeleccionable()) {
-            ultimaFiguraClickeada.setPos(e.layerX, e.layerY);
+            ultimaFiguraClickeada.setPos(e.layerX, e.layerY); //layer es la posicion dentro del canvas
             dibujarJuego();
         }
     }
