@@ -73,14 +73,14 @@ document.addEventListener("DOMContentLoaded", function(){{
         return null;
     }
 
-    function mouseMove(e) { //Si el mouse esta clickeado y hay una figura clickeada se setea la pos de la figura y se vuelve a dibujar todo
-        if (estaMouseDown && ultimaFiguraClickeada != null) {
+    function mouseMove(e) { //Si el mouse esta clickeado y hay una figura clickeada y la figura clickeada es seleccionable se setea la pos de la figura y se vuelve a dibujar todo
+        if (estaMouseDown && ultimaFiguraClickeada != null && ultimaFiguraClickeada.esSeleccionable()) {
             ultimaFiguraClickeada.setPos(e.layerX, e.layerY);
             dibujarJuego();
         }
     }
 
-    function mouseUp() { //Setea que el mouse deje de estar clickeado y a la ultima figura clickeada como null
+    function mouseUp() { //Setea que el mouse deje de estar clickeado y a la ultima figura clickeada se la setea como null. Si la ultima figura clickeada no es null al dejar de apretar el click se verifica que se haya soltado en la zona del tablero. Una vez verificado y hechas las acciones para agregar las fichas al tablero se vuelve a dibujar todo
         estaMouseDown = false;
         if (ultimaFiguraClickeada != null) {
             const columnaZona = juego.getColumnaZonaFichaSoltada(ultimaFiguraClickeada);
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function(){{
             }
         }
         ultimaFiguraClickeada = null;
-        //Se tiene que verificar donde se solto la ficha
+        dibujarJuego();
     }
 
     canvas.addEventListener("mousedown", mouseDown);

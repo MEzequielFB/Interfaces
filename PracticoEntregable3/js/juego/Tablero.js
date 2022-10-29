@@ -2,7 +2,7 @@ class Tablero extends Figura {
 
     constructor(x, y, fill, contexto, filas, columnas, imgPorcionTablero, imgWidth, imgHeight) {
         super(x, y, fill, contexto);
-        this.filas = filas + 1;
+        this.filas = filas + 1; //La fila extra (+1) es la fila de las zonas para dejar caer las fichas
         this.columnas = columnas;
         this.imgPorcionTablero = imgPorcionTablero;
         this.imgWidth = imgWidth;

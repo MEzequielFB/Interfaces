@@ -70,4 +70,10 @@ class Jugador {
     setFichas(fichas) {
         this.fichas = fichas;
     }
+
+    setFichasSeleccionables(seleccionable) {
+        for (let ficha of this.fichas) {
+            ficha.setSeleccionable(seleccionable);
+        }
+    }
 }

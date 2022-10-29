@@ -8,19 +8,21 @@ class Juego {
     }
 
     //Funcionalidades
-    addFicha(ficha, columna) { //Si se agrego la ficha a la porcion del tablero se elimina la ficha del jugador actual
+    addFicha(ficha, columna) { //Si se agrego la ficha a la porcion del tablero se elimina la ficha del jugador actual y se cambia el jugador actual
         if (this.tablero.addFicha(ficha, columna)) {
             this.jugadorActual.removeFicha(ficha);
+            this.setJugadorActual();
         }
     }
 
-    getColumnaZonaFichaSoltada(fichaSoltada) {
+    getColumnaZonaFichaSoltada(fichaSoltada) { //Obtiene el indice de la columna en donde se dejo caer la ficha, si no se dejo caer en una zona devuelve -1
         return this.tablero.getColumnaZonaFichaSoltada(fichaSoltada);
     }
 
-    jugar(fichas) { //Se le dan las fichas a los jugadores y se dibuja el juego
+    jugar(fichas) { //Se le dan las fichas a los jugadores y se dibuja el juego. Tambien se setean seleccionables las fichas del jugador actual (jugador1 de forma predeterminada)
         this.darFichas(fichas);
         this.dibujarJuegoInicial();
+        this.setFichasSeleccionablesJugador(this.jugadorActual, true);
     }
 
     dibujarJuego() { // Dibuja el tablero y las fichas de los jugadores
@@ -62,7 +64,19 @@ class Juego {
         return this.tablero;
     }
 
-    setJugadorActual(jugador){
-        this.jugadorActual = jugador;
+    setFichasSeleccionablesJugador(jugador, seleccionable) {
+        jugador.setFichasSeleccionables(seleccionable);
+    }
+
+    setJugadorActual(){
+        if (this.jugadorActual == this.jugador1) {
+            this.setFichasSeleccionablesJugador(this.jugadorActual, false);
+            this.jugadorActual = this.jugador2;
+            this.setFichasSeleccionablesJugador(this.jugadorActual, true);
+        } else {
+            this.setFichasSeleccionablesJugador(this.jugadorActual, false);
+            this.jugadorActual = this.jugador1;
+            this.setFichasSeleccionablesJugador(this.jugadorActual, true);
+        }
     }
 }
