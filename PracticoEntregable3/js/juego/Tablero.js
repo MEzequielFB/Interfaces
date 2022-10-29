@@ -13,8 +13,16 @@ class Tablero extends Figura {
     }
 
     //funciones
-    seAgregaFicha() { //Verifica si se solto la ficha en la zona de la columna del tablero
-
+    seAgregaFicha(ficha){
+        if(ficha != null){
+            if((ficha.getX() > this.getX()) && (ficha.getX() <= this.getX() + this.getWidth()) &&
+            (ficha.getY() <= this.getY()+this.getHeight()) && (ficha.getY() > this.getY() - this.getHeight())){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        return false;
     }
 
     draw(){
@@ -26,16 +34,21 @@ class Tablero extends Figura {
             this.porcionesTablero[i] = [];
             posY = posY + this.getImgHeight();
             posX = this.getX();
-            for (let j = 0; j < this.getColumnas(); j++) {
+            for(let j = 0; j < this.getColumnas(); j++){
                 posX = posX + this.getImgWidth();
-                if (i != 0) { //Si no es la primera fila se dibujan las porciones del tablero normalmente
-                    this.porcionesTablero[i][j] = new DibujoImagen(this.imgPorcionTablero, posX, posY, this.imgWidth, this.imgHeight, this.contexto);
-                    this.porcionesTablero[i][j].draw();
-                } else { // Si es la primera fila se dibujan las zonas para soltar las fichas. Se achica la zona dibujada en base a un porcentaje del atributo del ancho de la imagen. La pos x se mueve en base al ancho disminuido divido 2 (para que quede parejo)
-                    this.porcionesTablero[i][j] = new Rectangulo(posX + ((this.imgWidth * 0.08) / 2), posY, this.getFill(), this.getContexto(), this.imgWidth - (this.imgWidth * 0.08), this.imgHeight);
-                    this.porcionesTablero[i][j].draw();
-                }
-            } 
+                this.porcionesTablero[i][j] = new DibujoImagen(this.imgPorcionTablero, posX, posY, this.imgWidth, this.imgHeight, this.contexto);
+                this.porcionesTablero[i][j].draw();
+            }
+            // for (let j = 0; j < this.getColumnas(); j++) {
+            //     posX = posX + this.getImgWidth();
+            //     if (i != 0) { //Si no es la primera fila se dibujan las porciones del tablero normalmente
+            //         this.porcionesTablero[i][j] = new DibujoImagen(this.imgPorcionTablero, posX, posY, this.imgWidth, this.imgHeight, this.contexto);
+            //         this.porcionesTablero[i][j].draw();
+            //     } else { // Si es la primera fila se dibujan las zonas para soltar las fichas. Se achica la zona dibujada en base a un porcentaje del atributo del ancho de la imagen. La pos x se mueve en base al ancho disminuido divido 2 (para que quede parejo)
+            //         this.porcionesTablero[i][j] = new Rectangulo(posX + ((this.imgWidth * 0.08) / 2), posY, this.getFill(), this.getContexto(), this.imgWidth - (this.imgWidth * 0.08), this.imgHeight);
+            //         this.porcionesTablero[i][j].draw();
+            //     }
+            // } 
         }
     }
 
@@ -61,6 +74,15 @@ class Tablero extends Figura {
         hay que comprobar en diagonal, horizontal, y en vertical*/
     }
 
+    determinarColumna(ficha){
+        for (let i = 1; i < this.getColumnas()+1; i++) {
+            if (ficha.getX() < (this.getImgWidth() * i) + this.getX()) {
+                return i-1;
+            }
+        }
+        return -100;
+    }
+
     //getters & setters 
     getColumnas(){
         return this.columnas;
@@ -80,6 +102,13 @@ class Tablero extends Figura {
 
     getImgHeight() {
         return this.imgHeight;
+    }
+
+    getWidth(){
+        return this.getColumnas()*this.getImgWidth();
+    }
+    getHeight(){
+        return this.getFilas()*this.getImgHeight();
     }
 
     setColumnas(columnas){

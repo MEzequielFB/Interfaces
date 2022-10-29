@@ -88,4 +88,6 @@ document.addEventListener("DOMContentLoaded", function(){{
     canvas.addEventListener("mousedown", mouseDown);
     canvas.addEventListener("mousemove", mouseMove);
     canvas.addEventListener("mouseup", mouseUp);
+
+
 }});
