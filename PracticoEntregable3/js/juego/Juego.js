@@ -8,9 +8,15 @@ class Juego {
     }
 
     //Funcionalidades
-    addFicha(ficha, columna) { //Si se agrego la ficha a la porcion del tablero se elimina la ficha del jugador actual y se cambia el jugador actual
-        if (this.tablero.addFicha(ficha, columna)) {
+    hayGanador(filaColumnaDeFichaAgregada) {
+        return this.tablero.comprobarSiGano(filaColumnaDeFichaAgregada);
+    }
+
+    addFicha(ficha, columna) { //Si se agrego la ficha a la porcion del tablero se elimina la ficha del jugador actual y se cambia el jugador actual. Tambien se verifica si un jugador gano con la ultima ficha agregada
+        const filaColumnaDeFichaAgregada = this.tablero.addFicha(ficha, columna);
+        if (/* this.tablero.addFicha(ficha, columna) */ filaColumnaDeFichaAgregada != null) {
             this.jugadorActual.removeFicha(ficha);
+            this.hayGanador(filaColumnaDeFichaAgregada);
             this.setJugadorActual();
         }
     }
@@ -42,8 +48,10 @@ class Juego {
         for (let i = 0; i < fichas.length; i++) {
             if (i <= fichas.length / 2) {
                 this.jugador1.addFicha(fichas[i]);
+                fichas[i].setJugadorDuenio(this.jugador1);
             } else {
                 this.jugador2.addFicha(fichas[i]);
+                fichas[i].setJugadorDuenio(this.jugador2);
             }
         }
     }
@@ -57,7 +65,7 @@ class Juego {
         return this.jugador2;
     }
 
-    getJugadorActual(){
+    getJugadorActual() {
         return this.jugadorActual;
     }
 
@@ -65,19 +73,17 @@ class Juego {
         return this.tablero;
     }
 
-    setFichasSeleccionablesJugador(jugador, seleccionable) {
+    setFichasSeleccionablesJugador(jugador, seleccionable) { //Setea el atributo 'seleccionable' de las fichas de un jugador
         jugador.setFichasSeleccionables(seleccionable);
     }
 
-    setJugadorActual(){
+    setJugadorActual() { //Cambia al jugador actual y cambia el valor 'seleccionable' de las fichas de ambos jugadores
+        this.setFichasSeleccionablesJugador(this.jugadorActual, false);
         if (this.jugadorActual == this.jugador1) {
-            this.setFichasSeleccionablesJugador(this.jugadorActual, false);
             this.jugadorActual = this.jugador2;
-            this.setFichasSeleccionablesJugador(this.jugadorActual, true);
         } else {
-            this.setFichasSeleccionablesJugador(this.jugadorActual, false);
             this.jugadorActual = this.jugador1;
-            this.setFichasSeleccionablesJugador(this.jugadorActual, true);
         }
+        this.setFichasSeleccionablesJugador(this.jugadorActual, true);
     }
 }

@@ -9,6 +9,7 @@ class Tablero extends Figura {
         this.imgHeight = imgHeight;
         this.fichasColocadas = [];
         this.porcionesTablero = [];
+        this.cantidadFichasParaGanar = Math.round((filas * columnas) / 12);
         this.vaciarTablero();
     }
 
@@ -30,16 +31,21 @@ class Tablero extends Figura {
             let porcionTableroActual = this.porcionesTablero[fila][columna];
             if (porcionTableroActual.getFichaContenida() == null) {
                 porcionTableroActual.setFichaContenida(ficha);
-                return true; //Retorna true si se agrego la ficha en una porcion del tablero
+                //return true; //Retorna true si se agrego la ficha en una porcion del tablero
+                return {
+                    jugadorDuenio: ficha.getJugadorDuenio(),
+                    fila: fila,
+                    columna: columna
+                };
             }
         }
-        return false; //Retorna false si no se agrego la ficha en una porcion del tablero
+        return null; //Retorna false si no se agrego la ficha en una porcion del tablero
     }
 
     getColumnaZonaFichaSoltada(fichaSoltada) { //Si se solto una ficha en una zona se devuelve la columna perteneciente a la zona
         for (let columna = 0; columna < this.getColumnas(); columna++) {
             if (this.porcionesTablero[0][columna].seSoltoFichaEnZona(fichaSoltada)) {
-                return columna /* this.porcionesTablero[0][i] */;
+                return columna;
             }
         }
         return -1;
@@ -95,9 +101,50 @@ class Tablero extends Figura {
         caso contrario retornar null, false o 0*/
     }
 
-    comprobarSiGano(ficha){
+    comprobarSiGano(filaColumnaDeFichaAgregada){
         /*comprobar si la ultima ficha colocada hizo que el jugador ganara
         hay que comprobar en diagonal, horizontal, y en vertical*/
+        if (this.getCantidadFichasHorizontalesAlineadas(filaColumnaDeFichaAgregada) >= this.cantidadFichasParaGanar) {
+            return true;
+        } else if (this.getCantidadFichasVerticalesAlineadas(filaColumnaDeFichaAgregada) >= this.cantidadFichasParaGanar) {
+            return true;
+        }
+    }
+
+    getCantidadFichasVerticalesAlineadas(filaColumnaDeFichaAgregada) {
+        let contador = 1; //Empieza en uno porque se tiene en cuenta la ficha agregada
+
+        let filaInicial = filaColumnaDeFichaAgregada.fila;
+        let columna = filaColumnaDeFichaAgregada.columna;
+        for (let fila = filaInicial - 1; fila >= 0; fila--) { //Empieza por las filas de abajo de la porcion de tablero con la ficha agregada
+            if (this.porcionesTablero[fila][columna].getFichaContenida().getJugadorDuenio() == filaColumnaDeFichaAgregada.jugadorDuenio) {
+                contador++;
+            }
+        }
+        for (let fila = filaInicial + 1; fila < this.filas-1; fila++) { //Empieza por las columnas de la arriba de la porcion de tablero con la ficha agregada
+            if (this.porcionesTablero[fila][columna].getFichaContenida().getJugadorDuenio() == filaColumnaDeFichaAgregada.jugadorDuenio) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+    getCantidadFichasHorizontalesAlineadas(filaColumnaDeFichaAgregada) {
+        let contador = 1; //Empieza en uno porque se tiene en cuenta la ficha agregada
+
+        let fila = filaColumnaDeFichaAgregada.fila;
+        let columnaInicial = filaColumnaDeFichaAgregada.columna;
+        for (let columna = columnaInicial - 1; columna >= 0; columna--) { //Empieza por las columnas de la izquierda de la porcion de tablero con la ficha agregada
+            if (this.porcionesTablero[fila][columna].getFichaContenida().getJugadorDuenio() == filaColumnaDeFichaAgregada.jugadorDuenio) {
+                contador++;
+            }
+        }
+        for (let columna = columnaInicial + 1; columna < this.columnas; columna++) { //Empieza por las columnas de la derecha de la porcion de tablero con la ficha agregada
+            if (this.porcionesTablero[fila][columna].getFichaContenida().getJugadorDuenio() == filaColumnaDeFichaAgregada.jugadorDuenio) {
+                contador++;
+            }
+        }
+        return contador;
     }
 
     determinarColumna(ficha){
@@ -133,8 +180,13 @@ class Tablero extends Figura {
     getWidth(){
         return this.getColumnas()*this.getImgWidth();
     }
+
     getHeight(){
         return this.getFilas()*this.getImgHeight();
+    }
+
+    getCantidadFichasParaGanar() {
+        return this.cantidadFichasParaGanar;
     }
 
     setColumnas(columnas){

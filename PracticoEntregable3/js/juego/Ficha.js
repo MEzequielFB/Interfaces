@@ -4,7 +4,8 @@ class Ficha extends Figura{
         super(x, y, fill, contexto);
         this.img = img;
         this.radio = radio;
-        this.seleccionable = false;
+        this.seleccionable = false; //Para controlar los turnos y para que no se puedan mover las fichas contenidas en el tablero
+        this.jugadorDuenio = null; //Para saber a quien pertenece la ficha y controlar si un jugador gano
     }
 
     //Funcionalidades
@@ -36,7 +37,7 @@ class Ficha extends Figura{
         return this.seleccionable;
     }
 
-    //Getters
+    //getters & setters
     getRadio() {
         return this.radio;
     }
@@ -45,7 +46,10 @@ class Ficha extends Figura{
         return this.img;
     }
 
-    //Setters
+    getJugadorDuenio() {
+        return this.jugadorDuenio;
+    }
+
     setImg(img){
         this.img = img;
     }
@@ -56,5 +60,9 @@ class Ficha extends Figura{
 
     setSeleccionable(seleccionable) {
         this.seleccionable = seleccionable;
+    }
+
+    setJugadorDuenio(jugadorDuenio) {
+        this.jugadorDuenio = jugadorDuenio;
     }
 }
