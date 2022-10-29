@@ -13,8 +13,24 @@ class Tablero extends Figura {
     }
 
     //funciones
-    seAgregaFicha() { //Verifica si se solto la ficha en la zona de la columna del tablero
+    addFicha(ficha, columna) { //Se agrega la ficha en una fila de la columna que se pasa por parametro si hay espacio disponible. Itera de abajo hacia arriba
+        for (let fila = this.getFilas()-1; fila > 0; fila--) {
+            let porcionTableroActual = this.porcionesTablero[fila][columna];
+            if (porcionTableroActual.getFichaContenida() == null) {
+                porcionTableroActual.setFichaContenida(ficha);
+                return true; //Retorna true si se agrego la ficha en una porcion del tablero
+            }
+        }
+        return false; //Retorna false si no se agrego la ficha en una porcion del tablero
+    }
 
+    getColumnaZonaFichaSoltada(fichaSoltada) { //Si se solto una ficha en una zona se devuelve la columna perteneciente a la zona
+        for (let columna = 0; columna < this.getColumnas(); columna++) {
+            if (this.porcionesTablero[0][columna].seSoltoFichaEnZona(fichaSoltada)) {
+                return columna /* this.porcionesTablero[0][i] */;
+            }
+        }
+        return -1;
     }
 
     draw(){

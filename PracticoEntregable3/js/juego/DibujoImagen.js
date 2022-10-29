@@ -8,6 +8,7 @@ class DibujoImagen {
         this.width = width;
         this.height = height;
         this.contexto = contexto;
+        this.fichaContenida = null;
     }
 
     //Funcionalidades
@@ -15,11 +16,19 @@ class DibujoImagen {
         this.contexto.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
 
-    //Getters
+    //getters & setters
     getPos(){
         return {
             x: this.x,
             y: this.y
         }
+    }
+
+    getFichaContenida() {
+        return this.fichaContenida;
+    }
+
+    setFichaContenida(fichaContenida) {
+        this.fichaContenida = fichaContenida;
     }
 }
