@@ -13,7 +13,7 @@ class Tablero extends Figura {
     }
 
     //funciones
-    seAgregaFicha(ficha){
+    /* seAgregaFicha(ficha){ ESTE METODO SE LO DELEGA AL RECTANGULO EN GETCOLUMNAZONAFICHASOLTADA
         if(ficha != null){
             if((ficha.getX() > this.getX()) && (ficha.getX() <= this.getX() + this.getWidth()) &&
             (ficha.getY() <= this.getY()+this.getHeight()) && (ficha.getY() > this.getY() - this.getHeight())){
@@ -23,6 +23,26 @@ class Tablero extends Figura {
             }
         }
         return false;
+    } */
+
+    addFicha(ficha, columna) { //Se agrega la ficha en una fila de la columna que se pasa por parametro si hay espacio disponible. Itera de abajo hacia arriba
+        for (let fila = this.getFilas()-1; fila > 0; fila--) {
+            let porcionTableroActual = this.porcionesTablero[fila][columna];
+            if (porcionTableroActual.getFichaContenida() == null) {
+                porcionTableroActual.setFichaContenida(ficha);
+                return true; //Retorna true si se agrego la ficha en una porcion del tablero
+            }
+        }
+        return false; //Retorna false si no se agrego la ficha en una porcion del tablero
+    }
+
+    getColumnaZonaFichaSoltada(fichaSoltada) { //Si se solto una ficha en una zona se devuelve la columna perteneciente a la zona
+        for (let columna = 0; columna < this.getColumnas(); columna++) {
+            if (this.porcionesTablero[0][columna].seSoltoFichaEnZona(fichaSoltada)) {
+                return columna /* this.porcionesTablero[0][i] */;
+            }
+        }
+        return -1;
     }
 
     draw(){
@@ -34,21 +54,21 @@ class Tablero extends Figura {
             this.porcionesTablero[i] = [];
             posY = posY + this.getImgHeight();
             posX = this.getX();
-            for(let j = 0; j < this.getColumnas(); j++){
+            /* for(let j = 0; j < this.getColumnas(); j++){
                 posX = posX + this.getImgWidth();
                 this.porcionesTablero[i][j] = new DibujoImagen(this.imgPorcionTablero, posX, posY, this.imgWidth, this.imgHeight, this.contexto);
                 this.porcionesTablero[i][j].draw();
-            }
-            // for (let j = 0; j < this.getColumnas(); j++) {
-            //     posX = posX + this.getImgWidth();
-            //     if (i != 0) { //Si no es la primera fila se dibujan las porciones del tablero normalmente
-            //         this.porcionesTablero[i][j] = new DibujoImagen(this.imgPorcionTablero, posX, posY, this.imgWidth, this.imgHeight, this.contexto);
-            //         this.porcionesTablero[i][j].draw();
-            //     } else { // Si es la primera fila se dibujan las zonas para soltar las fichas. Se achica la zona dibujada en base a un porcentaje del atributo del ancho de la imagen. La pos x se mueve en base al ancho disminuido divido 2 (para que quede parejo)
-            //         this.porcionesTablero[i][j] = new Rectangulo(posX + ((this.imgWidth * 0.08) / 2), posY, this.getFill(), this.getContexto(), this.imgWidth - (this.imgWidth * 0.08), this.imgHeight);
-            //         this.porcionesTablero[i][j].draw();
-            //     }
-            // } 
+            } */
+            for (let j = 0; j < this.getColumnas(); j++) {
+                posX = posX + this.getImgWidth();
+                if (i != 0) { //Si no es la primera fila se dibujan las porciones del tablero normalmente
+                    this.porcionesTablero[i][j] = new DibujoImagen(this.imgPorcionTablero, posX, posY, this.imgWidth, this.imgHeight, this.contexto);
+                    this.porcionesTablero[i][j].draw();
+                } else { // Si es la primera fila se dibujan las zonas para soltar las fichas. Se achica la zona dibujada en base a un porcentaje del atributo del ancho de la imagen. La pos x se mueve en base al ancho disminuido divido 2 (para que quede parejo)
+                    this.porcionesTablero[i][j] = new Rectangulo(posX + ((this.imgWidth * 0.08) / 2), posY, this.getFill(), this.getContexto(), this.imgWidth - (this.imgWidth * 0.08), this.imgHeight);
+                    this.porcionesTablero[i][j].draw();
+                }
+            } 
         }
     }
 

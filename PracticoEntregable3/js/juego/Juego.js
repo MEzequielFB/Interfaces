@@ -8,6 +8,16 @@ class Juego {
     }
 
     //Funcionalidades
+    addFicha(ficha, columna) { //Si se agrego la ficha a la porcion del tablero se elimina la ficha del jugador actual
+        if (this.tablero.addFicha(ficha, columna)) {
+            this.jugadorActual.removeFicha(ficha);
+        }
+    }
+
+    getColumnaZonaFichaSoltada(fichaSoltada) {
+        return this.tablero.getColumnaZonaFichaSoltada(fichaSoltada);
+    }
+
     jugar(fichas) { //Se le dan las fichas a los jugadores y se dibuja el juego
         this.darFichas(fichas);
         this.dibujarJuegoInicial();

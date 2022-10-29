@@ -14,7 +14,7 @@ class Jugador {
         }
     }
 
-    dibujarFichasInicial() {
+    dibujarFichasInicial() { //Dibuja las fichas dentro de una zona con posiciones aleatorias
         let posX = this.getPosFichasInicialX();
         let posY = this.getPosFichasInicialY();
         let probabilidad = Math.random();
@@ -34,6 +34,11 @@ class Jugador {
         }
     }
 
+    removeFicha(ficha) { //Setea el arreglo se fichas por uno nuevo en el cual se filtra la ficha pasada por parametro
+        const arrayFiltrado = this.fichas.filter(fichaArray => fichaArray != ficha); //Se agregan al nuevo array las fichas que sean distintas a la ficha pasada por parametro
+        this.setFichas(arrayFiltrado);
+    }
+
     addFicha(ficha) { //Agrega fichas al empezar el juego. Un for en el juego que delegue esta funcion
         this.fichas.push(ficha);
     }
@@ -45,7 +50,7 @@ class Jugador {
         return null;
     }
 
-    //Getters
+    //getters & setters
     getNombre() {
         return this.nombre;
     }
@@ -60,5 +65,9 @@ class Jugador {
 
     getCantidadFichas() {
         return this.fichas.length;
+    }
+
+    setFichas(fichas) {
+        this.fichas = fichas;
     }
 }

@@ -82,7 +82,14 @@ document.addEventListener("DOMContentLoaded", function(){{
 
     function mouseUp() { //Setea que el mouse deje de estar clickeado y a la ultima figura clickeada como null
         estaMouseDown = false;
+        if (ultimaFiguraClickeada != null) {
+            const columnaZona = juego.getColumnaZonaFichaSoltada(ultimaFiguraClickeada);
+            if (columnaZona != -1) {
+                juego.addFicha(ultimaFiguraClickeada, columnaZona);
+            }
+        }
         ultimaFiguraClickeada = null;
+        //Se tiene que verificar donde se solto la ficha
     }
 
     canvas.addEventListener("mousedown", mouseDown);
