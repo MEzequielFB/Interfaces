@@ -12,8 +12,12 @@ class DibujoImagen {
     }
 
     //Funcionalidades
-    draw() {
+    draw() { //Se dibuja. Si la ficha contenida no es null tambien se dibuja la ficha
         this.contexto.drawImage(this.img, this.x, this.y, this.width, this.height);
+        if (this.fichaContenida != null) {
+            this.fichaContenida.setPos(this.x + (this.width / 2), this.y + (this.height / 2));
+            this.fichaContenida.draw();
+        }
     }
 
     //getters & setters
@@ -28,7 +32,8 @@ class DibujoImagen {
         return this.fichaContenida;
     }
 
-    setFichaContenida(fichaContenida) {
+    setFichaContenida(fichaContenida) { //Setea la ficha contenida. La ficha contenida no es seleccionable
         this.fichaContenida = fichaContenida;
+        this.fichaContenida.setSeleccionable(false);
     }
 }

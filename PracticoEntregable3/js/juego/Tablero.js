@@ -48,25 +48,35 @@ class Tablero extends Figura {
     draw(){
         //dibujar el tablero, tamaño filas x columnas, dibujado segun las fichas colocadas
         //NOTA: Dibuja tablero con imagen. En otra matriz -> porcionesTablero. En fichas colocadas se guardan las fichas colocadas y se dibujan con su propio color
-        let posX = this.getX();
-        let posY = this.getY();
         for (let fila = 0; fila < this.getFilas(); fila++){
-            this.porcionesTablero[fila] = [];
-            posY = posY + this.getImgHeight();
-            posX = this.getX();
             /* for(let j = 0; j < this.getColumnas(); j++){
                 posX = posX + this.getImgWidth();
                 this.porcionesTablero[i][j] = new DibujoImagen(this.imgPorcionTablero, posX, posY, this.imgWidth, this.imgHeight, this.contexto);
                 this.porcionesTablero[i][j].draw();
             } */
             for (let columna = 0; columna < this.getColumnas(); columna++) {
+                 //Si no es la primera fila se dibujan las porciones del tablero normalmente
+                    
+                // Si es la primera fila se dibujan las zonas para soltar las fichas. Se achica la zona dibujada en base a un porcentaje del atributo del ancho de la imagen. La pos x se mueve en base al ancho disminuido divido 2 (para que quede parejo);
+                this.porcionesTablero[fila][columna].draw();
+                
+            } 
+        }
+    }
+
+    inicializarTablero() {
+        let posX = this.getX();
+        let posY = this.getY();
+        for (let fila = 0; fila < this.getFilas(); fila++){
+            this.porcionesTablero[fila] = [];
+            posY = posY + this.getImgHeight();
+            posX = this.getX();
+            for (let columna = 0; columna < this.getColumnas(); columna++) {
                 posX = posX + this.getImgWidth();
-                if (fila != 0) { //Si no es la primera fila se dibujan las porciones del tablero normalmente
+                if (fila != 0) {
                     this.porcionesTablero[fila][columna] = new DibujoImagen(this.imgPorcionTablero, posX, posY, this.imgWidth, this.imgHeight, this.contexto);
-                    this.porcionesTablero[fila][columna].draw();
-                } else { // Si es la primera fila se dibujan las zonas para soltar las fichas. Se achica la zona dibujada en base a un porcentaje del atributo del ancho de la imagen. La pos x se mueve en base al ancho disminuido divido 2 (para que quede parejo)
+                } else {
                     this.porcionesTablero[fila][columna] = new Rectangulo(posX + ((this.imgWidth * 0.08) / 2), posY, this.getFill(), this.getContexto(), this.imgWidth - (this.imgWidth * 0.08), this.imgHeight);
-                    this.porcionesTablero[fila][columna].draw();
                 }
             } 
         }

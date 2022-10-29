@@ -21,6 +21,7 @@ class Juego {
 
     jugar(fichas) { //Se le dan las fichas a los jugadores y se dibuja el juego. Tambien se setean seleccionables las fichas del jugador actual (jugador1 de forma predeterminada)
         this.darFichas(fichas);
+        this.tablero.inicializarTablero();
         this.dibujarJuegoInicial();
         this.setFichasSeleccionablesJugador(this.jugadorActual, true);
     }
