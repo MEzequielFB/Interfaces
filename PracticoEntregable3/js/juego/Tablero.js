@@ -105,10 +105,14 @@ class Tablero extends Figura {
         /*comprobar si la ultima ficha colocada hizo que el jugador ganara
         hay que comprobar en diagonal, horizontal, y en vertical*/
         if (this.getCantidadFichasHorizontalesAlineadas(filaColumnaDeFichaAgregada) >= this.cantidadFichasParaGanar) {
+            console.log("gano horizontal");
             return true;
         } else if (this.getCantidadFichasVerticalesAlineadas(filaColumnaDeFichaAgregada) >= this.cantidadFichasParaGanar) {
+            console.log("gano vertical");
             return true;
         }
+        console.log("no gano");
+        return false;
     }
 
     getCantidadFichasVerticalesAlineadas(filaColumnaDeFichaAgregada) {
@@ -116,14 +120,24 @@ class Tablero extends Figura {
 
         let filaInicial = filaColumnaDeFichaAgregada.fila;
         let columna = filaColumnaDeFichaAgregada.columna;
-        for (let fila = filaInicial - 1; fila >= 0; fila--) { //Empieza por las filas de abajo de la porcion de tablero con la ficha agregada
-            if (this.porcionesTablero[fila][columna].getFichaContenida().getJugadorDuenio() == filaColumnaDeFichaAgregada.jugadorDuenio) {
-                contador++;
+        for (let fila = filaInicial - 1; fila > 0; fila--) { //Empieza por las filas de abajo de la porcion de tablero con la ficha agregada. Fila tiene que ser mayor a cero porque la fila: 0 es la fila de los rectangulos
+            const fichaActual = this.porcionesTablero[fila][columna].getFichaContenida();
+            if (fichaActual != null) {
+                if (fichaActual.getJugadorDuenio() == filaColumnaDeFichaAgregada.jugadorDuenio) {
+                    contador++;
+                } else {
+                    break; //Con el break sale del for cuando las fichas no son del mismo jugador (evita que se cuenten fichas no consecutivas)
+                }
             }
         }
-        for (let fila = filaInicial + 1; fila < this.filas-1; fila++) { //Empieza por las columnas de la arriba de la porcion de tablero con la ficha agregada
-            if (this.porcionesTablero[fila][columna].getFichaContenida().getJugadorDuenio() == filaColumnaDeFichaAgregada.jugadorDuenio) {
-                contador++;
+        for (let fila = filaInicial + 1; fila < this.filas; fila++) { //Empieza por las columnas de la arriba de la porcion de tablero con la ficha agregada
+            const fichaActual = this.porcionesTablero[fila][columna].getFichaContenida();
+            if (fichaActual != null) {
+                if (fichaActual.getJugadorDuenio() == filaColumnaDeFichaAgregada.jugadorDuenio) {
+                    contador++;
+                } else {
+                    break; //Con el break sale del for cuando las fichas no son del mismo jugador (evita que se cuenten fichas no consecutivas)
+                }
             }
         }
         return contador;
@@ -135,13 +149,23 @@ class Tablero extends Figura {
         let fila = filaColumnaDeFichaAgregada.fila;
         let columnaInicial = filaColumnaDeFichaAgregada.columna;
         for (let columna = columnaInicial - 1; columna >= 0; columna--) { //Empieza por las columnas de la izquierda de la porcion de tablero con la ficha agregada
-            if (this.porcionesTablero[fila][columna].getFichaContenida().getJugadorDuenio() == filaColumnaDeFichaAgregada.jugadorDuenio) {
-                contador++;
+            const fichaActual = this.porcionesTablero[fila][columna].getFichaContenida();
+            if (fichaActual != null) {
+                if (fichaActual.getJugadorDuenio() == filaColumnaDeFichaAgregada.jugadorDuenio) {
+                    contador++;
+                } else {
+                    break; //Con el break sale del for cuando las fichas no son del mismo jugador (evita que se cuenten fichas no consecutivas)
+                }
             }
         }
         for (let columna = columnaInicial + 1; columna < this.columnas; columna++) { //Empieza por las columnas de la derecha de la porcion de tablero con la ficha agregada
-            if (this.porcionesTablero[fila][columna].getFichaContenida().getJugadorDuenio() == filaColumnaDeFichaAgregada.jugadorDuenio) {
-                contador++;
+            const fichaActual = this.porcionesTablero[fila][columna].getFichaContenida();
+            if (fichaActual != null) {
+                if (fichaActual.getJugadorDuenio() == filaColumnaDeFichaAgregada.jugadorDuenio) {
+                    contador++;
+                } else {
+                    break; //Con el break sale del for cuando las fichas no son del mismo jugador (evita que se cuenten fichas no consecutivas)
+                }
             }
         }
         return contador;
