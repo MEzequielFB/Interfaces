@@ -1764,14 +1764,15 @@ section.informacion div p:last-child img {
     }
     .canvas {
         display: block;
-        position: absolute;
-        top: 168px;
+        position: relative;
+        /* top: 168px; */
         border-radius: 5px;
         background-color: #000000;
         z-index: 0;
     }
     
     .juego { /* previa juego v */
+        display: none;
         height: 770px;
         position: relative;
         top: 0px;
