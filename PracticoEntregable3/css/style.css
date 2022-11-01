@@ -1770,7 +1770,8 @@ section.informacion div p:last-child img {
         position: relative;
         /* top: 168px; */
         border-radius: 5px;
-        background-color: #000000;
+        /* background-color: #000000; */
+        background-image: url("../img/4-en-linea/fondo-juego.png");
         z-index: 0;
     }
     .btn-reset {
