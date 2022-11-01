@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function(){{
 
     function iniciarJuego() { //Agrega fichas a un arreglo, se llama al metodo jugar del objeto juego y dibuja el juego
         for (let i = 0; i < CANT_FICHAS; i++) {
-            if (i <= CANT_FICHAS / 2) {
+            if (i < CANT_FICHAS / 2) {
                 addFicha(fichas, personajeMoguriImg, "#273570");
             } else {
                 addFicha(fichas, personajeHumanoImg, "#993c3c");

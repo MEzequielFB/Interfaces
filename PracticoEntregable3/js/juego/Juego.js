@@ -49,7 +49,7 @@ class Juego {
 
     darFichas(fichas) { //Agrega las fichas pertenecientes a cada jugar en su arreglo
         for (let i = 0; i < fichas.length; i++) {
-            if (i <= fichas.length / 2) {
+            if (i < fichas.length / 2) {
                 this.jugador1.addFicha(fichas[i]);
                 fichas[i].setJugadorDuenio(this.jugador1);
             } else {
