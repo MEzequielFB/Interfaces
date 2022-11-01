@@ -6,6 +6,7 @@ class Juego {
         this.jugadorActual = jugador1;
         this.tablero = tablero;
         this.modoDeJuego = 4; //es un numero, determina si el juego es 3 en linea, 3 en linea, 5 en linea etc, por defecto es 4
+        this.juegoTerminado = false;
     }
 
     //Funcionalidades
@@ -14,7 +15,10 @@ class Juego {
         if (posUltimaficha) {
             this.jugadorActual.removeFicha(ficha);
             this.setJugadorActual();
-            this.tablero.comprobarSiGano(posUltimaficha.fila, posUltimaficha.columna, this.modoDeJuego);
+            if(this.tablero.comprobarSiGano(posUltimaficha.fila, posUltimaficha.columna, this.modoDeJuego)){
+                this.setJuegoTerminado(true);
+                console.log(`ganó ${this.jugadorActual.getNombre()}`);
+            }
         }
     }
 
@@ -31,8 +35,10 @@ class Juego {
 
     dibujarJuego() { // Dibuja el tablero y las fichas de los jugadores
         this.tablero.draw();
-        this.jugador1.dibujarFichas();
-        this.jugador2.dibujarFichas();
+        if(!this.getJuegoTerminado()){
+            this.jugador1.dibujarFichas();
+            this.jugador2.dibujarFichas();
+        }
     }
 
     dibujarJuegoInicial() { //Dibuja el tablero y las fichas de los jugadores en una zona determinada
@@ -70,6 +76,10 @@ class Juego {
         return this.tablero;
     }
 
+    getJuegoTerminado(){
+        return this.juegoTerminado;
+    }
+
     setFichasSeleccionablesJugador(jugador, seleccionable) { //Setea el atributo 'seleccionable' de las fichas de un jugador
         jugador.setFichasSeleccionables(seleccionable);
     }
@@ -82,5 +92,9 @@ class Juego {
             this.jugadorActual = this.jugador1;
         }
         this.setFichasSeleccionablesJugador(this.jugadorActual, true);
+    }
+
+    setJuegoTerminado(juegoTerminado){
+        this.juegoTerminado = juegoTerminado;
     }
 }
