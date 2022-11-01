@@ -119,4 +119,5 @@ document.addEventListener("DOMContentLoaded", function(){{
             resetJuego();
         }
     });
+    document.querySelector(".btn-reset").addEventListener("click", resetJuego);
 }});

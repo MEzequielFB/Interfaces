@@ -728,6 +728,9 @@ h1.juego-titulo { /* previa-juego v */
 .canvas {
     display: none;
 }
+.btn-reset {
+    display: none;
+}
 .juego {
     display: flex;
     justify-content: center;
@@ -1770,7 +1773,19 @@ section.informacion div p:last-child img {
         background-color: #000000;
         z-index: 0;
     }
-    
+    .btn-reset {
+        display: block;
+        position: absolute;
+        left: 44%;
+        padding: 5px;
+        background-color: #2d3a83;
+        color: var(--negro);
+        z-index: 1;
+        transition: background-color 0.5s;
+    }
+    .btn-reset:hover {
+        background-color: #4b5aad;
+    }
     .juego { /* previa juego v */
         display: none;
         height: 770px;
