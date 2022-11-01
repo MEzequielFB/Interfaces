@@ -53,9 +53,9 @@ class Ficha extends Figura{
         return this.img;
     }
 
-    getJugadorDuenio() {
+    /* getJugadorDuenio() {
         return this.jugadorDuenio;
-    }
+    } */
 
     setImg(img){
         this.img = img;
@@ -69,7 +69,7 @@ class Ficha extends Figura{
         this.seleccionable = seleccionable;
     }
 
-    setJugadorDuenio(jugadorDuenio) {
+    /* setJugadorDuenio(jugadorDuenio) {
         this.jugadorDuenio = jugadorDuenio;
-    }
+    } */
 }

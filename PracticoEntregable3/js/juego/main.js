@@ -23,8 +23,18 @@ document.addEventListener("DOMContentLoaded", function(){{
 
     let juego = new Juego(jugador1, jugador2, tablero);
 
-    function resetJuego() {
-        
+    function resetJuego() { //Vacía el arreglo de fichas, crea otros objetos y las variables ya existentes apuntan a estos. Finalmente inicia el juego con los nuevos objetos
+        fichas = [];
+        ultimaFiguraClickeada = null;
+        estaMouseDown = false;
+
+        jugador1 = new Jugador("nico", canvas.width * 0.1, canvas.height * 0.7);
+        jugador2 = new Jugador("eze", canvas.width * 0.9, canvas.height * 0.7);
+
+        tablero = new Tablero(canvas.width / 3.4, 100, "#FF23FF", contexto, CANT_FILAS, CANT_COLUMNAS, porcionTableroImg, 75, 75);
+
+        juego = new Juego(jugador1, jugador2, tablero);
+        iniciarJuego();
     }
 
     function iniciarJuego() { //Agrega fichas a un arreglo, se llama al metodo jugar del objeto juego y dibuja el juego
@@ -97,6 +107,16 @@ document.addEventListener("DOMContentLoaded", function(){{
     canvas.addEventListener("mousedown", mouseDown);
     canvas.addEventListener("mousemove", mouseMove);
     canvas.addEventListener("mouseup", mouseUp);
-
-
+    /* canvas.addEventListener("keydown", function(e){
+        console.log(e);
+        if (e.key == "z") {
+            resetJuego();
+        }
+    }); */
+    document.addEventListener("keydown", function(e){
+        console.log(e);
+        if (e.key == "z") {
+            resetJuego();
+        }
+    });
 }});

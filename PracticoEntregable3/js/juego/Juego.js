@@ -52,10 +52,10 @@ class Juego {
         for (let i = 0; i < fichas.length; i++) {
             if (i < fichas.length / 2) {
                 this.jugador1.addFicha(fichas[i]);
-                fichas[i].setJugadorDuenio(this.jugador1);
+                /* fichas[i].setJugadorDuenio(this.jugador1); */
             } else {
                 this.jugador2.addFicha(fichas[i]);
-                fichas[i].setJugadorDuenio(this.jugador2);
+                /* fichas[i].setJugadorDuenio(this.jugador2); */
             }
         }
     }
