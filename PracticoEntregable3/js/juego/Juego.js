@@ -14,10 +14,11 @@ class Juego {
         let posUltimaficha = this.tablero.addFicha(ficha, columna);// posUltimaFicha puede recibir un json o un false, el json actua como un "true" en el if
         if (posUltimaficha) {
             this.jugadorActual.removeFicha(ficha);
-            this.setJugadorActual();
             if(this.tablero.comprobarSiGano(posUltimaficha.fila, posUltimaficha.columna, this.modoDeJuego)){
                 this.setJuegoTerminado(true);
                 console.log(`ganó ${this.jugadorActual.getNombre()}`);
+            } else {
+                this.setJugadorActual(); //Cambia el jugador actual si en la última jugada no se ganó
             }
         }
     }

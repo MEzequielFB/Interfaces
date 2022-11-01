@@ -23,7 +23,9 @@ document.addEventListener("DOMContentLoaded", function(){{
 
     let juego = new Juego(jugador1, jugador2, tablero);
 
-    
+    function resetJuego() {
+        
+    }
 
     function iniciarJuego() { //Agrega fichas a un arreglo, se llama al metodo jugar del objeto juego y dibuja el juego
         for (let i = 0; i < CANT_FICHAS; i++) {
