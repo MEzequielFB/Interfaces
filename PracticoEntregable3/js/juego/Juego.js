@@ -5,19 +5,16 @@ class Juego {
         this.jugador2 = jugador2;
         this.jugadorActual = jugador1;
         this.tablero = tablero;
+        this.modoDeJuego = 4; //es un numero, determina si el juego es 3 en linea, 3 en linea, 5 en linea etc, por defecto es 4
     }
 
     //Funcionalidades
-    hayGanador(filaColumnaDeFichaAgregada) {
-        return this.tablero.comprobarSiGano(filaColumnaDeFichaAgregada);
-    }
-
-    addFicha(ficha, columna) { //Si se agrego la ficha a la porcion del tablero se elimina la ficha del jugador actual y se cambia el jugador actual. Tambien se verifica si un jugador gano con la ultima ficha agregada
-        const filaColumnaDeFichaAgregada = this.tablero.addFicha(ficha, columna);
-        if (/* this.tablero.addFicha(ficha, columna) */ filaColumnaDeFichaAgregada != null) {
+    addFicha(ficha, columna) { //Si se agrego la ficha a la porcion del tablero se elimina la ficha del jugador actual, se comprueba si ganó y se cambia el jugador actual 
+        let posUltimaficha = this.tablero.addFicha(ficha, columna);// posUltimaFicha puede recibir un json o un false, el json actua como un "true" en el if
+        if (posUltimaficha) {
             this.jugadorActual.removeFicha(ficha);
-            this.hayGanador(filaColumnaDeFichaAgregada);
             this.setJugadorActual();
+            this.tablero.comprobarSiGano(posUltimaficha.fila, posUltimaficha.columna, this.modoDeJuego);
         }
     }
 

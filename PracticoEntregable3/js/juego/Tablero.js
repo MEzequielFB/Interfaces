@@ -9,7 +9,6 @@ class Tablero extends Figura {
         this.imgHeight = imgHeight;
         this.fichasColocadas = [];
         this.porcionesTablero = [];
-        this.cantidadFichasParaGanar = Math.round((filas * columnas) / 12);
         this.vaciarTablero();
     }
 
@@ -31,21 +30,20 @@ class Tablero extends Figura {
             let porcionTableroActual = this.porcionesTablero[fila][columna];
             if (porcionTableroActual.getFichaContenida() == null) {
                 porcionTableroActual.setFichaContenida(ficha);
-                //return true; //Retorna true si se agrego la ficha en una porcion del tablero
+                this.fichasColocadas[fila][columna] = ficha; //agrega la ficha a la matriz de fichas colocadas
                 return {
-                    jugadorDuenio: ficha.getJugadorDuenio(),
-                    fila: fila,
-                    columna: columna
-                };
+                    "fila" : fila,
+                    "columna" : columna
+                }; //Retorna true si se agrego la ficha en una porcion del tablero
             }
         }
-        return null; //Retorna false si no se agrego la ficha en una porcion del tablero
+        return false; //Retorna false si no se agrego la ficha en una porcion del tablero
     }
 
     getColumnaZonaFichaSoltada(fichaSoltada) { //Si se solto una ficha en una zona se devuelve la columna perteneciente a la zona
         for (let columna = 0; columna < this.getColumnas(); columna++) {
             if (this.porcionesTablero[0][columna].seSoltoFichaEnZona(fichaSoltada)) {
-                return columna;
+                return columna /* this.porcionesTablero[0][i] */;
             }
         }
         return -1;
@@ -101,74 +99,98 @@ class Tablero extends Figura {
         caso contrario retornar null, false o 0*/
     }
 
-    comprobarSiGano(filaColumnaDeFichaAgregada){
+    comprobarSiGano(fila,columna, modoDeJuego){
         /*comprobar si la ultima ficha colocada hizo que el jugador ganara
         hay que comprobar en diagonal, horizontal, y en vertical*/
-        if (this.getCantidadFichasHorizontalesAlineadas(filaColumnaDeFichaAgregada) >= this.cantidadFichasParaGanar) {
-            console.log("gano horizontal");
+        if (this.comprobarSiGanoHorizontal(fila, columna, modoDeJuego) || this.comprobarSiGanoVertical(fila, columna, modoDeJuego) || this.comprobarSiGanoDiagonalIzquierda(fila, columna, modoDeJuego) || this.comprobarSiGanoDiagonalDerecha(fila, columna, modoDeJuego)) {
             return true;
-        } else if (this.getCantidadFichasVerticalesAlineadas(filaColumnaDeFichaAgregada) >= this.cantidadFichasParaGanar) {
-            console.log("gano vertical");
-            return true;
+        }else{
+            return false;
         }
-        console.log("no gano");
-        return false;
     }
 
-    getCantidadFichasVerticalesAlineadas(filaColumnaDeFichaAgregada) {
-        let contador = 1; //Empieza en uno porque se tiene en cuenta la ficha agregada
-
-        let filaInicial = filaColumnaDeFichaAgregada.fila;
-        let columna = filaColumnaDeFichaAgregada.columna;
-        for (let fila = filaInicial - 1; fila > 0; fila--) { //Empieza por las filas de abajo de la porcion de tablero con la ficha agregada. Fila tiene que ser mayor a cero porque la fila: 0 es la fila de los rectangulos
-            const fichaActual = this.porcionesTablero[fila][columna].getFichaContenida();
-            if (fichaActual != null) {
-                if (fichaActual.getJugadorDuenio() == filaColumnaDeFichaAgregada.jugadorDuenio) {
-                    contador++;
-                } else {
-                    break; //Con el break sale del for cuando las fichas no son del mismo jugador (evita que se cuenten fichas no consecutivas)
-                }
+    comprobarSiGanoVertical(fila, columna, modoDeJuego){
+        /**
+         * ficha inicial: es la ficha que vamos a comparar con los demas espacios adyacentes
+         * ficha actual: es el espacio que sera comparado con la ficha inicial, la ficha actual cambia con cada iteracion del for
+         */
+        let fichaInicial = this.fichasColocadas[fila][columna];
+        let fichaActual = null;
+        for(let i = 0; i <= modoDeJuego-1; i++){
+            if(fila + i < this.getFilas()){//este if es para no pasarnos de los limites del tablero
+                fichaActual = this.fichasColocadas[fila+i][columna];//asignamos un espacio a ficha actual
             }
-        }
-        for (let fila = filaInicial + 1; fila < this.filas; fila++) { //Empieza por las columnas de la arriba de la porcion de tablero con la ficha agregada
-            const fichaActual = this.porcionesTablero[fila][columna].getFichaContenida();
-            if (fichaActual != null) {
-                if (fichaActual.getJugadorDuenio() == filaColumnaDeFichaAgregada.jugadorDuenio) {
-                    contador++;
-                } else {
-                    break; //Con el break sale del for cuando las fichas no son del mismo jugador (evita que se cuenten fichas no consecutivas)
-                }
+            if(!fichaInicial.sonIguales(fichaActual)){//si ficha actual y ficha inicial son diferente, se corta la iteracion con false
+                return false;
             }
+            fichaActual = null;
         }
-        return contador;
+        return true;//si la iteracion nunca se corto, entonces hubo 4 fichas iguales seguidas (o la cantidad que sea modoDeJuego)
     }
 
-    getCantidadFichasHorizontalesAlineadas(filaColumnaDeFichaAgregada) {
-        let contador = 1; //Empieza en uno porque se tiene en cuenta la ficha agregada
+    comprobarSiGanoHorizontal(fila, columna, modoDeJuego){
+        let fichaInicial = this.fichasColocadas[fila][columna];
+        let fichaActual = null;
 
-        let fila = filaColumnaDeFichaAgregada.fila;
-        let columnaInicial = filaColumnaDeFichaAgregada.columna;
-        for (let columna = columnaInicial - 1; columna >= 0; columna--) { //Empieza por las columnas de la izquierda de la porcion de tablero con la ficha agregada
-            const fichaActual = this.porcionesTablero[fila][columna].getFichaContenida();
-            if (fichaActual != null) {
-                if (fichaActual.getJugadorDuenio() == filaColumnaDeFichaAgregada.jugadorDuenio) {
-                    contador++;
-                } else {
-                    break; //Con el break sale del for cuando las fichas no son del mismo jugador (evita que se cuenten fichas no consecutivas)
-                }
-            }
+        /**
+         * este while es para comenzar desde la primer ficha que sea igual a la ficha inicial,
+         * para poder comenzar a iterar desde donde comienza el patron de fichas iguales.
+         */
+        while(columna-1 >= 0 && fichaInicial.sonIguales(this.fichasColocadas[fila][columna-1])){
+            fichaInicial = this.fichasColocadas[fila][columna-1];
+            columna--;
         }
-        for (let columna = columnaInicial + 1; columna < this.columnas; columna++) { //Empieza por las columnas de la derecha de la porcion de tablero con la ficha agregada
-            const fichaActual = this.porcionesTablero[fila][columna].getFichaContenida();
-            if (fichaActual != null) {
-                if (fichaActual.getJugadorDuenio() == filaColumnaDeFichaAgregada.jugadorDuenio) {
-                    contador++;
-                } else {
-                    break; //Con el break sale del for cuando las fichas no son del mismo jugador (evita que se cuenten fichas no consecutivas)
-                }
+
+        for(let i = 0; i <= modoDeJuego-1;i++){
+            if(columna+i <this.getColumnas()){
+                fichaActual = this.fichasColocadas[fila][columna+i];
             }
+            if(!fichaInicial.sonIguales(fichaActual)){
+                return false;
+            }
+            fichaActual = null;
         }
-        return contador;
+        return true;
+    }
+
+    comprobarSiGanoDiagonalIzquierda(fila, columna, modoDeJuego){
+        let fichaInicial =this.fichasColocadas[fila][columna];
+        let fichaActual = null;
+        while (fila-1 >= 0 && columna-1 >= 0 && fichaInicial.sonIguales(this.fichasColocadas[fila-1][columna-1])) {
+            fichaInicial = this.fichasColocadas[fila-1][columna-1];
+            fila--;
+            columna--;
+        }
+        for (let i = 0; i <= modoDeJuego-1; i++) {
+            if(fila+i < this.getFilas() && columna+i < this.getColumnas()){
+                fichaActual = this.fichasColocadas[fila+i][columna+i];
+            }
+            if(!fichaInicial.sonIguales(fichaActual)){
+                return false;
+            }
+            fichaActual = null;
+        }
+        return true;
+    }
+
+    comprobarSiGanoDiagonalDerecha(fila ,columna, modoDeJuego){
+        let fichaInicial =this.fichasColocadas[fila][columna];
+        let fichaActual = null;
+        while (fila-1 >= 0 && columna+1 < this.getColumnas() && fichaInicial.sonIguales(this.fichasColocadas[fila-1][columna+1])) {
+            fichaInicial = this.fichasColocadas[fila-1][columna+1];
+            fila--;
+            columna++;
+        }
+        for (let i = 0; i <= modoDeJuego-1; i++) {
+            if(fila+i < this.getFilas() && columna-i >= 0){
+                fichaActual = this.fichasColocadas[fila+i][columna-i];
+            }
+            if(!fichaInicial.sonIguales(fichaActual)){
+                return false;
+            }
+            fichaActual = null;
+        }
+        return true;
     }
 
     determinarColumna(ficha){
@@ -204,13 +226,8 @@ class Tablero extends Figura {
     getWidth(){
         return this.getColumnas()*this.getImgWidth();
     }
-
     getHeight(){
         return this.getFilas()*this.getImgHeight();
-    }
-
-    getCantidadFichasParaGanar() {
-        return this.cantidadFichasParaGanar;
     }
 
     setColumnas(columnas){

@@ -5,7 +5,6 @@ class Ficha extends Figura{
         this.img = img;
         this.radio = radio;
         this.seleccionable = false; //Para controlar los turnos y para que no se puedan mover las fichas contenidas en el tablero
-        this.jugadorDuenio = null; //Para saber a quien pertenece la ficha y controlar si un jugador gano
     }
 
     //Funcionalidades
@@ -35,6 +34,14 @@ class Ficha extends Figura{
 
     esSeleccionable() {
         return this.seleccionable;
+    }
+
+    sonIguales(objeto){ //dos fichas son iguales, si su imagen es la misma (en este caso)
+        if((objeto != null) && (objeto.getImg() == this.getImg())){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     //getters & setters
