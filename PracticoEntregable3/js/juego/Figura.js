@@ -1,15 +1,14 @@
 class Figura {
 
-    constructor(x, y, fill, contexto) { 
+    constructor(x, y, contexto) { 
         this.x = x;
         this.y = y;
-        this.fill = fill;
         this.contexto = contexto;
     }
 
     //funciones
     draw(){
-        this.contexto.fillStyle = this.fill;
+        
     }
 
     //getters & setters
@@ -29,16 +28,8 @@ class Figura {
         return this.y;
     }
 
-    getFill(){
-        return this.fill;
-    }
-
     getContexto(){
         return this.contexto;
-    }
-
-    setFill(fill){
-        this.fill = fill;
     }
 
     setX(x){

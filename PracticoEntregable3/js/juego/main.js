@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(){{
     let jugador1 = new Jugador("nico", canvas.width * 0.1, canvas.height * 0.7);
     let jugador2 = new Jugador("eze", canvas.width * 0.9, canvas.height * 0.7);
 
-    let tablero = new Tablero(canvas.width / 3.4, 100, "#FF23FF", contexto, CANT_FILAS, CANT_COLUMNAS, porcionTableroImg, 75, 75);
+    let tablero = new Tablero(canvas.width / 3.4, 100, contexto, CANT_FILAS, CANT_COLUMNAS, porcionTableroImg, 75, 75);
 
     let juego = new Juego(jugador1, jugador2, tablero);
 
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function(){{
         jugador1 = new Jugador("nico", canvas.width * 0.1, canvas.height * 0.7);
         jugador2 = new Jugador("eze", canvas.width * 0.9, canvas.height * 0.7);
 
-        tablero = new Tablero(canvas.width / 3.4, 100, "#FF23FF", contexto, CANT_FILAS, CANT_COLUMNAS, porcionTableroImg, 75, 75);
+        tablero = new Tablero(canvas.width / 3.4, 100, contexto, CANT_FILAS, CANT_COLUMNAS, porcionTableroImg, 75, 75);
 
         juego = new Juego(jugador1, jugador2, tablero);
         resetTimer();
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function(){{
         let posX = Math.round(Math.random() * canvas.width);
         let posY = Math.round(Math.random() * canvas.height);
 
-        let ficha = new Ficha(imagen, posX, posY, color, 30, contexto);
+        let ficha = new Ficha(posX, posY, color, contexto, imagen, 30);
         arreglo.push(ficha);
     }
 

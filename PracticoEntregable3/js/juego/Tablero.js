@@ -1,12 +1,12 @@
-class Tablero extends Figura {
+class Tablero extends Rectangulo {
 
-    constructor(x, y, fill, contexto, filas, columnas, imgPorcionTablero, imgWidth, imgHeight) {
-        super(x, y, fill, contexto);
+    constructor(x, y, contexto, filas, columnas, imgPorcionTablero, imgWidth, imgHeight) {
+        /* super(x, y, fill, contexto); */
+        super(x, y, contexto, imgWidth, imgHeight);
         this.filas = filas + 1; //La fila extra (+1) es la fila de las zonas para dejar caer las fichas
         this.columnas = columnas;
+        this.fichasParaGanar = Math.round(((this.filas - 1) * this.columnas) / 12);
         this.imgPorcionTablero = imgPorcionTablero;
-        this.imgWidth = imgWidth;
-        this.imgHeight = imgHeight;
         this.fichasColocadas = [];
         this.porcionesTablero = [];
         this.vaciarTablero();
@@ -34,7 +34,7 @@ class Tablero extends Figura {
                 return {
                     "fila" : fila,
                     "columna" : columna
-                }; //Retorna true si se agrego la ficha en una porcion del tablero
+                }; //Retorna un objeto si se agrego la ficha en una porcion del tablero
             }
         }
         return false; //Retorna false si no se agrego la ficha en una porcion del tablero
@@ -53,11 +53,6 @@ class Tablero extends Figura {
         //dibujar el tablero, tamaño filas x columnas, dibujado segun las fichas colocadas
         //NOTA: Dibuja tablero con imagen. En la matriz porcionesTablero. Cada porcion del tablero tiene una ficha colocada o no
         for (let fila = 0; fila < this.getFilas(); fila++){
-            /* for(let j = 0; j < this.getColumnas(); j++){
-                posX = posX + this.getImgWidth();
-                this.porcionesTablero[i][j] = new DibujoImagen(this.imgPorcionTablero, posX, posY, this.imgWidth, this.imgHeight, this.contexto);
-                this.porcionesTablero[i][j].draw();
-            } */
             for (let columna = 0; columna < this.getColumnas(); columna++) {
                 this.porcionesTablero[fila][columna].draw();
             } 
@@ -69,14 +64,14 @@ class Tablero extends Figura {
         let posY = this.getY();
         for (let fila = 0; fila < this.getFilas(); fila++){
             this.porcionesTablero[fila] = [];
-            posY = posY + this.getImgHeight();
+            posY = posY + this.getHeight();
             posX = this.getX();
             for (let columna = 0; columna < this.getColumnas(); columna++) {
-                posX = posX + this.getImgWidth();
+                posX = posX + this.getWidth();
                 if (fila != 0) { //Si no es la primera fila se instancian las porciones del tablero normalmente
-                    this.porcionesTablero[fila][columna] = new DibujoImagen(this.imgPorcionTablero, posX, posY, this.imgWidth, this.imgHeight, this.contexto);
+                    this.porcionesTablero[fila][columna] = new PorcionTablero(this.imgPorcionTablero, posX, posY, this.getWidth(), this.getHeight(), this.contexto);
                 } else { // Si es la primera fila se dibujan las zonas para soltar las fichas. Se achica la zona dibujada en base a un porcentaje del atributo del ancho de la imagen. La pos x se mueve en base al ancho disminuido divido 2 (para que quede parejo);
-                    this.porcionesTablero[fila][columna] = new Rectangulo(posX + ((this.imgWidth * 0.08) / 2), posY, this.getFill(), this.getContexto(), this.imgWidth - (this.imgWidth * 0.08), this.imgHeight);
+                    this.porcionesTablero[fila][columna] = new Rectangulo(posX + ((this.getWidth() * 0.08) / 2), posY, this.getContexto(), this.getWidth() - (this.getWidth() * 0.08), this.getHeight());
                 }
             } 
         }
@@ -102,7 +97,7 @@ class Tablero extends Figura {
     comprobarSiGano(fila,columna, modoDeJuego){
         /*comprobar si la ultima ficha colocada hizo que el jugador ganara
         hay que comprobar en diagonal, horizontal, y en vertical*/
-        if (this.comprobarSiGanoHorizontal(fila, columna, modoDeJuego) || this.comprobarSiGanoVertical(fila, columna, modoDeJuego) || this.comprobarSiGanoDiagonalIzquierda(fila, columna, modoDeJuego) || this.comprobarSiGanoDiagonalDerecha(fila, columna, modoDeJuego)) {
+        if (this.comprobarSiGanoHorizontal(fila, columna, this.fichasParaGanar) || this.comprobarSiGanoVertical(fila, columna, this.fichasParaGanar) || this.comprobarSiGanoDiagonalIzquierda(fila, columna, this.fichasParaGanar) || this.comprobarSiGanoDiagonalDerecha(fila, columna, this.fichasParaGanar)) {
             return true;
         }else{
             return false;
@@ -116,7 +111,7 @@ class Tablero extends Figura {
          */
         let fichaInicial = this.fichasColocadas[fila][columna];
         let fichaActual = null;
-        for(let i = 0; i <= modoDeJuego-1; i++){
+        for(let i = 0; i <= this.fichasParaGanar-1; i++){
             if(fila + i < this.getFilas()){//este if es para no pasarnos de los limites del tablero
                 fichaActual = this.fichasColocadas[fila+i][columna];//asignamos un espacio a ficha actual
             }
@@ -141,7 +136,7 @@ class Tablero extends Figura {
             columna--;
         }
 
-        for(let i = 0; i <= modoDeJuego-1;i++){
+        for(let i = 0; i <= this.fichasParaGanar-1;i++){
             if(columna+i <this.getColumnas()){
                 fichaActual = this.fichasColocadas[fila][columna+i];
             }
@@ -161,7 +156,7 @@ class Tablero extends Figura {
             fila--;
             columna--;
         }
-        for (let i = 0; i <= modoDeJuego-1; i++) {
+        for (let i = 0; i <= this.fichasParaGanar-1; i++) {
             if(fila+i < this.getFilas() && columna+i < this.getColumnas()){
                 fichaActual = this.fichasColocadas[fila+i][columna+i];
             }
@@ -181,7 +176,7 @@ class Tablero extends Figura {
             fila--;
             columna++;
         }
-        for (let i = 0; i <= modoDeJuego-1; i++) {
+        for (let i = 0; i <= this.fichasParaGanar-1; i++) {
             if(fila+i < this.getFilas() && columna-i >= 0){
                 fichaActual = this.fichasColocadas[fila+i][columna-i];
             }
@@ -215,18 +210,10 @@ class Tablero extends Figura {
         return this.imgPorcionTablero;
     }
 
-    getImgWidth() {
-        return this.imgWidth;
-    }
-
-    getImgHeight() {
-        return this.imgHeight;
-    }
-
-    getWidth(){
+    getWidthTotal(){
         return this.getColumnas()*this.getImgWidth();
     }
-    getHeight(){
+    getHeightTotal(){
         return this.getFilas()*this.getImgHeight();
     }
 
@@ -237,9 +224,4 @@ class Tablero extends Figura {
     setFilas(filas){
         this.filas = filas;
     }
-
-    /* var c = document.getElementById("myCanvas");
-    var ctx = c.getContext("2d");
-    var img = document.getElementById("scream");
-    ctx.drawImage(img, 10, 10, 150, 180); */
 }

@@ -1,7 +1,8 @@
 class Ficha extends Figura{
     
-    constructor(img, x, y, fill, radio, contexto) { //Pos x e y. El color y el contexto
-        super(x, y, fill, contexto);
+    constructor(x, y, fill, contexto, img, radio) { //Pos x e y. El color y el contexto
+        super(x, y, contexto);
+        this.fill = fill;
         this.img = img;
         this.radio = radio;
         this.seleccionable = false; //Para controlar los turnos y para que no se puedan mover las fichas contenidas en el tablero
@@ -9,7 +10,7 @@ class Ficha extends Figura{
 
     //Funcionalidades
     draw() {
-        super.draw();
+        this.contexto.fillStyle = this.fill;
         this.contexto.save();
         this.contexto.beginPath();
         this.contexto.arc(this.x, this.y, this.radio, 0, Math.PI * 2);
@@ -19,11 +20,6 @@ class Ficha extends Figura{
         this.contexto.clip();
         this.contexto.drawImage(this.img, this.x-this.radio, this.y-this.radio, this.radio*2, this.radio*2);
         this.contexto.restore();
-
-        /* this.contexto.fillStyle = this.fill;
-        this.contexto.beginPath();
-        this.contexto.arc(this.x, this.y, this.radio, 0, 2 * Math.PI);
-        this.contexto.fill(); */
     }
 
     estaMouseDentro(x, y) { //Si la distancia entre los dos puntos en menor al radio, esta dentro del circulo
@@ -45,6 +41,10 @@ class Ficha extends Figura{
     }
 
     //getters & setters
+    getFill() {
+        return this.fill;
+    }
+
     getRadio() {
         return this.radio;
     }
@@ -53,9 +53,9 @@ class Ficha extends Figura{
         return this.img;
     }
 
-    /* getJugadorDuenio() {
-        return this.jugadorDuenio;
-    } */
+    setFil(fill) {
+        this.fill = fill;
+    }
 
     setImg(img){
         this.img = img;
@@ -68,8 +68,4 @@ class Ficha extends Figura{
     setSeleccionable(seleccionable) {
         this.seleccionable = seleccionable;
     }
-
-    /* setJugadorDuenio(jugadorDuenio) {
-        this.jugadorDuenio = jugadorDuenio;
-    } */
 }

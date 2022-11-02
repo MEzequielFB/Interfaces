@@ -1,13 +1,9 @@
-class DibujoImagen {
+class PorcionTablero extends Rectangulo {
     
     //img, x, y, fill, radio, contexto
     constructor(img, x, y, width, height, contexto) { //Pos x e y. El color y el contexto
+        super(x, y, contexto, width, height);
         this.img = img;
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        this.contexto = contexto;
         this.fichaContenida = null;
     }
 

@@ -1,7 +1,7 @@
 class Rectangulo extends Figura {
 
-    constructor(x, y, fill, contexto, width, height) {
-        super(x, y, fill, contexto);
+    constructor(x, y, contexto, width, height) {
+        super(x, y, contexto);
         this.width = width;
         this.height = height;
     }
