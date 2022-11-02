@@ -7,9 +7,57 @@ class Juego {
         this.tablero = tablero;
         this.modoDeJuego = 4; //es un numero, determina si el juego es 3 en linea, 3 en linea, 5 en linea etc, por defecto es 4
         this.juegoTerminado = false;
+        this.timer = {
+                "indiceActual" : 0,
+                "timerId" : null,
+                "timers" : [{
+                    "displayBoton" : "No timer",
+                    "valor" : null
+                },
+                {
+                    "displayBoton" : "15 segs",
+                    "valor" : 15000
+                },
+                {
+                    "displayBoton" : "30 segs",
+                    "valor" : 30000
+                },
+                {
+                    "displayBoton" : "1 min",
+                    "valor" : 60000
+                },
+                {
+                    "displayBoton" : "5 min",
+                    "valor" : 300000
+                }
+            ]
+        };
     }
 
     //Funcionalidades
+    setTimer() {
+        if(this.timer.indiceActual == this.timer.timers.length-1){
+            this.timer.indiceActual = 0;
+        }else{
+            this.timer.indiceActual++;
+        }
+        clearTimeout(this.timer.timerId);
+        if(!(this.timer.timers[this.timer.indiceActual].valor == null)){
+            this.timer.timerId = setTimeout(() => {
+                console.log("tiempo fuera");
+                this.setJuegoTerminado(true);
+                this.dibujarJuego();
+            },this.timer.timers[this.timer.indiceActual].valor);
+        }
+        document.querySelector(".btn-timer").innerHTML = this.timer.timers[this.timer.indiceActual].displayBoton;
+    }
+
+    resetearTimer(){
+        this.timer.indiceActual = 0;
+        this.timer.timerId = null;
+        document.querySelector(".btn-timer").innerHTML = this.timer.timers[this.timer.indiceActual].displayBoton;
+    }
+
     addFicha(ficha, columna) { //Si se agrego la ficha a la porcion del tablero se elimina la ficha del jugador actual, se comprueba si ganó y se cambia el jugador actual 
         let posUltimaficha = this.tablero.addFicha(ficha, columna);// posUltimaFicha puede recibir un json o un false, el json actua como un "true" en el if
         if (posUltimaficha) {
@@ -17,6 +65,7 @@ class Juego {
             if(this.tablero.comprobarSiGano(posUltimaficha.fila, posUltimaficha.columna, this.modoDeJuego)){
                 this.setJuegoTerminado(true);
                 console.log(`ganó ${this.jugadorActual.getNombre()}`);
+                this.resetearTimer();
             } else {
                 this.setJugadorActual(); //Cambia el jugador actual si en la última jugada no se ganó
             }
