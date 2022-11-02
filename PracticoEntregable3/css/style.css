@@ -1784,6 +1784,23 @@ section.informacion div p:last-child img {
         z-index: 1;
         transition: background-color 0.5s;
     }
+
+    .btn-timer {
+        display: block;
+        position: absolute;
+        left: 35%;
+        padding: 5px;
+        width: 125px;
+        background-color: #2d3a83;
+        color: var(--negro);
+        z-index: 1;
+        transition: background-color 0.5s;
+    }
+
+    .btn-timer:hover {
+        background-color: #4b5aad;
+    }
+
     .btn-reset:hover {
         background-color: #4b5aad;
     }

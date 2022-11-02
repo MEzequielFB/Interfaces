@@ -24,6 +24,54 @@ document.addEventListener("DOMContentLoaded", function(){{
 
     let juego = new Juego(jugador1, jugador2, tablero);
 
+    let btnTimer = document.querySelector(".btn-timer");
+    let timer = {
+            "indiceActual" : 0,
+            "timerId" : null,
+            "timers" : [{
+                "displayBoton" : "No timer",
+                "valor" : null
+            },
+            {
+                "displayBoton" : "15 segs",
+                "valor" : 15000
+            },
+            {
+                "displayBoton" : "30 segs",
+                "valor" : 30000
+            },
+            {
+                "displayBoton" : "1 min",
+                "valor" : 60000
+            },
+            {
+                "displayBoton" : "5 min",
+                "valor" : 300000
+            }
+        ]
+    };
+
+
+    function setTimer() {
+        if(timer.indiceActual == timer.timers.length-1){
+            timer.indiceActual = 0;
+        }else{
+            timer.indiceActual++;
+        }
+        if(timer.timers[timer.indiceActual].valor == null){
+            clearTimeout(timer.timerId);
+            console.log("timer cancelado");
+        }else{
+            clearTimeout(timer.timerId);
+            timer.timerId = setTimeout(() => {
+                console.log("juego terminado");
+            },timer.timers[timer.indiceActual].valor);
+        }
+        btnTimer.innerHTML = timer.timers[timer.indiceActual].displayBoton;
+    }
+
+    btnTimer.addEventListener("click", setTimer);
+
     function resetJuego() { //Vacía el arreglo de fichas, crea otros objetos y las variables ya existentes apuntan a estos. Finalmente inicia el juego con los nuevos objetos
         fichas = [];
         ultimaFiguraClickeada = null;
