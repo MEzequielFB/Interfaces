@@ -76,6 +76,10 @@ document.addEventListener("DOMContentLoaded", function(){{
                 juego.setJuegoTerminado(true);
                 clearCanvas();
                 juego.dibujarJuego();
+                dibujarTextos();
+                contexto.font = "30px Lato";
+                contexto.fillStyle = "white";
+                contexto.fillText("Se terminó el tiempo!", canvas.width * 0.4, canvas.height * 0.13);
                 console.log("tiempo fuera");
             },timer.timers[timer.indiceActual].valor);
         }
