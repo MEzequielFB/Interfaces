@@ -17,17 +17,17 @@ document.addEventListener("DOMContentLoaded", function(){{
     let personajeMoguriImg = document.querySelector(".pj-moguri");
     /* let fondoJuegoImg = document.querySelector(".fondo-juego"); */
 
-    let jugador1 = new Jugador("nico", canvas.width * 0.1, canvas.height * 0.7);
-    let jugador2 = new Jugador("eze", canvas.width * 0.9, canvas.height * 0.7);
+    let jugador1 = new Jugador("Nico", canvas.width * 0.1, canvas.height * 0.7);
+    let jugador2 = new Jugador("Eze", canvas.width * 0.9, canvas.height * 0.7);
 
     let tablero = new Tablero(canvas.width / 3.4, 50, contexto, cant_filas, cant_columnas, porcionTableroImg, 75, 75);
 
     let juego = new Juego(jugador1, jugador2, tablero);
 
     let botones = [];
-    let btnModo1 = new BotonModo(canvas.width * 0.05, canvas.height * 0.05, contexto, 20, 20, porcionTableroImg, 5, 6);
-    let btnModo2 = new BotonModo(canvas.width * 0.1, canvas.height * 0.05, contexto, 20, 20, porcionTableroImg, 6, 7);
-    let btnModo3 = new BotonModo(canvas.width * 0.15, canvas.height * 0.05, contexto, 20, 20, porcionTableroImg, 7, 8);
+    let btnModo1 = new BotonModo(canvas.width * 0.05, canvas.height * 0.1, contexto, 20, 20, porcionTableroImg, 5, 6);
+    let btnModo2 = new BotonModo(canvas.width * 0.1, canvas.height * 0.1, contexto, 20, 20, porcionTableroImg, 6, 7);
+    let btnModo3 = new BotonModo(canvas.width * 0.15, canvas.height * 0.1, contexto, 20, 20, porcionTableroImg, 7, 8);
     botones.push(btnModo1);
     botones.push(btnModo2);
     botones.push(btnModo3);
@@ -93,8 +93,8 @@ document.addEventListener("DOMContentLoaded", function(){{
         ultimaFiguraClickeada = null;
         estaMouseDown = false;
 
-        jugador1 = new Jugador("nico", canvas.width * 0.1, canvas.height * 0.7);
-        jugador2 = new Jugador("eze", canvas.width * 0.9, canvas.height * 0.7);
+        jugador1 = new Jugador("Nico", canvas.width * 0.1, canvas.height * 0.7);
+        jugador2 = new Jugador("Eze", canvas.width * 0.9, canvas.height * 0.7);
 
         /* tablero = new Tablero(canvas.width / 3.4, 100, contexto, cant_filas, cant_columnas, porcionTableroImg, 75, 75); */
         tablero = new Tablero(canvas.width / 3.4, 50, contexto, cant_filas, cant_columnas, porcionTableroImg, 75, 75);
@@ -118,6 +118,7 @@ document.addEventListener("DOMContentLoaded", function(){{
         juego.addBoton(btnModo2);
         juego.addBoton(btnModo3);
         juego.jugar(fichas);
+        dibujarTextos();
         resetTimer();
     }
     iniciarJuego();
@@ -125,6 +126,14 @@ document.addEventListener("DOMContentLoaded", function(){{
     function dibujarJuego() { //Borra todo y vuelve a dibujar todo
         clearCanvas();
         juego.dibujarJuego();
+        dibujarTextos();
+    }
+
+    function dibujarTextos() {
+        contexto.font = "30px Lato";
+        contexto.fillStyle = "white";
+        contexto.fillText(juego.getJugador1().getNombre(), canvas.width * 0.1, canvas.height * 0.05);
+        contexto.fillText(juego.getJugador2().getNombre(), canvas.width * 0.85, canvas.height * 0.05);
     }
 
     function clearCanvas() { //Limpia el canvas
