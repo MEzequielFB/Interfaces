@@ -12,10 +12,13 @@ document.addEventListener("DOMContentLoaded", function(){{
     let ultimaFiguraClickeada = null;
     let estaMouseDown = false;
 
+    //Imagenes
     let porcionTableroImg = document.querySelector(".porcion-tablero");
     let personajeHumanoImg = document.querySelector(".pj-humano");
     let personajeMoguriImg = document.querySelector(".pj-moguri");
-    /* let fondoJuegoImg = document.querySelector(".fondo-juego"); */
+    let numero3 = document.querySelector(".numero-3");
+    let numero4 = document.querySelector(".numero-4");
+    let numero5 = document.querySelector(".numero-5");
 
     let jugador1 = new Jugador("Nico", canvas.width * 0.1, canvas.height * 0.7);
     let jugador2 = new Jugador("Eze", canvas.width * 0.9, canvas.height * 0.7);
@@ -25,9 +28,10 @@ document.addEventListener("DOMContentLoaded", function(){{
     let juego = new Juego(jugador1, jugador2, tablero);
 
     let botones = [];
-    let btnModo1 = new BotonModo(canvas.width * 0.05, canvas.height * 0.1, contexto, 20, 20, porcionTableroImg, 5, 6);
-    let btnModo2 = new BotonModo(canvas.width * 0.1, canvas.height * 0.1, contexto, 20, 20, porcionTableroImg, 6, 7);
-    let btnModo3 = new BotonModo(canvas.width * 0.15, canvas.height * 0.1, contexto, 20, 20, porcionTableroImg, 7, 8);
+    let btnModo1 = new BotonModo(canvas.width * 0.11, canvas.height * 0.958, contexto, 25, 25, numero3, 5, 6);
+    let btnModo2 = new BotonModo(canvas.width * 0.13, canvas.height * 0.958, contexto, 25, 25, numero4, 6, 7);
+    let btnModo3 = new BotonModo(canvas.width * 0.15, canvas.height * 0.958, contexto, 25, 25, numero5, 7, 8);
+    /* contexto.fillText("Modos de juego:", canvas.width * 0.01, canvas.height * 0.98); */
     botones.push(btnModo1);
     botones.push(btnModo2);
     botones.push(btnModo3);
@@ -134,6 +138,9 @@ document.addEventListener("DOMContentLoaded", function(){{
         contexto.fillStyle = "white";
         contexto.fillText(juego.getJugador1().getNombre(), canvas.width * 0.1, canvas.height * 0.05);
         contexto.fillText(juego.getJugador2().getNombre(), canvas.width * 0.85, canvas.height * 0.05);
+
+        contexto.font = "22.6px Lato";
+        contexto.fillText("Modos de juego:", canvas.width * 0.01, canvas.height * 0.98);
     }
 
     function clearCanvas() { //Limpia el canvas
