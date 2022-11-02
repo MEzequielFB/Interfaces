@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){{
     let numero3 = document.querySelector(".numero-3");
     let numero4 = document.querySelector(".numero-4");
     let numero5 = document.querySelector(".numero-5");
+    let resetImg = document.querySelector(".btn-reset-img");
 
     let jugador1 = new Jugador("Nico", canvas.width * 0.1, canvas.height * 0.7);
     let jugador2 = new Jugador("Eze", canvas.width * 0.9, canvas.height * 0.7);
@@ -31,10 +32,12 @@ document.addEventListener("DOMContentLoaded", function(){{
     let btnModo1 = new BotonModo(canvas.width * 0.11, canvas.height * 0.958, contexto, 25, 25, numero3, 5, 6);
     let btnModo2 = new BotonModo(canvas.width * 0.13, canvas.height * 0.958, contexto, 25, 25, numero4, 6, 7);
     let btnModo3 = new BotonModo(canvas.width * 0.15, canvas.height * 0.958, contexto, 25, 25, numero5, 7, 8);
-    /* contexto.fillText("Modos de juego:", canvas.width * 0.01, canvas.height * 0.98); */
+    let btnRestart = new BotonRestart(canvas.width * 0.47, canvas.height * 0.01, contexto, 35, 35, resetImg);
+    
     botones.push(btnModo1);
     botones.push(btnModo2);
     botones.push(btnModo3);
+    botones.push(btnRestart);
 
     let btnTimer = document.querySelector(".btn-timer");
     let timer = {
@@ -97,14 +100,12 @@ document.addEventListener("DOMContentLoaded", function(){{
 
     function resetJuego() { //Vacía el arreglo de fichas, crea otros objetos y las variables ya existentes apuntan a estos. Finalmente inicia el juego con los nuevos objetos
         fichas = [];
-        /* botones = []; */
         ultimaFiguraClickeada = null;
         estaMouseDown = false;
 
         jugador1 = new Jugador("Nico", canvas.width * 0.1, canvas.height * 0.7);
         jugador2 = new Jugador("Eze", canvas.width * 0.9, canvas.height * 0.7);
 
-        /* tablero = new Tablero(canvas.width / 3.4, 100, contexto, cant_filas, cant_columnas, porcionTableroImg, 75, 75); */
         tablero = new Tablero(canvas.width / 3.4, 50, contexto, cant_filas, cant_columnas, porcionTableroImg, 75, 75);
 
         juego = new Juego(jugador1, jugador2, tablero);
@@ -125,6 +126,7 @@ document.addEventListener("DOMContentLoaded", function(){{
         juego.addBoton(btnModo1);
         juego.addBoton(btnModo2);
         juego.addBoton(btnModo3);
+        juego.addBoton(btnRestart);
         juego.jugar(fichas);
         dibujarTextos();
         resetTimer();
@@ -202,11 +204,10 @@ document.addEventListener("DOMContentLoaded", function(){{
         let btnClickeado = botonClickeado(e.layerX, e.layerY);;
         if (btnClickeado != null) {
             const filasColumnas = btnClickeado.getFilasColumnas();
-            /* tablero.setFilas(filasColumnas.filas);
-            tablero.setColumnas(filasColumnas.columnas); */
-            /* resetJuego(filasColumnas.filas, filasColumnas.columnas); */
-            cant_filas = filasColumnas.filas;
-            cant_columnas = filasColumnas.columnas;
+            if (filasColumnas != null) {
+                cant_filas = filasColumnas.filas;
+                cant_columnas = filasColumnas.columnas;
+            }
             resetJuego();
         }
     }
@@ -226,17 +227,12 @@ document.addEventListener("DOMContentLoaded", function(){{
     canvas.addEventListener("mousedown", mouseDown);
     canvas.addEventListener("mousemove", mouseMove);
     canvas.addEventListener("mouseup", mouseUp);
-    /* canvas.addEventListener("keydown", function(e){
-        console.log(e);
-        if (e.key == "z") {
-            resetJuego();
-        }
-    }); */
+
     document.addEventListener("keydown", function(e){
         console.log(e);
         if (e.key == "z") {
             resetJuego();
         }
     });
-    document.querySelector(".btn-reset").addEventListener("click", resetJuego);
+    /* document.querySelector(".btn-reset").addEventListener("click", resetJuego); */
 }});
