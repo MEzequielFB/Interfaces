@@ -1,4 +1,4 @@
-document.addEventListener("click", function(){
+document.addEventListener("DOMContentLoaded", function(){
     "use strict";
     
     let previa_juego = document.querySelector(".juego");

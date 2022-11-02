@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", function(){{
     let canvas = document.querySelector(".canvas");
     let contexto = canvas.getContext("2d");
 
-    const CANT_FILAS = 6;
-    const CANT_COLUMNAS = 7;
-    const CANT_FICHAS = CANT_FILAS * CANT_COLUMNAS;
+    let cant_filas = 6;
+    let cant_columnas = 7;
+    const CANT_FICHAS = cant_filas * cant_columnas;
 
     let fichas = [];
     let ultimaFiguraClickeada = null;
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(){{
     let jugador1 = new Jugador("nico", canvas.width * 0.1, canvas.height * 0.7);
     let jugador2 = new Jugador("eze", canvas.width * 0.9, canvas.height * 0.7);
 
-    let tablero = new Tablero(canvas.width / 3.4, 100, contexto, CANT_FILAS, CANT_COLUMNAS, porcionTableroImg, 75, 75);
+    let tablero = new Tablero(canvas.width / 3.4, 50, contexto, cant_filas, cant_columnas, porcionTableroImg, 75, 75);
 
     let juego = new Juego(jugador1, jugador2, tablero);
 
@@ -87,19 +87,20 @@ document.addEventListener("DOMContentLoaded", function(){{
 
     btnTimer.addEventListener("click", setTimer);
 
-    function resetJuego(cantFilas = 6, cantColumnas = 7) { //Vacía el arreglo de fichas, crea otros objetos y las variables ya existentes apuntan a estos. Finalmente inicia el juego con los nuevos objetos
+    function resetJuego() { //Vacía el arreglo de fichas, crea otros objetos y las variables ya existentes apuntan a estos. Finalmente inicia el juego con los nuevos objetos
         fichas = [];
-        botones = [];
+        /* botones = []; */
         ultimaFiguraClickeada = null;
         estaMouseDown = false;
 
         jugador1 = new Jugador("nico", canvas.width * 0.1, canvas.height * 0.7);
         jugador2 = new Jugador("eze", canvas.width * 0.9, canvas.height * 0.7);
 
-        /* tablero = new Tablero(canvas.width / 3.4, 100, contexto, CANT_FILAS, CANT_COLUMNAS, porcionTableroImg, 75, 75); */
-        tablero = new Tablero(canvas.width / 3.4, 100, contexto, cantFilas, cantColumnas, porcionTableroImg, 75, 75);
+        /* tablero = new Tablero(canvas.width / 3.4, 100, contexto, cant_filas, cant_columnas, porcionTableroImg, 75, 75); */
+        tablero = new Tablero(canvas.width / 3.4, 50, contexto, cant_filas, cant_columnas, porcionTableroImg, 75, 75);
 
         juego = new Juego(jugador1, jugador2, tablero);
+        
         resetTimer();
         clearCanvas();
         iniciarJuego();
@@ -183,7 +184,10 @@ document.addEventListener("DOMContentLoaded", function(){{
             const filasColumnas = btnClickeado.getFilasColumnas();
             /* tablero.setFilas(filasColumnas.filas);
             tablero.setColumnas(filasColumnas.columnas); */
-            resetJuego(filasColumnas.filas, filasColumnas.columnas);
+            /* resetJuego(filasColumnas.filas, filasColumnas.columnas); */
+            cant_filas = filasColumnas.filas;
+            cant_columnas = filasColumnas.columnas;
+            resetJuego();
         }
     }
 
