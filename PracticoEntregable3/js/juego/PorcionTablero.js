@@ -30,6 +30,8 @@ class PorcionTablero extends Rectangulo {
 
     setFichaContenida(fichaContenida) { //Setea la ficha contenida. La ficha contenida no es seleccionable
         this.fichaContenida = fichaContenida;
-        this.fichaContenida.setSeleccionable(false);
+        if (this.fichaContenida != null) {
+            this.fichaContenida.setSeleccionable(false);
+        }
     }
 }

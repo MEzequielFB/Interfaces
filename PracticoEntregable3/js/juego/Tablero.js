@@ -5,7 +5,8 @@ class Tablero extends Rectangulo {
         super(x, y, contexto, imgWidth, imgHeight);
         this.filas = filas + 1; //La fila extra (+1) es la fila de las zonas para dejar caer las fichas
         this.columnas = columnas;
-        this.fichasParaGanar = Math.round(((this.filas - 1) * this.columnas) / 12);
+        /* this.fichasParaGanar = Math.round(((this.filas - 1) * this.columnas) / 12); */
+        this.setFichasParaGanar();
         this.imgPorcionTablero = imgPorcionTablero;
         this.fichasColocadas = [];
         this.porcionesTablero = [];
@@ -206,6 +207,10 @@ class Tablero extends Rectangulo {
         return this.filas;
     }
 
+    getFichasParaGanar() {
+        return this.fichasParaGanar;
+    }
+
     getImgPorcionTablero() {
         return this.imgPorcionTablero;
     }
@@ -219,9 +224,15 @@ class Tablero extends Rectangulo {
 
     setColumnas(columnas){
         this.columnas = columnas;
+        this.setFichasParaGanar();
     }
 
     setFilas(filas){
         this.filas = filas;
+        this.setFichasParaGanar();
+    }
+
+    setFichasParaGanar() {
+        this.fichasParaGanar = Math.round(((this.filas - 1) * this.columnas) / 12);
     }
 }

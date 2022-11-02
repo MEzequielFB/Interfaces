@@ -34,6 +34,10 @@ class Jugador {
         }
     }
 
+    removeAllFichas() { //Vacia el arreglo de fichas
+        this.setFichas([]);
+    }
+
     removeFicha(ficha) { //Setea el arreglo se fichas por uno nuevo en el cual se filtra la ficha pasada por parametro
         const arrayFiltrado = this.fichas.filter(fichaArray => fichaArray != ficha); //Se agregan al nuevo array las fichas que sean distintas a la ficha pasada por parametro
         this.setFichas(arrayFiltrado);

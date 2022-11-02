@@ -6,6 +6,7 @@ class Juego {
         this.jugadorActual = jugador1;
         this.tablero = tablero;
         this.modoDeJuego = 4; //es un numero, determina si el juego es 3 en linea, 3 en linea, 5 en linea etc, por defecto es 4
+        this.botones = [];
         this.juegoTerminado = false;
     }
 
@@ -36,6 +37,7 @@ class Juego {
 
     dibujarJuego() { // Dibuja el tablero y las fichas de los jugadores
         this.tablero.draw();
+        this.dibujarBotones();
         if(!this.getJuegoTerminado()){
             this.jugador1.dibujarFichas();
             this.jugador2.dibujarFichas();
@@ -44,6 +46,7 @@ class Juego {
 
     dibujarJuegoInicial() { //Dibuja el tablero y las fichas de los jugadores en una zona determinada
         this.tablero.draw();
+        this.dibujarBotones();
         this.jugador1.dibujarFichasInicial();
         this.jugador2.dibujarFichasInicial();
     }
@@ -57,6 +60,16 @@ class Juego {
                 this.jugador2.addFicha(fichas[i]);
                 /* fichas[i].setJugadorDuenio(this.jugador2); */
             }
+        }
+    }
+
+    addBoton(boton) {
+        this.botones.push(boton);
+    }
+
+    dibujarBotones(){
+        for (let boton of this.botones) {
+            boton.draw();
         }
     }
 

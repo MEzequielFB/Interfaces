@@ -24,6 +24,14 @@ document.addEventListener("DOMContentLoaded", function(){{
 
     let juego = new Juego(jugador1, jugador2, tablero);
 
+    let botones = [];
+    let btnModo1 = new BotonModo(canvas.width * 0.05, canvas.height * 0.05, contexto, 20, 20, porcionTableroImg, 5, 6);
+    let btnModo2 = new BotonModo(canvas.width * 0.1, canvas.height * 0.05, contexto, 20, 20, porcionTableroImg, 6, 7);
+    let btnModo3 = new BotonModo(canvas.width * 0.15, canvas.height * 0.05, contexto, 20, 20, porcionTableroImg, 7, 8);
+    botones.push(btnModo1);
+    botones.push(btnModo2);
+    botones.push(btnModo3);
+
     let btnTimer = document.querySelector(".btn-timer");
     let timer = {
             "indiceActual" : 0,
@@ -79,15 +87,17 @@ document.addEventListener("DOMContentLoaded", function(){{
 
     btnTimer.addEventListener("click", setTimer);
 
-    function resetJuego() { //Vacía el arreglo de fichas, crea otros objetos y las variables ya existentes apuntan a estos. Finalmente inicia el juego con los nuevos objetos
+    function resetJuego(cantFilas = 6, cantColumnas = 7) { //Vacía el arreglo de fichas, crea otros objetos y las variables ya existentes apuntan a estos. Finalmente inicia el juego con los nuevos objetos
         fichas = [];
+        botones = [];
         ultimaFiguraClickeada = null;
         estaMouseDown = false;
 
         jugador1 = new Jugador("nico", canvas.width * 0.1, canvas.height * 0.7);
         jugador2 = new Jugador("eze", canvas.width * 0.9, canvas.height * 0.7);
 
-        tablero = new Tablero(canvas.width / 3.4, 100, contexto, CANT_FILAS, CANT_COLUMNAS, porcionTableroImg, 75, 75);
+        /* tablero = new Tablero(canvas.width / 3.4, 100, contexto, CANT_FILAS, CANT_COLUMNAS, porcionTableroImg, 75, 75); */
+        tablero = new Tablero(canvas.width / 3.4, 100, contexto, cantFilas, cantColumnas, porcionTableroImg, 75, 75);
 
         juego = new Juego(jugador1, jugador2, tablero);
         resetTimer();
@@ -103,6 +113,9 @@ document.addEventListener("DOMContentLoaded", function(){{
                 addFicha(fichas, personajeHumanoImg, "#993c3c");
             }
         }
+        juego.addBoton(btnModo1);
+        juego.addBoton(btnModo2);
+        juego.addBoton(btnModo3);
         juego.jugar(fichas);
         resetTimer();
     }
@@ -163,6 +176,29 @@ document.addEventListener("DOMContentLoaded", function(){{
         dibujarJuego();
     }
 
+    function click(e) { //Se ejecuta al hacer click. Si se clickea un boton se cambia la cantidad de filas y columnas del tablero
+
+        let btnClickeado = botonClickeado(e.layerX, e.layerY);;
+        if (btnClickeado != null) {
+            const filasColumnas = btnClickeado.getFilasColumnas();
+            /* tablero.setFilas(filasColumnas.filas);
+            tablero.setColumnas(filasColumnas.columnas); */
+            resetJuego(filasColumnas.filas, filasColumnas.columnas);
+        }
+    }
+
+    function botonClickeado(x, y) { //Busca si se clickeo un boton
+
+        let botonClickeado = null;
+        for (let btn of botones) {
+            if (btn.seClickeo(x, y)) {
+                botonClickeado = btn;
+            }
+        }
+        return botonClickeado;
+    }
+
+    canvas.addEventListener("click", click);
     canvas.addEventListener("mousedown", mouseDown);
     canvas.addEventListener("mousemove", mouseMove);
     canvas.addEventListener("mouseup", mouseUp);
