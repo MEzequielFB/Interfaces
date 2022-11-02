@@ -58,15 +58,22 @@ document.addEventListener("DOMContentLoaded", function(){{
         }else{
             timer.indiceActual++;
         }
-        if(timer.timers[timer.indiceActual].valor == null){
-            clearTimeout(timer.timerId);
-            console.log("timer cancelado");
-        }else{
-            clearTimeout(timer.timerId);
+        clearTimeout(timer.timerId);
+        if(!(timer.timers[timer.indiceActual].valor == null)){
             timer.timerId = setTimeout(() => {
-                console.log("juego terminado");
+                juego.setJuegoTerminado(true);
+                clearCanvas();
+                juego.dibujarJuego();
+                console.log("tiempo fuera");
             },timer.timers[timer.indiceActual].valor);
         }
+        btnTimer.innerHTML = timer.timers[timer.indiceActual].displayBoton;
+    }
+
+    function resetTimer(){
+        clearTimeout(timer.timerId);
+        timer.indiceActual = 0;
+        timer.timerId = null;
         btnTimer.innerHTML = timer.timers[timer.indiceActual].displayBoton;
     }
 
@@ -83,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function(){{
         tablero = new Tablero(canvas.width / 3.4, 100, "#FF23FF", contexto, CANT_FILAS, CANT_COLUMNAS, porcionTableroImg, 75, 75);
 
         juego = new Juego(jugador1, jugador2, tablero);
+        resetTimer();
         clearCanvas();
         iniciarJuego();
     }
@@ -96,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function(){{
             }
         }
         juego.jugar(fichas);
+        resetTimer();
     }
     iniciarJuego();
 
