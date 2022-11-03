@@ -9,6 +9,10 @@ class Boton extends Rectangulo {
         this.contexto.drawImage(this.img, this.x, this.y, this.width, this.height);
     }
 
+    retornarValor() {
+
+    }
+
     seClickeo(x, y) {
         if ((x >= this.x && x <= this.x + this.width) && (y >= this.y && y <= this.y + this.height)) {
             return true

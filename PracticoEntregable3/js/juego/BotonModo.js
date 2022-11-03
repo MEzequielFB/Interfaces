@@ -6,7 +6,7 @@ class BotonModo extends Boton {
         this.cantColumnas = cantColumnas;
     }
 
-    getFilasColumnas() {
+    retornarValor() {
         return {
             filas: this.cantFilas,
             columnas: this.cantColumnas

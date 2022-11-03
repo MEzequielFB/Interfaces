@@ -25,20 +25,36 @@ document.addEventListener("DOMContentLoaded", function(){{
     let jugador1 = new Jugador("Nico", canvas.width * 0.1, canvas.height * 0.7);
     let jugador2 = new Jugador("Eze", canvas.width * 0.9, canvas.height * 0.7);
 
+    let fichaJugador1 = {
+        color: "#000000",
+        img: personajeMoguriImg
+    };
+    let fichaJugador2 = {
+        color: "#002463",
+        img: personajeHumanoImg
+    };
+
     let tablero = new Tablero(canvas.width / 3.4, 50, contexto, cant_filas, cant_columnas, porcionTableroImg, 75, 75);
 
     let juego = new Juego(jugador1, jugador2, tablero);
 
     let botones = [];
+
     let btnModo1 = new BotonModo(canvas.width * 0.11, canvas.height * 0.958, contexto, 25, 25, numero3, 5, 6);
     let btnModo2 = new BotonModo(canvas.width * 0.13, canvas.height * 0.958, contexto, 25, 25, numero4, 6, 7);
     let btnModo3 = new BotonModo(canvas.width * 0.15, canvas.height * 0.958, contexto, 25, 25, numero5, 7, 8);
+
     let btnRestart = new BotonRestart(canvas.width * 0.47, canvas.height * 0.01, contexto, 35, 35, resetImg);
+    
+    let btnEstiloFicha1 = new BotonEstiloFicha(canvas.width * 0.11, canvas.height * 0.1, contexto, 25, 25, personajeMoguriImg, "#000000", jugador1);
+    let btnEstiloFicha2 = new BotonEstiloFicha(canvas.width * 0.13, canvas.height * 0.1, contexto, 25, 25, personajeHumanoImg, "#150048", jugador1);
     
     botones.push(btnModo1);
     botones.push(btnModo2);
     botones.push(btnModo3);
     botones.push(btnRestart);
+    botones.push(btnEstiloFicha1);
+    botones.push(btnEstiloFicha2);
 
     let btnTimer = document.querySelector(".btn-timer");
     let timer = {
@@ -110,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function(){{
         tablero = new Tablero(canvas.width / 3.4, 50, contexto, cant_filas, cant_columnas, porcionTableroImg, 75, 75);
 
         juego = new Juego(jugador1, jugador2, tablero);
-        
+
         resetTimer();
         clearCanvas();
         iniciarJuego();
@@ -119,9 +135,9 @@ document.addEventListener("DOMContentLoaded", function(){{
     function iniciarJuego() { //Agrega fichas a un arreglo, se agregan botones al juego, se llama al metodo jugar del objeto juego, dibuja el juego y resetea el timer
         for (let i = 0; i < CANT_FICHAS; i++) {
             if (i < CANT_FICHAS / 2) {
-                addFicha(fichas, personajeMoguriImg, "#273570");
+                addFicha(fichas, fichaJugador1);
             } else {
-                addFicha(fichas, personajeHumanoImg, "#993c3c");
+                addFicha(fichas, fichaJugador2);
             }
         }
         for (let boton of botones) {
@@ -159,11 +175,11 @@ document.addEventListener("DOMContentLoaded", function(){{
         contexto.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    function addFicha(arreglo, imagen, color) { //Agrega una ficha al arreglo de fichas
+    function addFicha(arreglo, fichaJugador) { //Agrega una ficha al arreglo de fichas
         let posX = Math.round(Math.random() * canvas.width);
         let posY = Math.round(Math.random() * canvas.height);
 
-        let ficha = new Ficha(posX, posY, color, contexto, imagen, 30);
+        let ficha = new Ficha(posX, posY, fichaJugador.color, contexto, fichaJugador.img, 30);
         arreglo.push(ficha);
     }
 
@@ -209,10 +225,22 @@ document.addEventListener("DOMContentLoaded", function(){{
 
         let btnClickeado = botonClickeado(e.layerX, e.layerY);
         if (btnClickeado != null) {
-            const filasColumnas = btnClickeado.getFilasColumnas();
-            if (filasColumnas != null) {
-                cant_filas = filasColumnas.filas;
-                cant_columnas = filasColumnas.columnas;
+            const valor = btnClickeado.retornarValor();
+            if (valor != null && valor.filas != null) {
+                cant_filas = valor.filas;
+                cant_columnas = valor.columnas;
+            } else if (valor != null) {
+                if (btnClickeado.getJugador() == jugador1) {
+                    fichaJugador1 = {
+                        img: valor.img,
+                        color: valor.color
+                    };
+                } else {
+                    fichaJugador2 = {
+                        img: valor.img,
+                        color: valor.color
+                    };
+                }
             }
             resetJuego();
         }
