@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function(){{
     let fichas = [];
     let ultimaFiguraClickeada = null;
     let estaMouseDown = false;
+    let tiempoTerminado = false;
 
     //Imagenes
     let porcionTableroImg = document.querySelector(".porcion-tablero");
@@ -67,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(){{
     };
 
 
-    function setTimer() {
+    function setTimer() { //Inicia el timer. Cada vez que se apreta el timer se resetear el tiempo y empieza a contar de nuevo (si es que no está en el indice 0 -> sin timer). Al terminar el tiempo se setea como true el tiempoTerminado, se setea al juego como terminado y se vuelve a dibujar todo (menos las fichas porque el juego está terminado)
         if(timer.indiceActual == timer.timers.length-1){
             timer.indiceActual = 0;
         }else{
@@ -76,20 +77,19 @@ document.addEventListener("DOMContentLoaded", function(){{
         clearTimeout(timer.timerId);
         if(!(timer.timers[timer.indiceActual].valor == null)){
             timer.timerId = setTimeout(() => {
+                tiempoTerminado = true;
                 juego.setJuegoTerminado(true);
                 clearCanvas();
                 juego.dibujarJuego();
                 dibujarTextos();
-                contexto.font = "30px Lato";
-                contexto.fillStyle = "white";
-                contexto.fillText("Se terminó el tiempo!", canvas.width * 0.4, canvas.height * 0.13);
                 console.log("tiempo fuera");
             },timer.timers[timer.indiceActual].valor);
         }
         btnTimer.innerHTML = timer.timers[timer.indiceActual].displayBoton;
     }
 
-    function resetTimer(){
+    function resetTimer(){ //Resetea el timer
+        tiempoTerminado = false;
         clearTimeout(timer.timerId);
         timer.indiceActual = 0;
         timer.timerId = null;
@@ -98,10 +98,11 @@ document.addEventListener("DOMContentLoaded", function(){{
 
     btnTimer.addEventListener("click", setTimer);
 
-    function resetJuego() { //Vacía el arreglo de fichas, crea otros objetos y las variables ya existentes apuntan a estos. Finalmente inicia el juego con los nuevos objetos
+    function resetJuego() { //Vacía el arreglo de fichas, setea variables al valor por default, crea otros objetos y las variables ya existentes apuntan a estos. Finalmente inicia el juego con los nuevos objetos
         fichas = [];
         ultimaFiguraClickeada = null;
         estaMouseDown = false;
+        tiempoTerminado = false;
 
         jugador1 = new Jugador("Nico", canvas.width * 0.1, canvas.height * 0.7);
         jugador2 = new Jugador("Eze", canvas.width * 0.9, canvas.height * 0.7);
@@ -115,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function(){{
         iniciarJuego();
     }
 
-    function iniciarJuego() { //Agrega fichas a un arreglo, se llama al metodo jugar del objeto juego y dibuja el juego
+    function iniciarJuego() { //Agrega fichas a un arreglo, se agregan botones al juego, se llama al metodo jugar del objeto juego, dibuja el juego y resetea el timer
         for (let i = 0; i < CANT_FICHAS; i++) {
             if (i < CANT_FICHAS / 2) {
                 addFicha(fichas, personajeMoguriImg, "#273570");
@@ -123,10 +124,9 @@ document.addEventListener("DOMContentLoaded", function(){{
                 addFicha(fichas, personajeHumanoImg, "#993c3c");
             }
         }
-        juego.addBoton(btnModo1);
-        juego.addBoton(btnModo2);
-        juego.addBoton(btnModo3);
-        juego.addBoton(btnRestart);
+        for (let boton of botones) {
+            juego.addBoton(boton);
+        }
         juego.jugar(fichas);
         dibujarTextos();
         resetTimer();
@@ -139,11 +139,17 @@ document.addEventListener("DOMContentLoaded", function(){{
         dibujarTextos();
     }
 
-    function dibujarTextos() {
+    function dibujarTextos() { //Dibuja los textos del juego
         contexto.font = "30px Lato";
         contexto.fillStyle = "white";
         contexto.fillText(juego.getJugador1().getNombre(), canvas.width * 0.1, canvas.height * 0.05);
         contexto.fillText(juego.getJugador2().getNombre(), canvas.width * 0.85, canvas.height * 0.05);
+
+        if (juego.getJuegoTerminado() && !tiempoTerminado) {
+            contexto.fillText("Ganó " + juego.getJugadorActual().getNombre() + "!", canvas.width * 0.41, canvas.height * 0.13);
+        } else if (tiempoTerminado) {
+            contexto.fillText("Se terminó el tiempo!", canvas.width * 0.4, canvas.height * 0.13);
+        }
 
         contexto.font = "22.6px Lato";
         contexto.fillText("Modos de juego:", canvas.width * 0.01, canvas.height * 0.98);
@@ -171,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function(){{
         dibujarJuego();
     }
 
-    function buscarFiguraClickeada(x, y) { //Recorre las figuras y verifica en cada una si la posicion esta dentro de ella
+    function buscarFiguraClickeada(x, y) { //Recorre las fichas y verifica en cada una si la posicion esta dentro de ella
         for (let ficha of fichas) {
             if (ficha.estaMouseDentro(x, y)) {
                 return ficha; //Devuelve la figura si esta dentro
@@ -180,14 +186,14 @@ document.addEventListener("DOMContentLoaded", function(){{
         return null;
     }
 
-    function mouseMove(e) { //Si el mouse esta clickeado y hay una figura clickeada y la figura clickeada es seleccionable se setea la pos de la figura y se vuelve a dibujar todo
+    function mouseMove(e) { //Si el mouse esta clickeado y hay una ficha clickeada y la ficha clickeada es seleccionable y se setea la pos de la figura y se vuelve a dibujar todo
         if (estaMouseDown && ultimaFiguraClickeada != null && ultimaFiguraClickeada.esSeleccionable()) {
             ultimaFiguraClickeada.setPos(e.layerX, e.layerY); //layer es la posicion dentro del canvas
             dibujarJuego();
         }
     }
 
-    function mouseUp() { //Setea que el mouse deje de estar clickeado y a la ultima figura clickeada se la setea como null. Si la ultima figura clickeada no es null al dejar de apretar el click se verifica que se haya soltado en la zona del tablero. Una vez verificado y hechas las acciones para agregar las fichas al tablero se vuelve a dibujar todo
+    function mouseUp() { //Setea que el mouse deje de estar clickeado y a la ultima ficha clickeada se la setea como null. Si la ultima ficha clickeada no es null al dejar de apretar el click se verifica que se haya soltado en la zona del tablero. Una vez verificado y hechas las acciones para agregar las fichas al tablero se vuelve a dibujar todo
         estaMouseDown = false;
         if (ultimaFiguraClickeada != null) {
             const columnaZona = juego.getColumnaZonaFichaSoltada(ultimaFiguraClickeada);
@@ -199,9 +205,9 @@ document.addEventListener("DOMContentLoaded", function(){{
         dibujarJuego();
     }
 
-    function click(e) { //Se ejecuta al hacer click. Si se clickea un boton se cambia la cantidad de filas y columnas del tablero
+    function click(e) { //Se ejecuta al hacer click. Si se clickea un boton se cambia la cantidad de filas y columnas del tablero. Si la cantidad de filas y columnas es null solo se resetea el juego
 
-        let btnClickeado = botonClickeado(e.layerX, e.layerY);;
+        let btnClickeado = botonClickeado(e.layerX, e.layerY);
         if (btnClickeado != null) {
             const filasColumnas = btnClickeado.getFilasColumnas();
             if (filasColumnas != null) {
@@ -228,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function(){{
     canvas.addEventListener("mousemove", mouseMove);
     canvas.addEventListener("mouseup", mouseUp);
 
-    canvas.addEventListener("keypress", function(e){
+    canvas.addEventListener("keypress", function(e){ //Al apretar la 'z' teniendo el juego focuseado se resetea el juego
         console.log(e);
         if (e.key == "z") {
             resetJuego();
