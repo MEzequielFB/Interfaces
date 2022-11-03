@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function(){{
     canvas.addEventListener("mousemove", mouseMove);
     canvas.addEventListener("mouseup", mouseUp);
 
-    document.addEventListener("keydown", function(e){
+    canvas.addEventListener("keypress", function(e){
         console.log(e);
         if (e.key == "z") {
             resetJuego();
