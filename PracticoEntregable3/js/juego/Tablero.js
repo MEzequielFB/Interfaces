@@ -222,6 +222,10 @@ class Tablero extends Rectangulo {
         return this.getFilas()*this.getImgHeight();
     }
 
+    getImgPorcionTablero() {
+        return this.imgPorcionTablero;
+    }
+
     setColumnas(columnas){
         this.columnas = columnas;
         this.setFichasParaGanar();

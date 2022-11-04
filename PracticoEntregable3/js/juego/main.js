@@ -26,11 +26,10 @@ document.addEventListener("DOMContentLoaded", function(){{
     let numero5 = document.querySelector(".numero-5");
     let resetImg = document.querySelector(".btn-reset-img");
 
-    let jugador1 = new Jugador("Nico", canvas.width * 0.1, canvas.height * 0.7);
-    let jugador2 = new Jugador("Eze", canvas.width * 0.9, canvas.height * 0.7);
-
+    let jugador1 = new Jugador("Nico", canvas.width * 0.03, canvas.width * 0.28, canvas.height * 0.25, canvas.height * 0.7);
+    let jugador2 = new Jugador("Eze", canvas.width * 0.68, canvas.width * 0.26, canvas.height * 0.25, canvas.height * 0.7);
     let fichaJugador1 = {
-        color: "#000000",
+        color: "#741536",
         img: personajeMoguriImg
     };
     let fichaJugador2 = {
@@ -50,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function(){{
 
     let btnRestart = new BotonRestart(canvas.width * 0.47, canvas.height * 0.01, contexto, 35, 35, resetImg);
     
-    let btnEstiloFicha1 = new BotonEstiloFicha(canvas.width * 0.06, canvas.height * 0.1, contexto, 50, 50, personajeMoguriImg, "#000000", jugador1);
+    let btnEstiloFicha1 = new BotonEstiloFicha(canvas.width * 0.06, canvas.height * 0.1, contexto, 50, 50, personajeMoguriImg, "#741536", jugador1);
     let btnEstiloFicha2 = new BotonEstiloFicha(canvas.width * 0.1, canvas.height * 0.1, contexto, 50, 50, personajeHumanoImg, "#150048", jugador1);
     let btnEstiloFicha3 = new BotonEstiloFicha(canvas.width * 0.14, canvas.height * 0.1, contexto, 50, 50, personajeBangaaImg, "#158748", jugador1);
 
@@ -133,10 +132,14 @@ document.addEventListener("DOMContentLoaded", function(){{
         estaMouseDown = false;
         tiempoTerminado = false;
 
-        jugador1 = new Jugador("Nico", canvas.width * 0.1, canvas.height * 0.7);
-        jugador2 = new Jugador("Eze", canvas.width * 0.9, canvas.height * 0.7);
+        jugador1 = new Jugador(jugador1.getNombre(), jugador1.getPosFichasInicialX(), jugador1.getPosFichasFinalX(), jugador1.getPosFichasInicialY(), jugador1.getPosFichasFinalY());
+        jugador2 = new Jugador(jugador2.getNombre(), jugador2.getPosFichasInicialX(), jugador2.getPosFichasFinalX(), jugador2.getPosFichasInicialY(), jugador2.getPosFichasFinalY());
 
-        tablero = new Tablero(canvas.width / 3.4, 50, contexto, cant_filas, cant_columnas, porcionTableroImg, 75, 75);
+        tablero = new Tablero(tablero.getX(), tablero.getY(), contexto, cant_filas, cant_columnas, tablero.getImgPorcionTablero(), tablero.getWidth(), tablero.getHeight());
+
+        console.log(`${tablero.getX()}, ${tablero.getY()}, ${contexto}, ${tablero.getFilas()}, ${tablero.getColumnas()}, ${tablero.getImgPorcionTablero()}, ${tablero.getWidth()}, ${tablero.getHeight()}`);
+
+        /* new Tablero(canvas.width / 3.4, 50, contexto, cant_filas, cant_columnas, porcionTableroImg, 75, 75); */
 
         juego = new Juego(jugador1, jugador2, tablero);
 

@@ -1,9 +1,11 @@
 class Jugador {
 
-    constructor(nombre, posFichasInicialX, posFichasInicialY) {
+    constructor(nombre, posFichasInicialX, posFichasFinalX, posFichasInicialY, posFichasFinalY) {
         this.nombre = nombre;
         this.posFichasInicialX = posFichasInicialX;
+        this.posFichasFinalX = posFichasFinalX;
         this.posFichasInicialY = posFichasInicialY;
+        this.posFichasFinalY = posFichasFinalY;
         this.fichas = [];
     }
 
@@ -17,9 +19,17 @@ class Jugador {
     dibujarFichasInicial() { //Dibuja las fichas dentro de una zona con posiciones aleatorias
         let posX = this.getPosFichasInicialX();
         let posY = this.getPosFichasInicialY();
-        let probabilidad = Math.random();
+        /* let probabilidad = Math.random(); */
 
-        for (let ficha of this.fichas) {
+        for (let i = 0; i < this.fichas.length; i++) {
+            posX = Math.round(Math.random() * this.posFichasFinalX) + this.posFichasInicialX;
+            posY = Math.round(Math.random() * this.posFichasFinalY) + this.posFichasInicialY;
+
+            this.fichas[i].setPos(posX, posY);
+            this.fichas[i].draw();
+        } 
+
+        /* for (let ficha of this.fichas) {
             ficha.setPos(posX, posY);
             ficha.draw();
 
@@ -31,7 +41,7 @@ class Jugador {
                 posY = posY - Math.round(Math.random() * 30);
             }
             probabilidad = Math.random();
-        }
+        } */
     }
 
     removeAllFichas() { //Vacia el arreglo de fichas
@@ -62,9 +72,16 @@ class Jugador {
     getPosFichasInicialX() {
         return this.posFichasInicialX;
     }
+    getPosFichasFinalX() {
+        return this.posFichasFinalX;
+    }
 
     getPosFichasInicialY() {
         return this.posFichasInicialY;
+    }
+
+    getPosFichasFinalY() {
+        return this.posFichasFinalY;
     }
 
     getCantidadFichas() {
