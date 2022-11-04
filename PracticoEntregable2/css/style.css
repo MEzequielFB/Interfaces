@@ -409,7 +409,11 @@ main > section.mas-jugados h1 {
 main > section.mas-jugados article {
     width: 300px;
     height: 140px;
+    transition: transform 0.5s;
     cursor: pointer;
+}
+main > section.mas-jugados article:hover {
+    transform: scale(1.05);
 }
 main > section.mas-jugados article a {
     color: var(--blanco);
@@ -461,11 +465,12 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
     box-shadow: none;
     color: var(--acento);
     border: 2px var(--acento) solid;
-    transition: border-color 0.5s, color 0.5s;
+    transition: border-color 0.5s, color 0.5s, transform 0.5s;
 }
 .carrousel div:first-child > button:hover {
     border-color: var(--acento-luz-2);
     color: var(--acento-luz-2);
+    transform: scale(1.05);
 }
 .contenedorCarrousel{
     padding: 5px;
@@ -1408,7 +1413,10 @@ section.informacion div p:last-child img {
         overflow: hidden;
     }
     .contenedorCards > li, .contenedorCardsCategorias > li{
-        transition: .5s ease-in-out;
+        transition: .5s ease-in-out, transform 0.5s;
+    }
+    .contenedorCards li:hover {
+        transform: scale(1.05);
     }
     .contenedorCards > li.pagina2, .contenedorCardsCategorias > li.pagina2{
         transform: translate(0px);
@@ -1417,12 +1425,21 @@ section.informacion div p:last-child img {
         /* transform: translate(-1175px); */
         transform: translate(-765px);
     }
+    .contenedorCards > li.pagina2:hover {
+        transform: scale(1.05) translate(-728px);
+    }
     .contenedorCards > li.pagina3, .contenedorCardsCategorias > li.pagina3{
         /* transform: translate(-2350px); */
         transform: translate(-1540px);
     }
+    .contenedorCards > li.pagina3:hover {
+        transform: scale(1.05) translate(-1467px);
+    }
     .contenedorCards > li.pagina4, .contenedorCardsCategorias > li.pagina4{
         transform: translate(-2350px);
+    }
+    .contenedorCards > li.pagina4:hover {
+        transform: scale(1.05) translate(-2238px);
     }
     /* si hace falta hacer un "pagina4, 5, 6, etc" el valor del translate es (valor de la pagina anterior) - 1175 
     (1175 es el ancho de 3 cards + margin) */
@@ -1439,14 +1456,28 @@ section.informacion div p:last-child img {
     }
     .btnCarrouselAtras{
         background-image: url(../img/Carrousel_Flecha.svg);
+        transition: box-shadow 0.5s, transform 0.5s;
+    }
+    .btnCarrouselAtras:hover {
+        transform: translateX(-10px);
     }
     .btnCarrouselSig{
         background-image: url(../img/Carrousel_Flecha.svg);
         transform: rotate(180deg);
+        transition: box-shadow 0.5s, transform 0.5s;
+    }
+    .btnCarrouselSig:hover {
+        transform: rotate(180deg) translateX(-10px);
     }
     .btnCarrousel.btnApagado{
         background-image: url(../img/Carrousel_flecha_apagada.svg);
         cursor: not-allowed;
+    }
+    .btnCarrousel.btnApagado:hover {
+        transform: translateX(0px);
+    }
+    .btnCarrousel.btnApagado.btnCarrouselSig:hover {
+        transform: rotate(180deg) translateX(0px);
     }
     .btnCarrousel.hero {
         background-image: url(../img/seccion-hero/carrousel_flecha_hero.svg);
