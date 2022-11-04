@@ -17,6 +17,10 @@ document.addEventListener("DOMContentLoaded", function(){{
     let porcionTableroImg = document.querySelector(".porcion-tablero");
     let personajeHumanoImg = document.querySelector(".pj-humano");
     let personajeMoguriImg = document.querySelector(".pj-moguri");
+    let personajeBangaaImg = document.querySelector(".pj-bangaa");
+    let personajeJuezImg = document.querySelector(".pj-juez1");
+    let personajeJuez2Img = document.querySelector(".pj-juez2");
+    let personajeJuez3Img = document.querySelector(".pj-juez3");
     let numero3 = document.querySelector(".numero-3");
     let numero4 = document.querySelector(".numero-4");
     let numero5 = document.querySelector(".numero-5");
@@ -31,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function(){{
     };
     let fichaJugador2 = {
         color: "#002463",
-        img: personajeHumanoImg
+        img: personajeJuezImg
     };
 
     let tablero = new Tablero(canvas.width / 3.4, 50, contexto, cant_filas, cant_columnas, porcionTableroImg, 75, 75);
@@ -46,8 +50,13 @@ document.addEventListener("DOMContentLoaded", function(){{
 
     let btnRestart = new BotonRestart(canvas.width * 0.47, canvas.height * 0.01, contexto, 35, 35, resetImg);
     
-    let btnEstiloFicha1 = new BotonEstiloFicha(canvas.width * 0.11, canvas.height * 0.1, contexto, 25, 25, personajeMoguriImg, "#000000", jugador1);
-    let btnEstiloFicha2 = new BotonEstiloFicha(canvas.width * 0.13, canvas.height * 0.1, contexto, 25, 25, personajeHumanoImg, "#150048", jugador1);
+    let btnEstiloFicha1 = new BotonEstiloFicha(canvas.width * 0.06, canvas.height * 0.1, contexto, 50, 50, personajeMoguriImg, "#000000", jugador1);
+    let btnEstiloFicha2 = new BotonEstiloFicha(canvas.width * 0.1, canvas.height * 0.1, contexto, 50, 50, personajeHumanoImg, "#150048", jugador1);
+    let btnEstiloFicha3 = new BotonEstiloFicha(canvas.width * 0.14, canvas.height * 0.1, contexto, 50, 50, personajeBangaaImg, "#158748", jugador1);
+
+    let btnEstiloFicha4 = new BotonEstiloFicha(canvas.width * 0.8, canvas.height * 0.1, contexto, 50, 50, personajeJuezImg, "#b34614", jugador2);
+    let btnEstiloFicha5 = new BotonEstiloFicha(canvas.width * 0.84, canvas.height * 0.1, contexto, 50, 50, personajeJuez2Img, "#368372", jugador2);
+    let btnEstiloFicha6 = new BotonEstiloFicha(canvas.width * 0.88, canvas.height * 0.1, contexto, 50, 50, personajeJuez3Img, "#6339a7", jugador2);
     
     botones.push(btnModo1);
     botones.push(btnModo2);
@@ -55,6 +64,10 @@ document.addEventListener("DOMContentLoaded", function(){{
     botones.push(btnRestart);
     botones.push(btnEstiloFicha1);
     botones.push(btnEstiloFicha2);
+    botones.push(btnEstiloFicha3);
+    botones.push(btnEstiloFicha4);
+    botones.push(btnEstiloFicha5);
+    botones.push(btnEstiloFicha6);
 
     let btnTimer = document.querySelector(".btn-timer");
     let timer = {
@@ -230,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function(){{
                 cant_filas = valor.filas;
                 cant_columnas = valor.columnas;
             } else if (valor != null) {
-                if (btnClickeado.getJugador() == jugador1) {
+                if (btnClickeado.getJugador().getNombre() == jugador1.getNombre()) {
                     fichaJugador1 = {
                         img: valor.img,
                         color: valor.color
