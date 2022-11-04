@@ -411,6 +411,17 @@ main > section.mas-jugados article {
     height: 140px;
     cursor: pointer;
 }
+main > section.mas-jugados article a {
+    color: var(--blanco);
+}
+main > section.mas-jugados article a:first-child {
+    width: inherit;
+}
+main > section.mas-jugados article a > img:first-child {
+    width: inherit;
+    height: 140px;
+    border-radius: 5px;
+}
 main > section.mas-jugados article > img {
     width: 100%;
     height: inherit;
@@ -501,13 +512,13 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
     width: 380px;
     height: 220px;
 } */
-li.gratis > a > .iconosCard>img:first-child, main article.gratis > div.iconosCard > img:first-child {
+li.gratis > a > .iconosCard>img:first-child, main article.gratis > a > div.iconosCard > img:first-child {
     display: block;
 }
-li.nuevo > a > .iconosCard>img:last-child, main article.nuevo > div.iconosCard > img:first-child {
+li.nuevo > a > .iconosCard>img:last-child, main article.nuevo > a > div.iconosCard > img:last-child {
     display: block;
 }
-li.pago > a > .precioCard, main article.pago > div.precioCard {
+li.pago > a > .precioCard, main article.pago > a > div.precioCard {
     display: flex;
 }
 .precioCard, .contenedorTitulo, .iconosCard {
@@ -631,7 +642,7 @@ li.cardCarrouselDoble {
     height: fit-content;
     flex-shrink: 0;
 }
-li > a > .iconosCard>img, li > a > .precioCard, article > div.iconosCard > img, article > div.precioCard {
+li > a > .iconosCard>img, li > a > .precioCard, article > a > div.iconosCard > img, article > a > div.precioCard {
     display: none;
 }
 footer { /* Fat Footer */
@@ -1195,6 +1206,9 @@ section.informacion div p:last-child img {
     }
     main > section.mas-jugados article {
         width: 380px;
+        height: 220px;
+    }
+    main > section.mas-jugados article a > img:first-child {
         height: 220px;
     }
     .carrousel > h2:first-child, .carrousel>h2:first-child, .carrousel div:first-child > h2:first-child{ /* carrousel juegos v */
