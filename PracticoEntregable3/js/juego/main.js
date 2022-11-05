@@ -174,8 +174,8 @@ document.addEventListener("DOMContentLoaded", function(){{
     function dibujarTextos() { //Dibuja los textos del juego
         contexto.font = "30px Lato";
         contexto.fillStyle = "white";
-        contexto.fillText(juego.getJugador1().getNombre(), canvas.width * 0.1, canvas.height * 0.05);
-        contexto.fillText(juego.getJugador2().getNombre(), canvas.width * 0.85, canvas.height * 0.05);
+        dibujarNombreJugador(juego.getJugador1(), canvas.width * 0.1, canvas.height * 0.05);
+        dibujarNombreJugador(juego.getJugador2(), canvas.width * 0.85, canvas.height * 0.05);
 
         if (juego.getJuegoTerminado() && !tiempoTerminado) {
             contexto.fillText("Ganó " + juego.getJugadorActual().getNombre() + "!", canvas.width * 0.41, canvas.height * 0.13);
@@ -186,6 +186,19 @@ document.addEventListener("DOMContentLoaded", function(){{
         contexto.font = "22.6px Lato";
         contexto.fillText("Modos de juego:", canvas.width * 0.01, canvas.height * 0.98);
     }
+
+    function dibujarNombreJugador(jugador, posX, posY) { //Dibuja los nombres de los jugadores. El color celeste en el nombre de un jugador indica que es su turno. Al final se define blanco de nuevo para que el color no influya en otros textos
+        contexto.font = "30px Lato";
+        if (juego.getJugadorActual() == jugador) {
+            contexto.fillStyle = "#1fc8e6";
+            contexto.fillText(jugador.getNombre(), posX, posY);
+        } else {
+            contexto.fillStyle = "white";
+            contexto.fillText(jugador.getNombre(), posX, posY);
+        }
+        contexto.fillStyle = "white";
+    }
+
 
     function clearCanvas() { //Limpia el canvas
         contexto.clearRect(0, 0, canvas.width, canvas.height);
