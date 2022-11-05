@@ -19,7 +19,6 @@ class Jugador {
     dibujarFichasInicial() { //Dibuja las fichas dentro de una zona con posiciones aleatorias
         let posX = this.getPosFichasInicialX();
         let posY = this.getPosFichasInicialY();
-        /* let probabilidad = Math.random(); */
 
         for (let i = 0; i < this.fichas.length; i++) {
             posX = Math.round(Math.random() * this.posFichasFinalX) + this.posFichasInicialX;
@@ -27,21 +26,7 @@ class Jugador {
 
             this.fichas[i].setPos(posX, posY);
             this.fichas[i].draw();
-        } 
-
-        /* for (let ficha of this.fichas) {
-            ficha.setPos(posX, posY);
-            ficha.draw();
-
-            if (probabilidad > 0.5) {
-                posX = posX + Math.round(Math.random() * 30);
-                posY = posY + Math.round(Math.random() * 30);
-            } else {
-                posX = posX - Math.round(Math.random() * 30);
-                posY = posY - Math.round(Math.random() * 30);
-            }
-            probabilidad = Math.random();
-        } */
+        }
     }
 
     removeAllFichas() { //Vacia el arreglo de fichas

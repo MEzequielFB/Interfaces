@@ -5,7 +5,7 @@ class Juego {
         this.jugador2 = jugador2;
         this.jugadorActual = jugador1;
         this.tablero = tablero;
-        this.modoDeJuego = 4; //es un numero, determina si el juego es 3 en linea, 3 en linea, 5 en linea etc, por defecto es 4
+        /* this.modoDeJuego = 4; */ //es un numero, determina si el juego es 3 en linea, 3 en linea, 5 en linea etc, por defecto es 4
         this.botones = [];
         this.juegoTerminado = false;
     }
@@ -15,7 +15,7 @@ class Juego {
         let posUltimaficha = this.tablero.addFicha(ficha, columna);// posUltimaFicha puede recibir un json o un false, el json actua como un "true" en el if
         if (posUltimaficha) {
             this.jugadorActual.removeFicha(ficha);
-            if(this.tablero.comprobarSiGano(posUltimaficha.fila, posUltimaficha.columna, this.modoDeJuego)){
+            if(this.tablero.comprobarSiGano(posUltimaficha.fila, posUltimaficha.columna/* , this.modoDeJuego */)){
                 this.setJuegoTerminado(true);
                 console.log(`ganó ${this.jugadorActual.getNombre()}`);
             } else {
@@ -55,10 +55,8 @@ class Juego {
         for (let i = 0; i < fichas.length; i++) {
             if (i < fichas.length / 2) {
                 this.jugador1.addFicha(fichas[i]);
-                /* fichas[i].setJugadorDuenio(this.jugador1); */
             } else {
                 this.jugador2.addFicha(fichas[i]);
-                /* fichas[i].setJugadorDuenio(this.jugador2); */
             }
         }
     }

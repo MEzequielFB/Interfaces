@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function(){{
     let numero5 = document.querySelector(".numero-5");
     let resetImg = document.querySelector(".btn-reset-img");
 
+    //Intancias
     let jugador1 = new Jugador("Nico", canvas.width * 0.03, canvas.width * 0.28, canvas.height * 0.25, canvas.height * 0.7);
     let jugador2 = new Jugador("Eze", canvas.width * 0.68, canvas.width * 0.26, canvas.height * 0.25, canvas.height * 0.7);
     let fichaJugador1 = {
@@ -41,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function(){{
 
     let juego = new Juego(jugador1, jugador2, tablero);
 
+    //Botones
     let botones = [];
 
     let btnModo1 = new BotonModo(canvas.width * 0.11, canvas.height * 0.958, contexto, 25, 25, numero3, 5, 6);
@@ -68,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function(){{
     botones.push(btnEstiloFicha5);
     botones.push(btnEstiloFicha6);
 
+    //Timer
     let btnTimer = document.querySelector(".btn-timer");
     let timer = {
             "indiceActual" : 0,
@@ -250,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function(){{
         dibujarJuego();
     }
 
-    function click(e) { //Se ejecuta al hacer click. Si se clickea un boton se cambia la cantidad de filas y columnas del tablero. Si la cantidad de filas y columnas es null solo se resetea el juego
+    function click(e) { //Se ejecuta al hacer click. Si se clickea un boton se cambia la cantidad de filas y columnas del tablero. Si la cantidad de filas y columnas es null solo se resetea el juego. Si el valor de filas es null pero el valor no, se cambia el estilo de las fichas de un jugador
 
         let btnClickeado = botonClickeado(e.layerX, e.layerY);
         if (btnClickeado != null) {

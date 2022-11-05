@@ -1,11 +1,9 @@
 class Tablero extends Rectangulo {
 
     constructor(x, y, contexto, filas, columnas, imgPorcionTablero, imgWidth, imgHeight) {
-        /* super(x, y, fill, contexto); */
         super(x, y, contexto, imgWidth, imgHeight);
         this.filas = filas + 1; //La fila extra (+1) es la fila de las zonas para dejar caer las fichas
         this.columnas = columnas;
-        /* this.fichasParaGanar = Math.round(((this.filas - 1) * this.columnas) / 12); */
         this.setFichasParaGanar();
         this.imgPorcionTablero = imgPorcionTablero;
         this.fichasColocadas = [];
@@ -14,18 +12,6 @@ class Tablero extends Rectangulo {
     }
 
     //funciones
-    /* seAgregaFicha(ficha){ ESTE METODO SE LO DELEGA AL RECTANGULO EN GETCOLUMNAZONAFICHASOLTADA
-        if(ficha != null){
-            if((ficha.getX() > this.getX()) && (ficha.getX() <= this.getX() + this.getWidth()) &&
-            (ficha.getY() <= this.getY()+this.getHeight()) && (ficha.getY() > this.getY() - this.getHeight())){
-                return true;
-            }else{
-                return false;
-            }
-        }
-        return false;
-    } */
-
     addFicha(ficha, columna) { //Se agrega la ficha en una fila de la columna que se pasa por parametro si hay espacio disponible. Itera de abajo hacia arriba
         for (let fila = this.getFilas()-1; fila > 0; fila--) {
             let porcionTableroActual = this.porcionesTablero[fila][columna];
@@ -44,7 +30,7 @@ class Tablero extends Rectangulo {
     getColumnaZonaFichaSoltada(fichaSoltada) { //Si se solto una ficha en una zona se devuelve la columna perteneciente a la zona
         for (let columna = 0; columna < this.getColumnas(); columna++) {
             if (this.porcionesTablero[0][columna].seSoltoFichaEnZona(fichaSoltada)) {
-                return columna /* this.porcionesTablero[0][i] */;
+                return columna;
             }
         }
         return -1;
@@ -95,7 +81,7 @@ class Tablero extends Rectangulo {
         caso contrario retornar null, false o 0*/
     }
 
-    comprobarSiGano(fila,columna, modoDeJuego){
+    comprobarSiGano(fila,columna/* , modoDeJuego */){
         /*comprobar si la ultima ficha colocada hizo que el jugador ganara
         hay que comprobar en diagonal, horizontal, y en vertical*/
         if (this.comprobarSiGanoHorizontal(fila, columna, this.fichasParaGanar) || this.comprobarSiGanoVertical(fila, columna, this.fichasParaGanar) || this.comprobarSiGanoDiagonalIzquierda(fila, columna, this.fichasParaGanar) || this.comprobarSiGanoDiagonalDerecha(fila, columna, this.fichasParaGanar)) {
@@ -105,7 +91,7 @@ class Tablero extends Rectangulo {
         }
     }
 
-    comprobarSiGanoVertical(fila, columna, modoDeJuego){
+    comprobarSiGanoVertical(fila, columna/* , modoDeJuego */){
         /**
          * ficha inicial: es la ficha que vamos a comparar con los demas espacios adyacentes
          * ficha actual: es el espacio que sera comparado con la ficha inicial, la ficha actual cambia con cada iteracion del for
@@ -124,7 +110,7 @@ class Tablero extends Rectangulo {
         return true;//si la iteracion nunca se corto, entonces hubo 4 fichas iguales seguidas (o la cantidad que sea modoDeJuego)
     }
 
-    comprobarSiGanoHorizontal(fila, columna, modoDeJuego){
+    comprobarSiGanoHorizontal(fila, columna/* , modoDeJuego */){
         let fichaInicial = this.fichasColocadas[fila][columna];
         let fichaActual = null;
 
@@ -149,7 +135,7 @@ class Tablero extends Rectangulo {
         return true;
     }
 
-    comprobarSiGanoDiagonalIzquierda(fila, columna, modoDeJuego){
+    comprobarSiGanoDiagonalIzquierda(fila, columna/* , modoDeJuego */){
         let fichaInicial =this.fichasColocadas[fila][columna];
         let fichaActual = null;
         while (fila-1 >= 0 && columna-1 >= 0 && fichaInicial.sonIguales(this.fichasColocadas[fila-1][columna-1])) {
@@ -169,7 +155,7 @@ class Tablero extends Rectangulo {
         return true;
     }
 
-    comprobarSiGanoDiagonalDerecha(fila ,columna, modoDeJuego){
+    comprobarSiGanoDiagonalDerecha(fila ,columna/* , modoDeJuego */){
         let fichaInicial =this.fichasColocadas[fila][columna];
         let fichaActual = null;
         while (fila-1 >= 0 && columna+1 < this.getColumnas() && fichaInicial.sonIguales(this.fichasColocadas[fila-1][columna+1])) {
@@ -189,14 +175,14 @@ class Tablero extends Rectangulo {
         return true;
     }
 
-    determinarColumna(ficha){
+    /* determinarColumna(ficha){
         for (let i = 1; i < this.getColumnas()+1; i++) {
             if (ficha.getX() < (this.getImgWidth() * i) + this.getX()) {
                 return i-1;
             }
         }
         return -100;
-    }
+    } */
 
     //getters & setters 
     getColumnas(){
@@ -226,12 +212,12 @@ class Tablero extends Rectangulo {
         return this.imgPorcionTablero;
     }
 
-    setColumnas(columnas){
+    setColumnas(columnas){ //Al setear la cantidad de columnas tambien se setean la cantidad de fichas necesarias para ganar
         this.columnas = columnas;
         this.setFichasParaGanar();
     }
 
-    setFilas(filas){
+    setFilas(filas){ //Al setear la cantidad de filas tambien se setean la cantidad de fichas necesarias para ganar
         this.filas = filas;
         this.setFichasParaGanar();
     }
