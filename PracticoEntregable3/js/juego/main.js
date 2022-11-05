@@ -71,7 +71,37 @@ document.addEventListener("DOMContentLoaded", function(){{
     botones.push(btnEstiloFicha6);
 
     //Timer
-    let btnTimer = document.querySelector(".btn-timer");
+    const segundos_iniciales = 0;
+    const minutos_iniciales = 1;
+    let segundos = segundos_iniciales;
+    let minutos = minutos_iniciales;
+    let intervaloTimer = setInterval(timer, 1000);
+
+    function timer() { //Disminuye los segundos. Si segundos llega a -1 se disminuyen los minutos. Si ambos tienen como valor 0, se termina el juego y el setInterval se detiene. Al final de la funcion se dibuja todo el juego
+        segundos--;
+        if (segundos == -1 && minutos > 0) {
+            segundos = 59;
+            minutos--;
+        } else if (segundos == 0 && minutos == 0) {
+            tiempoTerminado = true;
+            juego.setJuegoTerminado(true);
+            clearCanvas();
+            juego.dibujarJuego();
+            dibujarTextos();
+            console.log("tiempo fuera");
+            clearInterval(intervaloTimer);
+        }
+        dibujarJuego();
+    }
+
+    function resetTimer() { //Setea los segundos y minutos iniciales, detiene el setInterval actual si es que está activo y reanuda uno nuevo
+        segundos = segundos_iniciales;
+        minutos = minutos_iniciales;
+        clearInterval(intervaloTimer);
+        intervaloTimer = setInterval(timer, 1000);
+    }
+
+    /* let btnTimer = document.querySelector(".btn-timer");
     let timer = {
             "indiceActual" : 0,
             "timerId" : null,
@@ -96,10 +126,10 @@ document.addEventListener("DOMContentLoaded", function(){{
                 "valor" : 300000
             }
         ]
-    };
+    }; */
 
 
-    function setTimer() { //Inicia el timer. Cada vez que se apreta el timer se resetear el tiempo y empieza a contar de nuevo (si es que no está en el indice 0 -> sin timer). Al terminar el tiempo se setea como true el tiempoTerminado, se setea al juego como terminado y se vuelve a dibujar todo (menos las fichas porque el juego está terminado)
+    /* function setTimer() { //Inicia el timer. Cada vez que se apreta el timer se resetear el tiempo y empieza a contar de nuevo (si es que no está en el indice 0 -> sin timer). Al terminar el tiempo se setea como true el tiempoTerminado, se setea al juego como terminado y se vuelve a dibujar todo (menos las fichas porque el juego está terminado)
         if(timer.indiceActual == timer.timers.length-1){
             timer.indiceActual = 0;
         }else{
@@ -125,9 +155,9 @@ document.addEventListener("DOMContentLoaded", function(){{
         timer.indiceActual = 0;
         timer.timerId = null;
         btnTimer.innerHTML = timer.timers[timer.indiceActual].displayBoton;
-    }
+    } */
 
-    btnTimer.addEventListener("click", setTimer);
+    /* btnTimer.addEventListener("click", setTimer); */
 
     function resetJuego() { //Vacía el arreglo de fichas, setea variables al valor por default, crea otros objetos y las variables ya existentes apuntan a estos. Finalmente inicia el juego con los nuevos objetos
         fichas = [];
@@ -141,8 +171,6 @@ document.addEventListener("DOMContentLoaded", function(){{
         tablero = new Tablero(tablero.getX(), tablero.getY(), contexto, cant_filas, cant_columnas, tablero.getImgPorcionTablero(), tablero.getWidth(), tablero.getHeight());
 
         console.log(`${tablero.getX()}, ${tablero.getY()}, ${contexto}, ${tablero.getFilas()}, ${tablero.getColumnas()}, ${tablero.getImgPorcionTablero()}, ${tablero.getWidth()}, ${tablero.getHeight()}`);
-
-        /* new Tablero(canvas.width / 3.4, 50, contexto, cant_filas, cant_columnas, porcionTableroImg, 75, 75); */
 
         juego = new Juego(jugador1, jugador2, tablero);
 
@@ -180,10 +208,13 @@ document.addEventListener("DOMContentLoaded", function(){{
         dibujarNombreJugador(juego.getJugador1(), canvas.width * 0.1, canvas.height * 0.05);
         dibujarNombreJugador(juego.getJugador2(), canvas.width * 0.85, canvas.height * 0.05);
 
-        if (juego.getJuegoTerminado() && !tiempoTerminado) {
+        if (juego.getJuegoTerminado() && !tiempoTerminado) { //Si el juego terminó y no se acabó el tiempo muestra el nombre del ganador y detiene el timer
             contexto.fillText("Ganó " + juego.getJugadorActual().getNombre() + "!", canvas.width * 0.41, canvas.height * 0.13);
-        } else if (tiempoTerminado) {
+            clearInterval(intervaloTimer);
+        } else if (tiempoTerminado) { //Si no se cumplió la condición anterior y el juego está terminado indica que se terminó el tiempo
             contexto.fillText("Se terminó el tiempo!", canvas.width * 0.4, canvas.height * 0.13);
+        } else { //De lo contrario se dibuja el timer
+            dibujarTimer();
         }
 
         contexto.font = "22.6px Lato";
@@ -200,6 +231,10 @@ document.addEventListener("DOMContentLoaded", function(){{
             contexto.fillText(jugador.getNombre(), posX, posY);
         }
         contexto.fillStyle = "white";
+    }
+
+    function dibujarTimer() { //Dibuja el timer
+        contexto.fillText(minutos + ":" + segundos, canvas.width * 0.53, canvas.height * 0.04);
     }
 
 
