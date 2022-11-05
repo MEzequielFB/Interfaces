@@ -42,12 +42,12 @@ class Jugador {
         this.fichas.push(ficha);
     }
 
-    jugarFicha() { //En la clase juego se delega este metodo al jugador del turno actual si juega la ficha en el tablero
+    /* jugarFicha() { //En la clase juego se delega este metodo al jugador del turno actual si juega la ficha en el tablero
         if (this.getCantidadFichas > 0) {
             return this.fichas.pop();
         }
         return null;
-    }
+    } */
 
     //getters & setters
     getNombre() {

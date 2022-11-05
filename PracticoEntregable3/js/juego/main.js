@@ -225,10 +225,10 @@ document.addEventListener("DOMContentLoaded", function(){{
         dibujarJuego();
     }
 
-    function buscarFiguraClickeada(x, y) { //Recorre las fichas y verifica en cada una si la posicion esta dentro de ella
-        for (let ficha of fichas) {
-            if (ficha.estaMouseDentro(x, y)) {
-                return ficha; //Devuelve la figura si esta dentro
+    function buscarFiguraClickeada(x, y) { //Recorre las fichas empezando desde las ultimas y verifica en cada una si la posicion esta dentro de ella
+        for (let i = fichas.length-1; i >= 0; i--) {
+            if (fichas[i].estaMouseDentro(x, y)) {
+                return fichas[i]; //Devuelve la figura si esta dentro
             }
         }
         return null;
