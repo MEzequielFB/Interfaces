@@ -50,12 +50,12 @@ document.addEventListener("DOMContentLoaded", function(){{
     let btnRestart = new BotonRestart(canvas.width * 0.47, canvas.height * 0.01, contexto, 35, 35, resetImg);
     
     let btnEstiloFicha1 = new BotonEstiloFicha(canvas.width * 0.06, canvas.height * 0.1, contexto, 50, 50, personajeMoguriImg, "#741536", jugador1);
-    let btnEstiloFicha2 = new BotonEstiloFicha(canvas.width * 0.1, canvas.height * 0.1, contexto, 50, 50, personajeHumanoImg, "#150048", jugador1);
-    let btnEstiloFicha3 = new BotonEstiloFicha(canvas.width * 0.14, canvas.height * 0.1, contexto, 50, 50, personajeBangaaImg, "#158748", jugador1);
+    let btnEstiloFicha2 = new BotonEstiloFicha(canvas.width * 0.1, canvas.height * 0.1, contexto, 50, 50, personajeHumanoImg, "#a7521a", jugador1);
+    let btnEstiloFicha3 = new BotonEstiloFicha(canvas.width * 0.14, canvas.height * 0.1, contexto, 50, 50, personajeBangaaImg, "#c0b848", jugador1);
 
-    let btnEstiloFicha4 = new BotonEstiloFicha(canvas.width * 0.8, canvas.height * 0.1, contexto, 50, 50, personajeJuezImg, "#b34614", jugador2);
+    let btnEstiloFicha4 = new BotonEstiloFicha(canvas.width * 0.8, canvas.height * 0.1, contexto, 50, 50, personajeJuezImg, "#002463", jugador2);
     let btnEstiloFicha5 = new BotonEstiloFicha(canvas.width * 0.84, canvas.height * 0.1, contexto, 50, 50, personajeJuez2Img, "#368372", jugador2);
-    let btnEstiloFicha6 = new BotonEstiloFicha(canvas.width * 0.88, canvas.height * 0.1, contexto, 50, 50, personajeJuez3Img, "#6339a7", jugador2);
+    let btnEstiloFicha6 = new BotonEstiloFicha(canvas.width * 0.88, canvas.height * 0.1, contexto, 50, 50, personajeJuez3Img, "#4c2eb6", jugador2);
     
     botones.push(btnModo1);
     botones.push(btnModo2);
