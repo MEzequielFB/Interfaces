@@ -85,9 +85,6 @@ document.addEventListener("DOMContentLoaded", function(){{
         } else if (segundos == 0 && minutos == 0) {
             tiempoTerminado = true;
             juego.setJuegoTerminado(true);
-            clearCanvas();
-            juego.dibujarJuego();
-            dibujarTextos();
             console.log("tiempo fuera");
             clearInterval(intervaloTimer);
         }
