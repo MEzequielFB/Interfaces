@@ -1,0 +1,1900 @@
+* { /* Reset */
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+    font-family: 'Lato', sans-serif;
+	vertical-align: baseline;
+    list-style: none;
+    text-decoration: none;
+}
+:root { /* Colores */
+    --negro-luz-2: #7C7C7C;
+    --negro-luz-1: #3E3E3E;
+    --negro: #000000;
+
+    --negro-transparente-1: rgba(0, 0, 0, 0.67);
+
+    --blanco: #FFFFFF;
+
+    --primario-luz-2: #A7C9D3;
+    --primario-luz-1: #63A3B5;
+    --primario: #3E8498;
+    --primario-sombra-1: #215C6C;
+    --primario-sombra-2: #103843;
+
+    --secundario-luz-2: #ABB4DB;
+    --secundario-luz-1: #7887C7;
+    --secundario: #4D5EA6;
+    --secundario-sombra-1: #273570;
+    --secundario-sombra-2: #101734;
+
+    --acento-luz-2: #8EFCAF;
+    --acento-luz-1: #4FE87D;
+    --acento: #01CF3F;
+    --acento-sombra-1: #01952E;
+    --acento-sombra-2: #00581B;
+
+    --extra-luz-2: #FFD362;
+    --extra-luz-1: #F2BB2C;
+    --extra: #D99F09;
+
+    --primario-transparente-1: rgba(62, 132, 152, 0.93);
+    --secundario-transparente-1: rgba(77, 93, 166, 0.93);
+    --extra-transparente-1: rgba(217, 158, 9, 0.93);
+
+    /* Colores Hero */
+    --primario-hero-luz-1: #576082;
+    --primario-hero: #374168;
+    --primario-hero-sombra-1: #1D233B;
+
+    --secundario-hero-luz-2: #A87EDD;
+    --secundario-hero-luz-1: #905FCF;
+    --secundario-hero: #6826BD;
+    --secundario-hero-sombra-1: #48108F;
+
+    --acento-hero-luz-1: #FFD354;
+    --acento-hero: #F8C225;
+    --acento-hero-sombra-1: #DBA814;
+
+    --primario-hero-transparente-1: rgba(55, 65, 104, 0.7);
+    --primario-hero-transparente-2: rgba(55, 65, 104, 0.99);
+
+    /* Sombras */
+    --sombra-1: 0px 3px 4px 2px var(--negro-transparente-1);
+    --sombra-2: 0px 10px 40px 2px var(--secundario-hero), 0px -10px 40px 5px var(--secundario-hero) inset;
+    --sombra-3: 5px 5px 50px 0px rgba(0, 0, 0, 0.2) inset;
+}
+body {
+    background: var(--primario);
+}
+body.hero {
+    background: var(--primario-hero);
+}
+h1 {
+    font-size: 32.7px;
+}
+h2 {
+    font-size: 25.6px;
+}
+p {
+    font-size: 18.6px;
+}
+p.small {
+    font-size: 12px;
+}
+h1.super {
+    font-size: 60px; /* Super para móvil */
+}
+h1.bold, h2.bold, p.bold, span.bold, button.bold {
+    font-weight: bold;
+}
+h1.underline, h2.underline, p.underline, span.underline {
+    text-decoration: underline;
+}
+button {
+    padding: 10%;
+    font-size: 18.6px;
+    color: var(--primario-sombra-2);
+    text-align: center;
+    background: var(--acento-luz-1);
+    border-radius: 5px;
+    box-shadow: var(--sombra-1);
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+button:hover {
+    background-color: var(--acento-luz-2);
+}
+/* main.hero button:hover {
+    background-color: var(--acento-hero-sombra-1);
+} */
+/* loader-barra v */
+.loader-barra {
+    display: none;
+    margin: 100px 0px 0px 0px;
+}
+.loader-barra.visible {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+}
+.loader-barra.visible ~ * {
+    display: none;
+}
+/* loader v */
+.loader {
+    width: 16em;
+    height: 8em;
+    position: relative;
+    overflow: hidden;
+}
+.loader::before,
+.loader::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+}
+.loader::before {
+    width: inherit;
+    height: 0.2em;
+    background-color: hsla(0, 0%, 85%);
+}
+.loader::after {
+    box-sizing: border-box;
+    width: 50%;
+    height: inherit;
+    border: 0.2em solid hsla(0, 0%, 85%);
+    border-radius: 50%;
+    left: 25%;
+}
+.loader span {
+    position: absolute;
+    width: 5%;
+    height: 10%;
+    background-color: white;
+    border-radius: 50%;
+    bottom: 0.2em;
+    left: -5%;
+    animation: 2s linear infinite;
+    transform-origin: 50% -3em;
+    animation-name: run, rotating;
+}
+.loader span:nth-child(2) {animation-delay: 0.075s;}
+.loader span:nth-child(3) {animation-delay: 0.15s;}
+
+@keyframes run {
+    0% {left: -5%;}
+    10%, 60% {left: calc((100% - 5%) / 2);}
+    70%, 100% {left: 100%;}
+}
+@keyframes rotating {
+    0%, 10% {transform: rotate(0deg);}
+    60%, 100% {transform: rotate(-1turn);}
+}
+/* barra */
+.barra {
+    background: rgba(255,255,255,0.1);
+    justify-content: flex-start;
+    border-radius: 5px;
+    align-items: center;
+    position: relative;
+    padding: 0 5px;
+    display: flex;
+    height: 40px;
+    width: 310px;
+}
+.barra-value {
+    animation: load 5s normal forwards;
+    box-shadow: 0 10px 40px -10px #fff;
+    border-radius: 5px;
+    background: #fff;
+    height: 30px;
+    width: 0;
+}
+@keyframes load {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+.barra p {
+    color: var(--blanco);
+    border-right: 2px var(--blanco) solid;
+    margin: 0px 5px 0px 0px;
+    padding: 0px 5px 0px 0px;
+}
+header { /* header v */
+    position: sticky;
+    top: 0px;
+    display: flex;
+    padding: 2% 2%;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--secundario);
+    box-shadow: var(--sombra-1);
+    z-index: 2;
+}
+header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
+    display: none;
+    cursor: pointer;
+}
+header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
+    width: 30px;
+}
+header input {
+    position: fixed;
+    top: 80px;
+    left: 14%;
+    width: 70%;
+    padding: 2.5%;
+    font-size: 18.6px;
+    background: var(--secundario-sombra-1);
+    border-radius: 5px;
+    opacity: 0;
+    z-index: -1;
+}
+header input.visible {
+    transition: 0.5s opacity;
+    opacity: 1;
+    z-index: 2;
+}
+header input::placeholder, header input {
+    color: var(--secundario-luz-1);
+}
+header > div {
+    display: flex;
+    justify-content: space-between;
+}
+header > div:first-child {
+    width: 35%;
+}
+header > div:last-child {
+    width: 33%;
+}
+header > div:first-child > img.icono-menu-hamburguesa {
+    cursor: pointer;
+}
+header img.header-logo {
+    width: 85%;
+}
+header > div:last-child > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+header > div:last-child > div img:first-child {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-position: 50%;
+    border: 2px var(--primario-luz-2) solid;
+    border-radius: 5px;
+}
+/* menu desplegable */
+nav.menu {
+    position: fixed;
+    top: 0px;
+    left: -400px;
+    width: 100%;
+    padding: 0px 0px 15px 0px;
+    background: var(--secundario);
+    border-radius: 0px 5px 5px 0px;
+    z-index: 3;
+    transition: left 0.7s;
+}
+nav.menu.hero {
+    background: var(--primario-hero);
+}
+nav.menu > img:nth-child(2), nav.menu ul li {
+    cursor: pointer;
+}
+nav.menu.visible {
+    left: 0px;
+}
+nav.menu > img:first-child {
+    width: 100%;
+}
+nav.menu > img:nth-child(2) {
+    margin: 0% 0% 0% 84%;
+    padding: 4px;
+    background: var(--secundario-sombra-1);
+    border-radius: 5px;
+}
+nav.menu.hero > img:nth-child(2) {
+    background: var(--primario-hero-sombra-1);
+}
+nav.menu ul {
+    padding: 0px 10px 0px 10px;
+}
+nav.menu ul li {
+    display: flex;
+    align-items: center;
+    margin: 15px 0px 15px 0px;
+    padding: 10px;
+    color: var(--blanco);
+    font-size: 18.6px;
+    background: var(--secundario-luz-1);
+    border: 1px var(--secundario-sombra-2) solid;
+    border-radius: 5px;
+}
+nav.menu.hero ul li {
+    background: var(--primario-hero-luz-1);
+    border: 1px var(--primario-hero-sombra-1) solid;
+}
+nav.menu ul li img {
+    width: 36px;
+    height: 30px;
+    margin: 0px 12px 0px 0px;
+}
+nav.menu ul > a:last-child li {
+    color: var(--secundario-sombra-2);
+    background: var(--acento-luz-1);
+    border-radius: 5px;
+}
+nav.menu.hero ul > a:last-child li {
+    color: var(--negro);
+    background: var(--acento-hero-luz-1);
+}
+/* menu despegable perfil */
+nav.menu-perfil {
+    opacity: 0;
+    position: fixed;
+    right: 0px;
+    top: 80px;
+    width: 150px;
+    color: var(--blanco);
+    text-align: center;
+    font-size: 18.6px;
+    background: var(--secundario);
+    border-radius: 5px;
+    box-shadow: var(--sombra-1);
+    z-index: -1;
+}
+nav.menu-perfil.hero {
+    background: var(--secundario-hero);
+}
+nav.menu-perfil.visible {
+    transition: opacity 0.6s;
+    opacity: 1;
+    z-index: 3;
+}
+nav.menu-perfil.visible ul li {
+    cursor: pointer;
+}
+nav.menu-perfil ul li {
+    width: 80%;
+    margin: 5px auto 10px auto;
+    padding: 5px;
+    border-bottom: 1px var(--primario-sombra-2) solid;
+    border-radius: 5px;
+    cursor: default;
+    transition: background-color 0.5s;
+}
+nav.menu-perfil.hero ul li {
+    border-color: var(--primario-hero-sombra-1);
+}
+nav.menu-perfil ul li:hover {
+    background-color: var(--secundario-sombra-1);
+}
+nav.menu-perfil.hero ul li:hover {
+    background-color: var(--secundario-hero-sombra-1);
+}
+/* Home */
+main.inicio {
+    color: var(--blanco);
+}
+main > section.mas-jugados { /* Sección más jugados v */
+    padding: 0% 0% 6% 0%;
+    background-image: url("../img/fondo-juegos-1.png");
+    background-size: cover;
+    height: fit-content;
+}
+main > section.mas-jugados div.cards-mas-jugados {
+    display: flex;
+    margin: 2% 2px 0px 2px;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    row-gap: 8px;
+}
+main > section.mas-jugados h1 {
+    text-align: center;
+    -webkit-text-stroke: 2px var(--negro); /* Agrega border al texto */
+    color: var(--blanco);
+    background: var(--secundario-transparente-1);
+}
+main > section.mas-jugados article {
+    width: 300px;
+    height: 140px;
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+main > section.mas-jugados article:hover {
+    transform: scale(1.05);
+}
+main > section.mas-jugados article a {
+    color: var(--blanco);
+}
+main > section.mas-jugados article a:first-child {
+    width: inherit;
+}
+main > section.mas-jugados article a > img:first-child {
+    width: inherit;
+    height: 140px;
+    border-radius: 5px;
+}
+main > section.mas-jugados article > img {
+    width: 100%;
+    height: inherit;
+    border-radius: 5px;
+}
+
+/*Con -scrollbar display:none quitamos la scrollbar
+(la cual es muy molesta cuando usas el movil, 
+ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
+::-webkit-scrollbar {
+    display: none;
+}
+/*esto no funciona en firefox */
+::-moz-scrollbar {
+    display: none;
+}
+/*Carrousel*/
+.carrousel {
+    margin: 15px 0px 0px 0px;
+}
+.carrousel.categorias {
+    margin: 50px 0px 50px 0px;
+}
+.carrousel.imgs-juego {
+    margin: 0px;
+}
+.carrousel div:first-child {
+    display: flex;
+    align-items: center;
+}
+.carrousel div:first-child > button {
+    width: 90px;
+    height: 33px;
+    margin: 0px 0px 0px 5px;
+    padding: 0px;
+    background: none;
+    box-shadow: none;
+    color: var(--acento);
+    border: 2px var(--acento) solid;
+    transition: border-color 0.5s, color 0.5s, transform 0.5s;
+}
+.carrousel div:first-child > button:hover {
+    border-color: var(--acento-luz-2);
+    color: var(--acento-luz-2);
+    transform: scale(1.05);
+}
+.contenedorCarrousel{
+    padding: 5px;
+    align-items: center;
+}
+.carrousel.imgs-juego .contenedorCarrousel{
+    padding: 0px;
+}
+.contenedorCarrousel > .btn{
+    display: none;
+}
+.contenedorCards, .contenedorCardsCategorias{
+    display: flex;
+    overflow: auto;
+    border-radius: 15px;
+}
+/*Cards*/
+.contenedorCards > li, .contenedorCardsCategorias > li {
+    cursor: pointer;
+}
+.contenedorCards > li {
+    margin: 3% 2% 3% 0%;
+}
+.contenedorCardsCategorias > li {
+    margin: 3% 0.5% 3% 0%;
+}
+/* .contenedorCards > li > a > img{
+    width: 175px;
+    height: 100px;
+    border-radius: 5px;
+} */
+.contenedorCards > li > a:visited {
+    color: var(--blanco);
+}
+.contenedorCards > li > a > img {
+    width: 300px;
+    height: 140px;
+    border-radius: 5px;
+}
+.contenedorCards > li, .cards-mas-jugados > article {
+    position: relative;
+}
+/* .contenedorCards > li > a > img{
+    width: 380px;
+    height: 220px;
+} */
+li.gratis > a > .iconosCard>img:first-child, main article.gratis > a > div.iconosCard > img:first-child {
+    display: block;
+}
+li.nuevo > a > .iconosCard>img:last-child, main article.nuevo > a > div.iconosCard > img:last-child {
+    display: block;
+}
+li.pago > a > .precioCard, main article.pago > a > div.precioCard {
+    display: flex;
+}
+.precioCard, .contenedorTitulo, .iconosCard {
+    position: absolute;
+    padding: 0;
+    align-items:center;
+}
+.precioCard {
+    width:48%;
+    height: 30%;
+    right:0;
+    top: 0;
+    justify-content:space-between;
+    border-radius: 0px 5px 0px 5px;
+    background-color: var(--secundario-sombra-2);
+}
+.precioCard > img {
+    width: 46px;
+    height: 45px;
+    margin-left: 7%;
+}
+.precioCard > p {
+    margin: 2% 7% 0 0;
+}
+.iconosCard {
+    left: 0;
+    top: 0;
+}
+.iconosCard {
+    display: flex;
+}
+.iconosCard > img {
+    margin:3% 5%;
+}
+.contenedorTitulo {
+    bottom: 0;
+    width: 100%;
+    height: 28%;
+    background-color: var(--secundario-sombra-2);
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0px 0px 5px 5px;
+    opacity: 0.9;
+    transition: .15s ease-in-out;
+}
+.contenedorTitulo > p {
+    background-color: var(--secundario-sombra-1);
+    width: 65%;
+    height: 45%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    padding: 1% 0% 2% 0%;
+    border-radius: 5px;
+}
+.contenedorTitulo > img {
+    margin: 0 3%;
+}
+/* .contenedorTitulo.visible{
+    opacity: 0.9;
+} */
+.contenedorCards.hero > li { /* cards seccion hero v */
+    width: 220px;
+    height: 500px;
+    text-align: center;
+    background: url(../img/seccion-hero/fondo-personaje.png);
+    background-position: center;
+    background-size: cover;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.contenedorCards.hero > li:hover { /* cards seccion hero v */
+    box-shadow: var(--sombra-2);
+}
+.contenedorCards.hero > li > ul:first-child {
+    display: none;
+}
+.contenedorCards.hero > li > ul.visible:first-child, .contenedorCards.hero > li > ul.visible:first-child li, .contenedorCards.hero > li > ul.visible:first-child li div {
+    display: flex;
+}
+.contenedorCards.hero > li > ul.visible:first-child {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.contenedorCards.hero > li > ul.visible:first-child li, .contenedorCards.hero > li > ul.visible:first-child li div {
+    align-items: center;
+}
+.contenedorCards.hero > li > ul.visible:first-child li {
+    width: inherit;
+    justify-content: space-between;
+}
+.contenedorCards.hero > li > div, .contenedorCards.hero > li > ul {
+    width: inherit;
+    height: inherit;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 5px;
+}
+.contenedorCards.hero > li > div.no-visible:nth-child(2) {
+    display: none;
+}
+.contenedorCards.hero > li > div > h2, .contenedorCards.hero span {
+    color: var(--acento-hero);
+}
+.contenedorCards.hero > li > div > img {
+    width: 100px;
+    border-radius: 5px;
+}
+.contenedorCards.hero > li p {
+    color: var(--blanco);
+}
+/*card de las categorias*/
+/* .contenedorCardsCategorias > .cardCarrouselDoble > img {
+    width: 300px;
+    height: 230px;
+} */
+li.cardCarrouselDoble {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: fit-content;
+    flex-shrink: 0;
+}
+li > a > .iconosCard>img, li > a > .precioCard, article > a > div.iconosCard > img, article > a > div.precioCard {
+    display: none;
+}
+footer { /* Fat Footer */
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    color: var(--secundario-sombra-2);
+    background: var(--secundario);
+}
+footer > section {
+    margin: 0% 0% 8% 0%;
+}
+footer > section a:visited, footer > section a {
+    color: var(--secundario-sombra-2);
+}
+footer > section p {
+    width: fit-content;
+    margin: 0px 0px 5px 0px;
+}
+footer > section > p:last-child {
+    margin: 0px;
+}
+footer > section:last-child {
+    display: flex;
+    flex-direction: column;
+}
+footer > section:last-child > a.footer-logo {
+    align-self: center;
+}
+footer > section:last-child > div.redes, nav div.redes {
+    display: flex;
+    width: 100%;
+    align-self: center;
+    justify-content: space-evenly;
+}
+footer > section:last-child > div.redes > a > div, nav div.redes > a > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 61px;
+    height: 50px;
+    text-align: center;
+    border-radius: 100%;
+    border: 3px var(--secundario-sombra-2) solid;
+    background: var(--secundario);
+    box-shadow: var(--sombra-1);
+}
+nav.menu.hero div.redes > a > div {
+    border: 3px var(--primario-hero-luz-1) solid;
+    background: var(--primario-hero-sombra-1);
+    box-shadow: var(--sombra-1);
+}
+footer a.footer-logo img {
+    width: 246px;
+    margin: 0% 0% 8% 0%;
+}
+footer.hero {
+    color: var(--primario-hero-luz-1);
+    background: var(--primario-hero-sombra-1);
+}
+footer.hero > section a:visited, footer.hero > section a {
+    color: var(--primario-hero-luz-1);
+}
+footer.hero > section:last-child > div.redes > a > div {
+    border-color: var(--primario-hero-luz-1);
+    background: var(--primario-hero-sombra-1);
+}
+/* /Footer */
+/* 4 en linea */
+main.juego-pagina {  /* main-juego v */
+    color: var(--blanco);
+}
+section.breadcrumb { /* breadcrumb v */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 90%;
+    margin: 5% auto 6% auto;
+    padding: 1%;
+    color: var(--primario);
+    background: var(--primario-luz-2);
+    border-radius: 5px;
+}
+section.breadcrumb a {
+    color: var(--primario);
+}
+section.breadcrumb p {
+    margin: 0% 5%;
+}
+h1.juego-titulo { /* previa-juego v */
+    text-align: start;
+}
+.canvas {
+    display: none;
+}
+.btn-reset {
+    display: none;
+}
+.juego {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../img/final-fantasy.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+    height: 400px;
+}
+article.juego > div {
+    width: 30%;
+    padding: 5%;
+    text-align: center;
+    background: rgba(33, 92, 108, 0.6);
+    border: 1px var(--acento) solid;
+    border-radius: 5px;
+}
+article.juego > div > button {
+    width: 100%;
+}
+article.juego + img { /* icono compartir */
+    width: 10%;
+    margin: 2% 0% 0% 0%;
+    cursor: pointer;
+}
+article.juego-detalles { /* detalles-juego v */
+    margin: 10% 0%;
+}
+article.juego-detalles h1 {
+    margin: 7% 0% 4% 0%
+}
+article.juego-detalles > section.controles img { /* controles v */
+    margin: 0% 2% 0% 0%;
+}
+article.juego-detalles > section.controles p {
+    margin: 0% 0% 3% 0%;
+}
+article.juego-detalles > section.controles p:last-child {
+    margin: 0%;
+}
+article.juego-detalles > section.tutorial img { /* tutorial v */
+    width: 90%;
+    cursor: pointer;
+}
+article.juego-detalles > section.comentarios form { /* Comentarios */
+    display: flex;
+    flex-direction: column;
+    margin: 0% 0% 10% 0%;
+}
+article.juego-detalles > section.comentarios label, article.juego-detalles > section.comentarios input {
+    font-size: 18.6px;
+}
+article.juego-detalles > section.comentarios input {
+    width: 100%;
+    margin: 4% 0%;
+    padding: 3% 0%;
+    color: var(--primario);
+    background: var(--primario-luz-2);
+    border-radius: 5px;
+}
+article.juego-detalles > section.comentarios input::placeholder {
+    color: var(--negro-luz-2);
+}
+article.juego-detalles > section.comentarios button {
+    width: 40%;
+    padding: 3%;
+    align-self: flex-end;
+}
+article.juego-detalles > section.comentarios article {
+    position: relative;
+    margin: 0% 0% 10% 0%;
+}
+article.juego-detalles > section.comentarios article > div:first-child {
+    display: flex;
+    align-items: center;
+    margin: 0% 0% 5% 0%;
+}
+article.juego-detalles > section.comentarios article > div:first-child img {
+    width: 62px;
+    height: 45px;
+    margin: 0% 2% 0% 0%;
+    border: 2px var(--primario-luz-2) solid;
+    border-radius: 5px;
+}
+article.juego-detalles > section.comentarios article > div > p:last-child {
+    margin: 0% 0% 0% 2%;
+    color: var(--primario-luz-2);
+}
+article.juego-detalles > section.comentarios article > p.comentario-contenido {
+    margin: 0% 0% 3% 0%;
+}
+article.juego-detalles > section.comentarios article > img.comentario-opciones {
+    position: absolute;
+    top: 20px;
+    right: 1%;
+    cursor: pointer;
+}
+article.juego-detalles > section.comentarios article > div:last-child {
+    display: flex;
+}
+article.juego-detalles > section.comentarios article > div:last-child img {
+    cursor: pointer;
+}
+article.juego-detalles > section.comentarios article > p.comentario-btn-responder {
+    position: absolute;
+    bottom: 0px;
+    right: 1%;
+    color: var(--primario-luz-2);
+    cursor: pointer;
+}
+article.juego-detalles > section.comentarios article.comentario-respuesta {
+    margin: 0% 0% 10% 5%;
+}
+article.juego-detalles > section.comentarios article.comentario-respuesta > p.comentario-btn-responder {
+    display: none;
+}
+/* /4 en linea */
+/* proximo lanzamiento */
+header.hero { /* header v */
+    background: var(--primario-hero-transparente-2);
+    border-bottom: 2px var(--secundario-hero-luz-1) solid;
+    box-shadow: var(--sombra-2);
+}
+header.hero input {
+    background: var(--primario-hero-sombra-1);
+}
+header.hero input, header.hero input::placeholder {
+    color: var(--primario-hero-luz-1);
+}
+main.hero section.breadcrumb { /* breadcrumb v */
+    margin: 0% auto 6% auto;
+    color: var(--secundario-hero);
+    background: var(--secundario-hero-luz-2);
+}
+main.hero section.breadcrumb a {
+    color: var(--secundario-hero);
+}
+main.hero h1.super { /* main.hero v */
+    color: var(--acento-hero);
+    -webkit-text-stroke: 1px var(--negro);
+}
+section.imagenes-superpuestas { /* imagenes superpuestas v */
+    position: relative;
+    height: 400px;
+    padding: 5% 0% 0% 0%;
+    background: url("../img/seccion-hero/smoke-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: var(--sombra-2);
+}
+section.imagenes-superpuestas img {
+    position: absolute;
+}
+section.imagenes-superpuestas img:nth-child(2) {
+    width: 80%;
+    left: 10%;
+    top: 12%;
+}
+section.imagenes-superpuestas img:nth-child(3), section.imagenes-superpuestas img:last-child {
+    width: 100%;
+    bottom: 0%;
+}
+section.imagenes-superpuestas img:nth-child(3) {
+    left: 0%;
+}
+section.imagenes-superpuestas img:last-child {
+    right: 0%;
+}
+section.inicio-hero { /* inicio v */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 400px;
+    background: url("../img/seccion-hero/fondo-inicio-hero.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: var(--sombra-2);
+}
+section.inicio-hero h1 {
+    text-align: center;
+    color: var(--acento-hero);
+}
+section.inicio-hero button {
+    width: 65%;
+    padding: 3%;
+    color: var(--negro);
+    background: var(--acento-hero);
+    box-shadow: var(--sombra-1);
+    border: 0px;
+    box-shadow: inset 0 0 20px rgba(219, 169, 20, 0);
+    outline: 1px solid;
+    outline-color: rgba(219, 169, 20, 0.5);
+    outline-offset: 0px;
+    text-shadow: none;
+    transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+} 
+
+section.inicio-hero button:hover {
+    background-color: var(--acento-hero-sombra-1);
+    box-shadow: inset 1px 1px 20px rgba(255, 212, 84, 0.7), 1px 1px 20px rgba(255, 212, 84, 0.5);
+    outline-color: rgba(219, 169, 20, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 1px var(--negro-luz-1);
+}
+section.inicio-hero img {
+    width: 100%;
+}
+article.tiempo-salida { /* tiempo de salida v */
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    padding: 4%;
+    text-align: center;
+    background: var(--primario-hero-sombra-1);
+    border-bottom: 2px var(--secundario-hero-luz-1) solid;
+    box-shadow: var(--sombra-2);
+}
+article.tiempo-salida p > img {
+    width: 25px;
+}
+article.tiempo-salida p:first-child {
+    margin: 0px 0px 8px 0px;
+    color: var(--primario-hero-luz-1);
+}
+article.tiempo-salida > img {
+    display: none;
+}
+article.tiempo-salida p {
+    color: var(--blanco);
+}
+section.historia { /* historia v */
+    text-align: center;
+    color: var(--blanco);
+    background: var(--primario-hero-sombra-1);
+    box-shadow: var(--sombra-2);
+}
+section.historia p {
+    margin: 15px 0px;
+}
+section.historia p:nth-child(4) {
+    margin: 15px 0px 5px 0px;
+    color: var(--secundario-hero-luz-1);
+}
+section.historia img:last-child {
+    width: 100%;
+    padding: 0px 0px 25px 0px;
+}
+section.personajes { /* personajes v */
+    padding: 1%;
+    text-align: center;
+    background: url("../img/seccion-hero/fondo-personajes.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: var(--sombra-2);
+}
+section.caracteristicas { /* caracteristicas v */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0% 0% 4% 0%;
+    background: url("../img/seccion-hero/fondo-caracteristicas.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: var(--sombra-2);
+    gap: 5px;
+}
+section.caracteristicas h1.super {
+    font-size: 42px;
+}
+section.caracteristicas article {
+    width: 48%;
+    height: 255px;
+    background: url("../img/seccion-hero/fondo-caracteristicas-card.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+}
+section.caracteristicas article > div, section.caracteristicas article > div h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section.caracteristicas article > div {
+    justify-content: space-between;
+    width: 100%;
+    height: 95%;
+    padding: 0% 0% 8.5% 0%;
+    text-align: center;
+    background: rgba(29, 35, 59, 0.98);
+    border-radius: 5px;
+}
+section.caracteristicas article > div img {
+    width: 30px;
+    height: 30px;
+}
+section.caracteristicas article > div h2 {
+    color: var(--acento-hero);
+}
+section.caracteristicas article > div p {
+    font-weight: bold;
+    color: var(--blanco);
+}
+section.informacion { /* informacion v */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--blanco);
+    background: url("../img/seccion-hero/gunfire-reborn-informacion-fondov2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+section.informacion img:first-child {
+    width: 80%;
+}
+section.informacion div p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 5% 0%;
+}
+section.informacion div p:nth-child(2) img {
+    width: 100%;
+}
+section.informacion div p:last-child img {
+    width: 25%;
+}
+/* /proximo lanzamiento */
+.oculto {
+    display: none;
+}
+@media only screen and (min-width: 400px) {
+
+    .barra { /* barra de carga v */
+        width: 350px;
+    }
+    header > div:first-child { /* header v */
+        width: 27%;
+    }
+    header > div:last-child {
+        width: 25%;
+    }
+    header input {
+        display: block;
+        position: static;
+        width: 40%;
+        opacity: 1;
+    }
+    header .icono-busqueda {
+        display: none;
+    }
+    nav.menu { /* menu desplegable v */
+        left: -700px;
+    }
+    nav.menu > img:nth-child(2) { /* menu perfil v */
+        margin: 0% 0% 0% 88%
+    }
+    .carrousel div:first-child > button { /* boton ver mas v */
+        margin: 0px 0px 0px 10px;
+    }
+    main > section.mas-jugados div.cards-mas-jugados { /* Sección más jugados v */
+        justify-content: space-evenly;
+        row-gap: 20px;
+    }
+    /* .contenedorCards > li > a > img{ cards juegos v
+        width: 320px;
+        height: 160px;
+        border-radius: 5px;
+    }  */
+    article.juego-detalles > section.comentarios button { /* comentarios v */
+        width: 32%;
+        padding: 2%;
+    }
+    section.imagenes-superpuestas { /* imagenes superpuestas v */
+        height: 500px;
+    }
+    section.imagenes-superpuestas img:nth-child(2) {
+        width: 65%;
+        left: 17%;
+    }
+    section.inicio-hero button { /* inicio-hero v */
+        width: 45%;
+    }
+    section.caracteristicas article > div { /* caracteristicas v */
+        padding: 0% 0% 6.3% 0%;
+    }
+}
+@media (min-width: 700px){
+    .carrousel {
+        margin: 15px 2% 0 2%;
+    }
+    .carrousel>h2:first-child, .carrousel div:first-child > h2:first-child {
+        margin: 0 0 0 6.5%;
+    }
+    .contenedorCarrousel {
+        padding: 5px;
+        align-items: center;
+        display: flex;
+    }
+    .contenedorCarrousel > .btn {
+        display: flex;
+    }
+    .contenedorCards, .contenedorCardsCategorias {
+        margin: 0 5px 0 5px;
+    }
+    .contenedorCards > li, .contenedorCardsCategorias > li {
+        margin: 1% 1% 1% 0%;
+    }
+    .cardCarrouselDoble > img {
+        flex-shrink: 0;
+    }
+}
+@media only screen and (min-width: 768px) {
+
+    .barra { /* barra de carga v */
+        width: 400px;
+    }
+    header { /* header v */
+        padding: 0.8% 2%;
+    }
+    header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
+        display: block;
+    }
+    header input, header > div:last-child > div {
+        width: 45%;
+    }
+    header input {
+        padding: 1.5%;
+    }
+    header img.icono-busqueda {
+        display: none;
+    }
+    header > div:first-child {
+        width: 15%;
+    }
+    header > div:last-child {
+        width: 30%;
+    }
+    nav.menu { /* menu desplegable v */
+        left: -1050px;
+        width: 55%;
+    }
+    nav.menu > img:nth-child(2) { 
+        margin: 0% 0% 0% 87.5%;
+    }
+    nav.menu-perfil > ul > li:nth-last-child(2), nav.menu-perfil > ul > li:nth-last-child(3) { /* menu perfil v */
+        display: none;
+    }
+    main > section.mas-jugados { /* Sección más jugados v */
+        padding: 0% 0% 3% 0%;
+    }
+    main > section.mas-jugados div.cards-mas-jugados {
+        row-gap: 3px;
+    }
+    main > section.mas-jugados article {
+        width: 380px;
+        height: 220px;
+    }
+    main > section.mas-jugados article a > img:first-child {
+        height: 220px;
+    }
+    .carrousel > h2:first-child, .carrousel>h2:first-child, .carrousel div:first-child > h2:first-child{ /* carrousel juegos v */
+        margin: 0 0 0 1.5%;
+    }
+    /* .contenedorCards > li > a > img{ cards juegos v
+        width: 350px;
+        height: 190px;
+        border-radius: 5px;
+    }  */
+    .contenedorCards > li > a > img{ /* cards juegos v */
+        width: 380px;
+        height: 220px;
+    }
+    .contenedorTitulo > p {
+        padding: 1% 0% 0% 0%;
+    }
+    li.cardCarrouselDoble{ /* categorias v */
+        width: 300px;
+    }
+    .contenedorCardsCategorias > .cardCarrouselDoble > img {
+        height: 230px;
+    } 
+    .carrousel div:first-child > button { /* boton ver mas v */
+        margin: 0px 0px 0px 20px;
+    }
+    section.breadcrumb { /* breadcrumb v */
+        margin: 3% auto 4% auto;
+        font-size: 18.6px;
+    }
+    section.breadcrumb p {
+        margin: 0% 4%;
+    }
+    .juego { /* previa juego v */
+        height: 550px;
+    }
+    article.juego > div {
+        width: 20%;
+        padding: 2%;
+    }
+    article.juego > div > button {
+        width: 80%;
+    }
+    article.juego + img { /* boton compartir v */
+        width: 5%;
+        margin: 1% 0% 0% 0%;
+    }
+    article.juego-detalles { /* juego detalles v */
+        margin: 6% 0%;
+    }
+    article.juego-detalles h1 {
+        margin: 3% 0% 1% 0%;
+    }
+    article.juego-detalles > section.controles img {
+        margin: 0% 1% 0% 0%;
+    }
+    article.juego-detalles > section.controles p {
+        margin: 0% 0% 2% 0%;
+    }
+    article.juego-detalles > section.tutorial img {
+        width: 60%;
+    }
+    article.juego-detalles > section.comentarios form { /* Comentarios v */
+        margin: 0% 0% 5% 0%;
+    }
+    article.juego-detalles > section.comentarios input {
+        margin: 1% 0%;
+        padding: 2% 0%;
+    }
+    article.juego-detalles > section.comentarios button {
+        width: 18%;
+        padding: 1.5%;
+    }
+    article.juego-detalles > section.comentarios article {
+        margin: 0% 0% 5% 0%;
+    }
+    article.juego-detalles > section.comentarios article > div:first-child {
+        margin: 0% 0% 2% 0%;
+    }
+    article.juego-detalles > section.comentarios article > div:first-child img {
+        margin: 0% 1% 0% 0%;
+    }
+    article.juego-detalles > section.comentarios article > div > p:last-child {
+        margin: 0% 0% 0% 1%;
+    }
+    article.juego-detalles > section.comentarios article.comentario-respuesta {
+        margin: 0% 0% 5% 5%;
+    }
+    section.imagenes-superpuestas { /* imagenes superpuestas v */
+        height: 600px;
+    }
+    section.imagenes-superpuestas img:nth-child(2) {
+        width: 45%;
+        left: 27%;
+    }
+    section.imagenes-superpuestas img:nth-child(3), section.imagenes-superpuestas img:last-child {
+        width: 73%;
+    }
+    section.inicio-hero { /* inicio v */
+        height: 600px;
+    }
+    section.inicio-hero button {
+        width: 25%;
+        padding: 2%;
+    }
+    section.inicio-hero img {
+        width: 75%;
+    }
+    article.tiempo-salida { /* tiempo de salida v */
+        padding: 3%;
+    }
+    section.historia img:last-child { /* historia v */
+        width: 40%;
+    }
+    .contenedorCards.hero > li { /* cards seccion hero v */
+        width: 380px;
+        height: 400px;
+    }
+    section.caracteristicas { /* caracteristicas v */
+        gap: 13px;
+    }
+    section.caracteristicas h1.super {
+        font-size: 60px;
+    }
+    section.caracteristicas article > div {
+        padding: 0% 0% 3.5% 0%;
+    }
+    section.informacion img:first-child { /* informacion v */
+        width: 50%;
+    }
+    section.informacion div p:nth-child(2) img, section.informacion div p:last-child img {
+        margin: 0px 0px 0px 5px;
+    }
+    section.informacion div p:nth-child(2) img {
+        width: 80%;
+    }
+    section.informacion div p:last-child img {
+        width: 15%;
+    }
+    footer { /* footer v */
+        flex-flow: row wrap;
+    }
+}
+@media only screen and (min-width: 1024px) {
+
+    h1 {
+    font-size: 36.7px;
+    }
+    h2 {
+        font-size: 29.6px;
+    }
+    p, button, section.breadcrumb {
+        font-size: 22.6px;
+    }
+    p.small {
+        font-size: 16px;
+    }
+    .barra { /* barra de carga v */
+        width: 500px;
+    }
+    header { /* header v */
+        padding: 0.8% 1%;
+    }
+    header > div:first-child {
+        width: 12%;
+    }
+    header > div:last-child {
+        width: 22%;
+    }
+    header input {
+        padding: 1.2%;
+    }
+    nav.menu { /* menu desplegable v */
+        left: -1800px;
+        width: 37%;
+    }
+    nav.menu > img:nth-child(2) { /* menu perfil v */
+        margin: 0% 0% 0% 86.5%;
+    }
+    h1.super { /* mas jugados v */
+        font-size: 128px;
+    }
+    main > section.mas-jugados {
+        padding: 0% 0% 2% 0%;
+    }
+    main > section.mas-jugados h1 {
+        -webkit-text-stroke: 3px var(--negro);
+    }
+    main > section.mas-jugados article {
+        width: 334px;
+    }
+    main.juego-pagina {
+        padding: 0% 1%;
+    }
+    .carrousel > h2:first-child, .carrousel>h2:first-child, .carrousel div:first-child > h2:first-child{ /* carrousel juegos v */
+        margin: 0 0 0 9%;
+    }
+    .contenedorTitulo{
+        opacity: 0;
+    }
+    .contenedorTitulo.visible{
+        opacity: 0.9;
+    }
+    .contenedorCards, .contenedorCardsCategorias{
+        overflow: hidden;
+    }
+    .contenedorCards > li, .contenedorCardsCategorias > li{
+        transition: .5s ease-in-out, transform 0.5s;
+    }
+    .contenedorCards li:hover {
+        transform: scale(1.05);
+    }
+    .contenedorCards > li.pagina2, .contenedorCardsCategorias > li.pagina2{
+        transform: translate(0px);
+    }
+    .contenedorCards > li.pagina2, .contenedorCardsCategorias > li.pagina2{
+        /* transform: translate(-1175px); */
+        transform: translate(-765px);
+    }
+    .contenedorCards > li.pagina2:hover {
+        transform: scale(1.05) translate(-728px);
+    }
+    .contenedorCards > li.pagina3, .contenedorCardsCategorias > li.pagina3{
+        /* transform: translate(-2350px); */
+        transform: translate(-1540px);
+    }
+    .contenedorCards > li.pagina3:hover {
+        transform: scale(1.05) translate(-1467px);
+    }
+    .contenedorCards > li.pagina4, .contenedorCardsCategorias > li.pagina4{
+        transform: translate(-2350px);
+    }
+    .contenedorCards > li.pagina4:hover {
+        transform: scale(1.05) translate(-2238px);
+    }
+    /* si hace falta hacer un "pagina4, 5, 6, etc" el valor del translate es (valor de la pagina anterior) - 1175 
+    (1175 es el ancho de 3 cards + margin) */
+
+    .btnCarrousel{ /* btns carrusel v */
+        flex-shrink: 0;
+        width: 80px;
+        height: 80px;
+        cursor: pointer;
+        transition: box-shadow 0.5s;
+    }
+    .btnCarrousel:hover{
+        box-shadow: var(--sombra-3);
+    }
+    .btnCarrouselAtras{
+        background-image: url(../img/Carrousel_Flecha.svg);
+        transition: box-shadow 0.5s, transform 0.5s;
+    }
+    .btnCarrouselAtras:hover {
+        transform: translateX(-10px);
+    }
+    .btnCarrouselSig{
+        background-image: url(../img/Carrousel_Flecha.svg);
+        transform: rotate(180deg);
+        transition: box-shadow 0.5s, transform 0.5s;
+    }
+    .btnCarrouselSig:hover {
+        transform: rotate(180deg) translateX(-10px);
+    }
+    .btnCarrousel.btnApagado{
+        background-image: url(../img/Carrousel_flecha_apagada.svg);
+        cursor: not-allowed;
+    }
+    .btnCarrousel.btnApagado:hover {
+        transform: translateX(0px);
+    }
+    .btnCarrousel.btnApagado.btnCarrouselSig:hover {
+        transform: rotate(180deg) translateX(0px);
+    }
+    .btnCarrousel.hero {
+        background-image: url(../img/seccion-hero/carrousel_flecha_hero.svg);
+    }
+    .btnCarrousel.btnApagado.hero{
+        background-image: url(../img/seccion-hero/carrousel_flecha_apagada_hero.svg);
+    }
+    .contenedorTitulo > p { /* cards juegos v */
+        padding: 1% 0%;
+    }
+    section.breadcrumb, main.hero section.breadcrumb { /* breadcrumb v */
+        width: 62%;
+        margin: 2% 0% 3% 0%;
+    }
+    section.breadcrumb p, main.hero section.breadcrumb p {
+        margin: 0% 4%;
+    }
+    .juego { /* previa juego v */
+        height: 620px;
+    }
+    article.juego > div {
+        width: 15%;
+    }
+    article.juego > div > button {
+        transition: transform 0.5s, background-color 0.7s;
+    }
+    article.juego > div > button:hover {
+        transform: scale(1.05);
+    }
+    article.juego + img { /* boton compartir v */
+        width: 4%;
+        padding: 4px;
+        border: 3px solid rgba(0, 0, 0, 0);
+        border-radius: 5px;
+        transition: border-color 0.4s, background-color 0.4s;
+    }
+    article.juego + img:hover {
+        border-color: var(--secundario-sombra-2);
+        background-color: var(--primario-luz-1);
+    }
+    article.juego-detalles { /* juego detalles v */
+        margin: 3% 0%;
+    }
+    article.juego-detalles > section.controles p {
+        margin: 0% 0% 1% 0%;
+    }
+    article.juego-detalles > section.tutorial img {
+        width: 55%;
+    }
+    article.juego-detalles > section.comentarios input, article.juego-detalles > section.comentarios label { /* Comentarios v */
+        font-size: 22.6px;
+    }
+    article.juego-detalles > section.comentarios button {
+        width: 16%;
+        padding: 1.5% 2%;
+        transition: transform 0.5s, background-color 0.7s;
+    }
+    article.juego-detalles > section.comentarios button:hover {
+        transform: scale(1.05);
+    }
+    article.juego-detalles > section.comentarios article {
+        margin: 0% 0% 3% 0%;
+    }
+    article.juego-detalles > section.comentarios article > div:first-child img {
+        width: 72px;
+        height: 55px;
+    }
+    article.juego-detalles > section.comentarios article.comentario-respuesta {
+        margin: 0% 0% 3% 4%;
+    }
+    main.hero section.breadcrumb { /* breadcrumb hero v */
+        width: 35%;
+    }
+    section.imagenes-superpuestas { /* imagenes superpuestas v */
+        height: 700px;
+        padding: 1% 0% 0% 0%;
+    }
+    section.imagenes-superpuestas img:nth-child(2) {
+        width: 40%;
+        left: 30%;
+    }
+    section.imagenes-superpuestas img:nth-child(3), section.imagenes-superpuestas img:last-child {
+        width: 65%;
+    }
+    section.inicio-hero { /* inicio v */
+        justify-content: space-around;
+        height: 700px;
+    }
+    section.inicio-hero h1 {
+        align-self: flex-end;
+        margin: 0px 30px 0px 0px;
+    }
+    section.inicio-hero button {
+        padding: 1.5%;
+    }
+    section.inicio-hero img {
+        align-self: flex-start;
+        width: 55%;
+        margin: 0px 0px 0px 30px;
+    }
+    article.tiempo-salida { /* tiempo de salida v */
+        flex-direction: row;
+        align-items: center;
+        padding: 3%;
+    }
+    article.tiempo-salida > img {
+        display: block;
+    }
+    article.tiempo-salida p:first-child {
+        margin: 0% 3% 0% 0%;
+    }
+    article.tiempo-salida p:last-child {
+        margin: 0% 0% 0% 7%;
+    }
+    .contenedorCards.hero > li { /* cards seccion hero v */
+        width: 365px;
+        height: 480px;
+        padding: 10px 10px 20px 10px;
+    }
+    section.caracteristicas { /* caracteristicas v */
+        gap: 15px;
+    }
+    section.caracteristicas article {
+        width: 30%;
+    }
+    section.caracteristicas h1.super {
+        margin: 0% 12%;
+        font-size: 128px;
+    }
+    section.caracteristicas article > div {
+        padding: 0% 0% 4.2% 0%;
+    }
+    section.informacion { /* informacion v */
+        flex-direction: row;
+        justify-content: center;
+    }
+    section.informacion img:first-child {
+        width: 45%;
+    }
+    section.informacion div p:nth-child(2) img {
+        width: 95%;
+    }
+    section.informacion div p:last-child img {
+        width: 20%;
+        margin: 0px 0px 0px 40px;
+    }
+    footer { /* Fat Footer v */
+        justify-content: center;
+        padding: 1%;
+    }
+    footer > section {
+        margin: 0% 2% 1% 0%;
+    }
+    footer > section:last-child > div.redes {
+        justify-content: space-between;
+    }
+}
+@media only screen and (min-width: 1280px) {
+
+    section.imagenes-superpuestas { /* imagenes superpuestas v */
+        height: 750px;
+    }
+    section.imagenes-superpuestas img:nth-child(2) {
+        width: 35%;
+        left: 33%;
+        top: 8%;
+    }
+    section.imagenes-superpuestas img:nth-child(3), section.imagenes-superpuestas img:last-child {
+        width: 61%;
+    }
+}
+@media only screen and (min-width: 1440px) {
+
+    header { /* header v */
+        padding: 0.4% 1%;
+    }
+    header > div:first-child {
+        width: 9%;
+    }
+    header > div:last-child {
+        width: 16%;
+    }
+    header input {
+        padding: 0.9%;
+    }
+    nav.menu { /* menu desplegable v */
+        width: 28%;
+    }
+    nav.menu > img:nth-child(2) { /* menu perfil v */
+        margin: 0% 0% 0% 87%;
+    }
+    main > section.mas-jugados { /* mas jugados */
+        padding: 0% 0% 1.7% 0%;
+    }
+    main > section.mas-jugados div.cards-mas-jugados {
+        row-gap: 12px;
+    }
+    main > section.mas-jugados article {
+        width: 460px;
+    }
+    .carrousel > h2:first-child, .carrousel>h2:first-child, .carrousel div:first-child > h2:first-child{ /* carrousel juegos v */
+        margin: 0 0 0 6.5%;
+    }
+    .carrousel.categorias { /* carrousel categorias v */
+        width: 95%;
+        margin: 50px auto 50px auto;
+    }
+    section.breadcrumb, main.hero section.breadcrumb { /* breadcrumb v */
+        width: 44%;
+    }
+    article.juego > div { /* previa juego v */
+        width: 12%;
+        padding: 1.3%;
+    }
+    article.juego + img { /* boton compartir v */
+        width: 3.5%;
+    }
+    article.juego-detalles { /* juego detalles v */
+        margin: 1% 0%;
+    }
+    article.juego-detalles h1 {
+        margin: 2% 0% 1% 0%;
+    }
+    article.juego-detalles > section.tutorial img {
+        width: 38%;
+    }
+    article.juego-detalles > section.comentarios input { /* Comentarios v */
+        margin: 0.7% 0%;
+        padding: 1.3% 0%;
+    }
+    article.juego-detalles > section.comentarios button {
+        width: 11%;
+        padding: 1% 0%;
+    }
+    article.juego-detalles > section.comentarios article {
+        margin: 0% 0% 1.8% 0%;
+    }
+    article.juego-detalles > section.comentarios article.comentario-respuesta {
+        margin: 0% 0% 1.8% 2.5%;
+    }
+    article.juego-detalles > section.comentarios article > div:first-child, article.juego-detalles > section.comentarios article > p.comentario-contenido {
+        margin: 0% 0% 1% 0%;
+    }
+    article.juego-detalles > section.comentarios article > div > p:last-child {
+        margin: 0% 0% 0% 0.5%;
+    }
+    main.hero section.breadcrumb { /* breadcrumb hero v */
+        width: 23%;
+    }
+    section.imagenes-superpuestas { /* imagenes superpuestas v */
+        height: 800px;
+    }
+    section.imagenes-superpuestas img:nth-child(2) {
+        width: 32%;
+        left: 34%;
+        top: 6%;
+    }
+    section.imagenes-superpuestas img:nth-child(3), section.imagenes-superpuestas img:last-child {
+        width: 60%;
+    }
+    section.inicio-hero button { /* inicio-hero v */
+        width: 16%;
+        padding: 1%;
+    }
+    section.inicio-hero img {
+        width: 45%;
+    }
+    article.tiempo-salida { /* tiempo de salida v */
+        padding: 2%;
+    }
+    article.tiempo-salida p:first-child {
+        margin: 0% 5% 0% 2%;
+    }
+    article.tiempo-salida p:last-child {
+        margin: 0% 0% 0% 16.5%;
+    }
+    article.tiempo-salida > img {
+        height: 90px;
+    }
+    section.historia img:last-child { /* historia v */
+        width: 30%;
+    }
+    .contenedorCards.hero > li { /* cards seccion hero v */
+        width: 360px;
+        padding: 10px 10px 20px 10px;
+    }
+    section.caracteristicas h1.super { /* caracteristicas v */
+        margin: 0% 15%;
+    }
+    section.caracteristicas article {
+        width: 30%;
+        height: 386px;
+    }
+    section.caracteristicas article > div {
+        padding: 0% 0% 4.5% 0%;
+    }
+    section.informacion img:first-child { /* informacion v */
+        width: 35%;
+    }
+    section.informacion div p:nth-child(2) img {
+        width: 80%;
+    }
+    footer { /* Fat Footer v */
+        justify-content: space-around;
+    }
+    footer > section {
+        margin: 0% 0% 1% 0%;
+    }
+}
+@media only screen and (min-width: 1800px) {
+
+    header > div:last-child > div { /* header v */
+        width: 35%;
+    }
+    nav.menu { /* menu desplegable v */
+        left: -2000px;
+        width: 22%;
+    }
+    nav.menu > img:nth-child(2) { /* menu perfil v */
+        margin: 0% 0% 0% 87.8%;
+    }
+    main > section.mas-jugados article { /* mas jugados v */
+        width: 470px;
+    }
+    main > section.mas-jugados div.cards-mas-jugados {
+        justify-content: center;
+        gap: 50px;
+    }
+    .carrousel > h2:first-child, .carrousel>h2:first-child, .carrousel div:first-child > h2:first-child{ /* carrousel juegos v */
+        margin: 0 0 0 5%;
+    }
+    .carrousel.categorias div:first-child > h2:first-child {
+        margin: 0 0 0 6.2%;
+    }
+    .carrousel.categorias { /* carrousel categorias v */
+        width: 75%;
+    }
+    section.breadcrumb { /* breadcrumb v */
+        width: 35%;
+        padding: 0.5%;
+    }
+    .canvas {
+        display: block;
+        position: relative;
+        /* top: 168px; */
+        border-radius: 5px;
+        /* background-color: #000000; */
+        background-image: url("../img/4-en-linea/fondo-juego.png");
+        z-index: 0;
+    }
+    .btn-reset {
+        display: block;
+        position: absolute;
+        left: 44%;
+        padding: 5px;
+        background-color: #2d3a83;
+        color: var(--negro);
+        z-index: 1;
+        transition: background-color 0.5s;
+    }
+
+    .btn-timer {
+        display: block;
+        position: absolute;
+        left: 35%;
+        padding: 5px;
+        width: 125px;
+        background-color: #2d3a83;
+        color: var(--negro);
+        z-index: 1;
+        transition: background-color 0.5s;
+    }
+
+    .btn-timer:hover {
+        background-color: #4b5aad;
+    }
+
+    .btn-reset:hover {
+        background-color: #4b5aad;
+    }
+    .juego { /* previa juego v */
+        display: none;
+        height: 770px;
+        position: relative;
+        top: 0px;
+        z-index: 1;
+    }
+    .menos-index {
+        z-index: -1;
+    }
+    article.juego + img { /* icono compartir */
+        width: 3%;
+        margin: 0.5% 0% 0% 0%;
+    }
+    section.imagenes-superpuestas { /* imagenes superpuestas */
+        height: 950px;
+    }
+    section.imagenes-superpuestas img:nth-child(3), section.imagenes-superpuestas img:last-child {
+        width: 55%;
+    }
+    section.imagenes-superpuestas img:nth-child(2) {
+        width: 26%;
+        left: 37%;
+    }
+    section.inicio-hero { /* inicio hero */
+        height: 1040px;
+    }
+    section.inicio-hero h1 {
+        margin: 0px 200px 0px 0px;
+    }
+}
