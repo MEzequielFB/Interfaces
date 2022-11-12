@@ -320,6 +320,31 @@ nav.menu ul li {
     border: 1px var(--secundario-sombra-2) solid;
     border-radius: 5px;
 }
+nav.menu ul li, nav.menu ul a {
+    transform: translateX(-400px);
+}
+@keyframes itemCarga {
+    0% {
+        transform: translateX(-400px);
+        opacity: 0;
+    }
+    25% {
+        opacity: .1;
+    }
+    50% {
+        opacity: .3;
+    }
+    75% {
+        opacity: .6;
+    }
+    90% {
+        opacity: .8;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
 nav.menu.hero ul li {
     background: var(--primario-hero-luz-1);
     border: 1px var(--primario-hero-sombra-1) solid;
