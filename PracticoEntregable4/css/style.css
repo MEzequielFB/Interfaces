@@ -213,7 +213,67 @@ header { /* header v */
     align-items: center;
     background: var(--secundario);
     box-shadow: var(--sombra-1);
-    z-index: 2;
+    z-index: 4;
+
+}
+header div:first-child div span {
+    display: block;
+    width: 35px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: var(--secundario-sombra-2);
+    opacity: 1;
+    transition: background-color .7s, opacity .7s, transform .7s;
+}
+header div:first-child div span:nth-child(2) {
+    margin: 6px auto;
+}
+header div:first-child div span:first-child.cruzTransicion, header div:first-child div span:last-child.cruzTransicion {
+    background-color: var(--blanco);
+    transition: background-color .7s;
+}
+header div:first-child div span:first-child.cruzTransicion {
+    transform: rotate(45deg) translateY(50%);
+    transition: transform .7s;
+}
+header div:first-child div span:last-child.cruzTransicion {
+    transform: rotate(-45deg) translateY(-50%);
+    transition: transform .7s;
+}
+header div:first-child div span:nth-child(2).cruzTransicion {
+    opacity: 0;
+    transition: opacity .7s;
+}
+img.icono-menu-hamburguesa {
+    display: none;
+}
+@keyframes menuHamburguesaTransicion {
+    0% {
+        transform: translate(0px , 0px);
+        background-color: #10173400;
+    }
+    20% {
+        transform: translate(55px , 15px);
+    }
+    40% {
+        transform: translate(105px , 30px);
+        background-color: #1017344d;
+    }
+    60% {
+        transform: translate(160px , 45px);
+        background-color: #10173486;
+    }
+    80% {
+        transform: translate(215px , 60px);
+        background-color: #101734c7;
+    }
+    100% {
+        transform: translate(270px , 75px);
+        background-color: var(--secundario-sombra-2);
+    }
+}
+div.absoluto {
+    position: absolute;
 }
 header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
     display: none;
@@ -245,6 +305,7 @@ header input::placeholder, header input {
 header > div {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 header > div:first-child {
     width: 35%;
@@ -298,6 +359,7 @@ nav.menu > img:first-child {
     width: 100%;
 }
 nav.menu > img:nth-child(2) {
+    display: none;
     margin: 0% 0% 0% 84%;
     padding: 4px;
     background: var(--secundario-sombra-1);
@@ -307,6 +369,7 @@ nav.menu.hero > img:nth-child(2) {
     background: var(--primario-hero-sombra-1);
 }
 nav.menu ul {
+    margin: 50px 0px 0px 0px;
     padding: 0px 10px 0px 10px;
 }
 nav.menu ul li {
