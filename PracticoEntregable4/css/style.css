@@ -223,57 +223,22 @@ header div:first-child div span {
     border-radius: 5px;
     background-color: var(--secundario-sombra-2);
     opacity: 1;
-    transition: background-color .7s, opacity .7s, transform .7s;
+    transition: opacity .7s, transform .7s;
 }
 header div:first-child div span:nth-child(2) {
     margin: 6px auto;
 }
-header div:first-child div span:first-child.cruzTransicion, header div:first-child div span:last-child.cruzTransicion {
-    background-color: var(--blanco);
-    transition: background-color .7s;
-}
 header div:first-child div span:first-child.cruzTransicion {
-    transform: rotate(45deg) translateY(50%);
+    transform: translate(0px, 12px) rotate(-45deg);
     transition: transform .7s;
 }
 header div:first-child div span:last-child.cruzTransicion {
-    transform: rotate(-45deg) translateY(-50%);
+    transform: translate(0px, -10px) rotate(45deg);
     transition: transform .7s;
 }
 header div:first-child div span:nth-child(2).cruzTransicion {
     opacity: 0;
     transition: opacity .7s;
-}
-img.icono-menu-hamburguesa {
-    display: none;
-}
-@keyframes menuHamburguesaTransicion {
-    0% {
-        transform: translate(0px , 0px);
-        background-color: #10173400;
-    }
-    20% {
-        transform: translate(55px , 15px);
-    }
-    40% {
-        transform: translate(105px , 30px);
-        background-color: #1017344d;
-    }
-    60% {
-        transform: translate(160px , 45px);
-        background-color: #10173486;
-    }
-    80% {
-        transform: translate(215px , 60px);
-        background-color: #101734c7;
-    }
-    100% {
-        transform: translate(270px , 75px);
-        background-color: var(--secundario-sombra-2);
-    }
-}
-div.absoluto {
-    position: absolute;
 }
 header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
     display: none;
@@ -313,7 +278,7 @@ header > div:first-child {
 header > div:last-child {
     width: 33%;
 }
-header > div:first-child > img.icono-menu-hamburguesa {
+header > div:first-child > div {
     cursor: pointer;
 }
 header img.header-logo {
@@ -337,7 +302,7 @@ header > div:last-child > div img:first-child {
 /* menu desplegable */
 nav.menu {
     position: fixed;
-    top: 0px;
+    top: 78px;
     left: -400px;
     width: 100%;
     padding: 0px 0px 15px 0px;
@@ -369,7 +334,6 @@ nav.menu.hero > img:nth-child(2) {
     background: var(--primario-hero-sombra-1);
 }
 nav.menu ul {
-    margin: 50px 0px 0px 0px;
     padding: 0px 10px 0px 10px;
 }
 nav.menu ul li {
@@ -385,6 +349,24 @@ nav.menu ul li {
 }
 nav.menu ul li, nav.menu ul a {
     transform: translateX(-400px);
+}
+nav.menu.hero ul li {
+    background: var(--primario-hero-luz-1);
+    border: 1px var(--primario-hero-sombra-1) solid;
+}
+nav.menu ul li img {
+    width: 36px;
+    height: 30px;
+    margin: 0px 12px 0px 0px;
+}
+nav.menu ul > a:last-child li {
+    color: var(--secundario-sombra-2);
+    background: var(--acento-luz-1);
+    border-radius: 5px;
+}
+nav.menu.hero ul > a:last-child li {
+    color: var(--negro);
+    background: var(--acento-hero-luz-1);
 }
 @keyframes itemCarga {
     0% {
@@ -408,24 +390,6 @@ nav.menu ul li, nav.menu ul a {
         opacity: 1;
     }
 }
-nav.menu.hero ul li {
-    background: var(--primario-hero-luz-1);
-    border: 1px var(--primario-hero-sombra-1) solid;
-}
-nav.menu ul li img {
-    width: 36px;
-    height: 30px;
-    margin: 0px 12px 0px 0px;
-}
-nav.menu ul > a:last-child li {
-    color: var(--secundario-sombra-2);
-    background: var(--acento-luz-1);
-    border-radius: 5px;
-}
-nav.menu.hero ul > a:last-child li {
-    color: var(--negro);
-    background: var(--acento-hero-luz-1);
-}
 /* menu despegable perfil */
 nav.menu-perfil {
     opacity: 0;
@@ -447,7 +411,7 @@ nav.menu-perfil.hero {
 nav.menu-perfil.visible {
     transition: opacity 0.6s;
     opacity: 1;
-    z-index: 3;
+    z-index: 4;
 }
 nav.menu-perfil.visible ul li {
     cursor: pointer;
