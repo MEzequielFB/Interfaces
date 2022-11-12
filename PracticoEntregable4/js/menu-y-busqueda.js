@@ -20,15 +20,13 @@ icono_menu_hamburguesa.addEventListener("click", function() {
     let btns = lista_btns_menu.children;
     let tiempo_animacion = 1;
     for (let btn of btns) {
-        /* btn.style.animationName = "none";
-        btn.firstElementChild.style.animationName = "none"; */
         setAnimationNameNone(btn);
         setAnimationNameNone(btn.firstElementChild);
 
         setTimeout(() => {
             btn.style.animation = `itemCarga ${tiempo_animacion}s ease-out forwards`;
             btn.firstElementChild.style.animation = `itemCarga ${tiempo_animacion}s ease-out forwards`;
-            tiempo_animacion += 0.3;
+            tiempo_animacion += 0.2;
         }, 0);
     }
 });
@@ -39,7 +37,7 @@ cruz_btn.addEventListener("click", function() {
     for (let btn of btns) {
         setAnimationNameNone(btn);
         setAnimationNameNone(btn.firstElementChild);
-        
+
         setTimeout(() => {
             btn.style.animation = `itemCarga 1s linear forwards reverse`;
             btn.firstElementChild.style.animation = `itemCarga 1s linear forwards reverse`;
