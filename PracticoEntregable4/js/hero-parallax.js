@@ -4,8 +4,13 @@ document.addEventListener("DOMContentLoaded", function(){
     function onScroll() {
         let posicion_scroll = window.scrollY;
         console.log(posicion_scroll);
+    
+        titulo_juego.style.top = posicion_scroll + "px";
+        titulo_juego.style.filter = `blur(${posicion_scroll * 0.02}px)`;
+
         personaje1.style.bottom = - (posicion_scroll * 0.4) + "px";
         personaje1.style.left = - (posicion_scroll * 0.2) + "px";
+
         personaje2.style.bottom = - (posicion_scroll * 0.4) + "px";
         personaje2.style.right = - (posicion_scroll * 0.2) + "px";
     }
