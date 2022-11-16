@@ -988,7 +988,7 @@ section.imagenes-superpuestas { /* imagenes superpuestas v */
     padding: 5% 0% 0% 0%;
     background: url("../img/seccion-hero/smoke-background.jpg");
     background-position: center;
-    /* background-repeat: repeat-x; */
+    background-repeat: repeat-x;
     background-size: cover;
     box-shadow: var(--sombra-2);
     overflow: hidden;
