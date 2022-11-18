@@ -1,10 +1,14 @@
 document.addEventListener("DOMContentLoaded", function(){
     "use strict";
 
+    const posicion_scroll_caractersticas = 3856.0; //En desktop
+    const posicion_scroll_caracteristicas_limite = 3856.0 + 800.0; //En desktop
+
     function onScroll() {
-        let posicion_scroll = window.scrollY; //Posicion del scroll de la pantalla
+        let posicion_scroll = parseFloat(window.scrollY); //Posicion del scroll de la pantalla
         console.log(posicion_scroll);
     
+        //IMAGENES SUPERPUESTAS:
         //Cambia el valor de 'top' y 'blur' del titulo
         titulo_juego.style.top = posicion_scroll + "px";
         titulo_juego.style.filter = `blur(${posicion_scroll * 0.02}px)`;
@@ -19,7 +23,49 @@ document.addEventListener("DOMContentLoaded", function(){
 
         //Cambia el valor del 'background position' de la imagen de la seccion
         seccion_imagenes_superpuestas.style.backgroundPositionX = -(posicion_scroll * 0.3) + "px";
+
+        //CARACTERISTICAS:
+        if (posicion_scroll >= posicion_scroll_caractersticas && posicion_scroll <= posicion_scroll_caracteristicas_limite) { //Si la posicion del scroll está entre dos valores...
+            //Se cambia el marginTop de la seccion 'caracteristicas'
+            let resultado_resta = posicion_scroll - posicion_scroll_caractersticas;
+            caracteristicas.style.marginTop = resultado_resta+"px";
+            
+            //Se cambia la opacidad del titulo
+            h1_caracteristicas.style.opacity = resultado_resta / 1000;
+
+            //Se cambia el valor del translateX de cada card de la seccion
+            for (let card_izquierda of cards_izquierda) {
+                card_izquierda.style.transform = `translateX(${-100 + (resultado_resta / ((posicion_scroll_caracteristicas_limite - posicion_scroll_caractersticas) / 100))}vh)`;
+            }
+            for (let card_derecha of cards_derecha) {
+                card_derecha.style.transform = `translateX(${100 - (resultado_resta / ((posicion_scroll_caracteristicas_limite - posicion_scroll_caractersticas) / 100))}vh)`;
+            }
+            card_arriba.style.transform = `translateY(${-100 + (resultado_resta / ((posicion_scroll_caracteristicas_limite - posicion_scroll_caractersticas) / 100))}vh)`;
+            card_abajo.style.transform = `translateY(${100 - (resultado_resta / ((posicion_scroll_caracteristicas_limite - posicion_scroll_caractersticas) / 100))}vh)`;
+
+        } else if (posicion_scroll < posicion_scroll_caractersticas) { //Si la posicion del scroll es menor a la posicion scroll de la seccion, se setea a 0 su margin top
+            caracteristicas.style.marginTop = 0+"px";
+            h1_caracteristicas.style.opacity = 0; //Se setea en 0 la opacidad del titulo
+
+        } else if (posicion_scroll > posicion_scroll_caracteristicas_limite) { //Si la posicion del scrol es mayor al limite de la seccion, el translate de las cards se setea a 0
+            h1_caracteristicas.style.opacity = 1; //Se setea en uno la opacidad del titulo
+            for (let card_izquierda of cards_izquierda) {
+                card_izquierda.style.transform = `translateX(${0}vh)`;
+            }
+            for (let card_derecha of cards_derecha) {
+                card_derecha.style.transform = `translateX(${0}vh)`;
+            }
+            card_arriba.style.transform = `translateY(${0}vh)`;
+            card_abajo.style.transform = `translateY(${0}vh)`;
+        }
     }
+
+    const caracteristicas = document.querySelector(".caracteristicas");
+    const h1_caracteristicas = caracteristicas.firstElementChild; //El H1
+    const cards_izquierda = document.querySelectorAll(".card-izquierda");
+    const cards_derecha = document.querySelectorAll(".card-derecha");
+    const card_arriba = document.querySelector(".card-arriba");
+    const card_abajo = document.querySelector(".card-abajo");
 
     const titulo_juego = document.querySelector(".titulo-juego");
     const personaje1 = document.querySelector(".personaje1");

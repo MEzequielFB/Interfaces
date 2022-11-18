@@ -1112,6 +1112,7 @@ section.caracteristicas { /* caracteristicas v */
     background-size: cover;
     box-shadow: var(--sombra-2);
     gap: 5px;
+    overflow: hidden;
 }
 section.caracteristicas h1.super {
     font-size: 42px;
@@ -1988,5 +1989,20 @@ section.informacion div p:last-child img {
     }
     section.inicio-hero h1 {
         margin: 0px 200px 0px 0px;
+    }
+    section.caracteristicas > h1 { /* caracteristicas hero */
+        opacity: 0;
+    }
+    section.caracteristicas article.card-izquierda {
+        transform: translateX(-100vh);
+    }
+    section.caracteristicas article.card-derecha {
+        transform: translateX(100vh);
+    }
+    section.caracteristicas article.card-arriba {
+        transform: translateY(-100vh);
+    }
+    section.caracteristicas article.card-abajo {
+        transform: translateY(100vh);
     }
 }
