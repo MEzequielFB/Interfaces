@@ -1012,6 +1012,7 @@ section.imagenes-superpuestas img:last-child {
     right: 0%;
 }
 section.inicio-hero { /* inicio v */
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -1051,6 +1052,25 @@ section.inicio-hero button:hover {
 }
 section.inicio-hero img {
     width: 100%;
+}
+section.inicio-hero div.skeleton-sprite {
+    position: absolute;
+    top: 450px;
+    left: 39%;
+    width: 43px;
+    height: 37px;
+    margin: auto;
+    background-image: url("../img/seccion-hero/spritesheets/skeleton/Skeleton-Attack.png");
+    background-repeat: repeat-x;
+    animation: attack .8s steps(18) infinite;
+}
+@keyframes attack {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -774px;
+    }
 }
 article.tiempo-salida { /* tiempo de salida v */
     display: flex;
