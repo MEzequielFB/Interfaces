@@ -2014,6 +2014,12 @@ section.informacion div p:last-child img {
         flex-wrap: wrap;
         padding: 0px 6%;
     }
+    .contenedorCards.hero > li.personaje-abajo {
+        transform: translateY(100vh);
+    }
+    .contenedorCards.hero > li.personaje-arriba {
+        transform: translateY(-100vh);
+    }
     section.caracteristicas > h1 { /* caracteristicas hero */
         opacity: 0;
     }

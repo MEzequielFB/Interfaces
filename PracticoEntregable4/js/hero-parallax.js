@@ -29,10 +29,24 @@ document.addEventListener("DOMContentLoaded", function(){
 
         //PERSONAJES:
         if (posicion_scroll >= posicion_scroll_personajes && posicion_scroll <= posicion_scroll_personajes_limite) {
+
             let resultado_resta = posicion_scroll - posicion_scroll_personajes;
             personajes.style.marginTop = resultado_resta+"px";
+
+            for (let i = 0; i < cards_personajes.length; i++) {
+                if (i < cards_personajes.length / 2) {
+                    cards_personajes[i].style.transform = `translateY(${-100 + (resultado_resta / ((posicion_scroll_personajes_limite - posicion_scroll_personajes) / 100))}vh)`;
+                } else {
+                    cards_personajes[i].style.transform = `translateY(${100 - (resultado_resta / ((posicion_scroll_personajes_limite - posicion_scroll_personajes) / 100))}vh)`;
+                }
+            }
+
         } else if (posicion_scroll < posicion_scroll_personajes) {
             personajes.style.marginTop = 0+"px";
+        } else if (posicion_scroll > posicion_scroll_caracteristicas_limite) {
+            for (let card of cards_personajes) {
+                card.style.transform = `translateY(${0}vh)`
+            }
         }
 
         //CARACTERISTICAS:
@@ -73,6 +87,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     const personajes = document.querySelector(".personajes"); //Seccion personajes
     const h1_personajes = personajes.firstElementChild;
+    const cards_personajes = personajes.lastElementChild.children;
 
     const caracteristicas = document.querySelector(".caracteristicas"); //Seccion caracteristicas
     const h1_caracteristicas = caracteristicas.firstElementChild;
