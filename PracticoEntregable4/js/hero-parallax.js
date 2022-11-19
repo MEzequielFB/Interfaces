@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", function(){
     "use strict";
 
-    const posicion_scroll_caractersticas = 3856.0; //En desktop
-    const posicion_scroll_caracteristicas_limite = 3856.0 + 800.0; //En desktop
+    const posicion_scroll_caractersticas = 5171.0;
+    const posicion_scroll_caracteristicas_limite = posicion_scroll_caractersticas + 800.0;
+
+    const posicion_scroll_personajes = 3097.0;
+    const posicion_scroll_personajes_limite = posicion_scroll_personajes + 800.0;
 
     function onScroll() {
         let posicion_scroll = parseFloat(window.scrollY); //Posicion del scroll de la pantalla
@@ -23,6 +26,14 @@ document.addEventListener("DOMContentLoaded", function(){
 
         //Cambia el valor del 'background position' de la imagen de la seccion
         seccion_imagenes_superpuestas.style.backgroundPositionX = -(posicion_scroll * 0.3) + "px";
+
+        //PERSONAJES:
+        if (posicion_scroll >= posicion_scroll_personajes && posicion_scroll <= posicion_scroll_personajes_limite) {
+            let resultado_resta = posicion_scroll - posicion_scroll_personajes;
+            personajes.style.marginTop = resultado_resta+"px";
+        } else if (posicion_scroll < posicion_scroll_personajes) {
+            personajes.style.marginTop = 0+"px";
+        }
 
         //CARACTERISTICAS:
         if (posicion_scroll >= posicion_scroll_caractersticas && posicion_scroll <= posicion_scroll_caracteristicas_limite) { //Si la posicion del scroll está entre dos valores...
@@ -60,8 +71,11 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     }
 
-    const caracteristicas = document.querySelector(".caracteristicas");
-    const h1_caracteristicas = caracteristicas.firstElementChild; //El H1
+    const personajes = document.querySelector(".personajes"); //Seccion personajes
+    const h1_personajes = personajes.firstElementChild;
+
+    const caracteristicas = document.querySelector(".caracteristicas"); //Seccion caracteristicas
+    const h1_caracteristicas = caracteristicas.firstElementChild;
     const cards_izquierda = document.querySelectorAll(".card-izquierda");
     const cards_derecha = document.querySelectorAll(".card-derecha");
     const card_arriba = document.querySelector(".card-arriba");

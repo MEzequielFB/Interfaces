@@ -2010,6 +2010,10 @@ section.informacion div p:last-child img {
     section.inicio-hero h1 {
         margin: 0px 200px 0px 0px;
     }
+    .contenedorCards.hero { /* contenedorCards v */
+        flex-wrap: wrap;
+        padding: 0px 6%;
+    }
     section.caracteristicas > h1 { /* caracteristicas hero */
         opacity: 0;
     }
