@@ -1070,6 +1070,11 @@ section.inicio-hero div.skeleton-sprite {
     background-repeat: repeat-x;
     animation: attack .8s steps(18) infinite;
 }
+section.inicio-hero div.skeleton2 {
+    position: absolute;
+    left: 58.6%;
+    transform: rotateY(180deg);
+}
 @keyframes attack {
     0% {
         background-position: 0px;
