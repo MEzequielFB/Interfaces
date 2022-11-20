@@ -4,9 +4,6 @@ document.addEventListener("DOMContentLoaded", function(){
     const posicion_scroll_caractersticas = 4371.0;
     const posicion_scroll_caracteristicas_limite = posicion_scroll_caractersticas + 800.0;
 
-    const posicion_scroll_personajes = 3097.0;
-    const posicion_scroll_personajes_limite = posicion_scroll_personajes + 800.0;
-
     function onScroll() {
         let posicion_scroll = parseFloat(window.scrollY); //Posicion del scroll de la pantalla
         console.log(posicion_scroll);
@@ -26,9 +23,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
         //Cambia el valor del 'background position' de la imagen de la seccion
         seccion_imagenes_superpuestas.style.backgroundPositionX = -(posicion_scroll * 0.3) + "px";
-
-        //PERSONAJES:
-
 
         //CARACTERISTICAS:
         if (posicion_scroll >= posicion_scroll_caractersticas && posicion_scroll <= posicion_scroll_caracteristicas_limite) { //Si la posicion del scroll está entre dos valores...
@@ -67,8 +61,6 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     const personajes = document.querySelector(".personajes"); //Seccion personajes
-    const h1_personajes = personajes.firstElementChild;
-    const cards_personajes = personajes.lastElementChild.children;
 
     const caracteristicas = document.querySelector(".caracteristicas"); //Seccion caracteristicas
     const h1_caracteristicas = caracteristicas.firstElementChild;
@@ -91,9 +83,7 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         }
     });
-    for (let card_personaje of cards_personajes) { //El observer observa a las cards de los personajes
-        observer.observe(card_personaje);
-    }
+    observer.observe(personajes); //El observer observa a la seccion de personajes
 
     document.addEventListener("scroll", onScroll); //Cada vez que se scrollea se llama a onScroll
 });

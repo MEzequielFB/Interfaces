@@ -2010,25 +2010,45 @@ section.informacion div p:last-child img {
     section.inicio-hero h1 {
         margin: 0px 200px 0px 0px;
     }
-    .contenedorCards.hero { /* contenedorCards v */
+    .personajes > h1 { /* personajes v */
+        transform: translateY(-15vh);
+    }
+    .personajes.visible > h1, .personajes.visible .contenedorCards > li > div > h2 {
+        animation: showCards 1s linear 1s 1 normal forwards;
+    }
+    .contenedorCards.hero {
         flex-wrap: wrap;
         padding: 0px 6%;
     }
     .contenedorCards.hero > li {
+        overflow-y: hidden;
+    }
+    .contenedorCards.hero > li, .personajes > h1, .contenedorCards > li > div > h2 {
         opacity: 0;
-        filter: blur(10px);
-        transition: all 1s;
+        filter: blur(20px);
     }
     .contenedorCards.hero > li.personaje-abajo {
-        transform: translateY(20vh);
+        transform: translateY(20vh) rotateY(180deg);
     }
     .contenedorCards.hero > li.personaje-arriba {
-        transform: translateY(-20vh);
+        transform: translateY(-20vh) rotateY(180deg);
     }
-    .contenedorCards.hero > li.visible {
-        opacity: 1;
-        filter: blur(0px);
-        transform: translateY(0vh);
+    .personajes.visible .contenedorCards.hero > li {
+        animation: showCards 1.5s linear 0s 1 normal forwards;
+    }
+    .contenedorCards > li > div > h2 {
+        transform: translateY(70vh);
+    }
+    @keyframes showCards {
+        0% {
+            opacity: 0;
+            filter: blur(20px);
+        }
+        100% {
+            opacity: 1;
+            filter: blur(0px);
+            transform: translateY(0vh) rotateY(0deg);
+        }
     }
     section.caracteristicas > h1 { /* caracteristicas hero */
         opacity: 0;
