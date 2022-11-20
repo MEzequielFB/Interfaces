@@ -83,7 +83,11 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         }
     });
-    observer.observe(personajes); //El observer observa a la seccion de personajes
+
+    const observables = document.querySelectorAll(".observable")
+    for (let observable of observables) {
+        observer.observe(observable); //El observer observa los elementos con la clase 'observable'
+    }
 
     document.addEventListener("scroll", onScroll); //Cada vez que se scrollea se llama a onScroll
 });

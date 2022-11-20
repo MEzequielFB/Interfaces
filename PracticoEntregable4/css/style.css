@@ -2021,6 +2021,38 @@ section.informacion div p:last-child img {
     section.inicio-hero h1 {
         margin: 0px 200px 0px 0px;
     }
+    section.inicio-hero h1, section.inicio-hero img {
+        filter: blur(15px);
+        opacity: 0;
+    }
+    section.inicio-hero.visible h1, section.inicio-hero.visible img {
+        animation: rotateElement .8s linear .5s 1 normal forwards;
+    }
+    section.inicio-hero.visible button {
+        animation: scaleElement .8s linear .7s 1 normal forwards;
+    }
+    @keyframes scaleElement {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.15);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    @keyframes rotateElement {
+        0% {
+            transform: rotateX(0deg);
+            filter: blur(15px);
+        }
+        100% {
+            transform: rotateX(360deg);
+            filter: blur(0px);
+            opacity: 1;
+        }
+    }
     .personajes > h1 { /* personajes v */
         transform: translateY(-15vh);
     }
