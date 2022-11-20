@@ -2053,6 +2053,26 @@ section.informacion div p:last-child img {
             opacity: 1;
         }
     }
+    .tiempo-salida p:first-child {
+        cursor: pointer;
+    }
+    .tiempo-salida p:first-child:hover {
+        animation: sideMoves .3s linear 0s 1 normal forwards;
+    }
+    @keyframes sideMoves {
+        0% {
+            transform: translateX(0px);
+        }
+        33% {
+            transform: translateX(-10px);
+        }
+        66% {
+            transform: translateX(10px);
+        }
+        100% {
+            transform: translateX(0px);
+        }
+    }
     .personajes > h1 { /* personajes v */
         transform: translateY(-15vh);
     }
