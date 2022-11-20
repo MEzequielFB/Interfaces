@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
     "use strict";
 
-    const posicion_scroll_caractersticas = 5171.0;
+    const posicion_scroll_caractersticas = 4371.0;
     const posicion_scroll_caracteristicas_limite = posicion_scroll_caractersticas + 800.0;
 
     const posicion_scroll_personajes = 3097.0;
@@ -28,26 +28,7 @@ document.addEventListener("DOMContentLoaded", function(){
         seccion_imagenes_superpuestas.style.backgroundPositionX = -(posicion_scroll * 0.3) + "px";
 
         //PERSONAJES:
-        if (posicion_scroll >= posicion_scroll_personajes && posicion_scroll <= posicion_scroll_personajes_limite) {
 
-            let resultado_resta = posicion_scroll - posicion_scroll_personajes;
-            personajes.style.marginTop = resultado_resta+"px";
-
-            for (let i = 0; i < cards_personajes.length; i++) {
-                if (i < cards_personajes.length / 2) {
-                    cards_personajes[i].style.transform = `translateY(${-100 + (resultado_resta / ((posicion_scroll_personajes_limite - posicion_scroll_personajes) / 100))}vh)`;
-                } else {
-                    cards_personajes[i].style.transform = `translateY(${100 - (resultado_resta / ((posicion_scroll_personajes_limite - posicion_scroll_personajes) / 100))}vh)`;
-                }
-            }
-
-        } else if (posicion_scroll < posicion_scroll_personajes) {
-            personajes.style.marginTop = 0+"px";
-        } else if (posicion_scroll > posicion_scroll_caracteristicas_limite) {
-            for (let card of cards_personajes) {
-                card.style.transform = `translateY(${0}vh)`
-            }
-        }
 
         //CARACTERISTICAS:
         if (posicion_scroll >= posicion_scroll_caractersticas && posicion_scroll <= posicion_scroll_caracteristicas_limite) { //Si la posicion del scroll está entre dos valores...
@@ -100,6 +81,19 @@ document.addEventListener("DOMContentLoaded", function(){
     const personaje1 = document.querySelector(".personaje1");
     const personaje2 = document.querySelector(".personaje2");
     const seccion_imagenes_superpuestas = document.querySelector(".imagenes-superpuestas");
+
+    const observer = new IntersectionObserver(elementos => { //Si los elementos observados están en pantalla se les agrega una clase, de lo contrario se le saca
+        for (let elemento of elementos) {
+            if (elemento.isIntersecting) {
+                elemento.target.classList.add("visible");
+            } else {
+                elemento.target.classList.remove("visible");
+            }
+        }
+    });
+    for (let card_personaje of cards_personajes) { //El observer observa a las cards de los personajes
+        observer.observe(card_personaje);
+    }
 
     document.addEventListener("scroll", onScroll); //Cada vez que se scrollea se llama a onScroll
 });

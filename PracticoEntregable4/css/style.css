@@ -2014,11 +2014,21 @@ section.informacion div p:last-child img {
         flex-wrap: wrap;
         padding: 0px 6%;
     }
+    .contenedorCards.hero > li {
+        opacity: 0;
+        filter: blur(10px);
+        transition: all 1s;
+    }
     .contenedorCards.hero > li.personaje-abajo {
-        transform: translateY(100vh);
+        transform: translateY(20vh);
     }
     .contenedorCards.hero > li.personaje-arriba {
-        transform: translateY(-100vh);
+        transform: translateY(-20vh);
+    }
+    .contenedorCards.hero > li.visible {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0vh);
     }
     section.caracteristicas > h1 { /* caracteristicas hero */
         opacity: 0;
