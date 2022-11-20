@@ -691,31 +691,37 @@ li.pago > a > .precioCard, main article.pago > a > div.precioCard {
     box-shadow: var(--sombra-2);
 }
 .contenedorCards.hero > li > ul:first-child {
-    display: none;
+    opacity: 0;
 }
-.contenedorCards.hero > li > ul.visible:first-child, .contenedorCards.hero > li > ul.visible:first-child li, .contenedorCards.hero > li > ul.visible:first-child li div {
+.contenedorCards.hero > li > ul:first-child, .contenedorCards.hero > li > ul:first-child li, .contenedorCards.hero > li > ul:first-child li div {
     display: flex;
 }
-.contenedorCards.hero > li > ul.visible:first-child {
+.contenedorCards.hero > li > ul:first-child {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-around;
 }
-.contenedorCards.hero > li > ul.visible:first-child li, .contenedorCards.hero > li > ul.visible:first-child li div {
+.contenedorCards.hero > li > ul:first-child li, .contenedorCards.hero > li > ul:first-child li div {
     align-items: center;
 }
-.contenedorCards.hero > li > ul.visible:first-child li {
+.contenedorCards.hero > li > ul:first-child li {
     width: inherit;
     justify-content: space-between;
 }
+.contenedorCards.hero > li > ul.visible:first-child {
+    opacity: 1;
+}
 .contenedorCards.hero > li > div, .contenedorCards.hero > li > ul {
+    position: absolute;
     width: inherit;
     height: inherit;
     background: rgba(0, 0, 0, 0.9);
     border-radius: 5px;
+    z-index: 1;
 }
 .contenedorCards.hero > li > div.no-visible:nth-child(2) {
-    display: none;
+    opacity: 0;
+    z-index: -1;
 }
 .contenedorCards.hero > li > div > h2, .contenedorCards.hero span {
     color: var(--acento-hero);
