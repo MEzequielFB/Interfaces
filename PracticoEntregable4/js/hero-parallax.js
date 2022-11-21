@@ -7,6 +7,19 @@ document.addEventListener("DOMContentLoaded", function(){
     function onScroll() {
         let posicion_scroll = parseFloat(window.scrollY); //Posicion del scroll de la pantalla
         console.log(posicion_scroll);
+
+        //ICONO MOUSE
+        /* if (getComputedStyle(icono_mouse).opacity > 0) {
+
+        } */
+        if (valor_opacity > 0) {
+            valor_opacity -= 0.01;
+        } else if (posicion_scroll < 200) {
+            valor_opacity = 0.7;
+        } else {
+            valor_opacity = 0;
+        }
+        icono_mouse.style.opacity = valor_opacity;
     
         //IMAGENES SUPERPUESTAS:
         //Cambia el valor de 'top' y 'blur' del titulo
@@ -59,6 +72,9 @@ document.addEventListener("DOMContentLoaded", function(){
             card_abajo.style.transform = `translateY(${0}vh)`;
         }
     }
+
+    const icono_mouse = document.querySelector(".mouse");
+    let valor_opacity = getComputedStyle(icono_mouse).opacity;
 
     const personajes = document.querySelector(".personajes"); //Seccion personajes
 

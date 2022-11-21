@@ -2005,6 +2005,37 @@ section.informacion div p:last-child img {
         width: 3%;
         margin: 0.5% 0% 0% 0%;
     }
+    main.hero div.mouse, main.hero div.ruedita {
+        position: fixed;
+        border: 2px white solid;
+        border-radius: 20px;
+        z-index: 4;
+    }
+    main.hero div.mouse {
+        width: 25px;
+        height: 40px;
+        bottom: 50px;
+        left: 50%;
+        opacity: .7;
+    }
+    main.hero div.ruedita {
+        width: 0px;
+        height: 6px;
+        bottom: 82px;
+        left: 50.7%;
+        animation: upDownMove .8s linear 0s infinite normal none;
+    }
+    @keyframes upDownMove {
+        0% {
+            bottom: 82px;
+        }
+        50% {
+            bottom: 78px;
+        }
+        100% {
+            bottom: 82px;
+        }
+    }
     section.imagenes-superpuestas { /* imagenes superpuestas */
         height: 950px;
     }
