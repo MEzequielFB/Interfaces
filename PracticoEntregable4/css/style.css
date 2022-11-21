@@ -601,6 +601,37 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
     height: 140px;
     border-radius: 5px;
 }
+.contenedorCards > li > a > img.imgCaptura {
+    width: 730px;
+    height: 400px;
+    border-radius: 5px;
+}
+
+@keyframes adelantarHastaPag2 { /*pagina 1 a 2*/
+    from {transform: translate(0px);}
+    to {transform: translate(-1492px);}/*730*2 + 16*2 = 1492  730 = el width de cada captura, 16 = el margen de cada captura, entran 2 capturas por pag*/ 
+}
+@keyframes adelantarHastaPag3 {/*pagina 2 a 3*/
+    from {transform: translate(-1492px);}
+    to {transform: translate(-2984px);}
+}
+@keyframes adelantarHastaPag4 {/*pagina 3 a 4*/
+    from {transform: translate(-2984px);}
+    to {transform: translate(-4476px);}
+}
+@keyframes volverHastaPag3 {/*pagina 4 a 3*/
+    from {transform: translate(-4476px);}
+    to {transform: translate(-2984px);}
+}
+@keyframes volverHastaPag2 {/*pagina 3 a 2*/
+    from {transform: translate(-2984px);}
+    to {transform: translate(-1492px);}
+}
+@keyframes volverHastaPag1 { /*pagina 2 a 1*/
+    from {transform: translate(-1492px);}
+    to {transform: translate(0px);}
+}
+
 .contenedorCards > li, .cards-mas-jugados > article {
     position: relative;
 }
@@ -1101,6 +1132,16 @@ section.personajes { /* personajes v */
     background-size: cover;
     box-shadow: var(--sombra-2);
 }
+section.capturas{
+    text-align: center;
+    background: url("../img/seccion-hero/gunfire-reborn-capturas.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: var(--sombra-2);
+    gap: 5px;
+    
+}
 section.caracteristicas { /* caracteristicas v */
     display: flex;
     justify-content: center;
@@ -1555,19 +1596,19 @@ section.informacion div p:last-child img {
     .btnCarrousel:hover{
         box-shadow: var(--sombra-3);
     }
-    .btnCarrouselAtras{
+    .btnCarrouselAtras,#btnAnteriorCapturas{
         background-image: url(../img/Carrousel_Flecha.svg);
         transition: box-shadow 0.5s, transform 0.5s;
     }
-    .btnCarrouselAtras:hover {
+    .btnCarrouselAtras:hover,#btnAnteriorCapturas:hover {
         transform: translateX(-10px);
     }
-    .btnCarrouselSig{
+    .btnCarrouselSig,#btnSigCapturas{
         background-image: url(../img/Carrousel_Flecha.svg);
         transform: rotate(180deg);
         transition: box-shadow 0.5s, transform 0.5s;
     }
-    .btnCarrouselSig:hover {
+    .btnCarrouselSig:hover,#btnSigCapturas:hover {
         transform: rotate(180deg) translateX(-10px);
     }
     .btnCarrousel.btnApagado{
@@ -1577,13 +1618,13 @@ section.informacion div p:last-child img {
     .btnCarrousel.btnApagado:hover {
         transform: translateX(0px);
     }
-    .btnCarrousel.btnApagado.btnCarrouselSig:hover {
+    .btnCarrousel.btnApagado.btnCarrouselSig:hover,.btnCarrousel.btnApagado#btnSigCapturas:hover {
         transform: rotate(180deg) translateX(0px);
     }
-    .btnCarrousel.hero {
+    .btnCarrousel.hero,#btnSigCapturas,#btnAnteriorCapturas {
         background-image: url(../img/seccion-hero/carrousel_flecha_hero.svg);
     }
-    .btnCarrousel.btnApagado.hero{
+    .btnCarrousel.btnApagado.hero,.btnCarrousel.btnApagado.hero#btnSigCapturas,.btnCarrousel.btnApagado.hero#btnAnteriorCapturas{
         background-image: url(../img/seccion-hero/carrousel_flecha_apagada_hero.svg);
     }
     .contenedorTitulo > p { /* cards juegos v */
