@@ -2017,6 +2017,7 @@ section.informacion div p:last-child img {
         bottom: 50px;
         left: 50%;
         opacity: .7;
+        transition: opacity .3s;
     }
     main.hero div.ruedita {
         width: 0px;
