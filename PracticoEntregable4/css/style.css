@@ -722,31 +722,37 @@ li.pago > a > .precioCard, main article.pago > a > div.precioCard {
     box-shadow: var(--sombra-2);
 }
 .contenedorCards.hero > li > ul:first-child {
-    display: none;
+    opacity: 0;
 }
-.contenedorCards.hero > li > ul.visible:first-child, .contenedorCards.hero > li > ul.visible:first-child li, .contenedorCards.hero > li > ul.visible:first-child li div {
+.contenedorCards.hero > li > ul:first-child, .contenedorCards.hero > li > ul:first-child li, .contenedorCards.hero > li > ul:first-child li div {
     display: flex;
 }
-.contenedorCards.hero > li > ul.visible:first-child {
+.contenedorCards.hero > li > ul:first-child {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-around;
 }
-.contenedorCards.hero > li > ul.visible:first-child li, .contenedorCards.hero > li > ul.visible:first-child li div {
+.contenedorCards.hero > li > ul:first-child li, .contenedorCards.hero > li > ul:first-child li div {
     align-items: center;
 }
-.contenedorCards.hero > li > ul.visible:first-child li {
+.contenedorCards.hero > li > ul:first-child li {
     width: inherit;
     justify-content: space-between;
 }
+.contenedorCards.hero > li > ul.visible:first-child {
+    opacity: 1;
+}
 .contenedorCards.hero > li > div, .contenedorCards.hero > li > ul {
+    position: absolute;
     width: inherit;
     height: inherit;
     background: rgba(0, 0, 0, 0.9);
     border-radius: 5px;
+    z-index: 1;
 }
 .contenedorCards.hero > li > div.no-visible:nth-child(2) {
-    display: none;
+    opacity: 0;
+    z-index: -1;
 }
 .contenedorCards.hero > li > div > h2, .contenedorCards.hero span {
     color: var(--acento-hero);
@@ -1043,6 +1049,7 @@ section.imagenes-superpuestas img:last-child {
     right: 0%;
 }
 section.inicio-hero { /* inicio v */
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -1082,6 +1089,30 @@ section.inicio-hero button:hover {
 }
 section.inicio-hero img {
     width: 100%;
+}
+section.inicio-hero div.skeleton-sprite {
+    position: absolute;
+    top: 450px;
+    left: 39%;
+    width: 43px;
+    height: 37px;
+    margin: auto;
+    background-image: url("../img/seccion-hero/spritesheets/skeleton/Skeleton-Attack.png");
+    background-repeat: repeat-x;
+    animation: attack .8s steps(18) infinite;
+}
+section.inicio-hero div.skeleton2 {
+    position: absolute;
+    left: 58.6%;
+    transform: rotateY(180deg);
+}
+@keyframes attack {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -774px;
+    }
 }
 article.tiempo-salida { /* tiempo de salida v */
     display: flex;
@@ -1153,6 +1184,7 @@ section.caracteristicas { /* caracteristicas v */
     background-size: cover;
     box-shadow: var(--sombra-2);
     gap: 5px;
+    overflow: hidden;
 }
 section.caracteristicas h1.super {
     font-size: 42px;
@@ -2014,6 +2046,38 @@ section.informacion div p:last-child img {
         width: 3%;
         margin: 0.5% 0% 0% 0%;
     }
+    main.hero div.mouse, main.hero div.ruedita {
+        position: fixed;
+        border: 2px white solid;
+        border-radius: 20px;
+        z-index: 4;
+    }
+    main.hero div.mouse {
+        width: 25px;
+        height: 40px;
+        bottom: 50px;
+        left: 50%;
+        opacity: .7;
+        transition: opacity .3s;
+    }
+    main.hero div.ruedita {
+        width: 0px;
+        height: 6px;
+        bottom: 82px;
+        left: 50.7%;
+        animation: upDownMove .8s linear 0s infinite normal none;
+    }
+    @keyframes upDownMove {
+        0% {
+            bottom: 82px;
+        }
+        50% {
+            bottom: 78px;
+        }
+        100% {
+            bottom: 82px;
+        }
+    }
     section.imagenes-superpuestas { /* imagenes superpuestas */
         height: 950px;
     }
@@ -2029,5 +2093,112 @@ section.informacion div p:last-child img {
     }
     section.inicio-hero h1 {
         margin: 0px 200px 0px 0px;
+    }
+    section.inicio-hero h1, section.inicio-hero img {
+        filter: blur(15px);
+        opacity: 0;
+    }
+    section.inicio-hero.visible h1, section.inicio-hero.visible img {
+        animation: rotateElement .8s linear .5s 1 normal forwards;
+    }
+    section.inicio-hero.visible button {
+        animation: scaleElement .8s linear .7s 1 normal forwards;
+    }
+    @keyframes scaleElement {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.15);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    @keyframes rotateElement {
+        0% {
+            transform: rotateX(0deg);
+            filter: blur(15px);
+        }
+        100% {
+            transform: rotateX(360deg);
+            filter: blur(0px);
+            opacity: 1;
+        }
+    }
+    .tiempo-salida p:first-child {
+        cursor: pointer;
+    }
+    .tiempo-salida p:first-child:hover {
+        animation: sideMoves .3s linear 0s 1 normal forwards;
+    }
+    @keyframes sideMoves {
+        0% {
+            transform: translateX(0px);
+        }
+        33% {
+            transform: translateX(-10px);
+        }
+        66% {
+            transform: translateX(10px);
+        }
+        100% {
+            transform: translateX(0px);
+        }
+    }
+    .personajes > h1 { /* personajes v */
+        transform: translateY(-15vh);
+    }
+    .personajes.visible > h1, .personajes.visible .contenedorCards > li > div > h2 {
+        animation: showCards 1s linear 1s 1 normal forwards;
+    }
+    .contenedorCards.hero {
+        flex-wrap: wrap;
+        padding: 0px 6%;
+    }
+    .contenedorCards.hero > li {
+        overflow-y: hidden;
+    }
+    .contenedorCards.hero > li, .personajes > h1, .contenedorCards > li > div > h2 {
+        opacity: 0;
+        filter: blur(20px);
+    }
+    .contenedorCards.hero > li.personaje-abajo {
+        transform: translateY(20vh) rotateY(180deg);
+    }
+    .contenedorCards.hero > li.personaje-arriba {
+        transform: translateY(-20vh) rotateY(180deg);
+    }
+    .personajes.visible .contenedorCards.hero > li {
+        animation: showCards 1.5s linear 0s 1 normal forwards;
+    }
+    .contenedorCards > li > div > h2 {
+        transform: translateY(70vh);
+    }
+    @keyframes showCards {
+        0% {
+            opacity: 0;
+            filter: blur(20px);
+        }
+        100% {
+            opacity: 1;
+            filter: blur(0px);
+            transform: translateY(0vh) rotateY(0deg);
+        }
+    }
+    section.caracteristicas > h1 { /* caracteristicas hero */
+        opacity: 0;
+    }
+    section.caracteristicas article.card-izquierda {
+        transform: translateX(-100vh);
+    }
+    section.caracteristicas article.card-derecha {
+        transform: translateX(100vh);
+    }
+    section.caracteristicas article.card-arriba {
+        transform: translateY(-100vh);
+    }
+    section.caracteristicas article.card-abajo {
+        transform: translateY(100vh);
     }
 }
