@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
     "use strict";
 
-    const posicion_scroll_caractersticas = 4371.0;
+    const posicion_scroll_caractersticas = 4990.0;
     const posicion_scroll_caracteristicas_limite = posicion_scroll_caractersticas + 800.0;
 
     function onScroll() {
