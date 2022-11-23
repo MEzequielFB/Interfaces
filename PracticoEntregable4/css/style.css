@@ -231,7 +231,7 @@ header div:first-child div span {
 header div:first-child div span:nth-child(2) {
     margin: 6px auto;
 }
-header div:first-child div span:first-child.cruzTransicion {
+/* header div:first-child div span:first-child.cruzTransicion {
     transform: translate(0px, 12px) rotate(-45deg);
     transition: transform .7s;
 }
@@ -242,6 +242,30 @@ header div:first-child div span:last-child.cruzTransicion {
 header div:first-child div span:nth-child(2).cruzTransicion {
     opacity: 0;
     transition: opacity .7s;
+} */
+@keyframes cruzTransicion1 {
+    0% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+    100% {
+        transform: translate(0px, 12px) rotate(-45deg);
+    }
+}
+@keyframes cruzTransicion2 {
+    0% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+    100% {
+        transform: translate(0px, -10px) rotate(45deg);
+    }
+}
+@keyframes cruzTransicion3 {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 header > div:last-child img.icono-carrito, header > div:last-child img.icono-campana {
     display: none;
@@ -2188,6 +2212,9 @@ section.informacion div p:last-child img {
     }
     section.caracteristicas > h1 { /* caracteristicas hero */
         opacity: 0;
+    }
+    section.caracteristicas article {
+        transition: all .1s;
     }
     section.caracteristicas article.card-izquierda {
         transform: translateX(-100vh);

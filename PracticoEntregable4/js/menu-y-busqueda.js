@@ -45,18 +45,30 @@ document.addEventListener("DOMContentLoaded", function(){
     let lista_btns_menu = document.querySelector(".lista-btns-menu");
     let menu_perfil = document.querySelector(".menu-perfil");
     
+    let linea_arriba = document.querySelector(".linea-arriba");
+    let linea_medio = document.querySelector(".linea-medio");
+    let linea_abajo = document.querySelector(".linea-abajo");
     let menu_hamburguesa_v2 = document.querySelector(".menu-hamburguesa-v2");
     menu_hamburguesa_v2.addEventListener("click", function() {
         menu.classList.toggle("visible");
         menu_hamburguesa_v2.classList.toggle("cruz");
         menu_hamburguesa_v2.style.animationName = "none";
+        linea_arriba.style.animationName = "none";
+        linea_medio.style.animationName = "none";
+        linea_abajo.style.animationName = "none";
         if (menu_hamburguesa_v2.classList.contains("cruz")) {
             setTimeout(() => {
-                menu_hamburguesa_v2.style.animation = "menuHamburguesaTransicion .7s linear 0s 1 normal forwards";
+                linea_arriba.style.animation = "cruzTransicion1 .7s linear 0s 1 normal forwards";
+                linea_medio.style.animation = "cruzTransicion3 .7s linear 0s 1 normal forwards";
+                linea_abajo.style.animation = "cruzTransicion2 .7s linear 0s 1 normal forwards";
+                /* menu_hamburguesa_v2.style.animation = "menuHamburguesaTransicion .7s linear 0s 1 normal forwards"; */
             }, 0);
         } else {
             setTimeout(() => {
-                menu_hamburguesa_v2.style.animation = "menuHamburguesaTransicion .7s linear 0s 1 reverse forwards";
+                linea_arriba.style.animation = "cruzTransicion1 .7s linear 0s 1 reverse forwards";
+                linea_medio.style.animation = "cruzTransicion3 .7s linear 0s 1 reverse forwards";
+                linea_abajo.style.animation = "cruzTransicion2 .7s linear 0s 1 reverse forwards";
+                /* menu_hamburguesa_v2.style.animation = "menuHamburguesaTransicion .7s linear 0s 1 reverse forwards"; */
             }, 0);
         }
         if (menu.classList.contains("visible")) {
@@ -65,9 +77,9 @@ document.addEventListener("DOMContentLoaded", function(){
             ocultarItems();
         }
         
-        for (let span of menu_hamburguesa_v2.children) {
+        /* for (let span of menu_hamburguesa_v2.children) {
             span.classList.toggle("cruzTransicion");
-        }
+        } */
     });
     
     let perfil_header = document.querySelector(".perfil-header");
