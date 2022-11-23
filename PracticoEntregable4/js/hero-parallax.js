@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
     "use strict";
 
-    const posicion_scroll_caractersticas = 4990.0;
+    const posicion_scroll_caractersticas = 4176.0;
     const posicion_scroll_caracteristicas_limite = posicion_scroll_caractersticas + 800.0;
 
     function onScroll() {
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function(){
         if (posicion_scroll >= posicion_scroll_caractersticas && posicion_scroll <= posicion_scroll_caracteristicas_limite) { //Si la posicion del scroll está entre dos valores...
             //Se cambia el marginTop de la seccion 'caracteristicas'
             let resultado_resta = posicion_scroll - posicion_scroll_caractersticas;
-            caracteristicas.style.marginTop = resultado_resta+"px";
+            /* caracteristicas.style.marginTop = resultado_resta+"px"; */
             
             //Se cambia la opacidad del titulo
             h1_caracteristicas.style.opacity = resultado_resta / 1000;
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function(){
             card_abajo.style.transform = `translateY(${100 - (resultado_resta / ((posicion_scroll_caracteristicas_limite - posicion_scroll_caractersticas) / 100))}vh)`;
 
         } else if (posicion_scroll < posicion_scroll_caractersticas) { //Si la posicion del scroll es menor a la posicion scroll de la seccion, se setea a 0 su margin top
-            caracteristicas.style.marginTop = 0+"px";
+            /* caracteristicas.style.marginTop = 0+"px"; */
             h1_caracteristicas.style.opacity = 0; //Se setea en 0 la opacidad del titulo
 
         } else if (posicion_scroll > posicion_scroll_caracteristicas_limite) { //Si la posicion del scrol es mayor al limite de la seccion, el translate de las cards se setea a 0
