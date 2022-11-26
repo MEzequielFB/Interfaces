@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
     "use strict";
 
-    const posicion_scroll_historia = 2165;
+    const posicion_scroll_historia = 2140;
     const posicion_scroll_historia_limite = 4099;
 
     const posicion_scroll_caractersticas = 5976.0;
