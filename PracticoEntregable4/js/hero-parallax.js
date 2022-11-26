@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const posicion_scroll_historia = 2165;
     const posicion_scroll_historia_limite = 4099;
 
-    const posicion_scroll_caractersticas = 4176.0;
+    const posicion_scroll_caractersticas = 5976.0;
     const posicion_scroll_caracteristicas_limite = posicion_scroll_caractersticas + 800.0;
 
     function onScroll() {
