@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(){
     "use strict";
 
+    const posicion_scroll_historia = 2165;
+    const posicion_scroll_historia_limite = 4099;
+
     const posicion_scroll_caractersticas = 4176.0;
     const posicion_scroll_caracteristicas_limite = posicion_scroll_caractersticas + 800.0;
 
@@ -9,9 +12,6 @@ document.addEventListener("DOMContentLoaded", function(){
         console.log(posicion_scroll);
 
         //ICONO MOUSE
-        /* if (getComputedStyle(icono_mouse).opacity > 0) {
-
-        } */
         if (valor_opacity > 0) {
             valor_opacity -= 0.01;
         } else if (posicion_scroll < 200) {
@@ -36,6 +36,38 @@ document.addEventListener("DOMContentLoaded", function(){
 
         //Cambia el valor del 'background position' de la imagen de la seccion
         seccion_imagenes_superpuestas.style.backgroundPositionX = -(posicion_scroll * 0.3) + "px";
+
+        //HISTORIA Si se está entre dos posiciones del scroll...
+        if (posicion_scroll >= posicion_scroll_historia && posicion_scroll <= posicion_scroll_historia_limite) {
+            //Se incrementa el atributo top de las columnas (imagenes y parrafos)
+            historia_columna1.style.top = valor_top_columnas + (posicion_scroll - posicion_scroll_historia)+"px";
+            historia_columna2.style.top = valor_top_columnas + (posicion_scroll - posicion_scroll_historia)+"px";
+
+            //Si la posicion scroll es mayor o igual a una posicion dada de la seccion historia se quita y agrega la clase visible a los respectivos elementos
+            if (posicion_scroll >= posicion_scroll_historia) {
+                historia_columna1.firstElementChild.classList.add("visible");
+                historia_columna1.firstElementChild.nextElementSibling.classList.remove("visible");
+
+                historia_columna2.firstElementChild.classList.add("visible");
+                historia_columna2.firstElementChild.nextElementSibling.classList.remove("visible");
+            }
+            if (posicion_scroll >= 2976) {
+                historia_columna1.firstElementChild.classList.remove("visible");
+                historia_columna1.lastElementChild.classList.remove("visible");
+                historia_columna1.firstElementChild.nextElementSibling.classList.add("visible");
+
+                historia_columna2.firstElementChild.classList.remove("visible");
+                historia_columna2.lastElementChild.classList.remove("visible");
+                historia_columna2.firstElementChild.nextElementSibling.classList.add("visible");
+            }
+            if (posicion_scroll >= 3578) {
+                historia_columna1.firstElementChild.nextElementSibling.classList.remove("visible");
+                historia_columna1.lastElementChild.classList.add("visible");
+
+                historia_columna2.firstElementChild.nextElementSibling.classList.remove("visible");
+                historia_columna2.lastElementChild.classList.add("visible");
+            }
+        }
 
         //CARACTERISTICAS:
         if (posicion_scroll >= posicion_scroll_caractersticas && posicion_scroll <= posicion_scroll_caracteristicas_limite) { //Si la posicion del scroll está entre dos valores...
@@ -75,6 +107,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
     const icono_mouse = document.querySelector(".mouse");
     let valor_opacity = getComputedStyle(icono_mouse).opacity;
+
+    const historia = document.querySelector(".container-historia");
+    const historia_columna1 = historia.firstElementChild;
+    const historia_columna2 = historia.lastElementChild;
+    const valor_top_columnas = parseInt(getComputedStyle(historia_columna1).top);
+    const historia_imagenes = historia_columna1.children;
+    const historia_parrafos = historia_columna2.children;
 
     const personajes = document.querySelector(".personajes"); //Seccion personajes
 
