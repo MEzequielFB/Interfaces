@@ -2208,9 +2208,6 @@ section.informacion div p:last-child img {
     .personajes > h1 { /* personajes v */
         transform: translateY(-15vh);
     }
-    .personajes.visible > h1, .personajes.visible .contenedorCards > li > div > h2 {
-        animation: showCards 1s linear 1s 1 normal forwards;
-    }
     .contenedorCards.hero {
         flex-wrap: wrap;
         padding: 0px 6%;
@@ -2218,9 +2215,8 @@ section.informacion div p:last-child img {
     .contenedorCards.hero > li {
         overflow-y: hidden;
     }
-    .contenedorCards.hero > li, .personajes > h1, .contenedorCards > li > div > h2 {
+    .contenedorCards.hero > li, .personajes > h1 {
         opacity: 0;
-        filter: blur(20px);
     }
     .contenedorCards.hero > li.personaje-abajo {
         transform: translateY(20vh) rotateY(180deg);
@@ -2228,22 +2224,11 @@ section.informacion div p:last-child img {
     .contenedorCards.hero > li.personaje-arriba {
         transform: translateY(-20vh) rotateY(180deg);
     }
-    .personajes.visible .contenedorCards.hero > li {
-        animation: showCards 1.5s linear 0s 1 normal forwards;
+    .contenedorCards.hero > li > div > img {
+        transform: translate(35vh, 66vh);
     }
     .contenedorCards > li > div > h2 {
         transform: translateY(70vh);
-    }
-    @keyframes showCards {
-        0% {
-            opacity: 0;
-            filter: blur(20px);
-        }
-        100% {
-            opacity: 1;
-            filter: blur(0px);
-            transform: translateY(0vh) rotateY(0deg);
-        }
     }
     section.caracteristicas > h1 { /* caracteristicas hero */
         opacity: 0;

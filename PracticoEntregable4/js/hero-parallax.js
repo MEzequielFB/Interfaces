@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", function(){
     const posicion_scroll_historia = 2140;
     const posicion_scroll_historia_limite = 4099;
 
+    const posicion_scroll_personajes = 4151.0;
+    const posicion_scroll_personajes_limite = posicion_scroll_personajes + 800.0;
+
     const posicion_scroll_caractersticas = 5976.0;
     const posicion_scroll_caracteristicas_limite = posicion_scroll_caractersticas + 800.0;
 
@@ -69,6 +72,50 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         }
 
+        //PERSONAJES:
+        if (posicion_scroll >= posicion_scroll_personajes && posicion_scroll <= posicion_scroll_personajes_limite) {
+
+            let resultado_resta = posicion_scroll - posicion_scroll_personajes;
+            h1_personajes.style.opacity = (resultado_resta) / 300;
+            h1_personajes.style.transform = `translateY(${-15 + (resultado_resta / ((posicion_scroll_personajes_limite - posicion_scroll_personajes) / 15))}vh)`;
+
+            for (let card_personaje of cards_personajes) {
+                card_personaje.style.opacity = (resultado_resta) / 300;
+                
+                //h2 -> nombre del personaje
+                card_personaje.lastElementChild.firstElementChild.style.transform = `translateY(${70 - (resultado_resta / ((posicion_scroll_personajes_limite - posicion_scroll_personajes) / 70))}vh)`
+
+                //img -> imagen del personaje
+                card_personaje.lastElementChild.firstElementChild.nextElementSibling.style.transform = `translate(${35 - (resultado_resta / ((posicion_scroll_personajes_limite - posicion_scroll_personajes) / 35))}vh, ${66 - (resultado_resta / ((posicion_scroll_personajes_limite - posicion_scroll_personajes) / 66))}vh)`;
+
+                //card del personaje
+                if (card_personaje.classList.contains("personaje-abajo")) {
+                    card_personaje.style.transform = `translateY(${20 - (resultado_resta / ((posicion_scroll_personajes_limite - posicion_scroll_personajes) / 20))}vh)`;
+                } else {
+                    card_personaje.style.transform = `translateY(${-20 + (resultado_resta / ((posicion_scroll_personajes_limite - posicion_scroll_personajes) / 20))}vh)`;
+                }
+            }
+        } else if (posicion_scroll < posicion_scroll_personajes) {
+            h1_personajes.style.opacity = 0;
+            for (let card_personaje of cards_personajes) {
+                card_personaje.style.opacity = 0;
+            }
+        } else if (posicion_scroll > posicion_scroll_personajes_limite) {
+
+            let resultado_resta = posicion_scroll - posicion_scroll_personajes;
+            for (let card_personaje of cards_personajes) {
+                card_personaje.style.opacity = (resultado_resta) / 300;
+                //h2 -> nombre del personaje
+                card_personaje.lastElementChild.firstElementChild.style.transform = `translateY(${0}vh)`
+
+                //img -> imagen del personaje
+                card_personaje.lastElementChild.firstElementChild.nextElementSibling.style.transform = `translate(${0}vh, ${0}vh)`;
+
+                //card del personaje
+                card_personaje.style.transform = `translateY(${0}vh)`;
+            }
+        }
+
         //CARACTERISTICAS:
         if (posicion_scroll >= posicion_scroll_caractersticas && posicion_scroll <= posicion_scroll_caracteristicas_limite) { //Si la posicion del scroll está entre dos valores...
             //Se cambia el marginTop de la seccion 'caracteristicas'
@@ -116,6 +163,8 @@ document.addEventListener("DOMContentLoaded", function(){
     const historia_parrafos = historia_columna2.children;
 
     const personajes = document.querySelector(".personajes"); //Seccion personajes
+    const h1_personajes = personajes.firstElementChild;
+    const cards_personajes = personajes.lastElementChild.children;
 
     const caracteristicas = document.querySelector(".caracteristicas"); //Seccion caracteristicas
     const h1_caracteristicas = caracteristicas.firstElementChild;
