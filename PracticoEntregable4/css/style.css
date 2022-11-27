@@ -1170,10 +1170,6 @@ section.historia { /* historia v */
 section.historia p {
     margin: 15px 0px;
 }
-section.historia p:nth-child(4) {
-    margin: 15px 0px 5px 0px;
-    color: var(--secundario-hero-luz-1);
-}
 section.historia img:last-child {
     width: 100%;
     padding: 0px 0px 25px 0px;
@@ -2184,6 +2180,12 @@ section.informacion div p:last-child img {
         align-items: center;
         width: 50%;
     
+    }
+    section.historia > div div:last-child p {
+        margin: 0px 80px 0px 0px;
+    }
+    section.historia > div div:last-child p:last-child {
+        color: var(--secundario-hero-luz-1);
     }
     section.historia img, section.historia p {
         position: absolute;
