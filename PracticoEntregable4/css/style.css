@@ -2230,6 +2230,9 @@ section.informacion div p:last-child img {
     .contenedorCards > li > div > h2 {
         transform: translateY(70vh);
     }
+    .contenedorCards.hero > li > div > img, .contenedorCards > li > div > h2 {
+        transition: transform .3s;
+    }
     section.caracteristicas > h1 { /* caracteristicas hero */
         opacity: 0;
     }
