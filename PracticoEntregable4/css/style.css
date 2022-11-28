@@ -632,28 +632,41 @@ ademas si no lo quitamos, los carrouseles tendran scrollbar y no queda bien)*/
 }
 
 @keyframes adelantarHastaPag2 { /*pagina 1 a 2*/
-    from {transform: translate(0px);}
-    to {transform: translate(-1492px);}/*730*2 + 16*2 = 1492  730 = el width de cada captura, 16 = el margen de cada captura, entran 2 capturas por pag*/ 
+    0% {transform: none;}
+    50%{transform: translate(-746px) skew(-20deg);}
+    90%{transform: translate(-1342.8) skew(-15deg);}
+    100% {transform: translate(-1492px);}/*730*2 + 16*2 = 1492  730 = el width de cada captura, 16 = el margen de cada captura, entran 2 capturas por pag*/ 
 }
+
 @keyframes adelantarHastaPag3 {/*pagina 2 a 3*/
-    from {transform: translate(-1492px);}
-    to {transform: translate(-2984px);}
+    0% {transform: translate(-1492px);}
+    50%{transform: translate(-2228px) skew(-20deg);}
+    90%{transform: translate(-2834.8px) skew(-15deg);}
+    100% {transform: translate(-2984px);}
 }
 @keyframes adelantarHastaPag4 {/*pagina 3 a 4*/
-    from {transform: translate(-2984px);}
-    to {transform: translate(-4476px);}
+    0% {transform: translate(-2984px);}
+    50%{transform: translate(-3730px) skew(-20deg);}
+    90%{transform: translate(-4326.8px) skew(-15deg);}
+    100% {transform: translate(-4476px);}
 }
 @keyframes volverHastaPag3 {/*pagina 4 a 3*/
-    from {transform: translate(-4476px);}
-    to {transform: translate(-2984px);}
+    0% {transform: translate(-4476px);}
+    50%{transform: translate(-3730px) skew(20deg);}
+    90%{transform: translate(-3133.2px) skew(15deg);}
+    100% {transform: translate(-2984px);}
 }
 @keyframes volverHastaPag2 {/*pagina 3 a 2*/
-    from {transform: translate(-2984px);}
-    to {transform: translate(-1492px);}
+    0% {transform: translate(-2984px);}
+    50%{transform: translate(-2228px) skew(20deg);}
+    90%{transform: translate(-1641.2px) skew(15deg);}
+    100% {transform: translate(-1492px);}
 }
 @keyframes volverHastaPag1 { /*pagina 2 a 1*/
-    from {transform: translate(-1492px);}
-    to {transform: translate(0px);}
+    0% {transform: translate(-1492px);}
+    50%{transform: translate(-746px) skew(20deg);}
+    90%{transform: translate(-149.2) skew(15deg);}
+    100% {transform: none;}
 }
 
 .contenedorCards > li, .cards-mas-jugados > article {
