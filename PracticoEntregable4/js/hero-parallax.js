@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function(){
     "use strict";
 
-    const posicion_scroll_historia = 2140;
-    const posicion_scroll_historia_limite = 4099;
+    const posicion_scroll_historia = 2140.0;
+    const posicion_scroll_historia_limite = 4099.0;
 
     const posicion_scroll_personajes = 4151.0;
     const posicion_scroll_personajes_limite = posicion_scroll_personajes + 800.0;
@@ -45,6 +45,20 @@ document.addEventListener("DOMContentLoaded", function(){
             //Se incrementa el atributo top de las columnas (imagenes y parrafos)
             historia_columna1.style.top = valor_top_columnas + (posicion_scroll - posicion_scroll_historia)+"px";
             historia_columna2.style.top = valor_top_columnas + (posicion_scroll - posicion_scroll_historia)+"px";
+
+            //Cambia la posicion left del enemigo volador dependiendo de la posicion del scroll 
+            if (posicion_scroll > 2876) {
+                img_fixed1.style.left = 1920 + "px";
+            } else {
+                img_fixed1.style.left = -180 + "px";
+            }
+
+            //Cambia la posicion bottom del enemigo al final de la seccion historia dada una posicion de scroll
+            if (posicion_scroll >= 4000) {
+                document.querySelector(".img-enemigo").style.bottom = 0 + "px";
+            } else {
+                document.querySelector(".img-enemigo").style.bottom = -160 + "px";
+            }
 
             //Si la posicion scroll es mayor o igual a una posicion dada de la seccion historia se quita y agrega la clase visible a los respectivos elementos
             if (posicion_scroll >= posicion_scroll_historia) {
@@ -159,8 +173,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const historia_columna1 = historia.firstElementChild;
     const historia_columna2 = historia.lastElementChild;
     const valor_top_columnas = parseInt(getComputedStyle(historia_columna1).top);
-    const historia_imagenes = historia_columna1.children;
-    const historia_parrafos = historia_columna2.children;
+    const img_fixed1 = document.querySelector(".img-fixed1");
 
     const personajes = document.querySelector(".personajes"); //Seccion personajes
     const h1_personajes = personajes.firstElementChild;
